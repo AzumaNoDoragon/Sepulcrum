@@ -1,5 +1,5 @@
 # CRUDGC
-CRUD de gerenciamento de cemiterio
+CRUD de gerenciamento de cemiterio utilizando maven e hibernate para mapear objeto.
 
 Instalar xampp com apache e sql, definir porta 3306 localhost.
 
