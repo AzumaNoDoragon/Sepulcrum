@@ -1,77 +1,88 @@
 package aplicacao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import dominio.Cadastro;
+import dominio.Tumulo;
 
 public class CRUDGC {
-	public void create() {
-		// Ordem de criação = id, pessoaPublica, cemiterio, nome, quadra, rua, numero,
-		// certidaoObito, dataNascimento, dataObito;
-		Cadastro p1 = new Cadastro(null, true, "Santo Antonio", "Carlos da Silva", "Alamedas", "A22", 12, 99999,
-				"10/10/1999", "10/10/2010");
-		Cadastro p2 = new Cadastro(null, false, "Santo Antonio", "Ana da Silva", "Alamedas", "A22", 17, 99998,
-				"01/02/1995", "10/10/2015");
-		Cadastro p3 = new Cadastro(null, false, "Santo Antonio", "Maria da Silva", "Alamedas", "A22", 19, 99997,
-				"02/05/1990", "10/10/2020");
+    public void createTumulo() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemiterio", "root", "");
+            Statement stmt = c.createStatement();
+            String sql = "SELECT * FROM tumulo";
+            ResultSet rs = stmt.executeQuery(sql);
+            System.out.println(rs);
+            while (rs.next()) {
+                Tumulo tumulo = new Tumulo();
+                tumulo.setIdTumulo(rs.getInt("idTumulo"));
+                tumulo.setOcupante(rs.getInt("ocupante"));
+                tumulo.setCemiterio(rs.getString("cemiterio"));
+                tumulo.setQuadraTumulo(rs.getString("quadraTumulo"));
+                tumulo.setRuaTumulo(rs.getString("ruaTumulo"));
+                tumulo.setNumeroTumulo(rs.getString("numeroTumulo"));
+                tumulo.setOcupadoDesde(rs.getString("ocupadoDesde"));
+                tumulo.setOcupado(rs.getBoolean("ocupado"));
+                tumulo.setPerpetuo(rs.getBoolean("perpetuo"));
+            }
+            stmt.close();
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("cadastro");
-		EntityManager em = emf.createEntityManager();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
-		em.getTransaction().begin();
-		em.persist(p1);
-		em.persist(p2);
-		em.persist(p3);
-		em.getTransaction().commit();
+    public void createFalecido() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemiterio", "root", "");
+            Statement stmt = c.createStatement();
+            String sql = "SELECT * FROM cadastro";
+            ResultSet rs = stmt.executeQuery(sql);
+            System.out.println(rs);
+            while (rs.next()) {
+                Cadastro cadastro = new Cadastro();
+                cadastro.setIdFalecido(rs.getInt("idFalecido"));
+                cadastro.setOcupa(rs.getInt("ocupa"));
+                cadastro.setPessoaPublica(rs.getBoolean("pessoaPublica"));
+                cadastro.setNome(rs.getString("nome"));
+                cadastro.setCertidaoObito(rs.getString("certidaoObito"));
+                cadastro.setDataNascimento(rs.getString("dataNascimento"));
+                cadastro.setDataObito(rs.getString("dataObito"));
+            }
+            stmt.close();
 
-		System.out.println("Pronto!");
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
-		em.close();
-		emf.close();
-	}
+    public void readTumulo() {
 
-	public void read() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("cadastro");
-		EntityManager em = emf.createEntityManager();
+    }
 
-		Cadastro p = em.find(Cadastro.class, 2);
-		System.out.println(p);
+    public void readFalecido() {
 
-		em.close();
-		emf.close();
-	}
+    }
 
-	public void update(Cadastro cadastro) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("cadastro");
-		EntityManager em = emf.createEntityManager();
+    public void updateTumulo() {
 
-		Cadastro u = em.find(Cadastro.class, 1);
-		em.getTransaction().begin();
-		em.merge(u);
-		cadastro.setPessoaPublica(false);
-		cadastro.setCemiterio("São José");
-		cadastro.setQuadra("a34");
-		cadastro.setRua("Jose Cardoso");
-		cadastro.setNumero(222);
-		em.getTransaction().commit();
+    }
 
-		em.close();
-		emf.close();
-	}
+    public void updateFalecido() {
 
-	public void pa() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("cadastro");
-		EntityManager em = emf.createEntityManager();
+    }
 
-		Cadastro r = em.find(Cadastro.class, 3);
-		em.getTransaction().begin();
-		em.remove(r);
-		em.getTransaction().commit();
+    public void paTumulo() {
 
-		em.close();
-		emf.close();
-	}
+    }
 
+    public void paFalecido() {
+
+    }
 }
