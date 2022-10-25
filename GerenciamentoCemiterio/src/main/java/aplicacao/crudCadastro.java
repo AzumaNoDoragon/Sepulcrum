@@ -16,8 +16,8 @@ public class crudCadastro {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemiterio", "root", "");
             String sql = "Insert into cadastro (ocupa, pessoaPublica, nome, certidaoObito, numeroTumulo, dataNascimento, dataObito) values (?,?,?,?,?,?,?)";
             PreparedStatement pst = c.prepareStatement(sql);
-            pst.setString(1, textField_1.getText());
-            pst.setString(2, textField_2.getText());
+            pst.setInt(1, textField_1.getText());
+            pst.setBoolean(2, textField_2.getText());
             pst.setString(3, textField_3.getText());
             pst.setString(4, textField_4.getText());
             pst.setString(5, textField_5.getText());
@@ -61,10 +61,9 @@ public class crudCadastro {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemiterio", "root", "");
             String sql = "UPDATE cadastro SET (ocupa, pessoaPublica, nome) values (?,?,?)";
             PreparedStatement pst = c.prepareStatement(sql);
-            pst.setString(1, textField_1.getText());
-            pst.setString(2, textField_2.getText());
-            pst.setString(4, textField_3.getText());
-            pst.setString(5, textField_4.getText());
+            pst.setInt(1, textField_1.getText());
+            pst.setBoolean(2, textField_2.getText());
+            pst.setString(3, textField_3.getText());
             
             pst.execute();
         } catch (SQLException | ClassNotFoundException e) {
@@ -79,7 +78,7 @@ public class crudCadastro {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemiterio", "root", "");
             String sql = "DELETE FROM cadastro(idTumulo) values (?)";
             PreparedStatement pst = c.prepareStatement(sql);
-            pst.setString(1, textField_1.getText());
+            pst.setInt(1, textField_1.getText());
             
             pst.execute();
         } catch (SQLException | ClassNotFoundException e) {

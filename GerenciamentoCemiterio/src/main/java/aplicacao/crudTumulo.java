@@ -16,14 +16,14 @@ public class crudTumulo {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemiterio", "root", "");
             String sql = "Insert into tumulo (ocupante, cemiterio, quadraTumulo, ruaTumulo, numeroTumulo, ocupadoDesde, ocupado, perpetuo) values (?,?,?,?,?,?,?,?)";
             PreparedStatement pst = c.prepareStatement(sql);
-            pst.setString(1, textField_1.getText());
+            pst.setInt(1, textField_1.getText());
             pst.setString(2, textField_2.getText());
             pst.setString(3, textField_3.getText());
             pst.setString(4, textField_4.getText());
             pst.setString(5, textField_5.getText());
             pst.setString(6, textField_6.getText());
-            pst.setString(7, textField_7.getText());
-            pst.setString(8, textField_8.getText());
+            pst.setBoolean(7, textField_7.getText());
+            pst.setBoolean(8, textField_8.getText());
 
             pst.execute();
         } catch (SQLException | ClassNotFoundException e) {
@@ -64,10 +64,10 @@ public class crudTumulo {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemiterio", "root", "");
             String sql = "UPDATE tumulo SET (ocupante, ocupadoDesde, ocupado, perpetuo) values (?,?,?,?)";
             PreparedStatement pst = c.prepareStatement(sql);
-            pst.setString(1, textField_1.getText());
+            pst.setInt(1, textField_1.getText());
             pst.setString(2, textField_2.getText());
-            pst.setString(4, textField_3.getText());
-            pst.setString(5, textField_4.getText());
+            pst.setBoolean(3, textField_3.getText());
+            pst.setBoolean(4, textField_4.getText());
             
             pst.execute();
         } catch (SQLException | ClassNotFoundException e) {
@@ -81,7 +81,7 @@ public class crudTumulo {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemiterio", "root", "");
             String sql = "DELETE FROM tumulo(idTumulo) values (?)";
             PreparedStatement pst = c.prepareStatement(sql);
-            pst.setString(1, textField_1.getText());
+            pst.setInt(1, textField_1.getText());
             
             pst.execute();
         } catch (SQLException | ClassNotFoundException e) {
