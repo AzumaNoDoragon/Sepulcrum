@@ -1,0 +1,46 @@
+Defunto
+Integer idDefunto, idTumulo, idParente, certidaoObitoDefunto, rgDefunto, cpfDefunto;
+Boolean pessoaPublicaDefunto;
+String nomeDefunto, causaMorteDefunto;
+Calendar dataNascimentoDefunto, dataObitoDefunto;
+
+Tumulo
+Integer idTumulo, idCemiterio, idDefunto;
+String quadraTumulo, ruaTumulo, numeroTumulo, ocupadoDesdeTumulo;
+Boolean permaneteTumulo, ocupadoTumulo;
+
+Adm
+Integer idAdm, idCemiterio;
+String nomeAdm, emailAdm, senhaAdm;
+
+Parente
+Integer idParente, idDefunto, cpfParente, rgParente;
+String nomeParente, emailParente, senhaParente;
+
+Vistoria Epidemica
+Integer idVistoria, idCemiterio, idAdm;
+String informacaoVistoria;
+Calendar dataVistoria;
+Boolean realizado;
+
+Cemiterio
+Integer idCemiterio, numeroCemiterio, telefoneCemiterio, cepCemiterio;
+String nomeCemiterio, estadoCemiterio, cidadeCemiterio, bairroCemiterio, ruaCemiterio;
+
+Manutencao Tumular
+Integer idManutencao, idAdm, idTumulo, dataManutencao, horarioManutencao;
+String informacaoManutencao;
+
+Exumacao
+Integer idExumacao, idAdm, idTumulo, idDefunto;
+String motivoExumacao, informacaoExumacao;
+Calendar dataExumacao;
+
+Ordem de Prioridade:
+Cemiterio
+Adm
+Tumulo
+Defunto
+Parente
+Manutencao
+Exumacao
