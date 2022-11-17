@@ -7,45 +7,44 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import classeEndereco.*;
-import classeServico.*;
-import classePessoa.*;
+import gerenciamento.Defunto;
+import gerenciamento.Tumulo;
 
 public class crud {
-	//Crud Adm
+	// Crud Adm
 	public void createAdm() {
-		
+
 	}
-	
+
 	public void readAdm() {
-		
+
 	}
-	
+
 	public void updateAdm() {
-		
+
 	}
-	
+
 	public void deleteAdm() {
-		
+
 	}
-	
-	//Crud Cemiterio
+
+	// Crud Cemiterio
 	public void createCemiterio() {
-		
+
 	}
-	
+
 	public void readCemiterio() {
-		
+
 	}
-	
+
 	public void updateCemiterio() {
-		
+
 	}
-	
+
 	public void deleteCemiterio() {
-		
+
 	}
-	
+
 	// Crud Defunto
 	public void createDefunto() {
 		try {
@@ -121,58 +120,58 @@ public class crud {
 			e.printStackTrace();
 		}
 	}
-	
-	//Crud Exumacao
+
+	// Crud Exumacao
 	public void createExumacao() {
-		
+
 	}
-	
+
 	public void readExumacao() {
-		
+
 	}
-	
+
 	public void updateExumacao() {
-		
+
 	}
-	
+
 	public void deleteExumacao() {
-		
+
 	}
-	
-	//Crud ManutencaoTumular
+
+	// Crud ManutencaoTumular
 	public void createManutencaoTumular() {
-		
+
 	}
-	
+
 	public void readManutencaoTumular() {
-		
+
 	}
-	
+
 	public void updateManutencaoTumular() {
-		
+
 	}
-	
+
 	public void deleteManutencaoTumular() {
-		
+
 	}
-	
-	//Crud Parente
+
+	// Crud Parente
 	public void createParente() {
-		
+
 	}
-	
+
 	public void readParente() {
-		
+
 	}
-	
+
 	public void updateParente() {
-		
+
 	}
-	
+
 	public void deleteParente() {
-		
+
 	}
-	
+
 	// Crud Tumulo
 	public void createTumulo() {
 		try {
@@ -252,21 +251,21 @@ public class crud {
 			e.printStackTrace();
 		}
 	}
-	
-	//Crud Vistoria
+
+	// Crud Vistoria
 	public void createVistoria() {
-		
+
 	}
-	
+
 	public void readVistoria() {
-		
+
 	}
-	
+
 	public void updateVistoria() {
-		
+
 	}
-	
+
 	public void deleteVistoria() {
-		
+
 	}
 }
