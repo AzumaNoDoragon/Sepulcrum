@@ -1,5 +1,5 @@
 package pessoas;
 
-public class Adm {
+public class Adm extends Pessoas{
     
 }

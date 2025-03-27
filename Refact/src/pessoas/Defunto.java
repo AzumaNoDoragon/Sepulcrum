@@ -1,5 +1,5 @@
 package pessoas;
 
-public class Defunto {
+public class Defunto extends Pessoas {
     
 }
