@@ -1,4 +1,4 @@
-package pessoas;
+package entidades.pessoas;
 
 public class PessoasVivas extends Pessoas{
     private String email;

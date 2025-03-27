@@ -1,4 +1,4 @@
-package pessoas;
+package entidades.pessoas;
 
 public class Defunto extends Pessoas {
     private String dataFalecimento, causaMorte;

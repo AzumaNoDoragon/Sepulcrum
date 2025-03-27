@@ -1,4 +1,4 @@
-package pessoas;
+package entidades.pessoas;
 
 public class Adm extends PessoasVivas{
     private String cargo, dataContratacao;

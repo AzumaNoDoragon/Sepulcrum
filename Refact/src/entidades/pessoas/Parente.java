@@ -1,4 +1,4 @@
-package pessoas;
+package entidades.pessoas;
 
 public class Parente extends PessoasVivas {
     private String grauParentesco;

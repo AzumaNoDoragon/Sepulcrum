@@ -1,4 +1,4 @@
-package servicos;
+package entidades.servicos;
 
 public class Exumacao {
     
