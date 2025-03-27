@@ -4,6 +4,14 @@ public class Pessoas {
     private String nome;
     private int id, cpf, rg, dataNascimento;
 
+    public Pessoas(String nome, int id, int cpf, int rg, int dataNascimento) {
+        this.nome = nome;
+        this.id = id;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.dataNascimento = dataNascimento;
+    }
+
     public String getNome(){
         return nome;
     }

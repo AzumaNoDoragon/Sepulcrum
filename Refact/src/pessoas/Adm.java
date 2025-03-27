@@ -3,6 +3,13 @@ package pessoas;
 public class Adm extends PessoasVivas{
     private String cargo, dataContratacao;
 
+    public Adm(String nome, int id, int cpf, int rg, int dataNascimento, String email, int telefone, String cargo,
+            String dataContratacao) {
+        super(nome, id, cpf, rg, dataNascimento, email, telefone);
+        this.cargo = cargo;
+        this.dataContratacao = dataContratacao;
+    }
+
     public String getCargo(){
         return cargo;
     }
