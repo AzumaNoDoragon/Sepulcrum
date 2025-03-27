@@ -1,8 +1,8 @@
 package entidades.pessoas;
 
-public class Pessoas {
-    private String nome;
-    private int id, cpf, rg, dataNascimento;
+public abstract class Pessoas {
+    protected String nome;
+    protected int id, cpf, rg, dataNascimento;
 
     public Pessoas(String nome, int id, int cpf, int rg, int dataNascimento) {
         this.nome = nome;

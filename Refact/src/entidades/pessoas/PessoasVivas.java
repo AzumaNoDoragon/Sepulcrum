@@ -1,8 +1,8 @@
 package entidades.pessoas;
 
-public class PessoasVivas extends Pessoas{
-    private String email;
-    private int telefone;
+public abstract class PessoasVivas extends Pessoas{
+    protected String email;
+    protected int telefone;
 
     public PessoasVivas(String nome, int id, int cpf, int rg, int dataNascimento, String email, int telefone) {
         super(nome, id, cpf, rg, dataNascimento);
