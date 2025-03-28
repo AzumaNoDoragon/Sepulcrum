@@ -4,6 +4,6 @@ import gerenciador.Gerenciador;
 
 public class Main {
     public static void main(String[] args){
-        new Gerenciador().gerenciador();
+        new Gerenciador().executar();
     }
 }
