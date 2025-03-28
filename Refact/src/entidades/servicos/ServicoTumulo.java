@@ -1,9 +1,13 @@
 package entidades.servicos;
 
-public abstract class ServicoTumulo {
+import java.time.LocalDate;
+
+public abstract class ServicoTumulo extends ServicosCemiterio {
     protected int idTumulo;
 
-    public ServicoTumulo(int idTumulo) {
+    public ServicoTumulo(String responsavelServico, String descricao, String informacoesAdicionaris,
+            String statusServico, LocalDate dataServico, int idServico, int idTumulo) {
+        super(responsavelServico, descricao, informacoesAdicionaris, statusServico, dataServico, idServico);
         this.idTumulo = idTumulo;
     }
 

@@ -3,14 +3,15 @@ package entidades.servicos;
 import java.time.LocalDate;
 
 public abstract class ServicosCemiterio {
-    protected String responsavelServico, descricao, statusServico;
+    protected String responsavelServico, descricao, informacoesAdicionaris, statusServico;
     protected LocalDate dataServico;
     protected int idServico;
 
-    public ServicosCemiterio(String responsavelServico, String descricao, String statusServico, LocalDate dataServico,
-            int idServico) {
+    public ServicosCemiterio(String responsavelServico, String descricao, String informacoesAdicionaris,
+            String statusServico, LocalDate dataServico, int idServico) {
         this.responsavelServico = responsavelServico;
         this.descricao = descricao;
+        this.informacoesAdicionaris = informacoesAdicionaris;
         this.statusServico = statusServico;
         this.dataServico = dataServico;
         this.idServico = idServico;
@@ -30,6 +31,14 @@ public abstract class ServicosCemiterio {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getInformacoesAdicionaris() {
+        return informacoesAdicionaris;
+    }
+
+    public void setInformacoesAdicionaris(String informacoesAdicionaris) {
+        this.informacoesAdicionaris = informacoesAdicionaris;
     }
 
     public String getStatusServico() {

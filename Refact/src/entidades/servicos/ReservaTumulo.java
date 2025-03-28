@@ -3,28 +3,19 @@ package entidades.servicos;
 import java.time.LocalDate;
 
 public class ReservaTumulo extends ServicoTumulo{
-    private String  nomeResponsavel;
-    private LocalDate dataRealizacao;
-    
-    public ReservaTumulo(int idTumulo, String nomeResponsavel, LocalDate dataRealizacao) {
-        super(idTumulo);
-        this.nomeResponsavel = nomeResponsavel;
-        this.dataRealizacao = dataRealizacao;
+    private int idPessoa;
+
+    public ReservaTumulo(String responsavelServico, String descricao, String informacoesAdicionaris,
+            String statusServico, LocalDate dataServico, int idServico, int idTumulo, int idPessoa) {
+        super(responsavelServico, descricao, informacoesAdicionaris, statusServico, dataServico, idServico, idTumulo);
+        this.idPessoa = idPessoa;
     }
 
-    public String getNomeResponsavel() {
-        return nomeResponsavel;
+    public int getIdPessoa() {
+        return idPessoa;
     }
 
-    public void setNomeResponsavel(String nomeResponsavel) {
-        this.nomeResponsavel = nomeResponsavel;
-    }
-
-    public LocalDate getDataRealizacao() {
-        return dataRealizacao;
-    }
-
-    public void setDataRealizacao(LocalDate dataRealizacao) {
-        this.dataRealizacao = dataRealizacao;
+    public void setIdPessoa(int idPessoa) {
+        this.idPessoa = idPessoa;
     }
 }

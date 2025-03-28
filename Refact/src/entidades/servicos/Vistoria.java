@@ -1,27 +1,10 @@
 package entidades.servicos;
 
-public class Vistoria {
-    private boolean realizadoVistoria;
-    private String comentariosVistoria;
-    
-    public Vistoria(boolean realizadoVistoria, String comentariosVistoria) {
-        this.realizadoVistoria = realizadoVistoria;
-        this.comentariosVistoria = comentariosVistoria;
-    }
+import java.time.LocalDate;
 
-    public boolean isRealizadoVistoria() {
-        return realizadoVistoria;
-    }
-
-    public void setRealizadoVistoria(boolean realizadoVistoria) {
-        this.realizadoVistoria = realizadoVistoria;
-    }
-
-    public String getComentariosVistoria() {
-        return comentariosVistoria;
-    }
-
-    public void setComentariosVistoria(String comentariosVistoria) {
-        this.comentariosVistoria = comentariosVistoria;
+public class Vistoria extends ServicoTumulo{
+    public Vistoria(String responsavelServico, String descricao, String informacoesAdicionaris,
+            String statusServico, LocalDate dataServico, int idServico, int idTumulo) {
+        super(responsavelServico, descricao, informacoesAdicionaris, statusServico, dataServico, idServico, idTumulo);
     }
 }

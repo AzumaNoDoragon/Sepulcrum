@@ -1,30 +1,14 @@
 package entidades.servicos;
 
+import java.time.LocalDate;
+
 public class Exumacao extends ServicoTumulo {
-    private String localExumacao, motivoExumacao;
     private int idDefunto;
-    
-    public Exumacao(int idTumulo, String localExumacao, String motivoExumacao, int idDefunto) {
-        super(idTumulo);
-        this.localExumacao = localExumacao;
-        this.motivoExumacao = motivoExumacao;
+
+    public Exumacao(String responsavelServico, String descricao, String informacoesAdicionaris, String statusServico,
+            LocalDate dataServico, int idServico, int idTumulo, int idDefunto) {
+        super(responsavelServico, descricao, informacoesAdicionaris, statusServico, dataServico, idServico, idTumulo);
         this.idDefunto = idDefunto;
-    }
-
-    public String getLocalExumacao() {
-        return localExumacao;
-    }
-
-    public void setLocalExumacao(String localExumacao) {
-        this.localExumacao = localExumacao;
-    }
-
-    public String getMotivoExumacao() {
-        return motivoExumacao;
-    }
-
-    public void setMotivoExumacao(String motivoExumacao) {
-        this.motivoExumacao = motivoExumacao;
     }
 
     public int getIdDefunto() {

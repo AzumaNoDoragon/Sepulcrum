@@ -1,21 +1,14 @@
 package entidades.servicos;
 
+import java.time.LocalDate;
+
 public class TransferenciaDefunto extends ServicoTumulo {
-    private String motivoTransferencia;
     private int idTumuloDestino;
 
-    public TransferenciaDefunto(int idTumulo, String motivoTransferencia, int idTumuloDestino) {
-        super(idTumulo);
-        this.motivoTransferencia = motivoTransferencia;
+    public TransferenciaDefunto(String responsavelServico, String descricao, String informacoesAdicionaris,
+            String statusServico, LocalDate dataServico, int idServico, int idTumulo, int idTumuloDestino) {
+        super(responsavelServico, descricao, informacoesAdicionaris, statusServico, dataServico, idServico, idTumulo);
         this.idTumuloDestino = idTumuloDestino;
-    }
-
-    public String getMotivoTransferencia() {
-        return motivoTransferencia;
-    }
-
-    public void setMotivoTransferencia(String motivoTransferencia) {
-        this.motivoTransferencia = motivoTransferencia;
     }
 
     public int getIdTumuloDestino() {
