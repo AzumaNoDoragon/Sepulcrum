@@ -28,6 +28,10 @@ public class TelaGerenciador{
     public void msgIdInexistente(){
         System.out.println("Id Inexistente no sistema!");
     }
+    
+    public void msgSaida(){
+        System.out.println("Saindo do Sistema...");
+    }
 
     public void msgSucesso(){
         System.out.println("Inserido no sistema!");
@@ -37,5 +41,4 @@ public class TelaGerenciador{
         System.out.println("Digite o id para alterar: ");
         return teclado.nextInt();
     }
-
 }

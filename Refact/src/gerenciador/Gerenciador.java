@@ -26,9 +26,10 @@ public class Gerenciador {
                     
                     break;
                 case 5:
+                
                     break;
                 case 0:
-                    System.out.println("Saindo do Sistema...");
+                    tg.msgSaida();
                     break;
                 default:
                     if(opc != 0){
