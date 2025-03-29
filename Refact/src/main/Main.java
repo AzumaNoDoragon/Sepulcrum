@@ -1,6 +1,6 @@
 package main;
 
-import gerenciador.Gerenciador;
+import gerenciadorPrincipal.Gerenciador;
 
 public class Main {
     public static void main(String[] args){

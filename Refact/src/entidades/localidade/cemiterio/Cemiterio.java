@@ -1,4 +1,6 @@
-package entidades.localidade;
+package entidades.localidade.cemiterio;
+
+import entidades.localidade.Localidade;
 
 public class Cemiterio extends Localidade {
     private String nome, estado, cidade;

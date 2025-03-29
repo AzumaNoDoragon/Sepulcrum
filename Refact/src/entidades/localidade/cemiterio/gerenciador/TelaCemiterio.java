@@ -1,6 +1,8 @@
-package entidades.localidade.telas;
+package entidades.localidade.cemiterio.gerenciador;
 
 import java.util.Scanner;
+
+import entidades.localidade.telas.TelaLocalidade;
 
 public class TelaCemiterio extends TelaLocalidade{
     public TelaCemiterio(Scanner teclado) {

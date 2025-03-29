@@ -1,4 +1,4 @@
-package gerenciador;
+package gerenciadorPrincipal;
 
 //import pessoas.*;
 import java.util.Scanner;
