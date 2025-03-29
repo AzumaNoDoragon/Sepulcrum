@@ -1,4 +1,4 @@
-package entidades.localidade.telas;
+package entidades.localidade.heranca.gerenciador;
 
 import java.util.Scanner;
 

@@ -3,7 +3,10 @@ package gerenciadorPrincipal;
 //import pessoas.*;
 import java.util.Scanner;
 
+import entidades.localidade.cemiterio.gerenciador.TelaCemiterio;
+
 public class Gerenciador {
+    private TelaCemiterio tc = new TelaCemiterio(new Scanner(System.in));
     private TelaGerenciador tg = new TelaGerenciador(new Scanner(System.in));
 
     public void executar(){
@@ -14,10 +17,10 @@ public class Gerenciador {
 
             switch (opc) {
                 case 1:
-                    
+                    tc.setCemiterio();
                     break;
                 case 2:
-                    
+
                     break;
                 case 3:
                     

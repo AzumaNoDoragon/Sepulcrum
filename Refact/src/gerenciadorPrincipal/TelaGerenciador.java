@@ -12,7 +12,7 @@ public class TelaGerenciador{
     public int menu(){
         System.out.println("Menu");
         System.out.println("1 - Cadastrar Cemiterio");
-        System.out.println("2 - Cadastrar Adm.");
+        System.out.println("2 - Apresentar Cemiterio.");
         System.out.println("3 - Cadastrar Defunto.");
         System.out.println("4 - Requisitar serviço.");
         System.out.println("5 - Cadastrar");

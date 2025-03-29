@@ -1,4 +1,6 @@
-package entidades.localidade;
+package entidades.localidade.tumulo;
+
+import entidades.localidade.heranca.Localidade;
 
 public class Tumulo extends Localidade{
     private String tipo, dataOcupacao, situacao;

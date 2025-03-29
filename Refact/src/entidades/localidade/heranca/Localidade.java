@@ -1,4 +1,4 @@
-package entidades.localidade;
+package entidades.localidade.heranca;
 
 public abstract class Localidade {
     protected String rua;

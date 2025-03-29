@@ -1,3 +1,4 @@
+/* 
 package entidades.localidade.cemiterio.gerenciador;
 
 import entidades.localidade.cemiterio.Cemiterio;
@@ -30,3 +31,5 @@ public class DAOCemiterio {
         return c;
     }
 }
+
+*/
