@@ -1,12 +1,15 @@
 package entidades.pessoas.adm.gerenciador;
 
+import java.util.Scanner;
+
 public class GerenciadorAdm {
-    
+    private final TelaAdm ta = new TelaAdm(new Scanner(System.in));
+
 
     public void executar(){
         int opc;
         do{
-            opc = tg.menu();
+            opc = ta.menu();
 
             switch (opc) {
                 case 1:

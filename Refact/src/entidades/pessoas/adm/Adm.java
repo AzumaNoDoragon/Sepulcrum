@@ -5,11 +5,8 @@ import entidades.pessoas.heranca.PessoasVivas;
 public class Adm extends PessoasVivas{
     private String cargo, dataContratacao;
 
-    public Adm(String nome, int id, int cpf, int rg, int dataNascimento, String email, int telefone, String cargo,
-            String dataContratacao) {
+    public Adm(String nome, int id, String cpf, String rg, String dataNascimento, String email, String telefone) {
         super(nome, id, cpf, rg, dataNascimento, email, telefone);
-        this.cargo = cargo;
-        this.dataContratacao = dataContratacao;
     }
 
     public String getCargo(){

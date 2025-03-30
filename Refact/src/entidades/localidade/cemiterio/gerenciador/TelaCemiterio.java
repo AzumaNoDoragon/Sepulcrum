@@ -1,7 +1,6 @@
 package entidades.localidade.cemiterio.gerenciador;
 
 import java.util.Scanner;
-
 import entidades.localidade.cemiterio.Cemiterio;
 import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
@@ -10,6 +9,7 @@ public class TelaCemiterio extends TelaDefenicoes{
         super(teclado);
     }
 
+    @Override
     public int menu(){
         System.out.println("Menu do Cemiterio: ");
         System.out.println("1 - Cadastrar Cemiterio.");
@@ -23,6 +23,7 @@ public class TelaCemiterio extends TelaDefenicoes{
     }
 
     public void setCemiterio(Cemiterio c){
+        teclado.nextLine();
         System.out.println("Digite o nome do cemiterio: ");
         c.setNome(teclado.nextLine());
         System.out.println("Digite o estado: ");

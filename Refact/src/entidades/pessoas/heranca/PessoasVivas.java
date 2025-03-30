@@ -1,10 +1,9 @@
 package entidades.pessoas.heranca;
 
 public abstract class PessoasVivas extends Pessoas{
-    protected String email;
-    protected int telefone;
+    protected String email, telefone;
 
-    public PessoasVivas(String nome, int id, int cpf, int rg, int dataNascimento, String email, int telefone) {
+    public PessoasVivas(String nome, int id, String cpf, String rg, String dataNascimento, String email, String telefone) {
         super(nome, id, cpf, rg, dataNascimento);
         this.email = email;
         this.telefone = telefone;
@@ -18,11 +17,11 @@ public abstract class PessoasVivas extends Pessoas{
         this.email = email;
     }
 
-    public int getTelefone(){
+    public String getTelefone(){
         return telefone;
     }
 
-    public void setTelefone(int telefone){
+    public void setTelefone(String telefone){
         this.telefone = telefone;
     }
 }

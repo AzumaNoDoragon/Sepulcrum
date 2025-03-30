@@ -6,7 +6,6 @@ public class Cemiterio extends Localidade {
     private String nome, estado, cidade, telefone, cep;
     private int capacidadeMax;
     
-
     public Cemiterio(String rua, int id, int numero, String nome, String estado, String cidade, int capacidadeMax,
             String telefone, String cep) {
         super(rua, id, numero);

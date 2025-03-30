@@ -1,10 +1,10 @@
 package entidades.pessoas.heranca;
 
 public abstract class Pessoas {
-    protected String nome;
-    protected int id, cpf, rg, dataNascimento;
+    protected String nome, cpf, rg, dataNascimento;
+    protected int id;
 
-    public Pessoas(String nome, int id, int cpf, int rg, int dataNascimento) {
+    public Pessoas(String nome, int id, String cpf, String rg, String dataNascimento) {
         this.nome = nome;
         this.id = id;
         this.cpf = cpf;
@@ -28,27 +28,27 @@ public abstract class Pessoas {
         this.id = id;
     }
 
-    public int getCpf(){
+    public String getCpf(){
         return cpf;
     }
     
-    public void setCpf(int cpf){
+    public void setCpf(String cpf){
         this.cpf = cpf;
     }
 
-    public int getRg(){
+    public String getRg(){
         return rg;
     }
 
-    public void setRg(int rg){
+    public void setRg(String rg){
         this.rg = rg;
     }
 
-    public int getDataNascimento(){
+    public String getDataNascimento(){
         return dataNascimento;
     }
 
-    public void setDataNascimento(int dataNascimento){
+    public void setDataNascimento(String dataNascimento){
         this.dataNascimento = dataNascimento;
     }
 }

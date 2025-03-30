@@ -6,13 +6,8 @@ public class Defunto extends Pessoas {
     private String dataFalecimento, causaMorte;
     private int idParente, idTumulo;
 
-    public Defunto(String nome, int id, int cpf, int rg, int dataNascimento, String dataFalecimento, String causaMorte,
-            int idParente, int idTumulo) {
+    public Defunto(String nome, int id, String cpf, String rg, String dataNascimento) {
         super(nome, id, cpf, rg, dataNascimento);
-        this.dataFalecimento = dataFalecimento;
-        this.causaMorte = causaMorte;
-        this.idParente = idParente;
-        this.idTumulo = idTumulo;
     }
 
     public String getDataFalecimento(){
