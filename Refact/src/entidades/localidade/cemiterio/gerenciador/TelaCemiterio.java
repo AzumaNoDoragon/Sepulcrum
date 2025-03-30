@@ -12,6 +12,17 @@ public class TelaCemiterio extends TelaLocalidade{
         super(teclado);
     }
 
+    public int menu(){
+        System.out.println("Menu");
+        System.out.println("1 - Cadastrar Cemiterio");
+        System.out.println("2 - Apresentar Cemiterio.");
+        System.out.println("3 - Alterar Cemiterio.");
+        System.out.println("4 - Deletar Cemiterio.");
+        System.out.println("0 - Voltar");
+
+        return teclado.nextInt();
+    }
+
     public void setCemiterio(){
         System.out.println("Digite o nome do cemiterio: ");
         c.setNome(teclado.nextLine());

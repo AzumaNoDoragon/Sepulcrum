@@ -11,11 +11,10 @@ public class TelaGerenciador{
 
     public int menu(){
         System.out.println("Menu");
-        System.out.println("1 - Cadastrar Cemiterio");
-        System.out.println("2 - Apresentar Cemiterio.");
-        System.out.println("3 - Cadastrar Defunto.");
-        System.out.println("4 - Requisitar serviço.");
-        System.out.println("5 - Cadastrar");
+        System.out.println("1 - Informações do Cemiterio");
+        System.out.println("2 - Informações do Adm.");
+        System.out.println("3 - Informações do Defunto.");
+        System.out.println("4 - Informações do serviço.");
         System.out.println("0 - Sair");
 
         return teclado.nextInt();
