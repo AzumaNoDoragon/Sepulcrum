@@ -6,7 +6,7 @@ import entidades.localidade.cemiterio.controle.CRUDCemiterio;
 
 public class GerenciadorCemiterio {
     private final TelaCemiterio tc = new TelaCemiterio(new Scanner(System.in));
-    private final CRUDCemiterio crud = new CRUDCemiterio();
+    private final CRUDCemiterio crudC = new CRUDCemiterio();
 
     public void executar(){
         int opc;
@@ -15,19 +15,19 @@ public class GerenciadorCemiterio {
 
             switch (opc) {
                 case 1:
-                    crud.create();
+                    crudC.create();
                     break;
                 case 2:
-                    crud.read();
+                    crudC.read();
                     break;
                 case 3:
-                    crud.listarCemiterio();
+                    crudC.listarCemiterio();
                     break;
                 case 4:
-                    crud.update();   
+                    crudC.update();   
                     break;
                 case 5:
-                    crud.delete();
+                    crudC.delete();
                     break;
                 default:
                     if(opc != 0){
