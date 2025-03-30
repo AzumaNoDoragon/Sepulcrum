@@ -1,14 +1,13 @@
-package gerenciadorPrincipal;
+package entidades.servicos.exumacao.gerenciador;
 
 import java.util.Scanner;
 import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
-public class TelaGerenciador extends TelaDefenicoes{
-    public TelaGerenciador(Scanner teclado) {
+public class TelaExumacao extends TelaDefenicoes{
+    public TelaExumacao(Scanner teclado) {
         super(teclado);
     }
 
-    @Override
     public int menu(){
         System.out.println("Menu");
         System.out.println("1 - Informações do Cemiterio");

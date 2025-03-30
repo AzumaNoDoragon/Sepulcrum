@@ -3,9 +3,9 @@ package entidades.localidade.cemiterio.gerenciador;
 import java.util.Scanner;
 
 import entidades.localidade.cemiterio.Cemiterio;
-import entidades.localidade.heranca.gerenciador.TelaLocalidade;
+import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
-public class TelaCemiterio extends TelaLocalidade{
+public class TelaCemiterio extends TelaDefenicoes{
     public TelaCemiterio(Scanner teclado) {
         super(teclado);
     }
@@ -63,14 +63,5 @@ public class TelaCemiterio extends TelaLocalidade{
         } else {
             msgIdInexistente();
         }
-    }
-
-    public void msgIdInexistente(){
-        System.out.println("Id não encontrado");
-    }
-
-    public int selecionar(){
-        System.out.println("Digite o id: ");
-        return teclado.nextInt();
     }
 }
