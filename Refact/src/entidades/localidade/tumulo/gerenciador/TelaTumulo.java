@@ -2,35 +2,54 @@ package entidades.localidade.tumulo.gerenciador;
 
 import java.util.Scanner;
 
-import entidades.localidade.heranca.gerenciador.TelaLocalidade;
+import entidades.localidade.tumulo.Tumulo;
+import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
-public class TelaTumulo extends TelaLocalidade{
+public class TelaTumulo extends TelaDefenicoes{
     public TelaTumulo(Scanner teclado) {
         super(teclado);
     }
 
-    public void setCemiterio(){
+    @Override
+    public int menu(){
+        System.out.println("Menu do Túmulo: ");
+        System.out.println("1 - Cadastrar Túmulo.");
+        System.out.println("2 - Apresentar Túmulo.");
+        System.out.println("3 - Listar Túmulo.");
+        System.out.println("4 - Alterar Túmulo.");
+        System.out.println("5 - Deletar Túmulo.");
+        System.out.println("0 - Voltar");
+
+        return teclado.nextInt();
+    }
+
+    public void setCemiterio(Tumulo t){
+        teclado.nextLine();
         System.out.println("Digite o tipo do tumulo: ");
-        // Instanciar variavel
+        t.setTipo(teclado.nextLine());
         System.out.println("Digite a data de ocupação: ");
-        // Instanciar variavel
+        t.setDataOcupacao(teclado.nextLine());
         System.out.println("Digite a situação: ");
-        // Instanciar variavel
+        t.setSituacao(teclado.nextLine());
         System.out.println("Digite o id do cemiterio: ");
-        // Instanciar variavel
+        t.setIdCemiterio(teclado.nextInt()); teclado.nextLine();
+        System.out.println("Digite o bloco do Tumulo: ");
+        t.setRua(teclado.nextLine());
+        System.out.println("Digite o número do Túmulo: ");
+        t.setNumero(teclado.nextInt()); teclado.nextLine();
         System.out.println("Digite o id do defunto: ");
-        // Instanciar variavel
+        t.setIdDefunto(teclado.nextInt()); teclado.nextLine();
     }
     
-    public void apresentar(){ //Implementar objeto no parametro
-        if(teclado != null){ // Trocar teclado pela instancia
+    public void apresentar(Tumulo t){ //Implementar objeto no parametro
+        if(t != null){ // Trocar teclado pela instancia
             System.out.println("Tipo do tumulo: " + teclado);
             System.out.println("Data de ocupação: " + teclado);
             System.out.println("Situação: " + teclado);
             System.out.println("Id do cemiterio: " + teclado);
             System.out.println("Id do defunto: " + teclado);
+        } else {
+            msgIdInexistente();
         }
     }
-
-    // Implementar listar, caso mauloseu
 }

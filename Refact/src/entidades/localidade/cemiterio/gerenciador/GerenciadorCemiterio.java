@@ -31,7 +31,7 @@ public class GerenciadorCemiterio {
                     break;
                 default:
                     if(opc != 0){
-                        System.out.println("Opção invalida!");
+                        tc.msgOpcInvalida();
                     }
                     break;
             }

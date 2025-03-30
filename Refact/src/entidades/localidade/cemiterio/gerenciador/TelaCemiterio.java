@@ -11,12 +11,12 @@ public class TelaCemiterio extends TelaDefenicoes{
 
     @Override
     public int menu(){
-        System.out.println("Menu do Cemiterio: ");
-        System.out.println("1 - Cadastrar Cemiterio.");
-        System.out.println("2 - Apresentar Cemiterio.");
-        System.out.println("3 - Listar Cemiterio.");
-        System.out.println("4 - Alterar Cemiterio.");
-        System.out.println("5 - Deletar Cemiterio.");
+        System.out.println("Menu do Cemitério: ");
+        System.out.println("1 - Cadastrar Cemitério.");
+        System.out.println("2 - Apresentar Cemitério.");
+        System.out.println("3 - Listar Cemitério.");
+        System.out.println("4 - Alterar Cemitério.");
+        System.out.println("5 - Deletar Cemitério.");
         System.out.println("0 - Voltar");
 
         return teclado.nextInt();
@@ -24,7 +24,7 @@ public class TelaCemiterio extends TelaDefenicoes{
 
     public void setCemiterio(Cemiterio c){
         teclado.nextLine();
-        System.out.println("Digite o nome do cemiterio: ");
+        System.out.println("Digite o nome do Cemitério: ");
         c.setNome(teclado.nextLine());
         System.out.println("Digite o estado: ");
         c.setEstado(teclado.nextLine());
@@ -40,15 +40,6 @@ public class TelaCemiterio extends TelaDefenicoes{
         c.setTelefone(teclado.nextLine());
         System.out.println("Digite o cep: ");
         c.setCep(teclado.nextLine());
-        System.out.println("Id: " + c.getId());
-        System.out.println("Nome do cemiterio: " + c.getNome());
-        System.out.println("Estado: " + c.getEstado());
-        System.out.println("Cidade: " + c.getCidade());
-        System.out.println("Rua: " + c.getRua());
-        System.out.println("Numero: " + c.getNumero());
-        System.out.println("Capacidade máxima: " + c.getCapacidadeMax());
-        System.out.println("Telefone: " + c.getTelefone());
-        System.out.println("Cep: " + c.getCep());
     }
     
     public void getCemiterio(Cemiterio c){

@@ -6,7 +6,7 @@ import entidades.localidade.tumulo.controle.CRUDTumulo;
 
 public class GerenciadorTumulo {
     private final TelaTumulo tt = new TelaTumulo(new Scanner(System.in));
-    private final CRUDTumulo cruT = new CRUDTumulo();
+    private final CRUDTumulo crudT = new CRUDTumulo();
 
     public void executar(){
         int opc;
@@ -15,24 +15,26 @@ public class GerenciadorTumulo {
 
             switch (opc) {
                 case 1:
-                    cruT.create();
+                    crudT.create();
                     break;
                 case 2:
-                    cruT.read();
+                    crudT.read();
                     break;
                 case 3:
-                    cruT.listarTumulo();
+                    crudT.listarTumulo();
                     break;
                 case 4:
-                    cruT.update();
+                    crudT.update();
                     break;
                 case 5:
-                    cruT.delete();
+                    crudT.delete();
                     break;
                 default:
+                    if(opc != 0){
+                        tt.msgOpcInvalida();
+                    }
                     break;
             }
-        }
+        }while(opc != 0)
     }
-
 }
