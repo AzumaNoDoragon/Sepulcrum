@@ -12,11 +12,11 @@ public class CRUDCemiterio {
     public void create(){
         int pos = posVazia();
 
-        if(pos >= 0 ){
+        if(pos >= 0){
             lista[pos] = new Cemiterio(null, pos, pos, null, null, null, pos, null, null);
             tc.setCemiterio(lista[pos]);
         } else {
-            System.out.println("Erro!");
+            tc.msgErro();
         }
     }
 

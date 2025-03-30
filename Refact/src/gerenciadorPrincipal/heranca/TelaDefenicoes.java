@@ -27,6 +27,10 @@ public abstract class TelaDefenicoes {
         System.out.println("Inserido no sistema!");
     }
 
+    public void msgErro(){
+        System.out.println("Erro!");
+    }
+
     public int alterar(){
         System.out.println("Digite o id para alterar: ");
         return teclado.nextInt();

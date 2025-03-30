@@ -1,7 +1,6 @@
 package entidades.localidade.tumulo.gerenciador;
 
 import java.util.Scanner;
-
 import entidades.localidade.tumulo.Tumulo;
 import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
@@ -23,7 +22,7 @@ public class TelaTumulo extends TelaDefenicoes{
         return teclado.nextInt();
     }
 
-    public void setCemiterio(Tumulo t){
+    public void setTumulo(Tumulo t){
         teclado.nextLine();
         System.out.println("Digite o tipo do tumulo: ");
         t.setTipo(teclado.nextLine());
@@ -41,7 +40,7 @@ public class TelaTumulo extends TelaDefenicoes{
         t.setIdDefunto(teclado.nextInt()); teclado.nextLine();
     }
     
-    public void apresentar(Tumulo t){ //Implementar objeto no parametro
+    public void getTumulo(Tumulo t){
         if(t != null){ // Trocar teclado pela instancia
             System.out.println("Tipo do tumulo: " + teclado);
             System.out.println("Data de ocupação: " + teclado);
