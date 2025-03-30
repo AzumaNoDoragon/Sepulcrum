@@ -1,4 +1,6 @@
-package entidades.pessoas;
+package entidades.pessoas.adm;
+
+import entidades.pessoas.heranca.PessoasVivas;
 
 public class Adm extends PessoasVivas{
     private String cargo, dataContratacao;

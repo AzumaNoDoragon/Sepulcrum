@@ -2,8 +2,11 @@ package entidades.localidade.cemiterio.gerenciador;
 
 import java.util.Scanner;
 
+import entidades.localidade.cemiterio.controle.CRUDCemiterio;
+
 public class GerenciadorCemiterio {
     private final TelaCemiterio tc = new TelaCemiterio(new Scanner(System.in));
+    private final CRUDCemiterio crud = new CRUDCemiterio();
 
     public void executar(){
         int opc;
@@ -12,20 +15,19 @@ public class GerenciadorCemiterio {
 
             switch (opc) {
                 case 1:
-                    // create
-                    System.out.println("Crud do Cemiterio");
+                    crud.create();
                     break;
                 case 2:
-                    // read
-                    System.out.println("Crud do Cemiterio");
+                    crud.read();
                     break;
                 case 3:
-                    // update
-                    System.out.println("Crud do Cemiterio");
+                    crud.listarCemiterio();
                     break;
                 case 4:
-                    // delete
-                    System.out.println("Crud do Cemiterio");
+                    crud.update();   
+                    break;
+                case 5:
+                    crud.delete();
                     break;
                 default:
                     if(opc != 0){

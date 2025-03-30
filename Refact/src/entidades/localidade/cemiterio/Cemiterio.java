@@ -3,11 +3,12 @@ package entidades.localidade.cemiterio;
 import entidades.localidade.heranca.Localidade;
 
 public class Cemiterio extends Localidade {
-    private String nome, estado, cidade;
-    private int capacidadeMax, telefone, cep;
+    private String nome, estado, cidade, telefone, cep;
+    private int capacidadeMax;
+    
 
     public Cemiterio(String rua, int id, int numero, String nome, String estado, String cidade, int capacidadeMax,
-            int telefone, int cep) {
+            String telefone, String cep) {
         super(rua, id, numero);
         this.nome = nome;
         this.estado = estado;
@@ -49,19 +50,19 @@ public class Cemiterio extends Localidade {
         this.capacidadeMax = capacidadeMax;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public int getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 }

@@ -1,4 +1,6 @@
-package entidades.pessoas;
+package entidades.pessoas.defunto;
+
+import entidades.pessoas.heranca.Pessoas;
 
 public class Defunto extends Pessoas {
     private String dataFalecimento, causaMorte;

@@ -1,3 +1,4 @@
+package entidades.localidade.cemiterio.controle;
 /* 
 package entidades.localidade.cemiterio.gerenciador;
 

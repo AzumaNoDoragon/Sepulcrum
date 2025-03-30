@@ -1,4 +1,4 @@
-package entidades.pessoas;
+package entidades.pessoas.heranca;
 
 public abstract class Pessoas {
     protected String nome;

@@ -1,4 +1,4 @@
-package entidades.pessoas;
+package entidades.pessoas.heranca;
 
 public abstract class PessoasVivas extends Pessoas{
     protected String email;

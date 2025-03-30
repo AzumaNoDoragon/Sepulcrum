@@ -1,4 +1,6 @@
-package entidades.pessoas;
+package entidades.pessoas.parente;
+
+import entidades.pessoas.heranca.PessoasVivas;
 
 public class Parente extends PessoasVivas {
     private String grauParentesco;
