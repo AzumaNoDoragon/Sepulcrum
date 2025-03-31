@@ -1,7 +1,6 @@
 package entidades.localidade.cemiterio.controle;
 
 import java.util.Scanner;
-
 import entidades.localidade.cemiterio.Cemiterio;
 import entidades.localidade.cemiterio.gerenciador.TelaCemiterio;
 
@@ -13,7 +12,7 @@ public class CRUDCemiterio {
         int pos = posVazia();
 
         if(pos >= 0){
-            lista[pos] = new Cemiterio(null, pos, pos, null, null, null, pos, null, null);
+            lista[pos] = new Cemiterio(null, pos, pos);
             tc.setCemiterio(lista[pos]);
         } else {
             tc.msgErro();

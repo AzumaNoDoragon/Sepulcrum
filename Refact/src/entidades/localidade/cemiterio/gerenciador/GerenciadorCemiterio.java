@@ -1,7 +1,6 @@
 package entidades.localidade.cemiterio.gerenciador;
 
 import java.util.Scanner;
-
 import entidades.localidade.cemiterio.controle.CRUDCemiterio;
 
 public class GerenciadorCemiterio {

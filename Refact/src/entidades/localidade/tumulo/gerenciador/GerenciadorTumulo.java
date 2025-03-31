@@ -35,6 +35,6 @@ public class GerenciadorTumulo {
                     }
                     break;
             }
-        }while(opc != 0)
+        }while(opc != 0);
     }
 }
