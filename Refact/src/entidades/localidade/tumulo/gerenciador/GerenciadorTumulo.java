@@ -19,7 +19,7 @@ public class GerenciadorTumulo {
                     crudT.read();
                     break;
                 case 3:
-                    crudT.listarTumulo();
+                    crudT.listar();
                     break;
                 case 4:
                     crudT.update();

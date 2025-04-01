@@ -19,7 +19,7 @@ public class GerenciadorVistoria {
                     crucV.read();
                     break;
                 case 3:
-                    crucV.listarExumacao();
+                    crucV.listar();
                     break;
                 case 4:
                     crucV.update();   

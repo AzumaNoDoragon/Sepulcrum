@@ -35,7 +35,7 @@ public class CRUDCemiterio {
         }
     }
 
-    public void listarCemiterio(){
+    public void listar(){
         for(int i = 0; i < lista.length; i++){
             tc.getCemiterio(lista[i]);
             System.out.println("***********");

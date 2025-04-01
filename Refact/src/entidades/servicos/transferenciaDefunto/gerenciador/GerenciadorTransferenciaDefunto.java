@@ -19,7 +19,7 @@ public class GerenciadorTransferenciaDefunto {
                     crudTD.read();
                     break;
                 case 3:
-                    crudTD.listarExumacao();
+                    crudTD.listar();
                     break;
                 case 4:
                     crudTD.update();   

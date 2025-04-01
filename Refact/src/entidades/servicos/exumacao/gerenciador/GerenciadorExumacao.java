@@ -19,7 +19,7 @@ public class GerenciadorExumacao {
                     crudE.read();
                     break;
                 case 3:
-                    crudE.listarExumacao();
+                    crudE.listar();
                     break;
                 case 4:
                     crudE.update();   

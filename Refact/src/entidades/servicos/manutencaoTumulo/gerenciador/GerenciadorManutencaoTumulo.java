@@ -19,7 +19,7 @@ public class GerenciadorManutencaoTumulo {
                     crudMT.read();
                     break;
                 case 3:
-                    crudMT.listarExumacao();
+                    crudMT.listar();
                     break;
                 case 4:
                     crudMT.update();   

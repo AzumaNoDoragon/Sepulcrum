@@ -1,7 +1,5 @@
 package entidades.pessoas.adm.gerenciador;
 
-import java.util.Scanner;
-
 import entidades.pessoas.adm.controle.CRUDAdm;
 
 public class GerenciadorAdm {
@@ -21,7 +19,7 @@ public class GerenciadorAdm {
                     crudAdm.read();
                     break;
                 case 3:
-                    crudAdm.ListarAdm();
+                    crudAdm.listar();
                     break;
                 case 4:
                     crudAdm.update();
