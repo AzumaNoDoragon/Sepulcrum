@@ -2,7 +2,7 @@ package entidades.localidade.tumulo.gerenciador;
 
 import java.util.Scanner;
 import entidades.localidade.tumulo.Tumulo;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+import gerenciadorPrincipal.heranca.tela.TelaDefenicoes;
 
 public class TelaTumulo extends TelaDefenicoes{
     public TelaTumulo(Scanner teclado) {

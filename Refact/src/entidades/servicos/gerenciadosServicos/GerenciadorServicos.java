@@ -38,7 +38,7 @@ public class GerenciadorServicos {
                     gv.executar();
                     break;
                 case 0:
-                tgs.msgSaida();
+                    tgs.msgRetornando();
                     break;
                 default:
                     if(opc != 0){

@@ -2,7 +2,7 @@ package entidades.servicos.manutencaoTumulo.gerenciador;
 
 import java.util.Scanner;
 
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+import gerenciadorPrincipal.heranca.tela.TelaDefenicoes;
 
 public class TelaManutencaoTumulo extends TelaDefenicoes{
     public TelaManutencaoTumulo(Scanner teclado) {

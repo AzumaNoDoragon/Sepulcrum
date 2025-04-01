@@ -7,16 +7,6 @@ public abstract class ServicosCemiterio {
     protected LocalDate dataServico;
     protected int idServico;
 
-    public ServicosCemiterio(String responsavelServico, String descricao, String informacoesAdicionaris,
-            String statusServico, LocalDate dataServico, int idServico) {
-        this.responsavelServico = responsavelServico;
-        this.descricao = descricao;
-        this.informacoesAdicionaris = informacoesAdicionaris;
-        this.statusServico = statusServico;
-        this.dataServico = dataServico;
-        this.idServico = idServico;
-    }
-
     public String getResponsavelServico() {
         return responsavelServico;
     }

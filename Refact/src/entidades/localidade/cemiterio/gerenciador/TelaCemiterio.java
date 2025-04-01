@@ -2,7 +2,7 @@ package entidades.localidade.cemiterio.gerenciador;
 
 import java.util.Scanner;
 import entidades.localidade.cemiterio.Cemiterio;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+import gerenciadorPrincipal.heranca.tela.TelaDefenicoes;
 
 public class TelaCemiterio extends TelaDefenicoes{
     public TelaCemiterio(Scanner teclado) {

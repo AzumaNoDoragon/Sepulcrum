@@ -28,6 +28,9 @@ public class GerenciadorCemiterio {
                 case 5:
                     crudC.delete();
                     break;
+                case 0:
+                    tc.msgRetornando();
+                    break;
                 default:
                     if(opc != 0){
                         tc.msgOpcInvalida();

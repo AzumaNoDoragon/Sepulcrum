@@ -1,4 +1,4 @@
-package gerenciadorPrincipal.heranca;
+package gerenciadorPrincipal.heranca.tela;
 
 import java.util.Scanner;
 
@@ -21,6 +21,10 @@ public abstract class TelaDefenicoes {
     
     public void msgSaida(){
         System.out.println("Saindo do Sistema...");
+    }
+
+    public void msgRetornando(){
+        System.out.println("Voltando para o menu anterior!");
     }
 
     public void msgSucesso(){

@@ -1,13 +1,16 @@
 package entidades.servicos.exumacao.gerenciador;
 
 import java.util.Scanner;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+
+import entidades.servicos.exumacao.Exumacao;
+import gerenciadorPrincipal.heranca.tela.TelaDefenicoes;
 
 public class TelaExumacao extends TelaDefenicoes{
     public TelaExumacao(Scanner teclado) {
         super(teclado);
     }
 
+    @Override
     public int menu(){
         System.out.println("Menu");
         System.out.println("1 - Informações do Cemiterio");
@@ -18,5 +21,18 @@ public class TelaExumacao extends TelaDefenicoes{
         System.out.println("0 - Voltar");
 
         return teclado.nextInt();
+    }
+
+    public void setExumacao(Exumacao e){
+
+    }
+
+    public void getExumacao(Exumacao e){
+        if(e != null){
+            
+
+        } else {
+            msgIdInexistente();
+        }
     }
 }

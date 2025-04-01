@@ -1,7 +1,8 @@
 package entidades.servicos.gerenciadosServicos;
 
 import java.util.Scanner;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+
+import gerenciadorPrincipal.heranca.tela.TelaDefenicoes;
 
 public class TelaGerenciadorServicos extends TelaDefenicoes{
     public TelaGerenciadorServicos(Scanner teclado) {
