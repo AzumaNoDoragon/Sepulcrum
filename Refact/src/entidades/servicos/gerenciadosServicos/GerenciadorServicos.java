@@ -1,19 +1,20 @@
 package entidades.servicos.gerenciadosServicos;
 
 import java.util.Scanner;
-import entidades.servicos.exumacao.gerenciador.TelaExumacao;
-import entidades.servicos.manutencaoTumulo.gerenciador.TelaManutencaoTumulo;
-import entidades.servicos.reservaTumulo.gerenciador.TelaReservaTumulo;
-import entidades.servicos.transferenciaDefunto.gerenciador.TelaTransferenciaDefunto;
-import entidades.servicos.vistoria.gerenciador.TelaVistoria;
+
+import entidades.localidade.tumulo.gerenciador.GerenciadorTumulo;
+import entidades.servicos.exumacao.gerenciador.GerenciadorExumacao;
+import entidades.servicos.manutencaoTumulo.gerenciador.GerenciadorManutencaoTumulo;
+import entidades.servicos.transferenciaDefunto.gerenciador.GerenciadorTransferenciaDefunto;
+import entidades.servicos.vistoria.gerenciador.GerenciadorVistoria;
 
 public class GerenciadorServicos {
     private TelaGerenciadorServicos tgs = new TelaGerenciadorServicos(new Scanner(System.in));
-    private TelaExumacao te = new TelaExumacao(new Scanner(System.in));
-    private TelaManutencaoTumulo tmt = new TelaManutencaoTumulo(new Scanner(System.in));
-    private TelaReservaTumulo trt = new TelaReservaTumulo(new Scanner(System.in));
-    private TelaTransferenciaDefunto ttd = new TelaTransferenciaDefunto(new Scanner(System.in));
-    private TelaVistoria tv = new TelaVistoria(new Scanner(System.in));
+    private GerenciadorExumacao ge = new GerenciadorExumacao();
+    private GerenciadorManutencaoTumulo gmt = new GerenciadorManutencaoTumulo();
+    private GerenciadorTumulo gt = new GerenciadorTumulo();
+    private GerenciadorTransferenciaDefunto gtd = new GerenciadorTransferenciaDefunto();
+    private GerenciadorVistoria gv = new GerenciadorVistoria();
 
     public void executar(){
         int opc;
@@ -22,26 +23,26 @@ public class GerenciadorServicos {
 
             switch (opc) {
                 case 1:
-                    gc.executar();
+                    ge.executar();
                     break;
                 case 2:
-                    ga.executar();
+                    gmt.executar();
                     break;
                 case 3:
                     gt.executar();
                     break;
                 case 4:
-                    gd.executar();
+                    gtd.executar();
                     break;
                 case 5:
-                    gs.executar();
+                    gv.executar();
                     break;
                 case 0:
-                    tg.msgSaida();
+                tgs.msgSaida();
                     break;
                 default:
                     if(opc != 0){
-                        tg.msgOpcInvalida();
+                        tgs.msgOpcInvalida();
                     }
                     break;
             }
