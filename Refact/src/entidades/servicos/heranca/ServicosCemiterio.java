@@ -1,17 +1,14 @@
 package entidades.servicos.heranca;
 
-import java.time.LocalDate;
-
 public abstract class ServicosCemiterio {
-    protected String responsavelServico, descricao, informacoesAdicionaris, statusServico;
-    protected LocalDate dataServico;
-    protected int idServico;
+    protected String dataServico, descricao, informacoesAdicionaris, statusServico;
+    protected int idServico, responsavelServico;
 
-    public String getResponsavelServico() {
+    public int getResponsavelServico() {
         return responsavelServico;
     }
 
-    public void setResponsavelServico(String responsavelServico) {
+    public void setResponsavelServico(int responsavelServico) {
         this.responsavelServico = responsavelServico;
     }
 
@@ -39,11 +36,11 @@ public abstract class ServicosCemiterio {
         this.statusServico = statusServico;
     }
 
-    public LocalDate getDataServico() {
+    public String getDataServico() {
         return dataServico;
     }
 
-    public void setDataServico(LocalDate dataServico) {
+    public void setDataServico(String dataServico) {
         this.dataServico = dataServico;
     }
 
