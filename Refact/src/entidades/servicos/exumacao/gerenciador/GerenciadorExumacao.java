@@ -1,11 +1,9 @@
 package entidades.servicos.exumacao.gerenciador;
 
-import java.util.Scanner;
-
 import entidades.servicos.exumacao.controle.CRUDExumacao;
 
 public class GerenciadorExumacao {
-    private TelaExumacao te = new TelaExumacao(new Scanner(System.in));
+    private TelaExumacao te = new TelaExumacao();
     private final CRUDExumacao crudE = new CRUDExumacao();
 
     public void executar(){

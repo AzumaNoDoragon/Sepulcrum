@@ -1,10 +1,9 @@
 package entidades.pessoas.defunto.gerenciador;
 
-import java.util.Scanner;
 import entidades.pessoas.defunto.controle.CRUDDefunto;
 
 public class GerenciadorDefunto {
-    private final TelaDefunto td = new TelaDefunto(new Scanner(System.in));
+    private final TelaDefunto td = new TelaDefunto();
     private final CRUDDefunto crudD = new CRUDDefunto();
 
     public void executar(){

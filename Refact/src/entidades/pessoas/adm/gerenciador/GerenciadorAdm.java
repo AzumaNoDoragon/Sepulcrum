@@ -2,9 +2,11 @@ package entidades.pessoas.adm.gerenciador;
 
 import java.util.Scanner;
 
-public class GerenciadorAdm {
-    private final TelaAdm ta = new TelaAdm(new Scanner(System.in));
+import entidades.pessoas.adm.controle.CRUDAdm;
 
+public class GerenciadorAdm {
+    private final TelaAdm ta = new TelaAdm();
+    private final CRUDAdm crudAdm = new CRUDAdm();
 
     public void executar(){
         int opc;
@@ -13,30 +15,29 @@ public class GerenciadorAdm {
 
             switch (opc) {
                 case 1:
-                    gc.executar();
+                    crudAdm.create();
                     break;
                 case 2:
-                    ga.executar();
+                    crudAdm.read();
                     break;
                 case 3:
-                    gt.executar();
+                    crudAdm.ListarAdm();
                     break;
                 case 4:
-                    gd.executar();
+                    crudAdm.update();
                     break;
                 case 5:
-                    gs.executar();
+                    crudAdm.delete();
                     break;
                 case 0:
-                    tg.msgSaida();
+                    ta.msgSaida();
                     break;
                 default:
                     if(opc != 0){
-                        tg.msgOpcInvalida();
+                        ta.msgOpcInvalida();
                     }
                     break;
             }
         }while (opc != 0);
     }
-    
 }

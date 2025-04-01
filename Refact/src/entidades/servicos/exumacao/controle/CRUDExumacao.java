@@ -1,11 +1,10 @@
 package entidades.servicos.exumacao.controle;
 
-import java.util.Scanner;
 import entidades.servicos.exumacao.Exumacao;
 import entidades.servicos.exumacao.gerenciador.TelaExumacao;
 
 public class CRUDExumacao{
-    private final TelaExumacao te = new TelaExumacao(new Scanner(System.in));
+    private final TelaExumacao te = new TelaExumacao();
     private final Exumacao[] lista = new Exumacao[5];
 
     public void create(){
