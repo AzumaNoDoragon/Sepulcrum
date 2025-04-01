@@ -12,7 +12,7 @@ public class CRUDExumacao{
         int pos = posVazia();
 
         if(pos >= 0){
-            lista[pos] = new Exumacao(null, null, null, null, null, pos, pos, pos);
+            lista[pos] = new Exumacao();
             te.setExumacao(lista[pos]);
         } else {
             te.msgErro();

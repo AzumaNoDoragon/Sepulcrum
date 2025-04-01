@@ -4,12 +4,6 @@ public abstract class Localidade {
     protected String rua;
     protected int id, numero;
 
-    public Localidade(String rua, int id, int numero) {
-        this.rua = rua;
-        this.id = id;
-        this.numero = numero;
-    }
-
     public String getRua() {
         return rua;
     }

@@ -4,14 +4,6 @@ public abstract class Pessoas {
     protected String nome, cpf, rg, dataNascimento;
     protected int id;
 
-    public Pessoas(String nome, int id, String cpf, String rg, String dataNascimento) {
-        this.nome = nome;
-        this.id = id;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.dataNascimento = dataNascimento;
-    }
-
     public String getNome(){
         return nome;
     }

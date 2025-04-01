@@ -6,10 +6,6 @@ public class Cemiterio extends Localidade {
     private String nome, estado, cidade, telefone, cep;
     private int capacidadeMax;
     
-    public Cemiterio(String rua, int id, int numero) {
-        super(rua, id, numero);
-    }
-    
     public String getNome() {
         return nome;
     }

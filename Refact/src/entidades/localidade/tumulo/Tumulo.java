@@ -6,16 +6,6 @@ public class Tumulo extends Localidade{
     private String tipo, dataOcupacao, situacao;
     private int idCemiterio, idDefunto;
 
-    public Tumulo(String rua, int id, int numero, String tipo, String dataOcupacao, String situacao, int idCemiterio,
-            int idDefunto) {
-        super(rua, id, numero);
-        this.tipo = tipo;
-        this.dataOcupacao = dataOcupacao;
-        this.situacao = situacao;
-        this.idCemiterio = idCemiterio;
-        this.idDefunto = idDefunto;
-    }
-
     public String getTipo() {
         return tipo;
     }

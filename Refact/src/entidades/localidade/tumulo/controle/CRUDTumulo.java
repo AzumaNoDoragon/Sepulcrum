@@ -13,7 +13,7 @@ public class CRUDTumulo {
         int pos = posVazia();
 
         if(pos >= 0){
-            lista[pos] = new Tumulo(null, pos, pos, null, null, null, pos, pos);
+            lista[pos] = new Tumulo();
             tt.setTumulo(lista[pos]);
         } else {
             tt.msgErro();

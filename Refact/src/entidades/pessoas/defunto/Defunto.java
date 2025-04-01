@@ -5,10 +5,6 @@ import entidades.pessoas.heranca.Pessoas;
 public class Defunto extends Pessoas {
     private String dataFalecimento, causaMorte;
     private int idParente, idTumulo;
-    
-    public Defunto(String nome, int id, String cpf, String rg, String dataNascimento) {
-        super(nome, id, cpf, rg, dataNascimento);
-    }
 
     public String getDataFalecimento() {
         return dataFalecimento;

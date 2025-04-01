@@ -13,7 +13,7 @@ public class CRUDDefunto {
         int pos = posVazia();
 
         if(pos >= 0){
-            lista[pos] = new Defunto(null, pos, null, null, null);
+            lista[pos] = new Defunto();
             td.setDefunto(lista[pos]);
         } else {
             td.msgErro();
