@@ -33,6 +33,8 @@ public class CRUDCemiterio {
 
         if(lista[pos] != null){
             tc.getCemiterio(lista[pos]);
+        } else {
+            tc.msgIdInexistente();
         }
     }
 

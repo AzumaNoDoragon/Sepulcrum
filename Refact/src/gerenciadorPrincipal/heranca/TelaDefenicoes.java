@@ -9,8 +9,8 @@ public abstract class TelaDefenicoes {
         this.teclado = teclado;
     }
 
-    public void clearBuffer(Scanner scanner){
-        if(scanner.hasNextLine()){ scanner.nextLine();}
+    public static void clearBuffer(Scanner scanner){
+        scanner.nextLine();
     }
     
     public abstract int menu();
