@@ -2,14 +2,16 @@ package entidades.localidade.cemiterio.gerenciador;
 
 import java.util.Scanner;
 import entidades.localidade.cemiterio.Cemiterio;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+//import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
-public class TelaCemiterio extends TelaDefenicoes{
-    public TelaCemiterio(Scanner teclado) {
-        super(teclado);
+public class TelaCemterio {
+    private Scanner teclado;
+
+    public TelaCemterio(Scanner teclado) {
+        this.teclado = teclado;
     }
 
-    @Override
+    //@Override
     public int menu(){
         System.out.println("Menu do Cemitério: ");
         System.out.println("1 - Cadastrar Cemitério.");
@@ -18,11 +20,16 @@ public class TelaCemiterio extends TelaDefenicoes{
         System.out.println("4 - Alterar Cemitério.");
         System.out.println("5 - Deletar Cemitério.");
         System.out.println("0 - Voltar");
+        int opc = teclado.nextInt();
+        teclado.nextLine();
 
-        return teclado.nextInt();
+        return opc;
     }
 
     public void setCemiterio(Cemiterio c){
+        if (teclado.hasNextLine()) {
+            teclado.nextLine(); // Garante que qualquer caractere indesejado seja removido
+        }
         System.out.println("Digite o nome do Cemitério: ");
         c.setNome(teclado.nextLine());
         System.out.println("Digite o estado: ");
@@ -32,9 +39,9 @@ public class TelaCemiterio extends TelaDefenicoes{
         System.out.println("Digite a rua: ");
         c.setRua(teclado.nextLine());
         System.out.println("Digite o número do lote: ");
-        c.setNumero(teclado.nextInt()); clearBuffer(teclado);
+        c.setNumero(teclado.nextInt()); teclado.nextLine();
         System.out.println("Digite o capacidade máxima: ");
-        c.setCapacidadeMax(teclado.nextInt()); clearBuffer(teclado);
+        c.setCapacidadeMax(teclado.nextInt()); teclado.nextLine();
         System.out.println("Digite o telefone: ");
         c.setTelefone(teclado.nextLine());
         System.out.println("Digite o cep: ");
@@ -52,7 +59,7 @@ public class TelaCemiterio extends TelaDefenicoes{
             System.out.println("Telefone: " + c.getTelefone());
             System.out.println("Cep: " + c.getCep());
         } else {
-            msgIdInexistente();
+            //msgIdInexistente();
         }
     }
 }

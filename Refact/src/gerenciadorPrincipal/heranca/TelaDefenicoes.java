@@ -8,10 +8,6 @@ public abstract class TelaDefenicoes {
     public TelaDefenicoes(Scanner teclado){
         this.teclado = teclado;
     }
-
-    public static void clearBuffer(Scanner scanner){
-        scanner.nextLine();
-    }
     
     public abstract int menu();
 
