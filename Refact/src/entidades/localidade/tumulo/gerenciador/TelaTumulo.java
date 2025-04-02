@@ -41,12 +41,12 @@ public class TelaTumulo extends TelaDefenicoes{
     }
     
     public void getTumulo(Tumulo t){
-        if(t != null){ // Trocar teclado pela instancia
-            System.out.println("Tipo do tumulo: " + teclado);
-            System.out.println("Data de ocupação: " + teclado);
-            System.out.println("Situação: " + teclado);
-            System.out.println("Id do cemiterio: " + teclado);
-            System.out.println("Id do defunto: " + teclado);
+        if(t != null){
+            System.out.println("Tipo do tumulo: " + t.getTipo());
+            System.out.println("Data de ocupação: " + t.getDataOcupacao());
+            System.out.println("Situação: " + t.getSituacao());
+            System.out.println("Id do cemiterio: " + t.getIdCemiterio());
+            System.out.println("Id do defunto: " + t.getIdDefunto());
         } else {
             msgIdInexistente();
         }
