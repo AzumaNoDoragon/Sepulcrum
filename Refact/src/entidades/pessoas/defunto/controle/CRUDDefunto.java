@@ -1,12 +1,10 @@
 package entidades.pessoas.defunto.controle;
 
-import java.util.Scanner;
-
 import entidades.pessoas.defunto.Defunto;
 import entidades.pessoas.defunto.gerenciador.TelaDefunto;
 
 public class CRUDDefunto {
-    private final TelaDefunto td = new TelaDefunto(new Scanner(System.in));
+    private final TelaDefunto td = new TelaDefunto();
     private final Defunto[] lista = new Defunto[5];
 
     public void create(){
@@ -37,7 +35,7 @@ public class CRUDDefunto {
         }
     }
 
-    public void listarDefunto(){
+    public void listar(){
         for(int i = 0; i < lista.length; i++){
             td.getDefunto(lista[i]);
             System.out.println("**********");

@@ -20,7 +20,7 @@ public class GerenciadorCemiterio {
                     crudC.read();
                     break;
                 case 3:
-                    crudC.listarCemiterio();
+                    crudC.listar();
                     break;
                 case 4:
                     crudC.update();   

@@ -36,7 +36,7 @@ public class CRUDTumulo {
         }
     }
 
-    public void listarTumulo(){
+    public void listar(){
         for(int i = 0; i < lista.length; i++){
             tt.getTumulo(lista[i]);
             System.out.println("**********");

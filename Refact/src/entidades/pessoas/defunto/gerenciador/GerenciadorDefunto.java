@@ -20,7 +20,7 @@ public class GerenciadorDefunto {
                     crudD.read();
                     break;
                 case 3:
-                    crudD.listarDefunto();
+                    crudD.listar();
                     break;
                 case 4:
                     crudD.update();   

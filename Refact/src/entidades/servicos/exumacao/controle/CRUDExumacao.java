@@ -36,7 +36,7 @@ public class CRUDExumacao{
         }
     }
 
-    public void listarExumacao(){
+    public void listar(){
         for(int i = 0; i < lista.length; i++){
             te.getExumacao(lista[i]);
             System.out.println("***********");
