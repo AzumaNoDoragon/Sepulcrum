@@ -1,10 +1,11 @@
 package entidades.servicos.vistoria.controle;
 
+import java.util.Scanner;
 import entidades.servicos.vistoria.Vistoria;
 import entidades.servicos.vistoria.gerenciador.TelaVistoria;
 
 public class CRUDVistoria {
-    private final TelaVistoria tv = new TelaVistoria();
+    private final TelaVistoria tv = new TelaVistoria(new Scanner(System.in));
     private final Vistoria[] lista = new Vistoria[5];
 
     public void create(){

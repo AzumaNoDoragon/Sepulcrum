@@ -1,5 +1,6 @@
 package entidades.pessoas.adm.gerenciador;
 
+import java.util.Scanner;
 import entidades.pessoas.adm.controle.CRUDAdm;
 
 public class GerenciadorAdm {

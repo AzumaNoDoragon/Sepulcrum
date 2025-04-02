@@ -1,10 +1,12 @@
 package entidades.servicos.reservaTumulo.controle;
 
+import java.util.Scanner;
+
 import entidades.servicos.reservaTumulo.ReservaTumulo;
 import entidades.servicos.reservaTumulo.gerenciador.TelaReservaTumulo;
 
 public class CRUDReservaTumulo {
-    private final TelaReservaTumulo trt = new TelaReservaTumulo();
+    private final TelaReservaTumulo trt = new TelaReservaTumulo(new Scanner(System.in));
     private final ReservaTumulo[] lista = new ReservaTumulo[5];
 
     public void create(){

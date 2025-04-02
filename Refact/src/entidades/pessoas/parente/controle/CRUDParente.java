@@ -1,10 +1,11 @@
 package entidades.pessoas.parente.controle;
 
+import java.util.Scanner;
 import entidades.pessoas.parente.Parente;
 import entidades.pessoas.parente.gerenciador.TelaParente;
 
 public class CRUDParente {
-    private final TelaParente tp = new TelaParente();
+    private final TelaParente tp = new TelaParente(new Scanner(System.in));
     private final Parente[] lista = new Parente[5];
 
     public void create(){

@@ -1,11 +1,12 @@
 package entidades.servicos.transferenciaDefunto.controle;
 
-import entidades.servicos.exumacao.Exumacao;
+import java.util.Scanner;
+
 import entidades.servicos.transferenciaDefunto.TransferenciaDefunto;
 import entidades.servicos.transferenciaDefunto.gerenciador.TelaTransferenciaDefunto;
 
 public class CRUDTransferenciaDefunto {
-    private final TelaTransferenciaDefunto ttd = new TelaTransferenciaDefunto();
+    private final TelaTransferenciaDefunto ttd = new TelaTransferenciaDefunto(new Scanner(System.in));
     private final TransferenciaDefunto[] lista = new TransferenciaDefunto[5];
 
     public void create(){

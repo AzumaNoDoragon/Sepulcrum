@@ -1,10 +1,11 @@
 package entidades.pessoas.adm.controle;
 
+import java.util.Scanner;
 import entidades.pessoas.adm.Adm;
 import entidades.pessoas.adm.gerenciador.TelaAdm;
 
 public class CRUDAdm {
-    private final TelaAdm td = new TelaAdm();
+    private final TelaAdm td = new TelaAdm(new Scanner(System.in));
     private final Adm[] lista = new Adm[5];
     
     public void create(){

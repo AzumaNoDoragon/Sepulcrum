@@ -1,9 +1,11 @@
 package entidades.servicos.manutencaoTumulo.gerenciador;
 
+import java.util.Scanner;
+
 import entidades.servicos.manutencaoTumulo.controle.CRUDManutencaoTumulo;
 
 public class GerenciadorManutencaoTumulo {
-    private final TelaManutencaoTumulo tmt = new TelaManutencaoTumulo();
+    private final TelaManutencaoTumulo tmt = new TelaManutencaoTumulo(new Scanner(System.in));
     private final CRUDManutencaoTumulo crudMT = new CRUDManutencaoTumulo();
 
     public void executar(){

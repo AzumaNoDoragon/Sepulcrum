@@ -1,9 +1,10 @@
 package entidades.servicos.vistoria.gerenciador;
 
+import java.util.Scanner;
 import entidades.servicos.vistoria.controle.CRUDVistoria;
 
 public class GerenciadorVistoria {
-    private final TelaVistoria tv = new TelaVistoria();
+    private final TelaVistoria tv = new TelaVistoria(new Scanner(System.in));
     private final CRUDVistoria crucV = new CRUDVistoria();
 
     public void executar(){

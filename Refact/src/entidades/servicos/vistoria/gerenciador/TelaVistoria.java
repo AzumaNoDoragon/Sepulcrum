@@ -1,6 +1,6 @@
 package entidades.servicos.vistoria.gerenciador;
 
-import java.time.LocalDate;
+import java.util.Scanner;
 import entidades.servicos.vistoria.Vistoria;
 import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
@@ -28,7 +28,13 @@ public class TelaVistoria extends TelaDefenicoes{
         System.out.println("Digite a data da Vistoria");
         v.setDataServico(teclado.nextLine());
     }
+
+    public void getVistoria(Vistoria v){
+        System.out.println("Implementar!");
+    }
 }
+/* 
 String responsavelServico, informacoesAdicionaris, statusServico;
 LocalDate dataServico;
 int idServico, idTumulo;
+*/

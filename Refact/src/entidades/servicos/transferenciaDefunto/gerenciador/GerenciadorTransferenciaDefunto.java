@@ -1,9 +1,10 @@
 package entidades.servicos.transferenciaDefunto.gerenciador;
 
+import java.util.Scanner;
 import entidades.servicos.transferenciaDefunto.controle.CRUDTransferenciaDefunto;
 
 public class GerenciadorTransferenciaDefunto {
-    private final TelaTransferenciaDefunto ttd = new TelaTransferenciaDefunto();
+    private final TelaTransferenciaDefunto ttd = new TelaTransferenciaDefunto(new Scanner(System.in));
     private final CRUDTransferenciaDefunto crudTD = new CRUDTransferenciaDefunto();
 
     public void executar(){
