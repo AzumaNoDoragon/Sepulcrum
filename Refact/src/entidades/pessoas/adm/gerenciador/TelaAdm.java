@@ -23,7 +23,6 @@ public class TelaAdm extends TelaDefenicoes{
     }
 
     public void setAdm(Adm a){
-        teclado.nextLine();
         System.out.println("Digite seu nome: ");
         a.setNome(teclado.nextLine());
         System.out.println("Digite seu CPF: ");

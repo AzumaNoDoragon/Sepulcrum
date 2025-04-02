@@ -37,11 +37,13 @@ public abstract class TelaDefenicoes {
 
     public int alterar(){
         System.out.println("Digite o id para alterar: ");
-        return teclado.nextInt();
+        int id = teclado.nextInt(); teclado.nextLine();
+        return id;
     }
 
     public int selecionar(){
         System.out.println("Digite o id: ");
-        return teclado.nextInt();
+        int id = teclado.nextInt(); teclado.nextLine();
+        return id;
     }
 }

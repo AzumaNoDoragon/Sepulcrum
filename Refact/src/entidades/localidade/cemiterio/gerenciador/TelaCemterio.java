@@ -2,16 +2,14 @@ package entidades.localidade.cemiterio.gerenciador;
 
 import java.util.Scanner;
 import entidades.localidade.cemiterio.Cemiterio;
-//import gerenciadorPrincipal.heranca.TelaDefenicoes;
+import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
-public class TelaCemterio {
-    private Scanner teclado;
-
+public class TelaCemterio extends TelaDefenicoes {
     public TelaCemterio(Scanner teclado) {
-        this.teclado = teclado;
+        super(teclado);
     }
 
-    //@Override
+    @Override
     public int menu(){
         System.out.println("Menu do Cemitério: ");
         System.out.println("1 - Cadastrar Cemitério.");
@@ -27,9 +25,6 @@ public class TelaCemterio {
     }
 
     public void setCemiterio(Cemiterio c){
-        if (teclado.hasNextLine()) {
-            teclado.nextLine(); // Garante que qualquer caractere indesejado seja removido
-        }
         System.out.println("Digite o nome do Cemitério: ");
         c.setNome(teclado.nextLine());
         System.out.println("Digite o estado: ");
@@ -59,7 +54,7 @@ public class TelaCemterio {
             System.out.println("Telefone: " + c.getTelefone());
             System.out.println("Cep: " + c.getCep());
         } else {
-            //msgIdInexistente();
+            msgIdInexistente();
         }
     }
 }
