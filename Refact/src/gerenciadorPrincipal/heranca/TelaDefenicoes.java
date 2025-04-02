@@ -5,6 +5,10 @@ import java.util.Scanner;
 public abstract class TelaDefenicoes {
     protected Scanner teclado;
 
+    public TelaDefenicoes(Scanner teclado){
+        this.teclado = teclado;
+    }
+
     public abstract int menu();
 
     public void msgOpcInvalida(){

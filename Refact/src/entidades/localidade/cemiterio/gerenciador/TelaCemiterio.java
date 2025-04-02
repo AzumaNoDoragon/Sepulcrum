@@ -1,9 +1,14 @@
 package entidades.localidade.cemiterio.gerenciador;
 
+import java.util.Scanner;
 import entidades.localidade.cemiterio.Cemiterio;
 import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
 public class TelaCemiterio extends TelaDefenicoes{
+    public TelaCemiterio(Scanner teclado) {
+        super(teclado);
+    }
+
     @Override
     public int menu(){
         System.out.println("Menu do Cemitério: ");

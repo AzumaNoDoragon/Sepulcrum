@@ -1,5 +1,6 @@
 package gerenciadorPrincipal;
 
+import java.util.Scanner;
 import entidades.localidade.cemiterio.gerenciador.GerenciadorCemiterio;
 import entidades.localidade.tumulo.gerenciador.GerenciadorTumulo;
 import entidades.pessoas.adm.gerenciador.GerenciadorAdm;
@@ -7,7 +8,7 @@ import entidades.pessoas.defunto.gerenciador.GerenciadorDefunto;
 import entidades.servicos.gerenciadosServicos.GerenciadorServicos;
 
 public class Gerenciador {
-    private final TelaGerenciador tg = new TelaGerenciador();
+    private final TelaGerenciador tg = new TelaGerenciador(new Scanner(System.in));
     private final GerenciadorCemiterio gc = new GerenciadorCemiterio();
     private final GerenciadorAdm ga = new GerenciadorAdm();
     private final GerenciadorTumulo gt = new GerenciadorTumulo();

@@ -1,5 +1,7 @@
 package entidades.servicos.gerenciadosServicos;
 
+import java.util.Scanner;
+
 import entidades.localidade.tumulo.gerenciador.GerenciadorTumulo;
 import entidades.servicos.exumacao.gerenciador.GerenciadorExumacao;
 import entidades.servicos.manutencaoTumulo.gerenciador.GerenciadorManutencaoTumulo;
@@ -7,7 +9,7 @@ import entidades.servicos.transferenciaDefunto.gerenciador.GerenciadorTransferen
 import entidades.servicos.vistoria.gerenciador.GerenciadorVistoria;
 
 public class GerenciadorServicos {
-    private TelaGerenciadorServicos tgs = new TelaGerenciadorServicos();
+    private TelaGerenciadorServicos tgs = new TelaGerenciadorServicos(new Scanner(System.in));
     private GerenciadorExumacao ge = new GerenciadorExumacao();
     private GerenciadorManutencaoTumulo gmt = new GerenciadorManutencaoTumulo();
     private GerenciadorTumulo gt = new GerenciadorTumulo();

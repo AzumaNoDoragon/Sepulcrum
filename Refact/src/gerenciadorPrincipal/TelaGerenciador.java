@@ -1,8 +1,13 @@
 package gerenciadorPrincipal;
 
+import java.util.Scanner;
 import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
 public class TelaGerenciador extends TelaDefenicoes{
+    public TelaGerenciador(Scanner teclado) {
+        super(teclado);
+    }
+
     @Override
     public int menu(){
         System.out.println("Menu");

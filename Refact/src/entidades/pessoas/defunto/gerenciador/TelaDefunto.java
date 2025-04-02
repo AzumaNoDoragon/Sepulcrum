@@ -1,9 +1,14 @@
 package entidades.pessoas.defunto.gerenciador;
 
+import java.util.Scanner;
 import entidades.pessoas.defunto.Defunto;
 import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
 public class TelaDefunto extends TelaDefenicoes{
+    public TelaDefunto(Scanner teclado) {
+        super(teclado);
+    }
+
     @Override
     public int menu(){
         System.out.println("Menu do Finado: ");

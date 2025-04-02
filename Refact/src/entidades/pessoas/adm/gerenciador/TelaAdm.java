@@ -1,9 +1,14 @@
 package entidades.pessoas.adm.gerenciador;
 
+import java.util.Scanner;
 import entidades.pessoas.adm.Adm;
 import gerenciadorPrincipal.heranca.TelaDefenicoes;
 
 public class TelaAdm extends TelaDefenicoes{
+    public TelaAdm(Scanner teclado) {
+        super(teclado);
+    }
+
     @Override
     public int menu() {
         System.out.println("Menu do Coveiro: ");
