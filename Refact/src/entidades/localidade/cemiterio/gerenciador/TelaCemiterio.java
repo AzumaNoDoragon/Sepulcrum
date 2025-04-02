@@ -23,6 +23,7 @@ public class TelaCemiterio extends TelaDefenicoes{
     }
 
     public void setCemiterio(Cemiterio c){
+        clearBuffer(teclado);
         System.out.println("Digite o nome do Cemitério: ");
         c.setNome(teclado.nextLine());
         System.out.println("Digite o estado: ");
@@ -32,9 +33,9 @@ public class TelaCemiterio extends TelaDefenicoes{
         System.out.println("Digite a rua: ");
         c.setRua(teclado.nextLine());
         System.out.println("Digite o número do lote: ");
-        c.setNumero(teclado.nextInt()); teclado.nextLine();
+        c.setNumero(teclado.nextInt()); clearBuffer(teclado);
         System.out.println("Digite o capacidade máxima: ");
-        c.setCapacidadeMax(teclado.nextInt()); teclado.nextLine();
+        c.setCapacidadeMax(teclado.nextInt()); clearBuffer(teclado);
         System.out.println("Digite o telefone: ");
         c.setTelefone(teclado.nextLine());
         System.out.println("Digite o cep: ");

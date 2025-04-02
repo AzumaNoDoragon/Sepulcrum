@@ -4,11 +4,15 @@ import java.util.Scanner;
 
 public abstract class TelaDefenicoes {
     protected Scanner teclado;
-
+    
     public TelaDefenicoes(Scanner teclado){
         this.teclado = teclado;
     }
 
+    public void clearBuffer(Scanner scanner){
+        if(scanner.hasNextLine()){ scanner.nextLine();}
+    }
+    
     public abstract int menu();
 
     public void msgOpcInvalida(){
