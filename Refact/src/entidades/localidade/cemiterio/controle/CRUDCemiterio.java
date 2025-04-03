@@ -46,10 +46,25 @@ public class CRUDCemiterio {
     }
 
     public void update(){
-        System.out.println("Crud do Cemiterio");
+        int pos = tc.selecionar();
+
+        if(lista[pos] != null){
+            lista[pos] = new Cemiterio();
+            tc.setCemiterio(lista[pos]);
+            tc.msgAlteracao();
+        } else {
+            tc.msgIdInexistente();
+        }
     }
 
     public void delete(){
-        System.out.println("Crud do Cemiterio");        
+        int pos = tc.selecionar();
+
+        if(lista[pos] != null){
+            lista[pos] = null;
+            tc.msgDelecao();
+        } else {
+            tc.msgIdInexistente();
+        }
     }
 }

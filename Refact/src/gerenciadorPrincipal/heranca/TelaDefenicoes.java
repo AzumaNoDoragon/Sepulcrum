@@ -31,14 +31,16 @@ public abstract class TelaDefenicoes {
         System.out.println("Inserido no sistema!");
     }
 
-    public void msgErro(){
-        System.out.println("Erro!");
+    public void msgAlteracao(){
+        System.out.println("Alteração realizada!");
     }
 
-    public int alterar(){
-        System.out.println("Digite o id para alterar: ");
-        int id = teclado.nextInt(); teclado.nextLine();
-        return id;
+    public void msgDelecao(){
+        System.out.println("Deleção realizada!");
+    }
+
+    public void msgErro(){
+        System.out.println("Erro!");
     }
 
     public int selecionar(){
