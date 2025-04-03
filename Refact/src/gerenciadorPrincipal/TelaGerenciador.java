@@ -14,7 +14,7 @@ public class TelaGerenciador extends TelaDefenicoes{
         System.out.println("1 - Informações do Cemiterio");
         System.out.println("2 - Informações do Adm.");
         System.out.println("3 - Informações do Tumulo.");
-        System.out.println("4 - Informações do Defunto.");
+        System.out.println("4 - Informações do Finado.");
         System.out.println("5 - Informações de Serviços.");
         System.out.println("0 - Voltar");
         int opc = teclado.nextInt(); teclado.nextLine();

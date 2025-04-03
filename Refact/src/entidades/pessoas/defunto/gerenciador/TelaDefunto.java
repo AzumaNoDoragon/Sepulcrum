@@ -24,7 +24,7 @@ public class TelaDefunto extends TelaDefenicoes{
     }
 
     public void setDefunto(Defunto d){
-        System.out.println("Digite o nome do Finados: ");
+        System.out.println("Digite o nome do Finado: ");
         d.setNome(teclado.nextLine());
         System.out.println("Digite o CPF: ");
         d.setCpf(teclado.nextLine());
@@ -44,14 +44,14 @@ public class TelaDefunto extends TelaDefenicoes{
     
     public void getDefunto(Defunto d){
         if(d != null){
-            System.out.println("nome do Finados" + d.getNome());
+            System.out.println("nome do Finado: " + d.getNome());
             System.out.println("CPF: " + d.getCpf());
             System.out.println("RG: " + d.getRg());
-            System.out.println("data de nascimento" + d.getDataNascimento());
-            System.out.println("data de falecimento" + d.getDataFalecimento());
-            System.out.println("causa da morte" + d.getCausaMorte());
-            System.out.println("id do parente" + d.getIdParente());
-            System.out.println("id do tumulo" + d.getIdTumulo());
+            System.out.println("Data de nascimento: " + d.getDataNascimento());
+            System.out.println("Data de falecimento: " + d.getDataFalecimento());
+            System.out.println("Causa da morte: " + d.getCausaMorte());
+            System.out.println("Id do parente: " + d.getIdParente());
+            System.out.println("Id do tumulo: " + d.getIdTumulo());
         } else {
             msgIdInexistente();
         }
