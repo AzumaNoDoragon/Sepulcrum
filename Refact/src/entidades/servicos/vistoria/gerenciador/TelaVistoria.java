@@ -18,8 +18,9 @@ public class TelaVistoria extends TelaDefenicoes{
         System.out.println("4 - Alterar Vistoria.");
         System.out.println("5 - Deletar Vistoria.");
         System.out.println("0 - Voltar");
+        int opc = teclado.nextInt(); teclado.nextLine();
 
-        return teclado.nextInt();
+        return opc;
     }
 
     public void setVistoria(Vistoria v){

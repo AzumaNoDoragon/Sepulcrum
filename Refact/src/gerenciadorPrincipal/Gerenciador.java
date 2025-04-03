@@ -5,7 +5,7 @@ import entidades.localidade.cemiterio.gerenciador.GerenciadorCemiterio;
 import entidades.localidade.tumulo.gerenciador.GerenciadorTumulo;
 import entidades.pessoas.adm.gerenciador.GerenciadorAdm;
 import entidades.pessoas.defunto.gerenciador.GerenciadorDefunto;
-import entidades.servicos.gerenciadosServicos.GerenciadorServicos;
+import entidades.servicos.gerenciadorServicos.GerenciadorServicos;
 
 public class Gerenciador {
     private final TelaGerenciador tg = new TelaGerenciador(new Scanner(System.in));

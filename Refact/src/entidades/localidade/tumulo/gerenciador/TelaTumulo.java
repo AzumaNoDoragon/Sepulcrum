@@ -18,12 +18,12 @@ public class TelaTumulo extends TelaDefenicoes{
         System.out.println("4 - Alterar Túmulo.");
         System.out.println("5 - Deletar Túmulo.");
         System.out.println("0 - Voltar");
+        int opc = teclado.nextInt(); teclado.nextLine();
 
-        return teclado.nextInt();
+        return opc;
     }
 
     public void setTumulo(Tumulo t){
-        teclado.nextLine();
         System.out.println("Digite o tipo do tumulo: ");
         t.setTipo(teclado.nextLine());
         System.out.println("Digite a data de ocupação: ");

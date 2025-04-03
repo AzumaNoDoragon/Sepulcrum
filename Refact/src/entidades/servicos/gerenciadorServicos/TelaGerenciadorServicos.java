@@ -1,4 +1,4 @@
-package entidades.servicos.gerenciadosServicos;
+package entidades.servicos.gerenciadorServicos;
 
 import java.util.Scanner;
 import gerenciadorPrincipal.heranca.TelaDefenicoes;

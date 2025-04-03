@@ -18,12 +18,12 @@ public class TelaDefunto extends TelaDefenicoes{
         System.out.println("4 - Alterar Finado.");
         System.out.println("5 - Deletar Finado.");
         System.out.println("0 - Voltar");
+        int opc = teclado.nextInt(); teclado.nextLine();
 
-        return teclado.nextInt();
+        return opc;
     }
 
     public void setDefunto(Defunto d){
-        teclado.nextLine();
         System.out.println("Digite o nome do Finados: ");
         d.setNome(teclado.nextLine());
         System.out.println("Digite o CPF: ");
