@@ -23,18 +23,30 @@ public class TelaVistoria extends TelaDefenicoes{
     }
 
     public void setVistoria(Vistoria v){
-        System.out.println("Digite a descrição da Vistoria: ");
+        System.out.println("Digite a descrição da serviço: ");
         v.setDescricao(teclado.nextLine());
-        System.out.println("Digite a data da Vistoria");
+        System.out.println("Digite a data do serviço");
         v.setDataServico(teclado.nextLine());
+        System.out.println("Digite o status do serviço: ");
+        v.setStatusServico(teclado.nextLine());
+        System.out.println("Digite as Informações Adicionais: ");
+        v.setInformacoesAdicionais(teclado.nextLine());
+        System.out.println("Digite o id do responsável: ");
+        v.setIdResponsavelServico(teclado.nextInt()); teclado.nextLine();
+        System.out.println("Digite o id do Túmulo: ");
+        v.setIdTumulo(teclado.nextInt()); teclado.nextLine();
     }
 
     public void getVistoria(Vistoria v){
-        System.out.println("Implementar!");
+        if(v != null){
+            System.out.println("A descrição do serviço: " + v.getDescricao());
+            System.out.println("A data de serviço: " + v.getDataServico());
+            System.out.println("O status do serviço: " + v.getStatusServico());
+            System.out.println("As informações adicionais: " + v.getInformacoesAdicionais());
+            System.out.println("O id do responsável pelo serviço: " + v.getIdResponsavelServico());
+            System.out.println("O id do túmulo: " + v.getIdTumulo());
+        } else {
+            msgIdInexistente();
+        }
     }
 }
-/* 
-String responsavelServico, informacoesAdicionaris, statusServico;
-LocalDate dataServico;
-int idServico, idTumulo;
-*/
