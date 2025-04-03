@@ -12,7 +12,7 @@ public class GerenciadorServicos {
     private TelaGerenciadorServicos tgs = new TelaGerenciadorServicos(new Scanner(System.in));
     private GerenciadorExumacao ge = new GerenciadorExumacao();
     private GerenciadorManutencaoTumulo gmt = new GerenciadorManutencaoTumulo();
-    private GerenciadorReservaTumulo grt = new GerenciadorReservaTumulo()
+    private GerenciadorReservaTumulo grt = new GerenciadorReservaTumulo();
     private GerenciadorTransferenciaDefunto gtd = new GerenciadorTransferenciaDefunto();
     private GerenciadorVistoria gv = new GerenciadorVistoria();
 
