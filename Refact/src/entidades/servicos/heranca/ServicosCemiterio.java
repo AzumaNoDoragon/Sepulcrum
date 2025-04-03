@@ -1,15 +1,15 @@
 package entidades.servicos.heranca;
 
 public abstract class ServicosCemiterio {
-    protected String dataServico, descricao, informacoesAdicionaris, statusServico;
-    protected int idServico, responsavelServico;
+    protected String dataServico, descricao, informacoesAdicionais, statusServico;
+    protected int idServico, idResponsavelServico;
 
-    public int getResponsavelServico() {
-        return responsavelServico;
+    public int getIdResponsavelServico() {
+        return idResponsavelServico;
     }
 
-    public void setResponsavelServico(int responsavelServico) {
-        this.responsavelServico = responsavelServico;
+    public void setIdResponsavelServico(int idResponsavelServico) {
+        this.idResponsavelServico = idResponsavelServico;
     }
 
     public String getDescricao() {
@@ -20,12 +20,12 @@ public abstract class ServicosCemiterio {
         this.descricao = descricao;
     }
 
-    public String getInformacoesAdicionaris() {
-        return informacoesAdicionaris;
+    public String getInformacoesAdicionais() {
+        return informacoesAdicionais;
     }
 
-    public void setInformacoesAdicionaris(String informacoesAdicionaris) {
-        this.informacoesAdicionaris = informacoesAdicionaris;
+    public void setInformacoesAdicionais(String informacoesAdicionais) {
+        this.informacoesAdicionais = informacoesAdicionais;
     }
 
     public String getStatusServico() {
