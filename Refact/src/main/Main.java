@@ -1,9 +1,9 @@
 package main;
 
-import gerenciadorPrincipal.Gerenciador;
+import gerenciadorPrincipal.TelaGerenciador;
 
 public class Main {
     public static void main(String[] args){
-        new Gerenciador().executar();
+        new TelaGerenciador();
     }
 }
