@@ -2,10 +2,10 @@ package entidades.localidade.cemiterio.controle;
 
 import java.util.Scanner;
 import entidades.localidade.cemiterio.Cemiterio;
-import entidades.localidade.cemiterio.gerenciador.TelaCemiterio;
+import entidades.localidade.cemiterio.gerenciador.TelaGerenciadorCemiterio;
 
 public class CRUDCemiterio {
-    private final TelaCemiterio tc = new TelaCemiterio(new Scanner(System.in));
+    private final TelaGerenciadorCemiterio tc = new TelaGerenciadorCemiterio(new Scanner(System.in));
     private final Cemiterio[] lista = new Cemiterio[5];
 
     public void create(){

@@ -4,12 +4,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class TelaGerenciador extends JFrame{
-	private final JButton jbCemiterio, jbuttonAdm, jbuttonTumulo, jbDefunto, jbServicos;
+	private final JButton jbCemiterio, jbAdm, jbTumulo, jbDefunto, jbServicos;
 
     public TelaGerenciador(){
         jbCemiterio = new JButton("Cemitério");
-        jbuttonAdm = new JButton("Administrador");
-        jbuttonTumulo = new JButton("Túmulo");
+        jbAdm = new JButton("Administrador");
+        jbTumulo = new JButton("Túmulo");
         jbDefunto = new JButton("Defunto");
         jbServicos = new JButton("Serviços");
 
@@ -36,8 +36,8 @@ public class TelaGerenciador extends JFrame{
             int jbY = y * (i + 1);
             JButton button = switch (i){
                 case 0 -> jbCemiterio;
-                case 1 -> jbuttonAdm;
-                case 2 -> jbuttonTumulo;
+                case 1 -> jbAdm;
+                case 2 -> jbTumulo;
                 case 3 -> jbDefunto;
                 case 4 -> jbServicos;
                 default -> null;
