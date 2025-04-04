@@ -3,6 +3,10 @@ package gerenciadorPrincipal;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import entidades.localidade.cemiterio.gerenciador.TelaGerenciadorCemiterio;
+import entidades.pessoas.adm.gerenciador.TelaGerenciadorAdm;
+import entidades.servicos.gerenciadorServicos.TelaGerenciadorServicos;
+
 public class TelaGerenciador extends JFrame{
 	private final JButton jbCemiterio, jbAdm, jbTumulo, jbDefunto, jbServicos;
 
@@ -34,7 +38,8 @@ public class TelaGerenciador extends JFrame{
 
         for(int i = 0; i < qtdBotoes; i++){
             int jbY = y * (i + 1);
-            JButton button = switch (i){
+            int index = i;
+            JButton button = switch (index){
                 case 0 -> jbCemiterio;
                 case 1 -> jbAdm;
                 case 2 -> jbTumulo;
@@ -44,7 +49,16 @@ public class TelaGerenciador extends JFrame{
             };
             if(button != null){
                 button.setBounds(jbX, jbY, jbWidth, jbHeight);
-                button.addActionListener(e -> dispose());
+                button.addActionListener(e -> {
+                    switch(index){
+                        case 0 -> new TelaGerenciadorCemiterio();
+                        case 1 -> new TelaGerenciadorAdm();
+                        case 2 -> new TelaGerenciadorCemiterio();
+                        case 3 -> new TelaGerenciadorCemiterio();
+                        case 4 -> new TelaGerenciadorCemiterio();
+                    }
+                    dispose();
+                });
                 this.add(button);
             }
         };

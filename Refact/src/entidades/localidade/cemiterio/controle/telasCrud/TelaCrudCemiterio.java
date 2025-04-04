@@ -16,7 +16,7 @@ public class TelaCrudCemiterio extends JFrame{
         int fWidth = 500;
         int fHeight = 700;
 
-        this.setTitle("Menu Cemitério");
+        this.setTitle("Cadastrar Cemitério");
         this.setLayout(null);
         this.setSize(fWidth, fHeight);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

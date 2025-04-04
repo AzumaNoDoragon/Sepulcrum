@@ -1,9 +1,9 @@
 package main;
 
-import entidades.localidade.cemiterio.controle.telasCrud.TelaCrudCemiterio;
+import gerenciadorPrincipal.TelaGerenciador;
 
 public class Main {
     public static void main(String[] args){
-        new TelaCrudCemiterio();
+        new TelaGerenciador();
     }
 }

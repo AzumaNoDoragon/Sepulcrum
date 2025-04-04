@@ -4,7 +4,7 @@ import java.util.Scanner;
 import entidades.pessoas.adm.controle.CRUDAdm;
 
 public class GerenciadorAdm {
-    private final TelaAdm ta = new TelaAdm(new Scanner(System.in));
+    private final TelaGerenciadorAdm ta = new TelaGerenciadorAdm(new Scanner(System.in));
     private final CRUDAdm crudAdm = new CRUDAdm();
 
     public void executar(){

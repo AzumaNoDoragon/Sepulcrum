@@ -1,14 +1,13 @@
-package entidades.localidade.tumulo.gerenciador;
+package entidades.pessoas.adm.gerenciador;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
 import gerenciadorPrincipal.TelaGerenciador;
 
-public class TelaTumulo extends JFrame{
+public class TelaGerenciadorAdm extends JFrame{
     private JButton jbCreate, jbRead, jbList, jbUpdate, jbDelete, jbVoltar;
 
-    public TelaTumulo(){
+    public TelaGerenciadorAdm(){
         inicializarVariaveis();
         
         int fWidth = 300;
@@ -63,56 +62,44 @@ public class TelaTumulo extends JFrame{
     }
 
     private void inicializarVariaveis(){
-        jbCreate = new JButton("Cadastrar Túmulo.");
-        jbRead = new JButton("Apresentar Túmulo.");
-        jbList = new JButton("Listar Túmulo.");
-        jbUpdate = new JButton("Alterar Túmulo.");
-        jbDelete = new JButton("Deletar Túmulo.");
+        jbCreate = new JButton("Cadastrar Coveiro.");
+        jbRead = new JButton("Apresentar Coveiro.");
+        jbList = new JButton("Listar Coveiro.");
+        jbUpdate = new JButton("Alterar Coveiro.");
+        jbDelete = new JButton("Deletar Coveiro.");
         jbVoltar = new JButton("Voltar");
     }
 }
-    /*public TelaTumulo(Scanner teclado) {
-        super(teclado);
+
+/*public void setAdm(Adm a){
+        System.out.println("Digite seu nome: ");
+        a.setNome(teclado.nextLine());
+        System.out.println("Digite seu CPF: ");
+        a.setCpf(teclado.nextLine());
+        System.out.println("Digite seu RG: ");
+        a.setRg(teclado.nextLine());
+        System.out.println("Digite sua data de nascimento: ");
+        a.setDataNascimento(teclado.nextLine());
+        System.out.println("Digite seu e-mail: ");
+        a.setEmail(teclado.nextLine());
+        System.out.println("Digite seu telefone: ");
+        a.setTelefone(teclado.nextLine());
+        System.out.println("Digite seu cargo: ");
+        a.setCargo(teclado.nextLine());
+        System.out.println("Digite a data de contratação: ");
+        a.setDataContratacao(teclado.nextLine());
     }
 
-    @Override
-    public int menu(){
-        System.out.println("Menu do Túmulo: ");
-        System.out.println("1 - Cadastrar Túmulo.");
-        System.out.println("2 - Apresentar Túmulo.");
-        System.out.println("3 - Listar Túmulo.");
-        System.out.println("4 - Alterar Túmulo.");
-        System.out.println("5 - Deletar Túmulo.");
-        System.out.println("0 - Voltar");
-        int opc = teclado.nextInt(); teclado.nextLine();
-
-        return opc;
-    }
-
-    public void setTumulo(Tumulo t){
-        System.out.println("Digite o tipo do tumulo: ");
-        t.setTipo(teclado.nextLine());
-        System.out.println("Digite a data de ocupação: ");
-        t.setDataOcupacao(teclado.nextLine());
-        System.out.println("Digite a situação: ");
-        t.setSituacao(teclado.nextLine());
-        System.out.println("Digite o id do cemiterio: ");
-        t.setIdCemiterio(teclado.nextInt()); teclado.nextLine();
-        System.out.println("Digite o bloco do Tumulo: ");
-        t.setRua(teclado.nextLine());
-        System.out.println("Digite o número do Túmulo: ");
-        t.setNumero(teclado.nextInt()); teclado.nextLine();
-        System.out.println("Digite o id do defunto: ");
-        t.setIdDefunto(teclado.nextInt()); teclado.nextLine();
-    }
-    
-    public void getTumulo(Tumulo t){
-        if(t != null){
-            System.out.println("Tipo do tumulo: " + t.getTipo());
-            System.out.println("Data de ocupação: " + t.getDataOcupacao());
-            System.out.println("Situação: " + t.getSituacao());
-            System.out.println("Id do cemiterio: " + t.getIdCemiterio());
-            System.out.println("Id do defunto: " + t.getIdDefunto());
+    public void getAdm(Adm a){
+        if(a != null){
+            System.out.println("Nome: " + a.getNome());
+            System.out.println("CPF: " + a.getCpf());
+            System.out.println("RG: " + a.getRg());
+            System.out.println("Data de Contratação: " + a.getDataContratacao());
+            System.out.println("Data de Nascimento: " + a.getDataNascimento());
+            System.out.println("E-mail: " + a.getEmail());
+            System.out.println("Telefone: " + a.getCargo());
+            System.out.println("Data de Contratação: " + a.getDataContratacao());
         } else {
             msgIdInexistente();
         }

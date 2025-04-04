@@ -2,6 +2,8 @@ package entidades.localidade.cemiterio.gerenciador;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import entidades.localidade.cemiterio.controle.telasCrud.TelaCrudCemiterio;
+import gerenciadorPrincipal.TelaGerenciador;
 
 public class TelaGerenciadorCemiterio extends JFrame{
     private JButton jbCreate, jbRead, jbList, jbUpdate, jbDelete, jbVoltar;
@@ -41,7 +43,17 @@ public class TelaGerenciadorCemiterio extends JFrame{
             };
             if(button != null){
                 button.setBounds(jbX, jbY, jbWidth, jbHeight);
-                button.addActionListener(e -> dispose());
+                button.addActionListener(e -> {
+                    switch(i){
+                        case 0 -> new TelaCrudCemiterio();
+                        case 1 -> System.out.println("Implementar");
+                        case 2 -> System.out.println("Implementar");
+                        case 3 -> System.out.println("Implementar");
+                        case 4 -> System.out.println("Implementar");
+                        case 5 -> new TelaGerenciador();
+                    };
+                    dispose();
+                });
                 this.add(button);
             }
         };
