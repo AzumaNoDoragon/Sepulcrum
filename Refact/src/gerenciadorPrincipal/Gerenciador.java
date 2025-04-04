@@ -1,6 +1,5 @@
 package gerenciadorPrincipal;
 
-import java.util.Scanner;
 import entidades.localidade.cemiterio.gerenciador.GerenciadorCemiterio;
 import entidades.localidade.tumulo.gerenciador.GerenciadorTumulo;
 import entidades.pessoas.adm.gerenciador.GerenciadorAdm;
@@ -8,7 +7,6 @@ import entidades.pessoas.defunto.gerenciador.GerenciadorDefunto;
 import entidades.servicos.gerenciadorServicos.GerenciadorServicos;
 
 public class Gerenciador {
-    private final TelaGerenciador tg = new TelaGerenciador(new Scanner(System.in));
     private final GerenciadorCemiterio gc = new GerenciadorCemiterio();
     private final GerenciadorAdm ga = new GerenciadorAdm();
     private final GerenciadorTumulo gt = new GerenciadorTumulo();
@@ -18,7 +16,8 @@ public class Gerenciador {
     public void executar(){
         int opc;
         do{
-            opc = tg.menu();
+            new TelaGerenciador();
+            opc = 1;
 
             switch (opc) {
                 case 1:
@@ -37,11 +36,11 @@ public class Gerenciador {
                     gs.executar();
                     break;
                 case 0:
-                    tg.msgSaida();
+                    //tg.msgSaida();
                     break;
                 default:
                     if(opc != 0){
-                        tg.msgOpcInvalida();
+                        //tg.msgOpcInvalida();
                     }
                     break;
             }
