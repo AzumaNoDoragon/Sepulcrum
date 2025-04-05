@@ -10,10 +10,31 @@ public abstract class TelaRegistro extends JFrame {
     protected JButton jbProx, jbCancelar;
     protected JTextField jtfNome, jtfEstado, jtfCidade, jtfRua, jtfNumero, jtfCapacidadeMax, jtfTelefone, jtfCep;
     protected JLabel jlNome, jlEstado, jlCidade, jlRua, jlNumero, jlCapacidadeMax, jlTelefone, jlCep;
-    protected int fWidth, fHeight, jbHeight, jbWidth, jbX, qtdBotoes, y;
 
     public TelaRegistro(){
         inicializarVariaveis();
+        
+        //Configura tamanho da janela e botões
+        int fWidth = 500;
+        int fHeight = 700;
+        
+        // Janela
+        this.setTitle("Cadastrar Cemitério");
+        this.setLayout(null);
+        this.setSize(fWidth, fHeight);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+
+        // Config dos tamanho dos botões
+        int jbHeight = 30;
+        int jbWidth = 160;
+        int jbX = (fWidth - jbWidth) / 2;
+        int qtdBotoes = 8;
+
+        // Config centralização dos botões
+        int y = (fHeight / (qtdBotoes + 1) - (jbHeight / 2));
+        if(y < 30){ y = 30; }
 
         for(int i = 0; i < qtdBotoes; i++){
             int jbY = y * (i + 1);
@@ -93,40 +114,19 @@ public abstract class TelaRegistro extends JFrame {
     }
     
     protected void inicializarVariaveis(){
-        // Janela 
-        this.setTitle("Cadastrar Cemitério");
-        this.setLayout(null);
-        this.setSize(fWidth, fHeight);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
-
-        //Configura tamanho da janela e botões
-        int fWidth = 500;
-        int fHeight = 700;
-
-        // Config dos tamanho dos botões
-        int jbHeight = 30;
-        int jbWidth = 160;
-        int jbX = (fWidth - jbWidth) / 2;
-        int qtdBotoes = 8;
-        // Config centralização dos botões
-        int y = (fHeight / (qtdBotoes + 1) - (jbHeight / 2));
-        if(y < 30){ y = 30; }
-        
         // Button
-        jbProx = new JButton("Próximo");
-        jbCancelar = new JButton("Cancelar");
+        jbProx = new JButton();
+        jbCancelar = new JButton();
         
         // Label
-        jlNome = new JLabel("Nome: ");
-        jlEstado = new JLabel("Estado: ");
-        jlCidade = new JLabel("Cidade: ");
-        jlRua = new JLabel("Rua: ");
-        jlNumero = new JLabel("Numero: ");
-        jlCapacidadeMax = new JLabel("Capacidade: ");
-        jlTelefone = new JLabel("Telefone: ");
-        jlCep = new JLabel("Cep: ");
+        jlNome = new JLabel();
+        jlEstado = new JLabel();
+        jlCidade = new JLabel();
+        jlRua = new JLabel();
+        jlNumero = new JLabel();
+        jlCapacidadeMax = new JLabel();
+        jlTelefone = new JLabel();
+        jlCep = new JLabel();
 
         // Text Field
         jtfNome = new JTextField();
