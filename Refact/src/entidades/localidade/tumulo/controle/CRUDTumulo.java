@@ -2,10 +2,10 @@ package entidades.localidade.tumulo.controle;
 
 import java.util.Scanner;
 import entidades.localidade.tumulo.Tumulo;
-import entidades.localidade.tumulo.gerenciador.TelaTumulo;
+import entidades.localidade.tumulo.gerenciador.TelaGerenciadorTumulo;
 
 public class CRUDTumulo {
-    private final TelaTumulo tt = new TelaTumulo(new Scanner(System.in));
+    private final TelaGerenciadorTumulo tt = new TelaGerenciadorTumulo(new Scanner(System.in));
     private final Tumulo[] lista = new Tumulo[5];
 
     public void create(){

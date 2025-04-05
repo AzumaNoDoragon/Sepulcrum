@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 
 import entidades.localidade.cemiterio.gerenciador.TelaGerenciadorCemiterio;
 import entidades.pessoas.adm.gerenciador.TelaGerenciadorAdm;
-import entidades.servicos.gerenciadorServicos.TelaGerenciadorServicos;
 
 public class TelaGerenciador extends JFrame{
 	private final JButton jbCemiterio, jbAdm, jbTumulo, jbDefunto, jbServicos;

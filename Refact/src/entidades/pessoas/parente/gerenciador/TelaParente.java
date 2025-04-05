@@ -3,9 +3,9 @@ package entidades.pessoas.parente.gerenciador;
 import java.util.Scanner;
 
 import entidades.pessoas.parente.Parente;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+import gerenciadorPrincipal.heranca.TelaMenu;
 
-public class TelaParente extends TelaDefenicoes{
+public class TelaParente extends TelaMenu{
     public TelaParente(Scanner teclado) {
         super(teclado);
     }

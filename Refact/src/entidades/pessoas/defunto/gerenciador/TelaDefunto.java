@@ -2,9 +2,9 @@ package entidades.pessoas.defunto.gerenciador;
 
 import java.util.Scanner;
 import entidades.pessoas.defunto.Defunto;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+import gerenciadorPrincipal.heranca.TelaMenu;
 
-public class TelaDefunto extends TelaDefenicoes{
+public class TelaDefunto extends TelaMenu{
     public TelaDefunto(Scanner teclado) {
         super(teclado);
     }

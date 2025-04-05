@@ -1,67 +1,29 @@
 package entidades.localidade.cemiterio.gerenciador;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+
 import entidades.localidade.cemiterio.controle.telasCrud.TelaCrudCemiterio;
 import gerenciadorPrincipal.TelaGerenciador;
+import gerenciadorPrincipal.heranca.TelaMenu;
 
-public class TelaGerenciadorCemiterio extends JFrame{
-    private JButton jbCreate, jbRead, jbList, jbUpdate, jbDelete, jbVoltar;
-
-    public TelaGerenciadorCemiterio(){
-        inicializarVariaveis();
-        
-        int fWidth = 300;
-        int fHeight = 300;
-
-        this.setTitle("Menu Cemitério");
-        this.setLayout(null);
-        this.setSize(fWidth, fHeight);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
-
-        // Config dos tamanho dos botões e centralização dos 
-        int jbHeight = 30;
-        int jbWidth = 160;
-        int jbX = (fWidth - jbWidth) / 2;
-        int qtdBotoes = 5;
-        // Config centralização dos botões
-        int y = (fHeight / (qtdBotoes + 1) - (jbHeight / 2));
-        if(y < 30){ y = 30; }
-
-        for(int i = 0; i < qtdBotoes; i++){
-            int jbY = y * (i + 1);
-            JButton button = switch (i){
-                case 0 -> jbCreate;
-                case 1 -> jbRead;
-                case 2 -> jbList;
-                case 3 -> jbUpdate;
-                case 4 -> jbDelete;
-                case 5 -> jbVoltar;
-                default -> null;
-            };
-            if(button != null){
-                button.setBounds(jbX, jbY, jbWidth, jbHeight);
-                button.addActionListener(e -> {
-                    switch(i){
-                        case 0 -> new TelaCrudCemiterio();
-                        case 1 -> System.out.println("Implementar");
-                        case 2 -> System.out.println("Implementar");
-                        case 3 -> System.out.println("Implementar");
-                        case 4 -> System.out.println("Implementar");
-                        case 5 -> new TelaGerenciador();
-                    };
-                    dispose();
-                });
-                this.add(button);
+public class TelaGerenciadorCemiterio extends TelaMenu{
+    protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+        button.setBounds(jbX, jbY, jbWidth, jbHeight);
+        button.addActionListener(e -> {
+            switch(index){
+                case 0 -> new TelaCrudCemiterio(); // TROCAR ENTIDADE
+                case 1 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 2 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 3 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 4 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 5 -> new TelaGerenciador(); // TROCAR ENTIDADE
             }
-        };
-
-        this.setVisible(true);
+            dispose();
+        });
+        this.add(button);
     }
-
-    private void inicializarVariaveis(){
+    protected void inicializarVariaveis(){
+        this.setTitle("Menu Cemitério");
         jbCreate = new JButton("Cadastrar Cemitério.");
         jbRead = new JButton("Apresentar Cemitério.");
         jbList = new JButton("Listar Cemitério.");

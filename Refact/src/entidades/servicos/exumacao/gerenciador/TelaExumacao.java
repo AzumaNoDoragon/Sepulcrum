@@ -2,9 +2,9 @@ package entidades.servicos.exumacao.gerenciador;
 
 import java.util.Scanner;
 import entidades.servicos.exumacao.Exumacao;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+import gerenciadorPrincipal.heranca.TelaMenu;
 
-public class TelaExumacao extends TelaDefenicoes{
+public class TelaExumacao extends TelaMenu{
     public TelaExumacao(Scanner teclado) {
         super(teclado);
     }

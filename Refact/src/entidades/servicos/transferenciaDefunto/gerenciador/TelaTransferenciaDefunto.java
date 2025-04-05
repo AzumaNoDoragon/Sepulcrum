@@ -3,9 +3,9 @@ package entidades.servicos.transferenciaDefunto.gerenciador;
 import java.util.Scanner;
 
 import entidades.servicos.transferenciaDefunto.TransferenciaDefunto;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+import gerenciadorPrincipal.heranca.TelaMenu;
 
-public class TelaTransferenciaDefunto extends TelaDefenicoes{
+public class TelaTransferenciaDefunto extends TelaMenu{
     public TelaTransferenciaDefunto(Scanner teclado) {
         super(teclado);
     }

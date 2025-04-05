@@ -1,68 +1,29 @@
 package entidades.localidade.tumulo.gerenciador;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import gerenciadorPrincipal.TelaGerenciador;
+import gerenciadorPrincipal.heranca.TelaMenu;
 
-public class TelaTumulo extends JFrame{
-    private JButton jbCreate, jbRead, jbList, jbUpdate, jbDelete, jbVoltar;
-
-    public TelaTumulo(){
-        inicializarVariaveis();
-        
-        int fWidth = 300;
-        int fHeight = 300;
-
-        this.setTitle("Menu Cemitério");
-        this.setLayout(null);
-        this.setSize(fWidth, fHeight);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
-
-        // Config dos tamanho dos botões e centralização dos 
-        int jbHeight = 30;
-        int jbWidth = 160;
-        int jbX = (fWidth - jbWidth) / 2;
-        int qtdBotoes = 5;
-        // Config centralização dos botões
-        int y = (fHeight / (qtdBotoes + 1) - (jbHeight / 2));
-        if(y < 30){ y = 30; }
-
-        for(int i = 0; i < qtdBotoes; i++){
-            int jbY = y * (i + 1);
-            int index = i;
-            JButton button = switch (index){
-                case 0 -> jbCreate;
-                case 1 -> jbRead;
-                case 2 -> jbList;
-                case 3 -> jbUpdate;
-                case 4 -> jbDelete;
-                case 5 -> jbVoltar;
-                default -> null;
-            };
-            if(button != null){
-                button.setBounds(jbX, jbY, jbWidth, jbHeight);
-                button.addActionListener(e -> {
-                    switch(index){
-                        case 0 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                        case 1 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                        case 2 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                        case 3 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                        case 4 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                        case 5 -> new TelaGerenciador();
-                    }
-                    dispose();
-                });
-                this.add(button);
+public class TelaGerenciadorTumulo extends TelaMenu{
+    protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+        button.setBounds(jbX, jbY, jbWidth, jbHeight);
+        button.addActionListener(e -> {
+            switch(index){
+                case 0 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 1 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 2 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 3 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 4 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 5 -> new TelaGerenciador(); // TROCAR ENTIDADE
             }
-        };
-
-        this.setVisible(true);
+            dispose();
+        });
+        this.add(button);
     }
 
-    private void inicializarVariaveis(){
+    protected void inicializarVariaveis(){
+        this.setTitle("Menu Túmulo");
         jbCreate = new JButton("Cadastrar Túmulo.");
         jbRead = new JButton("Apresentar Túmulo.");
         jbList = new JButton("Listar Túmulo.");

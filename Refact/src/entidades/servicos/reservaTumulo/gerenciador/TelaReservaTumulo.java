@@ -3,9 +3,9 @@ package entidades.servicos.reservaTumulo.gerenciador;
 import java.util.Scanner;
 
 import entidades.servicos.reservaTumulo.ReservaTumulo;
-import gerenciadorPrincipal.heranca.TelaDefenicoes;
+import gerenciadorPrincipal.heranca.TelaMenu;
 
-public class TelaReservaTumulo extends TelaDefenicoes{
+public class TelaReservaTumulo extends TelaMenu{
     public TelaReservaTumulo(Scanner teclado) {
         super(teclado);
     }
