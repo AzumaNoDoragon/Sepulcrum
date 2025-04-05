@@ -1,12 +1,24 @@
-package entidades.localidade.cemiterio.controle.telasCrud;
+package entidades.localidade.cemiterio.view;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import gerenciadorPrincipal.utils.TelaRegistro;
 import javax.swing.JButton;
 
-import gerenciadorPrincipal.heranca.TelaRegistro;
-
-public class TelaCrudCemiterio extends TelaRegistro{
+public class TelaRegistroCemiterio extends TelaRegistro{
+    @Override
+    protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+        button.setBounds(jbX, jbY, jbWidth, jbHeight);
+        button.addActionListener(e -> {
+            switch(index){
+                case 0 -> dispose(); // TROCAR ENTIDADE
+                case 1 -> new TelaGerenciadorCemiterio();
+            };
+            dispose();
+        });
+        this.add(button);
+    }
+    
     @Override
     public void inicializarVariaveis() {
         // Button

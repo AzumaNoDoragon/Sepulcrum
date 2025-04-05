@@ -1,7 +1,6 @@
-package entidades.localidade.cemiterio.gerenciador;
+package entidades.localidade.cemiterio.controller;
 
 import java.util.Scanner;
-import entidades.localidade.cemiterio.controle.CRUDCemiterio;
 
 public class GerenciadorCemiterio {
     private final TelaGerenciadorCemiterio tc = new TelaGerenciadorCemiterio(new Scanner(System.in));

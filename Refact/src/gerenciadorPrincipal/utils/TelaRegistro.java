@@ -1,25 +1,20 @@
-package gerenciadorPrincipal.heranca;
+package gerenciadorPrincipal.utils;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import entidades.localidade.cemiterio.gerenciador.TelaGerenciadorCemiterio;
 
-public abstract class TelaRegistro extends JFrame {
+public abstract class TelaRegistro extends JFrame{
     protected JButton jbProx, jbCancelar;
     protected JTextField jtfNome, jtfEstado, jtfCidade, jtfRua, jtfNumero, jtfCapacidadeMax, jtfTelefone, jtfCep;
     protected JLabel jlNome, jlEstado, jlCidade, jlRua, jlNumero, jlCapacidadeMax, jlTelefone, jlCep;
+    protected int fWidth, fHeight, qtdBotoes;
 
     public TelaRegistro(){
         inicializarVariaveis();
         
-        //Configura tamanho da janela e botões
-        int fWidth = 500;
-        int fHeight = 700;
-        
         // Janela
-        this.setTitle("Cadastrar Cemitério");
         this.setLayout(null);
         this.setSize(fWidth, fHeight);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,7 +25,6 @@ public abstract class TelaRegistro extends JFrame {
         int jbHeight = 30;
         int jbWidth = 160;
         int jbX = (fWidth - jbWidth) / 2;
-        int qtdBotoes = 8;
 
         // Config centralização dos botões
         int y = (fHeight / (qtdBotoes + 1) - (jbHeight / 2));
@@ -101,19 +95,31 @@ public abstract class TelaRegistro extends JFrame {
             default -> null;
         };
         if(button != null){
-            button.setBounds(jbX, jbY, jbWidth, jbHeight);
-            button.addActionListener(e -> {
-                switch(index){
-                    case 0 -> dispose(); //new TelaCrudAdm();
-                    case 1 -> new TelaGerenciadorCemiterio();
-                };
-                dispose();
-            });
-            this.add(button);
+            defineBotoes(button, index, jbX, jbY, jbWidth, jbHeight);
         }
     }
-    
+
+    protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+        button.setBounds(jbX, jbY, jbWidth, jbHeight);
+        button.addActionListener(e -> {
+            switch(index){
+                case 0 -> dispose(); // TROCAR ENTIDADE
+                case 1 -> dispose(); // TROCAR ENTIDADE
+            };
+            dispose();
+        });
+        this.add(button);
+    }
+
     protected void inicializarVariaveis(){
+        //Configura tamanho da janela e botões
+        fWidth = 500;
+        fHeight = 700;
+        qtdBotoes = 8;
+        
+        // Janela
+        this.setTitle("DEFINIR TÍTULO");
+
         // Button
         jbProx = new JButton();
         jbCancelar = new JButton();

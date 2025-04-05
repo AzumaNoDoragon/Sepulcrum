@@ -1,10 +1,11 @@
-package gerenciadorPrincipal;
+package gerenciadorPrincipal.controller;
 
-import entidades.localidade.cemiterio.gerenciador.GerenciadorCemiterio;
+import entidades.localidade.cemiterio.controller.GerenciadorCemiterio;
 import entidades.localidade.tumulo.gerenciador.GerenciadorTumulo;
 import entidades.pessoas.adm.gerenciador.GerenciadorAdm;
 import entidades.pessoas.defunto.gerenciador.GerenciadorDefunto;
 import entidades.servicos.gerenciadorServicos.GerenciadorServicos;
+import gerenciadorPrincipal.view.TelaGerenciador;
 
 public class Gerenciador {
     private final GerenciadorCemiterio gc = new GerenciadorCemiterio();

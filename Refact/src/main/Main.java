@@ -1,9 +1,11 @@
 package main;
 
-import gerenciadorPrincipal.TelaGerenciador;
+import entidades.localidade.cemiterio.view.TelaSelectCemiterio;
+//import gerenciadorPrincipal.view.TelaGerenciador;
 
 public class Main {
     public static void main(String[] args){
-        new TelaGerenciador();
+        //new TelaGerenciador();
+        new TelaSelectCemiterio();
     }
 }

@@ -1,29 +1,38 @@
-package entidades.localidade.cemiterio.gerenciador;
+package entidades.localidade.cemiterio.view;
 
 import javax.swing.JButton;
-
-import entidades.localidade.cemiterio.controle.telasCrud.TelaCrudCemiterio;
-import gerenciadorPrincipal.TelaGerenciador;
-import gerenciadorPrincipal.heranca.TelaMenu;
+import gerenciadorPrincipal.utils.TelaMenu;
+import gerenciadorPrincipal.view.TelaGerenciador;
 
 public class TelaGerenciadorCemiterio extends TelaMenu{
+    @Override
     protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaCrudCemiterio(); // TROCAR ENTIDADE
-                case 1 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                case 2 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                case 3 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                case 4 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 0 -> new TelaRegistroCemiterio();
+                case 1 -> new TelaSelectCemiterio();
+                case 2 -> dispose(); // TROCAR ENTIDADE
+                case 3 -> dispose(); // TROCAR ENTIDADE
+                case 4 -> dispose(); // TROCAR ENTIDADE
                 case 5 -> new TelaGerenciador(); // TROCAR ENTIDADE
             }
             dispose();
         });
         this.add(button);
     }
+
+    @Override
     protected void inicializarVariaveis(){
+        //Configura tamanho da janela e botões
+        fWidth = 300;
+        fHeight = 350;
+        qtdBotoes = 6;
+        
+        // Janela
         this.setTitle("Menu Cemitério");
+
+        // Button
         jbCreate = new JButton("Cadastrar Cemitério.");
         jbRead = new JButton("Apresentar Cemitério.");
         jbList = new JButton("Listar Cemitério.");

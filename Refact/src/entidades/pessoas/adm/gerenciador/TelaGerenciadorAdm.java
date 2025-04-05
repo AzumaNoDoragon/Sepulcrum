@@ -2,28 +2,38 @@ package entidades.pessoas.adm.gerenciador;
 
 import javax.swing.JButton;
 
-import gerenciadorPrincipal.TelaGerenciador;
-import gerenciadorPrincipal.heranca.TelaMenu;
+import gerenciadorPrincipal.utils.TelaMenu;
+import gerenciadorPrincipal.view.TelaGerenciador;
 
 public class TelaGerenciadorAdm extends TelaMenu{
+    @Override
     protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                case 1 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                case 2 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                case 3 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                case 4 -> new TelaGerenciador(); // TROCAR ENTIDADE
-                case 5 -> new TelaGerenciador(); // TROCAR ENTIDADE
+                case 0 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
+                case 1 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
+                case 2 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
+                case 3 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
+                case 4 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
+                case 5 -> new TelaGerenciador();
             }
             dispose();
         });
         this.add(button);
     }
-    
+
+    @Override
     protected void inicializarVariaveis(){
+        //Configura tamanho da janela e botões
+        fWidth = 300;
+        fHeight = 350;
+        qtdBotoes = 6;
+        
+        // Janela
         this.setTitle("Menu Adm");
+
+        // Button
         jbCreate = new JButton("Cadastra coveiro.");
         jbRead = new JButton("Apresenta coveiro.");
         jbList = new JButton("Lista coveiro");

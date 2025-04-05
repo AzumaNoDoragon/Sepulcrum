@@ -2,7 +2,7 @@ package entidades.servicos.vistoria.gerenciador;
 
 import java.util.Scanner;
 import entidades.servicos.vistoria.Vistoria;
-import gerenciadorPrincipal.heranca.TelaMenu;
+import gerenciadorPrincipal.utils.TelaMenu;
 
 public class TelaVistoria extends TelaMenu{
     public TelaVistoria(Scanner teclado) {

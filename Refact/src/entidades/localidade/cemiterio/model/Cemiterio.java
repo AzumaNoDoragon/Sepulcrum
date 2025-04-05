@@ -1,4 +1,4 @@
-package entidades.localidade.cemiterio;
+package entidades.localidade.cemiterio.model;
 
 import entidades.localidade.heranca.Localidade;
 
