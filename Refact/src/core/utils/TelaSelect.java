@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class TelaSelect extends JFrame{
+public abstract class TelaSelect extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;
     protected JLabel jlId;

@@ -3,7 +3,7 @@ package core.utils;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 
-public class TelaMenu extends JFrame{
+public abstract class TelaMenu extends JFrame{
     protected JButton jbOne, jbTwo, jbthree, jbFour, jbVoltar;
     protected int fWidth, fHeight, qtdBotoes;
 
