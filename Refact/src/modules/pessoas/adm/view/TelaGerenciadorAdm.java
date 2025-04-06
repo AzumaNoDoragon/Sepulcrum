@@ -1,7 +1,6 @@
 package modules.pessoas.adm.view;
 
 import javax.swing.JButton;
-
 import core.utils.TelaMenu;
 import core.view.TelaGerenciador;
 
@@ -11,12 +10,11 @@ public class TelaGerenciadorAdm extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
-                case 1 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
-                case 2 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
-                case 3 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
-                case 4 -> new TelaGerenciadorAdm(); // TROCAR ENTIDADE
-                case 5 -> new TelaGerenciador();
+                case 0 -> new TelaGerenciadorAdm();
+                case 1 -> new TelaSelectAdm(); // passar propriedade busca
+                case 2 -> new TelaSelectAdm(); // passar propriedade updade
+                case 3 -> new TelaSelectAdm(); // passar propriedade delete
+                case 4 -> new TelaGerenciador();
             }
             dispose();
         });
@@ -28,17 +26,16 @@ public class TelaGerenciadorAdm extends TelaMenu{
         //Configura tamanho da janela e botões
         fWidth = 300;
         fHeight = 350;
-        qtdBotoes = 6;
+        qtdBotoes = 5;
         
         // Janela
         this.setTitle("Menu Adm");
 
         // Button
-        jbCreate = new JButton("Cadastra coveiro.");
-        jbRead = new JButton("Apresenta coveiro.");
-        jbList = new JButton("Lista coveiro");
-        jbUpdate = new JButton("Altera coveiro.");
-        jbDelete = new JButton("Deleta coveiro.");
+        jbOne = new JButton("Cadastrar coveiro.");
+        jbTwo = new JButton("Apresentar coveiro.");
+        jbThree = new JButton("Alterar coveiro.");
+        jbFour = new JButton("Deletar coveiro.");
         jbVoltar = new JButton("Voltar");
     }
 }

@@ -2,6 +2,7 @@ package modules.pessoas.adm.controller;
 
 import java.util.Scanner;
 
+import modules.pessoas.adm.database.CRUDAdm;
 import modules.pessoas.adm.view.TelaGerenciadorAdm;
 
 public class GerenciadorAdm {

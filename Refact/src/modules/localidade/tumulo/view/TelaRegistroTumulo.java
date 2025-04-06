@@ -25,9 +25,12 @@ public class TelaRegistroTumulo extends TelaRegistro{
         fWidth = 500;
         fHeight = 700;
         qtdBotoes = 8;
+
+        // Janela
+        this.setTitle("Registro Túmulo.");
         
         // Button
-        jbSalvar = new JButton("Próximo");
+        jbSalvar = new JButton("Salvar");
         jbCancelar = new JButton("Cancelar");
 
         // Label

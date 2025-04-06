@@ -1,4 +1,4 @@
-package modules.pessoas.adm.controller;
+package modules.pessoas.adm.database;
 
 import java.util.Scanner;
 

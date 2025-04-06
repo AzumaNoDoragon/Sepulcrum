@@ -1,7 +1,6 @@
 package modules.localidade.cemiterio.view;
 
 import javax.swing.JButton;
-
 import core.utils.TelaMenu;
 import core.view.TelaGerenciador;
 

@@ -2,10 +2,11 @@ package modules.pessoas.finado.controller;
 
 import java.util.Scanner;
 
-import modules.pessoas.finado.view.TelaFinado;
+import modules.pessoas.finado.database.CRUDFinado;
+import modules.pessoas.finado.view.TelaRegistroFinado;
 
 public class GerenciadorFinado {
-    private final TelaFinado td = new TelaFinado(new Scanner(System.in));
+    private final TelaRegistroFinado td = new TelaRegistroFinado(new Scanner(System.in));
     private final CRUDFinado crudD = new CRUDFinado();
 
     public void executar(){

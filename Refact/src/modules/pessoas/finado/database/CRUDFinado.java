@@ -1,12 +1,12 @@
-package modules.pessoas.finado.controller;
+package modules.pessoas.finado.database;
 
 import java.util.Scanner;
 
 import modules.pessoas.finado.model.Finado;
-import modules.pessoas.finado.view.TelaFinado;
+import modules.pessoas.finado.view.TelaRegistroFinado;
 
 public class CRUDFinado {
-    private final TelaFinado td = new TelaFinado(new Scanner(System.in));
+    private final TelaRegistroFinado td = new TelaRegistroFinado(new Scanner(System.in));
     private final Finado[] lista = new Finado[5];
 
     public void create(){

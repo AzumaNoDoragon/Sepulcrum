@@ -2,6 +2,7 @@ package modules.pessoas.finado.view;
 
 import javax.swing.JButton;
 import core.utils.TelaMenu;
+import core.view.TelaGerenciador;
 
 public class TelaGerenciadorFinado extends TelaMenu{
     @Override
@@ -9,11 +10,11 @@ public class TelaGerenciadorFinado extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> dispose();
-                case 1 -> dispose();
-                case 2 -> dispose();
-                case 3 -> dispose();
-                case 4 -> dispose();
+                case 0 -> new TelaGerenciadorFinado();
+                case 1 -> new TelaSelectFinado(); // passar propriedade busca
+                case 2 -> new TelaSelectFinado(); // passar propriedade updade
+                case 3 -> new TelaSelectFinado(); // passar propriedade delete
+                case 4 -> new TelaGerenciador();
             }
             dispose();
         });
@@ -31,10 +32,10 @@ public class TelaGerenciadorFinado extends TelaMenu{
         this.setTitle("Menu Finado");
 
         // Button
-        jbCreate = new JButton("Cadastrar Finado.");
-        jbRead = new JButton("Apresentar Finado.");
-        jbUpdate = new JButton("Alterar Finado.");
-        jbDelete = new JButton("Deletar Finado.");
+        jbOne = new JButton("Cadastrar Finado.");
+        jbTwo = new JButton("Apresentar Finado.");
+        jbThree = new JButton("Alterar Finado.");
+        jbFour = new JButton("Deletar Finado.");
         jbVoltar = new JButton("Voltar");
     }
 }
