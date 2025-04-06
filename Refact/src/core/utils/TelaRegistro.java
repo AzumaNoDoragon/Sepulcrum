@@ -7,9 +7,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public abstract class TelaRegistro extends JFrame{
-    protected JButton jbProx, jbCancelar;
-    protected JTextField jtfNome, jtfEstado, jtfCidade, jtfRua, jtfNumero, jtfCapacidadeMax, jtfTelefone, jtfCep;
-    protected JLabel jlNome, jlEstado, jlCidade, jlRua, jlNumero, jlCapacidadeMax, jlTelefone, jlCep;
+    protected JButton jbSalvar, jbCancelar;
+    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight;
+    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight;
     protected int fWidth, fHeight, qtdBotoes;
 
     public TelaRegistro(){
@@ -54,14 +54,14 @@ public abstract class TelaRegistro extends JFrame{
 
     private void label(int i, int jbX, int jbY, int jbWidth, int jbHeight){
         JLabel label = switch (i){
-            case 0 -> jlNome;
-            case 1 -> jlEstado;
-            case 2 -> jlCidade;
-            case 3 -> jlRua;
-            case 4 -> jlNumero;
-            case 5 -> jlCapacidadeMax;
-            case 6 -> jlTelefone;
-            case 7 -> jlCep;
+            case 0 -> jlOne;
+            case 1 -> jlTwo;
+            case 2 -> jlThree;
+            case 3 -> jlFour;
+            case 4 -> jlFive;
+            case 5 -> jlSix;
+            case 6 -> jlSeven;
+            case 7 -> jlEight;
             default -> null;
         };
         if(label != null){
@@ -72,14 +72,14 @@ public abstract class TelaRegistro extends JFrame{
 
     protected void text(int i, int jbX, int jbY, int jbWidth, int jbHeight){
         JTextField text = switch (i){
-            case 0 -> jtfNome;
-            case 1 -> jtfEstado;
-            case 2 -> jtfCidade;
-            case 3 -> jtfRua;
-            case 4 -> jtfNumero;
-            case 5 -> jtfCapacidadeMax;
-            case 6 -> jtfTelefone;
-            case 7 -> jtfCep;
+            case 0 -> jtfOne;
+            case 1 -> jtfTwo;
+            case 2 -> jtfThree;
+            case 3 -> jtfFour;
+            case 4 -> jtfFive;
+            case 5 -> jtfSix;
+            case 6 -> jtfSeven;
+            case 7 -> jtfEight;
             default -> null;
         };
         if(text != null){
@@ -91,7 +91,7 @@ public abstract class TelaRegistro extends JFrame{
     protected void button(int i, int jbX, int jbY, int jbWidth, int jbHeight){
         int index = i;
         JButton button = switch (index){
-            case 0 -> jbProx;
+            case 0 -> jbSalvar;
             case 1 -> jbCancelar;
             default -> null;
         };
@@ -122,28 +122,28 @@ public abstract class TelaRegistro extends JFrame{
         this.setTitle("DEFINIR TÍTULO");
 
         // Button
-        jbProx = new JButton();
+        jbSalvar = new JButton();
         jbCancelar = new JButton();
         
         // Label
-        jlNome = new JLabel();
-        jlEstado = new JLabel();
-        jlCidade = new JLabel();
-        jlRua = new JLabel();
-        jlNumero = new JLabel();
-        jlCapacidadeMax = new JLabel();
-        jlTelefone = new JLabel();
-        jlCep = new JLabel();
+        jlOne = new JLabel();
+        jlTwo = new JLabel();
+        jlThree = new JLabel();
+        jlFour = new JLabel();
+        jlFive = new JLabel();
+        jlSix = new JLabel();
+        jlSeven = new JLabel();
+        jlEight = new JLabel();
 
         // Text Field
-        jtfNome = new JTextField();
-        jtfEstado = new JTextField();
-        jtfCidade = new JTextField();
-        jtfRua = new JTextField();
-        jtfNumero = new JTextField();
-        jtfCapacidadeMax = new JTextField();
-        jtfTelefone = new JTextField();
-        jtfCep = new JTextField();
+        jtfOne = new JTextField();
+        jtfTwo = new JTextField();
+        jtfThree = new JTextField();
+        jtfFour = new JTextField();
+        jtfFive = new JTextField();
+        jtfSix = new JTextField();
+        jtfSeven = new JTextField();
+        jtfEight = new JTextField();
     }
 
     protected void msgSucesso(){

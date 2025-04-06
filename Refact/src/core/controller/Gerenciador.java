@@ -1,11 +1,11 @@
 package core.controller;
 
 import core.view.TelaGerenciador;
-import domain.localidade.cemiterio.controller.GerenciadorCemiterio;
-import domain.localidade.tumulo.controller.GerenciadorTumulo;
-import domain.pessoas.adm.controller.GerenciadorAdm;
-import domain.pessoas.finado.controller.GerenciadorFinado;
-import domain.servicos.gerenciadorServicos.GerenciadorServicos;
+import modules.localidade.cemiterio.controller.GerenciadorCemiterio;
+import modules.localidade.tumulo.controller.GerenciadorTumulo;
+import modules.pessoas.adm.controller.GerenciadorAdm;
+import modules.pessoas.finado.controller.GerenciadorFinado;
+import modules.servicos.gerenciadorServicos.GerenciadorServicos;
 
 public class Gerenciador {
     private final GerenciadorCemiterio gc = new GerenciadorCemiterio();

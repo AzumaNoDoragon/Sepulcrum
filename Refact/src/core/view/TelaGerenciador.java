@@ -1,11 +1,12 @@
 package core.view;
 
 import javax.swing.JButton;
-
 import core.utils.TelaMenu;
-import domain.localidade.cemiterio.view.TelaGerenciadorCemiterio;
-import domain.localidade.tumulo.view.TelaGerenciadorTumulo;
-import domain.pessoas.adm.view.TelaGerenciadorAdm;
+import modules.localidade.cemiterio.view.TelaGerenciadorCemiterio;
+import modules.pessoas.adm.view.TelaGerenciadorAdm;
+import modules.localidade.tumulo.view.TelaGerenciadorTumulo;
+import modules.pessoas.finado.view.TelaGerenciadorFinado;
+import modules.servicos.gerenciadorServicos.TelaGerenciadorServicos;
 
 public class TelaGerenciador extends TelaMenu{
     @Override
