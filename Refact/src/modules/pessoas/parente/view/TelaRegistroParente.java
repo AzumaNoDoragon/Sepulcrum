@@ -1,18 +1,18 @@
-package modules.pessoas.adm.view;
+package modules.pessoas.parente.view;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import core.utils.TelaRegistro;
 
-public class TelaRegistroAdm extends TelaRegistro{
+public class TelaRegistroParente extends TelaRegistro{
     @Override
     protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaGerenciadorAdm(); // passar propriedade JOption + propriedade de crud
-                case 1 -> new TelaGerenciadorAdm();
+                case 0 -> new TelaGerenciadorParente(); // passar propriedade JOption + propriedade de crud
+                case 1 -> new TelaGerenciadorParente();
             };
             dispose();
         });
@@ -38,9 +38,10 @@ public class TelaRegistroAdm extends TelaRegistro{
         jlTwo = new JLabel("CPF: ");
         jlThree = new JLabel("RG: ");
         jlFour = new JLabel("Data de nascimento: ");
-        jlFive = new JLabel("Data de contratação: ");
+        jlFive = new JLabel("Grau de parentesco: ");
         jlSix = new JLabel("Email: ");
         jlSeven = new JLabel("Telefone: ");
+        jlEight = new JLabel("Id do finado");
         
         // Text Field
         jtfOne = new JTextField();
@@ -50,6 +51,7 @@ public class TelaRegistroAdm extends TelaRegistro{
         jtfFive = new JTextField();
         jtfSix = new JTextField();
         jtfSeven = new JTextField();
+        jtfEight = new JTextField();
     }
 
     @Override

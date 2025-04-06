@@ -1,12 +1,12 @@
-package modules.pessoas.parente.controller;
+package modules.pessoas.parente.database;
 
 import java.util.Scanner;
 
 import modules.pessoas.parente.model.Parente;
-import modules.pessoas.parente.view.TelaParente;
+import modules.pessoas.parente.view.TelaGerenciadorParente;
 
 public class CRUDParente {
-    private final TelaParente tp = new TelaParente(new Scanner(System.in));
+    private final TelaGerenciadorParente tp = new TelaGerenciadorParente(new Scanner(System.in));
     private final Parente[] lista = new Parente[5];
 
     public void create(){

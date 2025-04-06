@@ -2,10 +2,11 @@ package modules.pessoas.parente.controller;
 
 import java.util.Scanner;
 
-import modules.pessoas.parente.view.TelaParente;
+import modules.pessoas.parente.database.CRUDParente;
+import modules.pessoas.parente.view.TelaGerenciadorParente;
 
 public class GerenciadorParente {
-    private final TelaParente tp = new TelaParente(new Scanner(System.in));
+    private final TelaGerenciadorParente tp = new TelaGerenciadorParente(new Scanner(System.in));
     private final CRUDParente crudP = new CRUDParente();
 
     public void executar(){
