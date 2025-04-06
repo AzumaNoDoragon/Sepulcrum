@@ -1,4 +1,4 @@
-package modules.localidade.cemiterio.controller;
+package modules.localidade.cemiterio.database;
 /* 
 package entidades.localidade.cemiterio.gerenciador;
 

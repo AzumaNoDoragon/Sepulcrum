@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 public abstract class TelaMenu extends JFrame{
-    protected JButton jbOne, jbTwo, jbthree, jbFour, jbVoltar;
+    protected JButton jbOne, jbTwo, jbThree, jbFour, jbVoltar;
     protected int fWidth, fHeight, qtdBotoes;
 
     public TelaMenu(){
@@ -32,7 +32,7 @@ public abstract class TelaMenu extends JFrame{
             JButton button = switch (index){
                 case 0 -> jbOne;
                 case 1 -> jbTwo;
-                case 2 -> jbthree;
+                case 2 -> jbThree;
                 case 3 -> jbFour;
                 case 4 -> jbVoltar;
                 default -> null;
@@ -72,7 +72,7 @@ public abstract class TelaMenu extends JFrame{
         // Button
         jbOne = new JButton();
         jbTwo = new JButton();
-        jbthree = new JButton();
+        jbThree = new JButton();
         jbFour = new JButton();
         jbVoltar = new JButton();
     }

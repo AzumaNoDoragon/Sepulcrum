@@ -12,9 +12,9 @@ public class TelaGerenciadorCemiterio extends TelaMenu{
         button.addActionListener(e -> {
             switch(index){
                 case 0 -> new TelaRegistroCemiterio();
-                case 1 -> new TelaSelectCemiterio();
-                case 2 -> new TelaSelectCemiterio();
-                case 3 -> new TelaSelectCemiterio();
+                case 1 -> new TelaSelectCemiterio(); // passar propriedade busca
+                case 2 -> new TelaSelectCemiterio(); // passar propriedade updade
+                case 3 -> new TelaSelectCemiterio(); // passar propriedade delete
                 case 4 -> new TelaGerenciador();
             }
             dispose();
@@ -33,10 +33,10 @@ public class TelaGerenciadorCemiterio extends TelaMenu{
         this.setTitle("Menu Cemitério");
 
         // Button
-        jbCreate = new JButton("Cadastrar Cemitério.");
-        jbRead = new JButton("Apresentar Cemitério.");
-        jbUpdate = new JButton("Alterar Cemitério.");
-        jbDelete = new JButton("Deletar Cemitério.");
+        jbOne = new JButton("Cadastrar Cemitério.");
+        jbTwo = new JButton("Apresentar Cemitério.");
+        jbThree = new JButton("Alterar Cemitério.");
+        jbFour = new JButton("Deletar Cemitério.");
         jbVoltar = new JButton("Voltar");
     }
 }

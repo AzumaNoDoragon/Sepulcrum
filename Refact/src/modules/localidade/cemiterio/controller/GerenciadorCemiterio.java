@@ -2,6 +2,8 @@ package modules.localidade.cemiterio.controller;
 
 import java.util.Scanner;
 
+import modules.localidade.cemiterio.database.CRUDCemiterio;
+
 public class GerenciadorCemiterio {
     private final TelaGerenciadorCemiterio tc = new TelaGerenciadorCemiterio(new Scanner(System.in));
     private final CRUDCemiterio crudC = new CRUDCemiterio();

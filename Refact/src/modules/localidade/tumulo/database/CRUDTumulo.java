@@ -1,4 +1,4 @@
-package modules.localidade.tumulo.controller;
+package modules.localidade.tumulo.database;
 
 import java.util.Scanner;
 

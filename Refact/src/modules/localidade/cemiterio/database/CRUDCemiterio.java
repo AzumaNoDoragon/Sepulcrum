@@ -1,4 +1,4 @@
-package modules.localidade.cemiterio.controller;
+package modules.localidade.cemiterio.database;
 
 import java.util.Scanner;
 

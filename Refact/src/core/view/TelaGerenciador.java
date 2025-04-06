@@ -17,8 +17,8 @@ public class TelaGerenciador extends TelaMenu{
                 case 0 -> new TelaGerenciadorCemiterio();
                 case 1 -> new TelaGerenciadorAdm();
                 case 2 -> new TelaGerenciadorTumulo();
-                case 3 -> new TelaGerenciadorFinado(); // TROCAR ENTIDADE
-                case 4 -> new TelaGerenciadorServicos(); // TROCAR ENTIDADE
+                case 3 -> new TelaGerenciadorFinado();
+                case 4 -> new TelaGerenciadorServicos();
             }
             dispose();
         });
@@ -36,10 +36,10 @@ public class TelaGerenciador extends TelaMenu{
         this.setTitle("Menu Inicial");
 
         // Button
-        jbCreate = new JButton("Cemitério");
-        jbRead = new JButton("Adm");
-        jbUpdate = new JButton("Túmulo");
-        jbDelete = new JButton("Finado");
+        jbOne = new JButton("Cemitério");
+        jbTwo = new JButton("Adm");
+        jbThree = new JButton("Túmulo");
+        jbFour = new JButton("Finado");
         jbVoltar = new JButton("Serviços");
     }
 }

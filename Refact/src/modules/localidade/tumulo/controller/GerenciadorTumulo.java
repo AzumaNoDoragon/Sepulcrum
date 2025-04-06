@@ -2,6 +2,7 @@ package modules.localidade.tumulo.controller;
 
 import java.util.Scanner;
 
+import modules.localidade.tumulo.database.CRUDTumulo;
 import modules.localidade.tumulo.view.TelaGerenciadorTumulo;
 
 public class GerenciadorTumulo {

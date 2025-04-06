@@ -10,7 +10,7 @@ public abstract class TelaRegistro extends JFrame{
     protected JButton jbSalvar, jbCancelar;
     protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight;
-    protected int fWidth, fHeight, qtdBotoes;
+    protected int fWidth, fHeight, qtdBotoes, jbY;
 
     public TelaRegistro(){
         inicializarVariaveis();
@@ -43,16 +43,15 @@ public abstract class TelaRegistro extends JFrame{
             text(i, jbX, jbY, jbWidth, jbHeight);
         };
         for(int i = 0; i < qtdBotoes; i++){
-            int jbY = y * (i + 9);
             if(i == 1){jbY = jbY - 15;}
             jbWidth = 150;
-            button(i, jbX + 70, jbY, jbWidth, jbHeight);
+            button(i, jbX, y, jbY, jbWidth, jbHeight);
         };
         
         this.setVisible(true);
     }
 
-    private void label(int i, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void label(int i, int jbX, int jbY, int jbWidth, int jbHeight){
         JLabel label = switch (i){
             case 0 -> jlOne;
             case 1 -> jlTwo;
@@ -88,7 +87,8 @@ public abstract class TelaRegistro extends JFrame{
         }
     }
 
-    protected void button(int i, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void button(int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
+        jbY = y * (i + 9);
         int index = i;
         JButton button = switch (index){
             case 0 -> jbSalvar;
@@ -96,7 +96,7 @@ public abstract class TelaRegistro extends JFrame{
             default -> null;
         };
         if(button != null){
-            defineBotoes(button, index, jbX, jbY, jbWidth, jbHeight);
+            defineBotoes(button, index, jbX + 70, jbY, jbWidth, jbHeight);
         }
     }
 

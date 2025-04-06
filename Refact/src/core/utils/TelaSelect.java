@@ -103,17 +103,17 @@ public abstract class TelaSelect extends JFrame{
         fHeight = 300;
         qtdBotoes = 3;
 
-        // Janela
-        this.setTitle("DEFINIR TÍTULO");
+         // Janela
+         this.setTitle("Seleção");
 
-        // Button
-        jbBusca = new JButton("Buscar");
-        jbCancelar = new JButton("Cancelar");
-
-        // Label
-        jlId = new JLabel("Busca por id: ");
-
-        // Text Field
-        jtfId = new JTextField();
+         // Button
+         jbBusca = new JButton("Buscar");
+         jbCancelar = new JButton("Cancelar");
+ 
+         // Label
+         jlId = new JLabel("Busca por id: ");
+ 
+         // Text Field
+         jtfId = new JTextField();
     }
 }

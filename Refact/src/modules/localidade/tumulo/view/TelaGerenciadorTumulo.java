@@ -11,12 +11,11 @@ public class TelaGerenciadorTumulo extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaGerenciadorTumulo(); // TROCAR ENTIDADE
-                case 1 -> new TelaGerenciadorTumulo(); // TROCAR ENTIDADE
-                case 2 -> new TelaGerenciadorTumulo(); // TROCAR ENTIDADE
-                case 3 -> new TelaGerenciadorTumulo(); // TROCAR ENTIDADE
-                case 4 -> new TelaGerenciadorTumulo(); // TROCAR ENTIDADE
-                case 5 -> new TelaGerenciador();
+                case 0 -> new TelaGerenciadorTumulo(); 
+                case 1 -> new TelaSelectTumulo(); // passar propriedade busca
+                case 2 -> new TelaSelectTumulo(); // passar propriedade updade
+                case 3 -> new TelaSelectTumulo(); // passar propriedade delete
+                case 4 -> new TelaGerenciador();
             }
             dispose();
         });
@@ -28,17 +27,16 @@ public class TelaGerenciadorTumulo extends TelaMenu{
         //Configura tamanho da janela e botões
         fWidth = 300;
         fHeight = 350;
-        qtdBotoes = 6;
+        qtdBotoes = 5;
         
         // Janela
         this.setTitle("Menu Túmulo");
 
         // Button
-        jbCreate = new JButton("Cadastrar Túmulo.");
-        jbRead = new JButton("Apresentar Túmulo.");
-        jbList = new JButton("Listar Túmulo.");
-        jbUpdate = new JButton("Alterar Túmulo.");
-        jbDelete = new JButton("Deletar Túmulo.");
+        jbOne = new JButton("Cadastrar Túmulo.");
+        jbTwo = new JButton("Apresentar Túmulo.");
+        jbThree = new JButton("Alterar Túmulo.");
+        jbFour = new JButton("Deletar Túmulo.");
         jbVoltar = new JButton("Voltar");
     }
 }
