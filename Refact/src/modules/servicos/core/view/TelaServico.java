@@ -4,7 +4,9 @@ import javax.swing.JButton;
 
 import core.utils.TelaMenu;
 import core.view.TelaGerenciador;
-import modules.servicos.view.TelaGerenciadorServicos;
+import modules.servicos.exumacao.Exumacao;
+import modules.servicos.reservaTumulo.ReservaTumulo;
+import modules.servicos.view.TelaGerenciadorServico;
 
 public class TelaServico extends TelaMenu{
     int i;
@@ -18,11 +20,11 @@ public class TelaServico extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> { i = 1; new TelaGerenciadorServicos(); }
-                case 1 -> { i = 2; new TelaGerenciadorServicos(); }
-                case 2 -> { i = 3; new TelaGerenciadorServicos(); }
-                case 3 -> { i = 4; new TelaGerenciadorServicos(); }
-                case 4 -> { i = 5; new TelaGerenciadorServicos(); }
+                case 0 -> { i = 1; new TelaGerenciadorServico(); }
+                case 1 -> { i = 2; new TelaGerenciadorServico(); }
+                case 2 -> { i = 3; new TelaGerenciadorServico(); }
+                case 3 -> { i = 4; new TelaGerenciadorServico(); }
+                case 4 -> { i = 5; new TelaGerenciadorServico(); }
                 case 5 -> new TelaGerenciador();
             }
             dispose();
@@ -34,19 +36,18 @@ public class TelaServico extends TelaMenu{
     protected void inicializarVariaveis(){
         //Configura tamanho da janela e botões
         fWidth = 300;
-        fHeight = 350;
-        qtdBotoes = 5;
+        fHeight = 400;
+        qtdBotoes = 6;
         
         // Janela
         this.setTitle("Menu Serviços");
 
         // Button
-        jbOne = new JButton("Cadastrar coveiro.");
-        jbTwo = new JButton("Apresentar coveiro.");
-        jbThree = new JButton("Alterar coveiro.");
-        jbFour = new JButton("Deletar coveiro.");
+        jbOne = new JButton("Exumação.");
+        jbTwo = new JButton("Manutenção.");
+        jbThree = new JButton("Reserva.");
+        jbFour = new JButton("Transferencia.");
+        jbFive = new JButton("Vistoria.");
         jbVoltar = new JButton("Voltar");
     }
-    
-    
 }

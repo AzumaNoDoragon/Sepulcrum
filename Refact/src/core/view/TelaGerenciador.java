@@ -6,7 +6,7 @@ import modules.localidade.cemiterio.view.TelaGerenciadorCemiterio;
 import modules.pessoas.adm.view.TelaGerenciadorAdm;
 import modules.localidade.tumulo.view.TelaGerenciadorTumulo;
 import modules.pessoas.finado.view.TelaGerenciadorFinado;
-import modules.servicos.view.TelaGerenciadorServicos;
+import modules.servicos.core.view.TelaServico;
 
 public class TelaGerenciador extends TelaMenu{
     @Override
@@ -18,7 +18,7 @@ public class TelaGerenciador extends TelaMenu{
                 case 1 -> new TelaGerenciadorAdm();
                 case 2 -> new TelaGerenciadorTumulo();
                 case 3 -> new TelaGerenciadorFinado();
-                case 4 -> new TelaGerenciadorServicos();
+                case 4 -> new TelaServico();
             }
             dispose();
         });

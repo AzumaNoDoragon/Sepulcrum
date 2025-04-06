@@ -77,57 +77,57 @@ public class TelaGerenciadorServico extends TelaMenu{
         switch(i){
             case 1:
                 // Janela
-                this.setTitle("Menu Cemitério");
+                this.setTitle("Menu Exumação");
                 
                 // Button
-                jbOne = new JButton("Cadastrar coveiro.");
-                jbTwo = new JButton("Apresentar coveiro.");
-                jbThree = new JButton("Alterar coveiro.");
-                jbFour = new JButton("Deletar coveiro.");
+                jbOne = new JButton("Cadastrar Exumação.");
+                jbTwo = new JButton("Apresentar Exumação.");
+                jbThree = new JButton("Alterar Exumação.");
+                jbFour = new JButton("Deletar Exumação.");
                 jbVoltar = new JButton("Voltar");
                 break;
             case 2:
                 // Janela
-                this.setTitle("Menu Cemitério");
+                this.setTitle("Menu Manutenção");
                 
                 // Button
-                jbOne = new JButton("Cadastrar coveiro.");
-                jbTwo = new JButton("Apresentar coveiro.");
-                jbThree = new JButton("Alterar coveiro.");
-                jbFour = new JButton("Deletar coveiro.");
+                jbOne = new JButton("Cadastrar Manutenção.");
+                jbTwo = new JButton("Apresentar Manutenção.");
+                jbThree = new JButton("Alterar Manutenção.");
+                jbFour = new JButton("Deletar Manutenção.");
                 jbVoltar = new JButton("Voltar");
                 break;
             case 3:
                 // Janela
-                this.setTitle("Menu Cemitério");
+                this.setTitle("Menu Reserva");
                 
                 // Button
-                jbOne = new JButton("Cadastrar coveiro.");
-                jbTwo = new JButton("Apresentar coveiro.");
-                jbThree = new JButton("Alterar coveiro.");
-                jbFour = new JButton("Deletar coveiro.");
+                jbOne = new JButton("Cadastrar Reserva.");
+                jbTwo = new JButton("Apresentar Reserva.");
+                jbThree = new JButton("Alterar Reserva.");
+                jbFour = new JButton("Deletar Reserva.");
                 jbVoltar = new JButton("Voltar");
                 break;
             case 4:
                 // Janela
-                this.setTitle("Menu Cemitério");
+                this.setTitle("Menu Transferencia");
 
                 // Button
-                jbOne = new JButton("Cadastrar coveiro.");
-                jbTwo = new JButton("Apresentar coveiro.");
-                jbThree = new JButton("Alterar coveiro.");
-                jbFour = new JButton("Deletar coveiro.");
+                jbOne = new JButton("Cadastrar Transferencia.");
+                jbTwo = new JButton("Apresentar Transferencia.");
+                jbThree = new JButton("Alterar Transferencia.");
+                jbFour = new JButton("Deletar Transferencia.");
                 jbVoltar = new JButton("Voltar");
                 break;
             case 5:
                 // Janela
-                this.setTitle("Menu Cemitério");
+                this.setTitle("Menu Vistoria");
 
                 // Button
-                jbOne = new JButton("Cadastrar coveiro.");
-                jbTwo = new JButton("Apresentar coveiro.");
-                jbThree = new JButton("Alterar coveiro.");
-                jbFour = new JButton("Deletar coveiro.");
+                jbOne = new JButton("Cadastrar Vistoria.");
+                jbTwo = new JButton("Apresentar Vistoria.");
+                jbThree = new JButton("Alterar Vistoria.");
+                jbFour = new JButton("Deletar Vistoria.");
                 jbVoltar = new JButton("Voltar");
                 break;
         }
