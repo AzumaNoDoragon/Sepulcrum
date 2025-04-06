@@ -5,7 +5,7 @@ import modules.localidade.cemiterio.controller.GerenciadorCemiterio;
 import modules.localidade.tumulo.controller.GerenciadorTumulo;
 import modules.pessoas.adm.controller.GerenciadorAdm;
 import modules.pessoas.finado.controller.GerenciadorFinado;
-import modules.servicos.gerenciadorServicos.GerenciadorServicos;
+import modules.servicos.core.controller.GerenciadorServicos;
 
 public class Gerenciador {
     private final GerenciadorCemiterio gc = new GerenciadorCemiterio();

@@ -1,4 +1,4 @@
-package modules.servicos.gerenciadorServicos;
+package modules.servicos.core.controller;
 
 import java.util.Scanner;
 
@@ -6,6 +6,7 @@ import modules.servicos.exumacao.gerenciador.GerenciadorExumacao;
 import modules.servicos.manutencaoTumulo.gerenciador.GerenciadorManutencaoTumulo;
 import modules.servicos.reservaTumulo.gerenciador.GerenciadorReservaTumulo;
 import modules.servicos.transferenciaDefunto.gerenciador.GerenciadorTransferenciaDefunto;
+import modules.servicos.view.TelaGerenciadorServicos;
 import modules.servicos.vistoria.gerenciador.GerenciadorVistoria;
 
 public class GerenciadorServicos {
