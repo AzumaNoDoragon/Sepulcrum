@@ -6,14 +6,12 @@ import javax.swing.JFrame;
 import modules.servicos.core.view.TelaServico;
 
 public class TelaGerenciadorServico extends JFrame{
-    private TelaServico ts;
     protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;
     protected int fWidth, fHeight, qtdBotoes;
-    int i;
+    int seletor;
 
-    public TelaGerenciadorServico(){
-        i = ts.getI();
-        inicializarVariaveis(i);
+    public TelaGerenciadorServico(int seletor){
+        inicializarVariaveis(seletor);
 
         // Janela
         this.setLayout(null);
@@ -50,17 +48,17 @@ public class TelaGerenciadorServico extends JFrame{
         this.setVisible(true);
     }
     
-    protected void defineBotoes(int i, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void defineBotoes(int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
-            switch (i) {
+            switch (seletor) {
                 case 1:
                     switch(index){
                         case 0 -> dispose();
                         case 1 -> dispose();
                         case 2 -> dispose();
                         case 3 -> dispose();
-                        case 4 -> dispose();
+                        case 4 -> new TelaServico();
                     }
                     break;
                 case 2:
@@ -69,7 +67,7 @@ public class TelaGerenciadorServico extends JFrame{
                         case 1 -> dispose();
                         case 2 -> dispose();
                         case 3 -> dispose();
-                        case 4 -> dispose();
+                        case 4 -> new TelaServico();
                     }
                     break;
                 case 3:
@@ -78,7 +76,7 @@ public class TelaGerenciadorServico extends JFrame{
                         case 1 -> dispose();
                         case 2 -> dispose();
                         case 3 -> dispose();
-                        case 4 -> dispose();
+                        case 4 -> new TelaServico();
                     }
                     break;
                 case 4:
@@ -87,7 +85,7 @@ public class TelaGerenciadorServico extends JFrame{
                         case 1 -> dispose();
                         case 2 -> dispose();
                         case 3 -> dispose();
-                        case 4 -> dispose();
+                        case 4 -> new TelaServico();
                     }
                     break;
                 case 5:
@@ -96,7 +94,7 @@ public class TelaGerenciadorServico extends JFrame{
                         case 1 -> dispose();
                         case 2 -> dispose();
                         case 3 -> dispose();
-                        case 4 -> dispose();
+                        case 4 -> new TelaServico();
                     }
                     break;
             }
@@ -105,7 +103,7 @@ public class TelaGerenciadorServico extends JFrame{
         this.add(button);
     }
 
-    protected void inicializarVariaveis(int i){
+    protected void inicializarVariaveis(int seletor){
         //Configura tamanho da janela e botões
         fWidth = 300;
         fHeight = 350;
@@ -117,7 +115,7 @@ public class TelaGerenciadorServico extends JFrame{
         jbFour = new JButton();
         jbVoltar = new JButton();
         
-        switch(i){
+        switch(seletor){
             case 1:
                 // Janela
                 this.setTitle("Menu Exumação");

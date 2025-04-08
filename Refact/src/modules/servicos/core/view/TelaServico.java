@@ -6,18 +6,16 @@ import core.view.TelaGerenciador;
 import modules.servicos.view.TelaGerenciadorServico;
 
 public class TelaServico extends TelaMenu{
-    public int i;
-
     @Override
     protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> { setI(1); new TelaGerenciadorServico();}
-                case 1 -> { setI(2); new TelaGerenciadorServico();}
-                case 2 -> { setI(3); new TelaGerenciadorServico();}
-                case 3 -> { setI(4); new TelaGerenciadorServico();}
-                case 4 -> { setI(5); new TelaGerenciadorServico();}
+                case 0 -> new TelaGerenciadorServico(1);
+                case 1 -> new TelaGerenciadorServico(2);
+                case 2 -> new TelaGerenciadorServico(3);
+                case 3 -> new TelaGerenciadorServico(4);
+                case 4 -> new TelaGerenciadorServico(5);
                 case 5 -> new TelaGerenciador();
             }
             dispose();
@@ -42,13 +40,5 @@ public class TelaServico extends TelaMenu{
         jbFour = new JButton("Transferencia.");
         jbFive = new JButton("Vistoria.");
         jbVoltar = new JButton("Voltar");
-    }
-
-    public int getI() {
-        return i;
-    }
-
-    public void setI(int i) {
-        this.i = i;
     }
 }
