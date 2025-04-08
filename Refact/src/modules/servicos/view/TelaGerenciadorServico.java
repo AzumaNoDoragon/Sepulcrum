@@ -1,18 +1,56 @@
 package modules.servicos.view;
 
 import javax.swing.JButton;
-import core.utils.TelaMenu;
+import javax.swing.JFrame;
+
 import modules.servicos.core.view.TelaServico;
 
-public class TelaGerenciadorServico extends TelaMenu{
+public class TelaGerenciadorServico extends JFrame{
+    private TelaServico ts;
+    protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;
+    protected int fWidth, fHeight, qtdBotoes;
     int i;
 
-    public void getI(TelaServico ts){
+    public TelaGerenciadorServico(){
         i = ts.getI();
-    }
+        inicializarVariaveis(i);
 
-    @Override
-    protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+        // Janela
+        this.setLayout(null);
+        this.setSize(fWidth, fHeight);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+
+        // Config dos tamanho dos botões e centralização 
+        int jbHeight = 30;
+        int jbWidth = 160;
+        int jbX = (fWidth - jbWidth) / 2;
+
+        // Config centralização dos botões
+        int y = (fHeight / (qtdBotoes + 1) - (jbHeight / 2));
+        if(y < 30){ y = 30; }
+
+        for(int i = 0; i < qtdBotoes; i++){
+            int jbY = y * (i + 1);
+            int index = i;
+            JButton button = switch (index){
+                case 0 -> jbOne; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
+                case 1 -> jbTwo; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
+                case 2 -> jbThree; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
+                case 3 -> jbFour; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
+                case 4 -> jbVoltar; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
+                default -> null; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
+            };
+            if(button != null){
+                defineBotoes(i, button, index, jbX, jbY, jbWidth, jbHeight);
+            }
+        };
+
+        this.setVisible(true);
+    }
+    
+    protected void defineBotoes(int i, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch (i) {
@@ -67,13 +105,18 @@ public class TelaGerenciadorServico extends TelaMenu{
         this.add(button);
     }
 
-    @Override
-    protected void inicializarVariaveis(){
+    protected void inicializarVariaveis(int i){
         //Configura tamanho da janela e botões
         fWidth = 300;
         fHeight = 350;
         qtdBotoes = 5;
 
+        jbOne = new JButton();
+        jbTwo = new JButton();
+        jbThree = new JButton();
+        jbFour = new JButton();
+        jbVoltar = new JButton();
+        
         switch(i){
             case 1:
                 // Janela

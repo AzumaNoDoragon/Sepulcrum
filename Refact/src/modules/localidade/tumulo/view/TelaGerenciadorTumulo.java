@@ -11,7 +11,7 @@ public class TelaGerenciadorTumulo extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaGerenciadorTumulo(); 
+                case 0 -> new TelaRegistroTumulo(); 
                 case 1 -> new TelaSelectTumulo(); // passar propriedade busca
                 case 2 -> new TelaSelectTumulo(); // passar propriedade updade
                 case 3 -> new TelaSelectTumulo(); // passar propriedade delete

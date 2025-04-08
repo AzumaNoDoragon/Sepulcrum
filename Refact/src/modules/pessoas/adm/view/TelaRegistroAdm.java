@@ -37,8 +37,8 @@ public class TelaRegistroAdm extends TelaRegistro{
         jlOne = new JLabel("Nome: ");
         jlTwo = new JLabel("CPF: ");
         jlThree = new JLabel("RG: ");
-        jlFour = new JLabel("Data de nascimento: ");
-        jlFive = new JLabel("Data de contratação: ");
+        jlFour = new JLabel("Data Nascimento: ");
+        jlFive = new JLabel("Data Contratação: ");
         jlSix = new JLabel("Email: ");
         jlSeven = new JLabel("Telefone: ");
         

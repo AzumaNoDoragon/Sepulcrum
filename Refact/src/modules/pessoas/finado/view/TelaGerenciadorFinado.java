@@ -10,7 +10,7 @@ public class TelaGerenciadorFinado extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaGerenciadorFinado();
+                case 0 -> new TelaRegistroFinado();
                 case 1 -> new TelaSelectFinado(); // passar propriedade busca
                 case 2 -> new TelaSelectFinado(); // passar propriedade updade
                 case 3 -> new TelaSelectFinado(); // passar propriedade delete

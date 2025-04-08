@@ -37,8 +37,8 @@ public class TelaRegistroFinado extends TelaRegistro{
         jlOne = new JLabel("Nome: ");
         jlTwo = new JLabel("CPF: ");
         jlThree = new JLabel("RG: ");
-        jlFour = new JLabel("Data de nascimento: ");
-        jlFive = new JLabel("Data de Falecimento: ");
+        jlFour = new JLabel("Data Nascimento: ");
+        jlFive = new JLabel("Data Falecimento: ");
         jlSix = new JLabel("Causa da morte: ");
         jlSeven = new JLabel("id do túmulo: ");
         jlEight = new JLabel("id do parente: ");

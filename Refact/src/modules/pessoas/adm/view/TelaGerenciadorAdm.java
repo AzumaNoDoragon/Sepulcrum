@@ -10,7 +10,7 @@ public class TelaGerenciadorAdm extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaGerenciadorAdm();
+                case 0 -> new TelaRegistroAdm();
                 case 1 -> new TelaSelectAdm(); // passar propriedade busca
                 case 2 -> new TelaSelectAdm(); // passar propriedade updade
                 case 3 -> new TelaSelectAdm(); // passar propriedade delete
