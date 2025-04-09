@@ -2,12 +2,12 @@ package core.view;
 
 import javax.swing.JButton;
 import core.utils.TelaMenu;
-import modules.localidade.cemiterio.view.TelaGerenciadorCemiterio;
-import modules.pessoas.adm.view.TelaGerenciadorAdm;
-import modules.localidade.tumulo.view.TelaGerenciadorTumulo;
-import modules.pessoas.finado.view.TelaGerenciadorFinado;
-import modules.pessoas.parente.view.TelaGerenciadorParente;
-import modules.servicos.core.view.TelaServico;
+import model.localidade.cemiterio.view.TelaGerenciadorCemiterio;
+import model.localidade.tumulo.view.TelaGerenciadorTumulo;
+import model.pessoas.adm.view.TelaGerenciadorAdm;
+import model.pessoas.finado.view.TelaGerenciadorFinado;
+import model.pessoas.parente.view.TelaGerenciadorParente;
+import model.servicos.core.view.TelaServico;
 
 public class TelaGerenciador extends TelaMenu{
     @Override
