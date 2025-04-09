@@ -26,23 +26,27 @@ public abstract class TelaMenu extends JFrame{
         int y = (fHeight / (qtdBotoes + 1) - (jbHeight / 2));
         if(y < 30){ y = 30; }
 
+        button(qtdBotoes, y, jbX, jbWidth, jbHeight);
+       
+        this.setVisible(true);
+    }
+
+    protected void button(int qtdBotoes, int y, int jbX, int jbWidth, int jbHeight){
         for(int i = 0; i < qtdBotoes; i++){
             int jbY = y * (i + 1);
             int index = i;
             JButton button = switch (index){
-                case 0 -> jbOne; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                case 1 -> jbTwo; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                case 2 -> jbThree; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                case 3 -> jbFour; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                case 4 -> jbVoltar; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                default -> null; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
+                case 0 -> jbOne;
+                case 1 -> jbTwo;
+                case 2 -> jbThree;
+                case 3 -> jbFour;
+                case 4 -> jbVoltar;
+                default -> null;
             };
             if(button != null){
                 defineBotoes(button, index, jbX, jbY, jbWidth, jbHeight);
             }
         };
-
-        this.setVisible(true);
     }
     
     protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){

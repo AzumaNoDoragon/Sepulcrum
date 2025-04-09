@@ -37,8 +37,8 @@ public class TelaRegistroParente extends TelaRegistro{
         jlOne = new JLabel("Nome: ");
         jlTwo = new JLabel("CPF: ");
         jlThree = new JLabel("RG: ");
-        jlFour = new JLabel("Data de nascimento: ");
-        jlFive = new JLabel("Grau de parentesco: ");
+        jlFour = new JLabel("Data Nascimento: ");
+        jlFive = new JLabel("Grau Parentesco: ");
         jlSix = new JLabel("Email: ");
         jlSeven = new JLabel("Telefone: ");
         jlEight = new JLabel("Id do finado");
@@ -64,6 +64,7 @@ public class TelaRegistroParente extends TelaRegistro{
             case 4 -> jlFive;
             case 5 -> jlSix;
             case 6 -> jlSeven;
+            case 7 -> jlEight;
             default -> null;
         };
         if(label != null){
@@ -82,6 +83,7 @@ public class TelaRegistroParente extends TelaRegistro{
             case 4 -> jtfFive;
             case 5 -> jtfSix;
             case 6 -> jtfSeven;
+            case 7 -> jtfEight;
             default -> null;
         };
         if(text != null){

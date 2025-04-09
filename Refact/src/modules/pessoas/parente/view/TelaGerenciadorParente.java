@@ -10,7 +10,7 @@ public class TelaGerenciadorParente extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaGerenciadorParente();
+                case 0 -> new TelaRegistroParente();
                 case 1 -> new TelaSelectParente(); // passar propriedade busca
                 case 2 -> new TelaSelectParente(); // passar propriedade updade
                 case 3 -> new TelaSelectParente(); // passar propriedade delete
@@ -29,13 +29,13 @@ public class TelaGerenciadorParente extends TelaMenu{
         qtdBotoes = 5;
         
         // Janela
-        this.setTitle("Menu Parente");
+        this.setTitle("Menu familiar");
 
         // Button
-        jbOne = new JButton("Cadastrar parente.");
-        jbTwo = new JButton("Apresentar parente.");
-        jbThree = new JButton("Alterar parente.");
-        jbFour = new JButton("Deletar parente.");
+        jbOne = new JButton("Cadastrar familiar.");
+        jbTwo = new JButton("Apresentar familiar.");
+        jbThree = new JButton("Alterar familiar.");
+        jbFour = new JButton("Deletar familiar.");
         jbVoltar = new JButton("Voltar");
     }
 }

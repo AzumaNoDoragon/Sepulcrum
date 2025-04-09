@@ -7,6 +7,26 @@ import modules.servicos.view.TelaGerenciadorServico;
 
 public class TelaServico extends TelaMenu{
     @Override
+    protected void button(int qtdBotoes, int y, int jbX, int jbWidth, int jbHeight){
+        for(int i = 0; i < qtdBotoes; i++){
+            int jbY = y * (i + 1);
+            int index = i;
+            JButton button = switch (index){
+                case 0 -> jbOne;
+                case 1 -> jbTwo;
+                case 2 -> jbThree;
+                case 3 -> jbFour;
+                case 4 -> jbFive;
+                case 5 -> jbVoltar;
+                default -> null;
+            };
+            if(button != null){
+                defineBotoes(button, index, jbX, jbY, jbWidth, jbHeight);
+            }
+        };
+    }
+
+    @Override
     protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {

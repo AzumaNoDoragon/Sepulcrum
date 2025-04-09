@@ -22,7 +22,7 @@ public class TelaGerenciadorServico extends JFrame{
 
         // Config dos tamanho dos botões e centralização 
         int jbHeight = 30;
-        int jbWidth = 160;
+        int jbWidth = 190;
         int jbX = (fWidth - jbWidth) / 2;
 
         // Config centralização dos botões
@@ -33,12 +33,12 @@ public class TelaGerenciadorServico extends JFrame{
             int jbY = y * (i + 1);
             int index = i;
             JButton button = switch (index){
-                case 0 -> jbOne; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                case 1 -> jbTwo; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                case 2 -> jbThree; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                case 3 -> jbFour; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                case 4 -> jbVoltar; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
-                default -> null; // ARRUMAR UMA FORMA DE TELAGERENCIADORSERVICO COLOCAR MAIS UM BOTÃO
+                case 0 -> jbOne;
+                case 1 -> jbTwo;
+                case 2 -> jbThree;
+                case 3 -> jbFour;
+                case 4 -> jbVoltar;
+                default -> null;
             };
             if(button != null){
                 defineBotoes(i, button, index, jbX, jbY, jbWidth, jbHeight);
