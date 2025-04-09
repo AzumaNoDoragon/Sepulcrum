@@ -8,7 +8,6 @@ import model.servicos.core.view.TelaServico;
 public class TelaGerenciadorServico extends JFrame{
     protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;
     protected int fWidth, fHeight, qtdBotoes;
-    int seletor;
 
     public TelaGerenciadorServico(int seletor){
         inicializarVariaveis(seletor);
@@ -54,7 +53,7 @@ public class TelaGerenciadorServico extends JFrame{
             switch (seletor) {
                 case 1:
                     switch(index){
-                        case 0 -> dispose();
+                        case 0 -> new TelaRegistroServico(seletor);
                         case 1 -> new TelaSelectServico(seletor);
                         case 2 -> new TelaSelectServico(seletor);
                         case 3 -> new TelaSelectServico(seletor);
@@ -63,7 +62,7 @@ public class TelaGerenciadorServico extends JFrame{
                     break;
                 case 2:
                     switch(index){
-                        case 0 -> dispose();
+                        case 0 -> new TelaRegistroServico(seletor);
                         case 1 -> new TelaSelectServico(seletor);
                         case 2 -> new TelaSelectServico(seletor);
                         case 3 -> new TelaSelectServico(seletor);
@@ -72,7 +71,7 @@ public class TelaGerenciadorServico extends JFrame{
                     break;
                 case 3:
                     switch(index){
-                        case 0 -> dispose();
+                        case 0 -> new TelaRegistroServico(seletor);
                         case 1 -> new TelaSelectServico(seletor);
                         case 2 -> new TelaSelectServico(seletor);
                         case 3 -> new TelaSelectServico(seletor);
@@ -81,7 +80,7 @@ public class TelaGerenciadorServico extends JFrame{
                     break;
                 case 4:
                     switch(index){
-                        case 0 -> dispose();
+                        case 0 -> new TelaRegistroServico(seletor);
                         case 1 -> new TelaSelectServico(seletor);
                         case 2 -> new TelaSelectServico(seletor);
                         case 3 -> new TelaSelectServico(seletor);
@@ -90,7 +89,7 @@ public class TelaGerenciadorServico extends JFrame{
                     break;
                 case 5:
                     switch(index){
-                        case 0 -> dispose();
+                        case 0 -> new TelaRegistroServico(seletor);
                         case 1 -> new TelaSelectServico(seletor);
                         case 2 -> new TelaSelectServico(seletor);
                         case 3 -> new TelaSelectServico(seletor);
@@ -98,7 +97,7 @@ public class TelaGerenciadorServico extends JFrame{
                     }
                     break;
             }
-            dispose();
+            //dispose();
         });
         this.add(button);
     }
