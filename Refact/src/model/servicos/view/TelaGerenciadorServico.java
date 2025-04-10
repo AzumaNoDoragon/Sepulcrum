@@ -40,7 +40,7 @@ public class TelaGerenciadorServico extends JFrame{
                 default -> null;
             };
             if(button != null){
-                defineBotoes(i, button, index, jbX, jbY, jbWidth, jbHeight);
+                defineBotoes(seletor, button, index, jbX, jbY, jbWidth, jbHeight);
             }
         };
 
@@ -50,54 +50,14 @@ public class TelaGerenciadorServico extends JFrame{
     protected void defineBotoes(int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
-            switch (seletor) {
-                case 1:
-                    switch(index){
-                        case 0 -> new TelaRegistroServico(seletor);
-                        case 1 -> new TelaSelectServico(seletor);
-                        case 2 -> new TelaSelectServico(seletor);
-                        case 3 -> new TelaSelectServico(seletor);
-                        case 4 -> new TelaServico();
-                    }
-                    break;
-                case 2:
-                    switch(index){
-                        case 0 -> new TelaRegistroServico(seletor);
-                        case 1 -> new TelaSelectServico(seletor);
-                        case 2 -> new TelaSelectServico(seletor);
-                        case 3 -> new TelaSelectServico(seletor);
-                        case 4 -> new TelaServico();
-                    }
-                    break;
-                case 3:
-                    switch(index){
-                        case 0 -> new TelaRegistroServico(seletor);
-                        case 1 -> new TelaSelectServico(seletor);
-                        case 2 -> new TelaSelectServico(seletor);
-                        case 3 -> new TelaSelectServico(seletor);
-                        case 4 -> new TelaServico();
-                    }
-                    break;
-                case 4:
-                    switch(index){
-                        case 0 -> new TelaRegistroServico(seletor);
-                        case 1 -> new TelaSelectServico(seletor);
-                        case 2 -> new TelaSelectServico(seletor);
-                        case 3 -> new TelaSelectServico(seletor);
-                        case 4 -> new TelaServico();
-                    }
-                    break;
-                case 5:
-                    switch(index){
-                        case 0 -> new TelaRegistroServico(seletor);
-                        case 1 -> new TelaSelectServico(seletor);
-                        case 2 -> new TelaSelectServico(seletor);
-                        case 3 -> new TelaSelectServico(seletor);
-                        case 4 -> new TelaServico();
-                    }
-                    break;
+            switch(index){
+                case 0 -> new TelaRegistroServico(seletor);
+                case 1 -> new TelaSelectServico(seletor);
+                case 2 -> new TelaSelectServico(seletor);
+                case 3 -> new TelaSelectServico(seletor);
+                case 4 -> new TelaServico();
             }
-            //dispose();
+            dispose();
         });
         this.add(button);
     }
@@ -107,12 +67,6 @@ public class TelaGerenciadorServico extends JFrame{
         fWidth = 300;
         fHeight = 350;
         qtdBotoes = 5;
-
-        jbOne = new JButton();
-        jbTwo = new JButton();
-        jbThree = new JButton();
-        jbFour = new JButton();
-        jbVoltar = new JButton();
         
         switch(seletor){
             case 1:

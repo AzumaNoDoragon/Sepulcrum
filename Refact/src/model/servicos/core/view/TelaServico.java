@@ -31,11 +31,11 @@ public class TelaServico extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(e -> {
             switch(index){
-                case 0 -> new TelaGerenciadorServico(1);
-                case 1 -> new TelaGerenciadorServico(2);
-                case 2 -> new TelaGerenciadorServico(3);
-                case 3 -> new TelaGerenciadorServico(4);
-                case 4 -> new TelaGerenciadorServico(5);
+                case 0 -> new TelaGerenciadorServico(1); // Exumação
+                case 1 -> new TelaGerenciadorServico(2); // Manutenção
+                case 2 -> new TelaGerenciadorServico(3); // Reserva
+                case 3 -> new TelaGerenciadorServico(4); // Transferencia
+                case 4 -> new TelaGerenciadorServico(5); // vistoria
                 case 5 -> new TelaGerenciador();
             }
             dispose();
