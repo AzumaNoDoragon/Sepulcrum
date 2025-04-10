@@ -126,7 +126,10 @@ public class TelaRegistroServico extends JFrame{
 
                 // Janela
                 this.setTitle("Registro Exumação.");
-                
+                /*
+                    protected String dataServico, descricao, informacoesAdicionais, statusServico;
+                    protected int idResponsavelServico, idDefunto, idTumulo; 
+                */
                 // Label
                 jlOne = new JLabel("");
                 jlTwo = new JLabel("");
@@ -138,14 +141,14 @@ public class TelaRegistroServico extends JFrame{
                 jlEight = new JLabel("");
                 
                 // Text Field
-                jtfOne = new JTextField("");
-                jtfTwo = new JTextField("");
-                jtfThree = new JTextField("");
-                jtfFour = new JTextField("");
-                jtfFive = new JTextField("");
-                jtfSix = new JTextField("");
-                jtfSeven = new JTextField("");
-                jtfEight = new JTextField("");
+                jtfOne = new JTextField();
+                jtfTwo = new JTextField();
+                jtfThree = new JTextField();
+                jtfFour = new JTextField();
+                jtfFive = new JTextField();
+                jtfSix = new JTextField();
+                jtfSeven = new JTextField();
+                jtfEight = new JTextField();
 
                 break;
             }
@@ -157,7 +160,10 @@ public class TelaRegistroServico extends JFrame{
 
                 // Janela
                 this.setTitle("Registro Manutenção.");
-                
+                /*
+                    protected String dataServico, descricao, informacoesAdicionais, statusServico;
+                    protected int idResponsavelServico, idTumulo;
+                */
                 // Label
                 jlOne = new JLabel("");
                 jlTwo = new JLabel("");
@@ -169,14 +175,14 @@ public class TelaRegistroServico extends JFrame{
                 jlEight = new JLabel("");
                 
                 // Text Field
-                jtfOne = new JTextField("");
-                jtfTwo = new JTextField("");
-                jtfThree = new JTextField("");
-                jtfFour = new JTextField("");
-                jtfFive = new JTextField("");
-                jtfSix = new JTextField("");
-                jtfSeven = new JTextField("");
-                jtfEight = new JTextField("");
+                jtfOne = new JTextField();
+                jtfTwo = new JTextField();
+                jtfThree = new JTextField();
+                jtfFour = new JTextField();
+                jtfFive = new JTextField();
+                jtfSix = new JTextField();
+                jtfSeven = new JTextField();
+                jtfEight = new JTextField();
 
                 break;
             }
@@ -188,7 +194,10 @@ public class TelaRegistroServico extends JFrame{
 
                 // Janela
                 this.setTitle("Registro Reserva.");
-                
+                /*
+                    protected String dataServico, descricao, informacoesAdicionais, statusServico;
+                    private int idPessoa, idResponsavelServico, idTumulo;
+                */
                 // Label
                 jlOne = new JLabel("");
                 jlTwo = new JLabel("");
@@ -200,14 +209,14 @@ public class TelaRegistroServico extends JFrame{
                 jlEight = new JLabel("");
                 
                 // Text Field
-                jtfOne = new JTextField("");
-                jtfTwo = new JTextField("");
-                jtfThree = new JTextField("");
-                jtfFour = new JTextField("");
-                jtfFive = new JTextField("");
-                jtfSix = new JTextField("");
-                jtfSeven = new JTextField("");
-                jtfEight = new JTextField("");
+                jtfOne = new JTextField();
+                jtfTwo = new JTextField();
+                jtfThree = new JTextField();
+                jtfFour = new JTextField();
+                jtfFive = new JTextField();
+                jtfSix = new JTextField();
+                jtfSeven = new JTextField();
+                jtfEight = new JTextField();
 
                 break;
             }
@@ -219,7 +228,10 @@ public class TelaRegistroServico extends JFrame{
 
                 // Janela
                 this.setTitle("Registro Transferencia.");
-                
+                /*
+                    protected String dataServico, descricao, informacoesAdicionais, statusServico;
+                    private int idTumuloDestino, idDefunto, idTumulo, idResponsavelServico;
+                */
                 // Label
                 jlOne = new JLabel("");
                 jlTwo = new JLabel("");
@@ -231,14 +243,14 @@ public class TelaRegistroServico extends JFrame{
                 jlEight = new JLabel("");
                 
                 // Text Field
-                jtfOne = new JTextField("");
-                jtfTwo = new JTextField("");
-                jtfThree = new JTextField("");
-                jtfFour = new JTextField("");
-                jtfFive = new JTextField("");
-                jtfSix = new JTextField("");
-                jtfSeven = new JTextField("");
-                jtfEight = new JTextField("");
+                jtfOne = new JTextField();
+                jtfTwo = new JTextField();
+                jtfThree = new JTextField();
+                jtfFour = new JTextField();
+                jtfFive = new JTextField();
+                jtfSix = new JTextField();
+                jtfSeven = new JTextField();
+                jtfEight = new JTextField();
 
                 break;
             }
@@ -250,7 +262,10 @@ public class TelaRegistroServico extends JFrame{
 
                 // Janela
                 this.setTitle("Registro Vistoria.");
-                
+                /*
+                    protected String dataServico, descricao, informacoesAdicionais, statusServico;
+                    protected int idTumulo, idResponsavelServico;
+                */
                 // Label
                 jlOne = new JLabel("");
                 jlTwo = new JLabel("");
@@ -262,14 +277,14 @@ public class TelaRegistroServico extends JFrame{
                 jlEight = new JLabel("");
                 
                 // Text Field
-                jtfOne = new JTextField("");
-                jtfTwo = new JTextField("");
-                jtfThree = new JTextField("");
-                jtfFour = new JTextField("");
-                jtfFive = new JTextField("");
-                jtfSix = new JTextField("");
-                jtfSeven = new JTextField("");
-                jtfEight = new JTextField("");
+                jtfOne = new JTextField();
+                jtfTwo = new JTextField();
+                jtfThree = new JTextField();
+                jtfFour = new JTextField();
+                jtfFive = new JTextField();
+                jtfSix = new JTextField();
+                jtfSeven = new JTextField();
+                jtfEight = new JTextField();
 
                 break;
             }
