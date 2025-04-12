@@ -126,22 +126,19 @@ public class TelaRegistroServico extends JFrame{
 
                 // Janela
                 this.setTitle("Registro Exumação.");
-                /*
-                    protected String dataServico, descricao, informacoesAdicionais, statusServico;
-                    protected int idResponsavelServico, idDefunto, idTumulo; 
-                */
+
                 // Label
-                jlOne = new JLabel("");
-                jlTwo = new JLabel("");
-                jlThree = new JLabel("");
-                jlFour = new JLabel("");
-                jlFive = new JLabel("");
-                jlSix = new JLabel("");
-                jlSeven = new JLabel("");
-                jlEight = new JLabel("");
+                jlOne = new JLabel("Tipo serviço:");
+                jlTwo = new JLabel("Descricao");
+                jlThree = new JLabel("Status Serviço");
+                jlFour = new JLabel("Data Servico");
+                jlFive = new JLabel("Id Defunto");
+                jlSix = new JLabel("Id Tumulo");
+                jlSeven = new JLabel("Id Responsavel Servico");
+                jlEight = new JLabel("Informações Adicionais");
                 
                 // Text Field
-                jtfOne = new JTextField();
+                jtfOne = new JTextField("Exumação");
                 jtfTwo = new JTextField();
                 jtfThree = new JTextField();
                 jtfFour = new JTextField();
@@ -165,7 +162,7 @@ public class TelaRegistroServico extends JFrame{
                     protected int idResponsavelServico, idTumulo;
                 */
                 // Label
-                jlOne = new JLabel("");
+                jlOne = new JLabel("Tipo serviço:");
                 jlTwo = new JLabel("");
                 jlThree = new JLabel("");
                 jlFour = new JLabel("");
@@ -199,7 +196,7 @@ public class TelaRegistroServico extends JFrame{
                     private int idPessoa, idResponsavelServico, idTumulo;
                 */
                 // Label
-                jlOne = new JLabel("");
+                jlOne = new JLabel("Tipo serviço:");
                 jlTwo = new JLabel("");
                 jlThree = new JLabel("");
                 jlFour = new JLabel("");
@@ -233,7 +230,7 @@ public class TelaRegistroServico extends JFrame{
                     private int idTumuloDestino, idDefunto, idTumulo, idResponsavelServico;
                 */
                 // Label
-                jlOne = new JLabel("");
+                jlOne = new JLabel("Tipo serviço:");
                 jlTwo = new JLabel("");
                 jlThree = new JLabel("");
                 jlFour = new JLabel("");
@@ -267,7 +264,7 @@ public class TelaRegistroServico extends JFrame{
                     protected int idTumulo, idResponsavelServico;
                 */
                 // Label
-                jlOne = new JLabel("");
+                jlOne = new JLabel("Tipo serviço:");
                 jlTwo = new JLabel("");
                 jlThree = new JLabel("");
                 jlFour = new JLabel("");
