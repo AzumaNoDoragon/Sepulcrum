@@ -45,7 +45,7 @@ public class TelaRegistroServico extends JFrame{
         for(int i = 0; i < qtdBotoes; i++){
             if(i == 1){jbY = jbY - 15;}
             jbWidth = 150;
-            button(seletor, i, jbX, y, jbY, jbWidth, jbHeight);
+            button(qtdBotoes, seletor, i, jbX, y, jbY, jbWidth, jbHeight);
         };
         
         this.setVisible(true);
@@ -87,7 +87,7 @@ public class TelaRegistroServico extends JFrame{
         }
     }
 
-    protected void button(int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
+    protected void button(int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
         jbY = y * (i + 9);
         int index = i;
         JButton button = switch (index){
@@ -134,8 +134,8 @@ public class TelaRegistroServico extends JFrame{
                 jlFour = new JLabel("Data Serviço");
                 jlFive = new JLabel("Id Defunto");
                 jlSix = new JLabel("Id Tumulo");
-                jlSeven = new JLabel("Id Responsavel Serviço");
-                jlEight = new JLabel("Informações Adicionais");
+                jlSeven = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
+                jlEight = new JLabel("<html>Informações<br>Adicionais:</html>");
                 
                 // Text Field
                 jtfOne = new JTextField("Exumação");
@@ -164,11 +164,11 @@ public class TelaRegistroServico extends JFrame{
                 jlThree = new JLabel("Status Serviço");
                 jlFour = new JLabel("Data Serviço");
                 jlFive = new JLabel("Id Tumulo");
-                jlSix = new JLabel("Id Responsavel Serviço");
-                jlSeven = new JLabel("Informações Adicionais");
+                jlSix = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
+                jlSeven = new JLabel("<html>Informações<br>Adicionais:</html>");
                 
                 // Text Field
-                jtfOne = new JTextField();
+                jtfOne = new JTextField("Manutenção");
                 jtfTwo = new JTextField();
                 jtfThree = new JTextField();
                 jtfFour = new JTextField();
@@ -194,11 +194,11 @@ public class TelaRegistroServico extends JFrame{
                 jlFour = new JLabel("Data Serviço");
                 jlFive = new JLabel("Id Comprador"); // comprador == familiar
                 jlSix = new JLabel("Id Tumulo");
-                jlSeven = new JLabel("Id Responsavel Serviço");
-                jlEight = new JLabel("Informações Adicionais");
+                jlSeven = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
+                jlEight = new JLabel("<html>Informações<br>Adicionais:</html>");
                 
                 // Text Field
-                jtfOne = new JTextField();
+                jtfOne = new JTextField("Reserva");
                 jtfTwo = new JTextField();
                 jtfThree = new JTextField();
                 jtfFour = new JTextField();
@@ -213,10 +213,10 @@ public class TelaRegistroServico extends JFrame{
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 8;
+                qtdBotoes = 9;
 
                 // Janela
-                this.setTitle("Registro Transferencia.");
+                this.setTitle("Registro Transferência.");
 
                 // Label
                 jlOne = new JLabel("Tipo serviço:"); //adicionar a classe de herança
@@ -226,11 +226,11 @@ public class TelaRegistroServico extends JFrame{
                 jlFive = new JLabel("Id Defunto");
                 jlSix = new JLabel("Id Tumulo");
                 jlSeven = new JLabel("Id Destino");
-                jlEight = new JLabel("Id Responsavel Serviço");
-                jlNine = new JLabel("Informações Adicionais");
+                jlEight = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
+                jlNine = new JLabel("<html>Informações<br>Adicionais:</html>");
                 
                 // Text Field
-                jtfOne = new JTextField();
+                jtfOne = new JTextField("Transferência");
                 jtfTwo = new JTextField();
                 jtfThree = new JTextField();
                 jtfFour = new JTextField();
@@ -246,7 +246,7 @@ public class TelaRegistroServico extends JFrame{
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 8;
+                qtdBotoes = 7;
 
                 // Janela
                 this.setTitle("Registro Vistoria.");
@@ -257,11 +257,11 @@ public class TelaRegistroServico extends JFrame{
                 jlThree = new JLabel("Status do Serviço:");
                 jlFour = new JLabel("Data do Serviço:");
                 jlFive = new JLabel("Id do Tumulo:");
-                jlSix = new JLabel("Id do Responsavelpelo Serviço:"); 
-                jlSeven = new JLabel("InformaçõesAdicionais:");
+                jlSix = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
+                jlSeven = new JLabel("<html>Informações<br>Adicionais:</html>");
                 
                 // Text Field
-                jtfOne = new JTextField();
+                jtfOne = new JTextField("Vistoria");
                 jtfTwo = new JTextField();
                 jtfThree = new JTextField();
                 jtfFour = new JTextField();
@@ -272,6 +272,7 @@ public class TelaRegistroServico extends JFrame{
                 break;
             }
         }
+        jtfOne.setEditable(false);
     }
 
     protected void msgSucesso(){
