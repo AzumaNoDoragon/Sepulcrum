@@ -1,7 +1,7 @@
 package model.servicos.utils;
 
 public abstract class ServicosCemiterio {
-    protected String dataServico, descricao, informacoesAdicionais, statusServico;
+    protected String tipoServico, dataServico, descricao, informacoesAdicionais, statusServico;
     protected int idServico, idResponsavelServico;
 
     public int getIdResponsavelServico() {
