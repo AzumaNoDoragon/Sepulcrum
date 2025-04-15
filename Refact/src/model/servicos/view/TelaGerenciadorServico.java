@@ -49,7 +49,7 @@ public class TelaGerenciadorServico extends JFrame{
     
     protected void defineBotoes(int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
-        button.addActionListener(e -> {
+        button.addActionListener(_ -> {
             switch(index){
                 case 0 -> new TelaRegistroServico(seletor);
                 case 1 -> new TelaSelectServico(seletor);

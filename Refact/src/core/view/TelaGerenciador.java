@@ -33,7 +33,7 @@ public class TelaGerenciador extends TelaMenu{
     @Override
     protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
-        button.addActionListener(e -> {
+        button.addActionListener(_ -> {
             switch(index){
                 case 0 -> new TelaGerenciadorCemiterio();
                 case 1 -> new TelaGerenciadorAdm();
