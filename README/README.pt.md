@@ -73,7 +73,7 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
   ┃ ┣📂 finado
   ┃ ┣📂 parente
   ┃ ┗📂 utils
-  ┗ 📂 servicos
+  ┗📂 servicos
     ┣📂 core
     ┣📂 utils
     ┗📂 view
