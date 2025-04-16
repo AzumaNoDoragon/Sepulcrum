@@ -31,49 +31,49 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 3. Configure o banco de dados:
     - Crie o banco com o script database.sql (na pasta /db)
     - Atualize o arquivo de configuração com suas credenciais:
-    ```bash
+    ```Java
     String url = "EXEMPLO";
     String user = "EXEMPLO";
     String password = "EXEMPLO";
+    ```
 4. Execute o projeto a partir da classe Main.java
 
 ## Estrutura Básica
-    ### Legenda das Pastas
-    ```
-    - `app/` – Ponto de entrada da aplicação
-    - `core/` – Camada intermediária entre a aplicação e o modelo
-    - `model/` – Estrutura e dados do domínio da aplicação
-        - `localidade/` – Entidades físicas do cemitério (cemitérios, túmulos, etc.)
-        - `pessoas/` – Entidades humanas do sistema (falecidos, parentes, administradores)
-        - `servicos/` – Serviços e operações realizadas (exumações, manutenções, etc.)
+**Legenda das Pastas**
+- `app/` – Ponto de entrada da aplicação
+- `core/` – Camada intermediária entre a aplicação e o modelo
+- `model/` – Estrutura e dados do domínio da aplicação
+    - `localidade/` – Entidades físicas do cemitério (cemitérios, túmulos, etc.)
+    - `pessoas/` – Entidades humanas do sistema (falecidos, parentes, administradores)
+    - `servicos/` – Serviços e operações realizadas (exumações, manutenções, etc.)
 
-    Possui em varios modulos:
-        - `controller/` – Padrões recorrentes para controle
-        - `core/` – Padrões recorrentes lógica central
-        - `utils/` – Padrões recorrentes classes utilitárias de herança
-        - `view/` – interfaces gráficas
-
-    📦 src
-    ┣📂 app
+Possui em varios modulos:
+    - `controller/` – Padrões recorrentes para controle
+    - `core/` – Padrões recorrentes lógica central
+    - `utils/` – Padrões recorrentes classes utilitárias de herança
+    - `view/` – interfaces gráficas
+```
+📦 src
+┣📂 app
+┣📂 core
+┃ ┣📂 controller
+┃ ┣📂 utils
+┃ ┗📂 view
+┗📂 model
+    ┣📂 localidade
+    ┃ ┣📂 cemiterio
+    ┃ ┣📂 tumulo
+    ┃ ┗📂 utils
+    ┣📂 pessoas
+    ┃ ┣📂 adm
+    ┃ ┣📂 finado
+    ┃ ┣📂 parente
+    ┃ ┗📂 utils
+    ┗ 📂 servicos
     ┣📂 core
-    ┃ ┣📂 controller
-    ┃ ┣📂 utils
-    ┃ ┗📂 view
-    ┗📂 model
-      ┣📂 localidade
-      ┃ ┣📂 cemiterio
-      ┃ ┣📂 tumulo
-      ┃ ┗📂 utils
-      ┣📂 pessoas
-      ┃ ┣📂 adm
-      ┃ ┣📂 finado
-      ┃ ┣📂 parente
-      ┃ ┗📂 utils
-      ┗ 📂 servicos
-        ┣📂 core
-        ┣📂 utils
-        ┗📂 view
-    ´´´
+    ┣📂 utils
+    ┗📂 view
+```
     
 ## ⚠️ Limitações
 
