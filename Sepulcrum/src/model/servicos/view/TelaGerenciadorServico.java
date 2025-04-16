@@ -51,10 +51,10 @@ public class TelaGerenciadorServico extends JFrame{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaRegistroServico(seletor);
-                case 1 -> new TelaSelectServico(seletor);
-                case 2 -> new TelaSelectServico(seletor);
-                case 3 -> new TelaSelectServico(seletor);
+                case 0 -> new TelaRegistroServico(seletor, 1);
+                case 1 -> new TelaSelectServico(seletor, 2);
+                case 2 -> new TelaSelectServico(seletor, 3);
+                case 3 -> new TelaSelectServico(seletor, 4);
                 case 4 -> new TelaServico();
             }
             dispose();

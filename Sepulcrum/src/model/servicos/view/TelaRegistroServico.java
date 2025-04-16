@@ -12,7 +12,7 @@ public class TelaRegistroServico extends JFrame{
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
 
-    public TelaRegistroServico(int seletor){
+    public TelaRegistroServico(int seletor, int seletorCrud){
         inicializarVariaveis(seletor);
         
         // Janela
@@ -45,7 +45,7 @@ public class TelaRegistroServico extends JFrame{
         for(int i = 0; i < qtdBotoes; i++){
             if(i == 1){jbY = jbY - 15;}
             jbWidth = 150;
-            button(qtdBotoes, seletor, i, jbX, y, jbY, jbWidth, jbHeight);
+            button(seletorCrud, qtdBotoes, seletor, i, jbX, y, jbY, jbWidth, jbHeight);
         };
         
         this.setVisible(true);
@@ -61,6 +61,7 @@ public class TelaRegistroServico extends JFrame{
             case 5 -> jlSix;
             case 6 -> jlSeven;
             case 7 -> jlEight;
+            case 8 -> jlNine;
             default -> null;
         };
         if(label != null){
@@ -79,6 +80,7 @@ public class TelaRegistroServico extends JFrame{
             case 5 -> jtfSix;
             case 6 -> jtfSeven;
             case 7 -> jtfEight;
+            case 8 -> jtfNine;
             default -> null;
         };
         if(text != null){
@@ -87,8 +89,8 @@ public class TelaRegistroServico extends JFrame{
         }
     }
 
-    protected void button(int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
-        jbY = y * (i + 9);
+    protected void button(int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
+        jbY = y * (qtdBotoes + 1 + i);
         int index = i;
         JButton button = switch (index){
             case 0 -> jbSalvar;
@@ -96,15 +98,24 @@ public class TelaRegistroServico extends JFrame{
             default -> null;
         };
         if(button != null){
-            defineBotoes(seletor, button, index, jbX + 70, jbY, jbWidth, jbHeight);
+            defineBotoes(seletorCrud, seletor, button, index, jbX + 70, jbY, jbWidth, jbHeight);
         }
     }
 
-    protected void defineBotoes(int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void defineBotoes(int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaGerenciadorServico(seletor);
+                case 0 -> {
+                    if(seletorCrud == 1){
+                        msgSucesso();
+                    } else if (seletorCrud == 3){
+                        msgAlterada();
+                    } else if(seletorCrud == 4){
+                        msgConfirmacaoDelecao();
+                    }
+                    new TelaGerenciadorServico(seletor);
+                }
                 case 1 -> new TelaGerenciadorServico(seletor);
             };
             dispose();
@@ -246,7 +257,7 @@ public class TelaRegistroServico extends JFrame{
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 7;
+                qtdBotoes = 8;
 
                 // Janela
                 this.setTitle("Registro Vistoria.");
@@ -287,7 +298,7 @@ public class TelaRegistroServico extends JFrame{
         JOptionPane.showMessageDialog(this, "Registro deletado!");
     }
 
-    protected void msgConfirmacaoAlteracao(){
+    protected void msgConfirmacaoDelecao(){
         int opcao = JOptionPane.showConfirmDialog(
             this,
             "Deseja realmente deletar este registro?",

@@ -11,7 +11,7 @@ public class TelaSelectServico extends JFrame{
     protected JLabel jlId;
     protected int fWidth, fHeight, qtdBotoes;
     
-    public TelaSelectServico(int seletor){
+    public TelaSelectServico(int seletor, int seletorCrud){
         inicializarVariaveis();
 
         // Janela
@@ -45,7 +45,7 @@ public class TelaSelectServico extends JFrame{
             int jbY = y * (i + 2);
             if(i == 1){jbY = jbY - 15;}
             jbWidth = 150;
-            button(seletor, i, jbX + 70, jbY, jbWidth, jbHeight);
+            button(seletorCrud, seletor, i, jbX + 70, jbY, jbWidth, jbHeight);
         };
         
         this.setVisible(true);
@@ -73,7 +73,7 @@ public class TelaSelectServico extends JFrame{
         }
     }
 
-    protected void button(int seletor, int i, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void button(int seletorCrud, int seletor, int i, int jbX, int jbY, int jbWidth, int jbHeight){
         int index = i;
         JButton button = switch (index){
             case 0 -> jbBusca;
@@ -81,15 +81,15 @@ public class TelaSelectServico extends JFrame{
             default -> null;
         };
         if(button != null){
-            defineBotoes(seletor, button, index, jbX, jbY, jbWidth, jbHeight);
+            defineBotoes(seletorCrud, seletor, button, index, jbX, jbY, jbWidth, jbHeight);
         }
     }
 
-    protected void defineBotoes(int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void defineBotoes(int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaRegistroServico(seletor); // Passar propriedade de crud
+                case 0 -> new TelaRegistroServico(seletor, seletorCrud); // Passar propriedade de crud
                 case 1 -> new TelaGerenciadorServico(seletor);
             }
             dispose();
