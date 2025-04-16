@@ -38,31 +38,8 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 4. Execute o projeto a partir da classe Main.java
 
 ## Estrutura Básica
-
-    ```bash
-    📦 src
-    ┣📂 app (Contem apenas a main)
-    ┣📂 core (Ponte de controle entre o app e o model)
-    ┃ ┣📂 controller (Executa o controle direto do que está acontecendo )
-    ┃ ┣📂 utils (classes de herança usadas na maioria das classes do model)
-    ┃ ┗📂 view (Tela do controller)
-    ┗📂 model
-      ┣📂 localidade (Entidade que possui)
-      ┃ ┣📂 cemiterio
-      ┃ ┣📂 tumulo
-      ┃ ┗📂 utils
-      ┣📂 pessoas (entidade que possui)
-      ┃ ┣📂 adm
-      ┃ ┣📂 finado
-      ┃ ┣📂 parente
-      ┃ ┗📂 utils
-      ┗ 📂 servicos ()
-        ┣📂 core
-        ┣📂 utils
-        ┗📂 view
-    
-### Legenda das Pastas
-
+    ### Legenda das Pastas
+    ```
     - `app/` – Ponto de entrada da aplicação
     - `core/` – Camada intermediária entre a aplicação e o modelo
     - `model/` – Estrutura e dados do domínio da aplicação
@@ -76,6 +53,28 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
         - `utils/` – Padrões recorrentes classes utilitárias de herança
         - `view/` – interfaces gráficas
 
+    📦 src
+    ┣📂 app
+    ┣📂 core
+    ┃ ┣📂 controller
+    ┃ ┣📂 utils
+    ┃ ┗📂 view
+    ┗📂 model
+      ┣📂 localidade
+      ┃ ┣📂 cemiterio
+      ┃ ┣📂 tumulo
+      ┃ ┗📂 utils
+      ┣📂 pessoas
+      ┃ ┣📂 adm
+      ┃ ┣📂 finado
+      ┃ ┣📂 parente
+      ┃ ┗📂 utils
+      ┗ 📂 servicos
+        ┣📂 core
+        ┣📂 utils
+        ┗📂 view
+    ´´´
+    
 ## ⚠️ Limitações
 
 - Não possui autenticação de usuários
