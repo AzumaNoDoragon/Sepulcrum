@@ -46,8 +46,7 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
     - `localidade/` – Entidades físicas do cemitério (cemitérios, túmulos, etc.)
     - `pessoas/` – Entidades humanas do sistema (falecidos, parentes, administradores)
     - `servicos/` – Serviços e operações realizadas (exumações, manutenções, etc.)
-
-Possui em varios modulos:
+- Possui em varios modulos:
     - `controller/` – Padrões recorrentes para controle
     - `core/` – Padrões recorrentes lógica central
     - `utils/` – Padrões recorrentes classes utilitárias de herança
