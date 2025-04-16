@@ -48,9 +48,10 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
     - `servicos/` – Serviços e operações realizadas (exumações, manutenções, etc.)
 - Possui em varios modulos:
     - `controller/` – Padrões recorrentes para controle
-    - `core/` – Padrões recorrentes lógica central
-    - `utils/` – Padrões recorrentes classes utilitárias de herança
-    - `view/` – interfaces gráficas
+    - `core/` – Padrões recorrentes de lógica central
+    - `utils/` – Padrões recorrentes de classes utilitárias de herança
+    - `view/` – Padrões recorrentes de interfaces gráficas
+
 ```
 📦 src
 ┣📂 app
