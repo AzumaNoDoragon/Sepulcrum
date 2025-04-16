@@ -41,29 +41,28 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 
     ```bash
     📦 src
-    ┣ 📂 app (Contem apenas a main)
-    ┣ 📂 core (Ponte de controle entre o app e o model)
-    ┃   ┣ 📂 controller (Executa o controle direto do que está acontecendo )
-    ┃   ┣ 📂 utils (classes de herança usadas na maioria das classes do model)
-    ┃   ┗ 📂 view (Tela do controller)
-    ┗ 📂 model
-        ┣ 📂 localidade (Entidade que possui)
-        ┃   ┣ 📂 cemiterio
-        ┃   ┣ 📂 tumulo
-        ┃   ┗ 📂 utils
-        ┣ 📂 pessoas (entidade que possui)
-        ┃   ┣ 📂 adm
-        ┃   ┣ 📂 finado
-        ┃   ┣ 📂 parente
-        ┃   ┗ 📂 utils
-        ┗ 📂 servicos ()
-            ┣ 📂 core
-            ┣ 📂 utils
-            ┗ 📂 view
+    ┣📂 app (Contem apenas a main)
+    ┣📂 core (Ponte de controle entre o app e o model)
+    ┃ ┣📂 controller (Executa o controle direto do que está acontecendo )
+    ┃ ┣📂 utils (classes de herança usadas na maioria das classes do model)
+    ┃ ┗📂 view (Tela do controller)
+    ┗📂 model
+      ┣📂 localidade (Entidade que possui)
+      ┃ ┣📂 cemiterio
+      ┃ ┣📂 tumulo
+      ┃ ┗📂 utils
+      ┣📂 pessoas (entidade que possui)
+      ┃ ┣📂 adm
+      ┃ ┣📂 finado
+      ┃ ┣📂 parente
+      ┃ ┗📂 utils
+      ┗ 📂 servicos ()
+        ┣📂 core
+        ┣📂 utils
+        ┗📂 view
     
-### 🗂️ Legenda das Pastas
+### Legenda das Pastas
 
-    ```bash
     - `app/` – Ponto de entrada da aplicação
     - `core/` – Camada intermediária entre a aplicação e o modelo
     - `model/` – Estrutura e dados do domínio da aplicação
@@ -91,5 +90,4 @@ Contribuições são bem-vindas! Para isso:
 - Faça commit das alterações
 - Envie um pull request
 
-# Projeto acadêmico desenvolvido para fins de aprendizado.
-
+**Nota:** Projeto acadêmico desenvolvido para fins de aprendizado.
