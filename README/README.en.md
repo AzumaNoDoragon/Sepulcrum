@@ -75,9 +75,9 @@ Desktop system for managing information about deceased individuals, responsible 
   ┃ ┣📂 parente
   ┃ ┗📂 utils
   ┗ 📂 servicos
-  ┣📂 core
-  ┣📂 utils
-  ┗📂 view
+    ┣📂 core
+    ┣📂 utils
+    ┗📂 view
 ```
 
 ## ⚠️ Limitations
