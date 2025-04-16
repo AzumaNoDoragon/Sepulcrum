@@ -64,19 +64,19 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 ┃ ┣📂 utils
 ┃ ┗📂 view
 ┗📂 model
-    ┣📂 localidade
-    ┃ ┣📂 cemiterio
-    ┃ ┣📂 tumulo
-    ┃ ┗📂 utils
-    ┣📂 pessoas
-    ┃ ┣📂 adm
-    ┃ ┣📂 finado
-    ┃ ┣📂 parente
-    ┃ ┗📂 utils
-    ┗ 📂 servicos
-    ┣📂 core
-    ┣📂 utils
-    ┗📂 view
+  ┣📂 localidade
+  ┃ ┣📂 cemiterio
+  ┃ ┣📂 tumulo
+  ┃ ┗📂 utils
+  ┣📂 pessoas
+  ┃ ┣📂 adm
+  ┃ ┣📂 finado
+  ┃ ┣📂 parente
+  ┃ ┗📂 utils
+  ┗ 📂 servicos
+  ┣📂 core
+  ┣📂 utils
+  ┗📂 view
 ```
 
 ## ⚠️ Limitações

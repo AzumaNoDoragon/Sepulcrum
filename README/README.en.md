@@ -65,19 +65,19 @@ Desktop system for managing information about deceased individuals, responsible 
 ┃ ┣📂 utils
 ┃ ┗📂 view
 ┗📂 model
-    ┣📂 localidade
-    ┃ ┣📂 cemiterio
-    ┃ ┣📂 tumulo
-    ┃ ┗📂 utils
-    ┣📂 pessoas
-    ┃ ┣📂 adm
-    ┃ ┣📂 finado
-    ┃ ┣📂 parente
-    ┃ ┗📂 utils
-    ┗ 📂 servicos
-    ┣📂 core
-    ┣📂 utils
-    ┗📂 view
+  ┣📂 localidade
+  ┃ ┣📂 cemiterio
+  ┃ ┣📂 tumulo
+  ┃ ┗📂 utils
+  ┣📂 pessoas
+  ┃ ┣📂 adm
+  ┃ ┣📂 finado
+  ┃ ┣📂 parente
+  ┃ ┗📂 utils
+  ┗ 📂 servicos
+  ┣📂 core
+  ┣📂 utils
+  ┗📂 view
 ```
 
 ## ⚠️ Limitations
