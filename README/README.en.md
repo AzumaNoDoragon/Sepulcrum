@@ -22,19 +22,17 @@ Desktop system for managing information about deceased individuals, responsible 
 - **MySQL** (relational database) – under development
 - **VSCode** – IDE used
 
-## 🚀 How to Run
+## How to Run
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/seu-usuario/sistema-cemiterio.git
+  ```bash
+  git clone https://github.com/seu-usuario/sistema-cemiterio.git
     
 2. Import the project into your IDE (Eclipse, IntelliJ, NetBeans, etc.)  
-_Note: VSCode was used during development_
 
 3. Set up the database:
 - Create the database using the `database.sql` script (located in the `/db` folder)
 - Update the configuration file with your credentials:
-
   ```java
   String url = "EXAMPLE";
   String user = "EXAMPLE";
@@ -43,20 +41,20 @@ _Note: VSCode was used during development_
 
 4. Run the project from the `Main.java` class
 
-## 📁 Project Structure
+## Project Structure
 
 **Folder Legend**
 - `app/` – Application entry point
 - `core/` – Intermediate layer between app and model
 - `model/` – Domain structure and data
-- `localidade/` – Physical cemetery entities (cemeteries, graves, etc.)
-- `pessoas/` – People entities (deceased, relatives, admins)
-- `servicos/` – Services and operations (exhumations, maintenance, etc.)
+  - `localidade/` – Physical cemetery entities (cemeteries, graves, etc.)
+  - `pessoas/` – People entities (deceased, relatives, admins)
+  - `servicos/` – Services and operations (exhumations, maintenance, etc.)
 - Found in various modules:
-- `controller/` – Recurrent control patterns
-- `core/` – Recurrent business logic patterns
-- `utils/` – Utility base classes
-- `view/` – GUI-related code
+  - `controller/` – Recurrent control patterns
+  - `core/` – Recurrent business logic patterns
+  - `utils/` – Utility base classes
+  - `view/` – GUI-related code
 
 ```
 📦 src
@@ -87,7 +85,7 @@ _Note: VSCode was used during development_
 - Only one responsible relative per deceased individual
 - Basic UI without responsiveness
 
-## 🤝 Contributions
+## Contributions
 
 Contributions are welcome! To contribute:
 

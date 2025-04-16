@@ -27,18 +27,22 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 1. Clone o repositório:
    ```bash
     git clone https://github.com/seu-usuario/sistema-cemiterio.git
-2. Importe o projeto na sua IDE (Eclipse, IntelliJ, NetBeans) estou usando o VSCode
+
+2. Importe o projeto na sua IDE (Eclipse, IntelliJ, NetBeans, etc.)
+
 3. Configure o banco de dados:
-    - Crie o banco com o script database.sql (na pasta /db)
-    - Atualize o arquivo de configuração com suas credenciais:
+- Crie o banco com o script database.sql (na pasta /db)
+- Atualize o arquivo de configuração com suas credenciais:
     ```Java
     String url = "EXEMPLO";
     String user = "EXEMPLO";
     String password = "EXEMPLO";
     ```
+
 4. Execute o projeto a partir da classe Main.java
 
 ## Estrutura Básica
+
 **Legenda das Pastas**
 - `app/` – Ponto de entrada da aplicação
 - `core/` – Camada intermediária entre a aplicação e o modelo
@@ -74,7 +78,7 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
     ┣📂 utils
     ┗📂 view
 ```
-    
+
 ## ⚠️ Limitações
 
 - Não possui autenticação de usuários
@@ -82,10 +86,11 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 - Interface básica, sem responsividade
 
 ## Contribuições
+
 Contribuições são bem-vindas! Para isso:
 
 - Fork o projeto
-- Crie uma branch: feature/sua-feature
+- Crie uma branch: `feature/sua-feature`
 - Faça commit das alterações
 - Envie um pull request
 
