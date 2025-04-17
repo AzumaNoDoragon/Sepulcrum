@@ -3,6 +3,14 @@ package model.servicos.utils;
 public abstract class ServicosCemiterio {
     protected String tipoServico, dataServico, descricao, informacoesAdicionais, statusServico;
     protected int idServico, idResponsavelServico;
+    
+    public String getTipoServico() {
+        return tipoServico;
+    }
+
+    public void setTipoServico(String tipoServico) {
+        this.tipoServico = tipoServico;
+    }
 
     public int getIdResponsavelServico() {
         return idResponsavelServico;

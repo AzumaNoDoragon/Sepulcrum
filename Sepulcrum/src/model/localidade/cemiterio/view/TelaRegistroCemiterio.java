@@ -4,8 +4,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import core.utils.TelaRegistro;
 import javax.swing.JButton;
+import model.localidade.cemiterio.model.Cemiterio;
 
 public class TelaRegistroCemiterio extends TelaRegistro{
+    private Cemiterio c = new Cemiterio();
+    
     @Override
     protected void defineBotoes(JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
@@ -42,6 +45,15 @@ public class TelaRegistroCemiterio extends TelaRegistro{
         jlSix = new JLabel("Capacidade: ");
         jlSeven = new JLabel("Telefone: ");
         jlEight = new JLabel("Cep: ");
+
+        c.setNome(jtfOne.getText());
+        c.setEstado(jtfTwo.getText());
+        c.setCidade(jtfThree.getText());
+        c.setRua(jtfFour.getText());
+        c.setNumero(Integer.parseInt(jtfFive.getText()));
+        c.setCapacidadeMax(Integer.parseInt(jtfSix.getText()));
+        c.setTelefone(jtfSeven.getText());
+        c.setCep(jtfEight.getText());
         
         // Text Field
         jtfOne = new JTextField();

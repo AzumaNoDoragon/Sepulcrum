@@ -6,13 +6,17 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import model.servicos.core.controller.GerenciadorServicos;
+import model.servicos.exumacao.Exumacao;
+
 public class TelaRegistroServico extends JFrame{
     protected JButton jbSalvar, jbCancelar;
     protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
+    private GerenciadorServicos gs = new GerenciadorServicos();
 
-    public TelaRegistroServico(int seletor, int seletorCrud){
+    public TelaRegistroServico(int seletor, int seletorCrud, int id){
         inicializarVariaveis(seletor);
         
         // Janela
@@ -108,6 +112,7 @@ public class TelaRegistroServico extends JFrame{
             switch(index){
                 case 0 -> {
                     if(seletorCrud == 1){
+                        gs.setServico(this, seletor);
                         msgSucesso();
                     } else if (seletorCrud == 3){
                         msgAlterada();
@@ -308,5 +313,85 @@ public class TelaRegistroServico extends JFrame{
         if (opcao == JOptionPane.YES_OPTION) {
             msgDelete();
         }
+    }
+
+    public String getJtfOne() {
+        return jtfOne.getText();
+    }
+
+    public String getJtfTwo() {
+        return jtfTwo.getText();
+    }
+
+    public String getJtfThree() {
+        return jtfThree.getText();
+    }
+
+    public String getJtfFour() {
+        return jtfFour.getText();
+    }
+
+    public int getJtfFive() {
+        return Integer.parseInt(jtfFive.getText());
+    }
+
+    public int getJtfSix() {
+        return Integer.parseInt(jtfSix.getText());
+    }
+
+    public int getJtfSeven() {
+        return Integer.parseInt(jtfSeven.getText());
+    }
+
+    public String getJtfEight() {
+        return jtfEight.getText();
+    }
+
+    public String getJtfNine() {
+        return jtfNine.getText();
+    }
+
+    public String getJtfTen() {
+        return jtfTen.getText();
+    }
+
+    public void setJtfOne(String value) {
+        jtfOne.setText(value);
+    }
+
+    public void setJtfTwo(String value) {
+        jtfTwo.setText(value);
+    }
+
+    public void setJtfThree(String value) {
+        jtfThree.setText(value);
+    }
+
+    public void setJtfFour(String value) {
+        jtfFour.setText(value);
+    }
+
+    public void setJtfFive(String value) {
+        jtfFive.setText(value);
+    }
+
+    public void setJtfSix(String value) {
+        jtfSix.setText(value);
+    }
+
+    public void setJtfSeven(String value) {
+        jtfSeven.setText(value);
+    }
+
+    public void setJtfEight(String value) {
+        jtfEight.setText(value);
+    }
+
+    public void setJtfNine(String value) {
+        jtfNine.setText(value);
+    }
+
+    public void setJtfTen(String value) {
+        jtfTen.setText(value);
     }
 }

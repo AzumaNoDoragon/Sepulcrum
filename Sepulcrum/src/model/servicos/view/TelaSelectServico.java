@@ -9,7 +9,7 @@ public class TelaSelectServico extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;
     protected JLabel jlId;
-    protected int fWidth, fHeight, qtdBotoes;
+    protected int fWidth, fHeight, qtdBotoes, id;
     
     public TelaSelectServico(int seletor, int seletorCrud){
         inicializarVariaveis();
@@ -89,7 +89,7 @@ public class TelaSelectServico extends JFrame{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaRegistroServico(seletor, seletorCrud); // Passar propriedade de crud
+                case 0 -> new TelaRegistroServico(seletor, seletorCrud, id);
                 case 1 -> new TelaGerenciadorServico(seletor);
             }
             dispose();
@@ -103,17 +103,18 @@ public class TelaSelectServico extends JFrame{
         fHeight = 300;
         qtdBotoes = 3;
 
-         // Janela
-         this.setTitle("Seleção");
+        // Janela
+        this.setTitle("Seleção");
 
-         // Button
-         jbBusca = new JButton("Buscar");
-         jbCancelar = new JButton("Cancelar");
- 
-         // Label
-         jlId = new JLabel("Busca por id: ");
- 
-         // Text Field
-         jtfId = new JTextField();
+        // Button
+        jbBusca = new JButton("Buscar");
+        jbCancelar = new JButton("Cancelar");
+
+        // Label
+        jlId = new JLabel("Busca por id: ");
+
+        // Text Field
+        jtfId = new JTextField();
+        id = Integer.parseInt(jtfId.getText());
     }
 }
