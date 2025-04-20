@@ -81,19 +81,29 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 
 ## Artefatos do Projeto
 
-### Diagrama de Casos de uso:
+### Levantamento de Requisitos
+
+Aqui foram definidos os **objetivos**, **público-alvo**, **necessidade da implementação**, **impacto e benefícios**, **critérios de sucesso da solução**, além dos **requisitos funcionais e não funcionais**.
+
+[Levantamento de Requisitos (PDF)](/Diagramas%20e%20Requisitos/Levantamento%20de%20requisitos.pdf)
+
+### Diagrama de Casos de Uso
 
 Visualização dos atores e funcionalidades do sistema:
 
-### Diagrama de Classes:
+[Diagrama de Casos de Uso (PDF)](/Diagramas%20e%20Requisitos/Diagrama%20de%20Casos%20de%20uso.pdf)
+
+### Diagrama de Classes
 
 Representação das principais classes e suas relações no sistema:
 
-### Protótipo de Alta Fidelidade:
+[Diagrama de Classes (PDF)](/Diagramas%20e%20Requisitos/Diagrama%20de%20Classes.pdf)
+
+### Protótipo de Alta Fidelidade
 
 Protótipo desenvolvido no Figma, representando a interface gráfica planejada para o sistema:
 
-[Sepulcrum(https://www.figma.com/proto/A5obT1irJp1okvwqMJ6vkt/Sepulcrum?node-id=0-1&t=4ha3TvRyFWAvMtRV-1)]
+[Acessar Protótipo no Figma – Sepulcrum](https://www.figma.com/proto/A5obT1irJp1okvwqMJ6vkt/Sepulcrum?node-id=0-1&t=4ha3TvRyFWAvMtRV-1)
 
 ## ⚠️ Limitações
 
