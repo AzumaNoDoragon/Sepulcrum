@@ -86,19 +86,19 @@ Desktop system for managing information about deceased individuals, responsible 
 
 Here, the **objectives**, **target audience**, **implementation needs**, **impact and benefits**, **success criteria of the solution**, as well as the **functional and non-functional requirements** were defined.
 
-[Requirements Gathering (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/Diagramas%20e%20Requisitos/Levantamento%20de%20requisios.pdf)
+[Requirements Gathering (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/documentacao/Levantamento%20de%20requisios.pdf)
 
 ### Use Case Diagram
 
 Visualization of the system's actors and functionalities:
 
-[Use Case Diagram (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/Diagramas%20e%20Requisitos/Diagrama%20de%20Casos%20de%20uso.pdf)
+[Use Case Diagram (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/documentacao/Diagrama%20de%20Casos%20de%20uso.pdf)
 
 ### Class Diagram
 
 Representation of the main classes and their relationships within the system:
 
-[Class Diagram (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/Diagramas%20e%20Requisitos/Diagrama%20de%20Classes.pdf)
+[Class Diagram (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/documentacao/Diagrama%20de%20Classes.pdf)
 
 ### High-Fidelity Prototype
 
