@@ -79,6 +79,22 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
     ┗📂 view
 ```
 
+## Artefatos do Projeto
+
+### Diagrama de Casos de uso:
+
+Visualização dos atores e funcionalidades do sistema:
+
+### Diagrama de Classes:
+
+Representação das principais classes e suas relações no sistema:
+
+### Protótipo de Alta Fidelidade:
+
+Protótipo desenvolvido no Figma, representando a interface gráfica planejada para o sistema:
+
+[[Sepulcrum](https://www.figma.com/proto/A5obT1irJp1okvwqMJ6vkt/Sepulcrum?node-id=0-1&t=4ha3TvRyFWAvMtRV-1)]
+
 ## ⚠️ Limitações
 
 - Não possui autenticação de usuários
