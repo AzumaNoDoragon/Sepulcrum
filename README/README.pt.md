@@ -93,7 +93,7 @@ Representação das principais classes e suas relações no sistema:
 
 Protótipo desenvolvido no Figma, representando a interface gráfica planejada para o sistema:
 
-[[Sepulcrum](https://www.figma.com/proto/A5obT1irJp1okvwqMJ6vkt/Sepulcrum?node-id=0-1&t=4ha3TvRyFWAvMtRV-1)]
+[Sepulcrum(https://www.figma.com/proto/A5obT1irJp1okvwqMJ6vkt/Sepulcrum?node-id=0-1&t=4ha3TvRyFWAvMtRV-1)]
 
 ## ⚠️ Limitações
 
