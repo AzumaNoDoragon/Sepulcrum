@@ -32,7 +32,7 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 2. Importe o projeto na sua IDE (Eclipse, IntelliJ, NetBeans, etc.)
 
 3. Configure o banco de dados:
-- Crie o banco com o script database.sql (na pasta /db)
+- Crie o banco com o script `database.sql` (na pasta `/db`)
 - Atualize o arquivo de configuração com suas credenciais:
   ```Java
   String url = "EXEMPLO";
@@ -40,7 +40,7 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
   String password = "EXEMPLO";
   ```
 
-4. Execute o projeto a partir da classe Main.java
+4. Execute o projeto a partir da classe `Main.java`
 
 ## Estrutura Básica
 
