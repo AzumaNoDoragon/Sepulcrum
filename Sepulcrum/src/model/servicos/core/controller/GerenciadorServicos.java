@@ -12,7 +12,7 @@ public class GerenciadorServicos {
     public void setServico(TelaRegistroServico trs, int seletor){
         switch (seletor) {
             case 1:
-                setExumacao(trs);
+                setExum(acao(trs);
                 break;
             case 2:
 
