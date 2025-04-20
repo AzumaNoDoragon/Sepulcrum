@@ -27,7 +27,6 @@ Desktop system for managing information about deceased individuals, responsible 
 1. Clone the repository:
   ```bash
   git clone https://github.com/seu-usuario/sistema-cemiterio.git
-  ```
     
 2. Import the project into your IDE (Eclipse, IntelliJ, NetBeans, etc.)  
 
@@ -79,6 +78,32 @@ Desktop system for managing information about deceased individuals, responsible 
     ┣📂 utils
     ┗📂 view
 ```
+
+## Project Artifacts
+
+### Requirements Gathering
+
+Here, the **objectives**, **target audience**, **implementation needs**, **impact and benefits**, **success criteria of the solution**, as well as the **functional and non-functional requirements** were defined.
+
+[Requirements Gathering (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/Diagramas%20e%20Requisitos/Levantamento%20de%20requisios.pdf)
+
+### Use Case Diagram
+
+Visualization of the system's actors and functionalities:
+
+[Use Case Diagram (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/Diagramas%20e%20Requisitos/Diagrama%20de%20Casos%20de%20uso.pdf)
+
+### Class Diagram
+
+Representation of the main classes and their relationships within the system:
+
+[Class Diagram (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/Diagramas%20e%20Requisitos/Diagrama%20de%20Classes.pdf)
+
+### High-Fidelity Prototype
+
+Prototype developed in Figma, representing the planned graphical interface for the system:
+
+[Access High-Fidelity Prototype on Figma – Sepulcrum](https://www.figma.com/proto/A5obT1irJp1okvwqMJ6vkt/Sepulcrum?node-id=0-1&t=4ha3TvRyFWAvMtRV-1)
 
 ## ⚠️ Limitations
 

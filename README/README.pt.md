@@ -25,19 +25,19 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 ## Como Executar
 
 1. Clone o repositório:
-   ```bash
-    git clone https://github.com/seu-usuario/sistema-cemiterio.git
+  ```bash
+  git clone https://github.com/seu-usuario/sistema-cemiterio.git
 
 2. Importe o projeto na sua IDE (Eclipse, IntelliJ, NetBeans, etc.)
 
 3. Configure o banco de dados:
 - Crie o banco com o script database.sql (na pasta /db)
 - Atualize o arquivo de configuração com suas credenciais:
-    ```Java
-    String url = "EXEMPLO";
-    String user = "EXEMPLO";
-    String password = "EXEMPLO";
-    ```
+  ```Java
+  String url = "EXEMPLO";
+  String user = "EXEMPLO";
+  String password = "EXEMPLO";
+  ```
 
 4. Execute o projeto a partir da classe Main.java
 
@@ -47,14 +47,14 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 - `app/` – Ponto de entrada da aplicação
 - `core/` – Camada intermediária entre a aplicação e o modelo
 - `model/` – Estrutura e dados do domínio da aplicação
-    - `localidade/` – Entidades físicas do cemitério (cemitérios, túmulos, etc.)
-    - `pessoas/` – Entidades humanas do sistema (falecidos, parentes, administradores)
-    - `servicos/` – Serviços e operações realizadas (exumações, manutenções, etc.)
+  - `localidade/` – Entidades físicas do cemitério (cemitérios, túmulos, etc.)
+  - `pessoas/` – Entidades humanas do sistema (falecidos, parentes, administradores)
+  - `servicos/` – Serviços e operações realizadas (exumações, manutenções, etc.)
 - Possui em varios modulos:
-    - `controller/` – Padrões recorrentes para controle
-    - `core/` – Padrões recorrentes de lógica central
-    - `utils/` – Padrões recorrentes de classes utilitárias de herança
-    - `view/` – Padrões recorrentes de interfaces gráficas
+  - `controller/` – Padrões recorrentes para controle
+  - `core/` – Padrões recorrentes de lógica central
+  - `utils/` – Padrões recorrentes de classes utilitárias de herança
+  - `view/` – Padrões recorrentes de interfaces gráficas
 
 ```
 📦 src
