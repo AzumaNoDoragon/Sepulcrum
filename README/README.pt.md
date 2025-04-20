@@ -85,19 +85,19 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 
 Aqui foram definidos os **objetivos**, **público-alvo**, **necessidade da implementação**, **impacto e benefícios**, **critérios de sucesso da solução**, além dos **requisitos funcionais e não funcionais**.
 
-[Levantamento de Requisitos (PDF)](/Diagramas%20e%20Requisitos/Levantamento%20de%20requisitos.pdf)
+[Levantamento de Requisitos (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/Diagramas%20e%20Requisitos/Levantamento%20de%20requisios.pdf)
 
 ### Diagrama de Casos de Uso
 
 Visualização dos atores e funcionalidades do sistema:
 
-[Diagrama de Casos de Uso (PDF)](/Diagramas%20e%20Requisitos/Diagrama%20de%20Casos%20de%20uso.pdf)
+[Diagrama de Casos de Uso (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/Diagramas%20e%20Requisitos/Diagrama%20de%20Casos%20de%20uso.pdf)
 
 ### Diagrama de Classes
 
 Representação das principais classes e suas relações no sistema:
 
-[Diagrama de Classes (PDF)](/Diagramas%20e%20Requisitos/Diagrama%20de%20Classes.pdf)
+[Diagrama de Classes (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/Diagramas%20e%20Requisitos/Diagrama%20de%20Classes.pdf)
 
 ### Protótipo de Alta Fidelidade
 
