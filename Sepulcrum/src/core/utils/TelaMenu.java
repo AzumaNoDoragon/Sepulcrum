@@ -1,7 +1,7 @@
 package core.utils;
 
-import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public abstract class TelaMenu extends JFrame{
     protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;

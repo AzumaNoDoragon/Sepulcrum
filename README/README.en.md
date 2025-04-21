@@ -42,6 +42,11 @@ Desktop system for managing information about deceased individuals, responsible 
 
 4. Run the project from the `Main.java` class
 
+## Entity-Relationship Diagram (ERD)
+
+Logical diagram of the entities and relationships in the database:
+
+
 ## Project Structure
 
 **Folder Legend**

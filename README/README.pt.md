@@ -42,6 +42,11 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 
 4. Execute o projeto a partir da classe `Main.java`
 
+## Diagrama Entidade-Relacionamento (DER)
+
+Diagrama lógico das entidades e relacionamentos do banco de dados:
+
+
 ## Estrutura Básica
 
 **Legenda das Pastas**
