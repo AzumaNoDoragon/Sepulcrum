@@ -45,7 +45,7 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 ## Diagrama Entidade-Relacionamento (DER)
 
 Diagrama lógico das entidades e relacionamentos do banco de dados:
-
+![Image](https://github.com/user-attachments/assets/76b9415f-db49-44af-995c-e30a124596cc)
 
 ## Estrutura Básica
 
