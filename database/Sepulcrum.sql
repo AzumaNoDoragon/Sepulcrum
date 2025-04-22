@@ -1,0 +1,249 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema Sepulcrum
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema Sepulcrum
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `Sepulcrum` ;
+USE `Sepulcrum` ;
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`CEMITERIO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`CEMITERIO` (
+  `CEM_CNPJ` VARCHAR(15) NOT NULL,
+  `CEM_NUMERO` INT NULL,
+  `CEM_RUA` VARCHAR(150) NULL,
+  `CEM_NOME` VARCHAR(150) NULL,
+  `CEM_ESTADO` VARCHAR(45) NULL,
+  `CEM_CIDADE` VARCHAR(45) NULL,
+  `CEM_TELEFONE` VARCHAR(45) NULL,
+  `CEM_CEP` VARCHAR(45) NULL,
+  `CEM_CAPACIDADE` INT NULL,
+  PRIMARY KEY (`CEM_CNPJ`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`TUMULO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`TUMULO` (
+  `TUM_NUMERO` INT NOT NULL,
+  `TUM_RUA` VARCHAR(150) NOT NULL,
+  `TUM_TIPO` VARCHAR(150) NULL,
+  `TUM_DATA_OCUOPACAO` DATE NULL,
+  `TUM_SITUACAO` VARCHAR(150) NULL,
+  `CEM_CNPJ` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`TUM_NUMERO`, `TUM_RUA`, `CEM_CNPJ`),
+  INDEX `fk_TUMULO_CEMITERIO_idx` (`CEM_CNPJ` ASC) VISIBLE,
+  CONSTRAINT `fk_TUMULO_CEMITERIO`
+    FOREIGN KEY (`CEM_CNPJ`)
+    REFERENCES `Sepulcrum`.`CEMITERIO` (`CEM_CNPJ`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`FINADO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`FINADO` (
+  `FIN_CERTIDAO_OBITO` INT NOT NULL,
+  `FIN_CPF` INT NULL,
+  `FIN_NOME` VARCHAR(150) NULL,
+  `FIN_RG` INT NULL,
+  `FIN_DATA_NASCIMENTO` DATE NULL,
+  `FIN_DATA_FALECIMENTO` DATE NULL,
+  `FIN_CAUSA_MORTE` VARCHAR(150) NULL,
+  `TUM_NUMERO` INT NOT NULL,
+  `TUM_RUA` VARCHAR(150) NOT NULL,
+  PRIMARY KEY (`FIN_CERTIDAO_OBITO`),
+  INDEX `fk_FINADO_TUMULO1_idx` (`TUM_NUMERO` ASC, `TUM_RUA` ASC) VISIBLE,
+  CONSTRAINT `fk_FINADO_TUMULO1`
+    FOREIGN KEY (`TUM_NUMERO` , `TUM_RUA`)
+    REFERENCES `Sepulcrum`.`TUMULO` (`TUM_NUMERO` , `TUM_RUA`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`COVEIRO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`COVEIRO` (
+  `COV_CPF` VARCHAR(11) NOT NULL,
+  `COV_NOME` VARCHAR(150) NULL,
+  `COV_RG` INT NULL,
+  `COV_DATA_NASCIMENTO` DATE NULL,
+  `COV_EMAIL` VARCHAR(150) NULL,
+  `COV_TELEFONE` VARCHAR(45) NULL,
+  `COV_CARGO` VARCHAR(150) NULL,
+  `COV_DATA_CONTRATACAO` DATE NULL,
+  `CEM_CNPJ` VARCHAR(15) NULL,
+  PRIMARY KEY (`COV_CPF`),
+  INDEX `fk_COVEIRO_CEMITERIO1_idx` (`CEM_CNPJ` ASC) VISIBLE,
+  CONSTRAINT `fk_COVEIRO_CEMITERIO1`
+    FOREIGN KEY (`CEM_CNPJ`)
+    REFERENCES `Sepulcrum`.`CEMITERIO` (`CEM_CNPJ`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`FAMILIAR`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`FAMILIAR` (
+  `FAM_CPF` INT NOT NULL,
+  `FAM_NOME` VARCHAR(150) NULL,
+  `FAM_RG` INT NULL,
+  `FAM_DATA_NASCIMENTO` DATE NULL,
+  `FAM_EMAIL` VARCHAR(150) NULL,
+  `FAM_TELEFONE` INT NULL,
+  `FAM_GRAU_PARENTESCO` VARCHAR(150) NULL,
+  PRIMARY KEY (`FAM_CPF`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`Responsavel_Tumulo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`Responsavel_Tumulo` (
+  `FAM_CPF` INT NOT NULL,
+  `TUM_NUMERO` INT NOT NULL,
+  `TUM_RUA` VARCHAR(150) NOT NULL,
+  `CEM_CNPJ` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`FAM_CPF`, `TUM_NUMERO`, `TUM_RUA`, `CEM_CNPJ`),
+  INDEX `fk_FAMILIAR_has_TUMULO_TUMULO1_idx` (`TUM_NUMERO` ASC, `TUM_RUA` ASC, `CEM_CNPJ` ASC) VISIBLE,
+  INDEX `fk_FAMILIAR_has_TUMULO_FAMILIAR1_idx` (`FAM_CPF` ASC) VISIBLE,
+  CONSTRAINT `fk_FAMILIAR_has_TUMULO_FAMILIAR1`
+    FOREIGN KEY (`FAM_CPF`)
+    REFERENCES `Sepulcrum`.`FAMILIAR` (`FAM_CPF`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_FAMILIAR_has_TUMULO_TUMULO1`
+    FOREIGN KEY (`TUM_NUMERO` , `TUM_RUA` , `CEM_CNPJ`)
+    REFERENCES `Sepulcrum`.`TUMULO` (`TUM_NUMERO` , `TUM_RUA` , `CEM_CNPJ`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`SERVICOS`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`SERVICOS` (
+  `SER_ID` INT NOT NULL AUTO_INCREMENT,
+  `SER_TIPO` VARCHAR(45) NOT NULL,
+  `SER_DESCRICAO` VARCHAR(150) NULL,
+  `SER_INFORMACOES_ADICIONAIS` VARCHAR(150) NULL,
+  `SER_STATUS` VARCHAR(150) NULL,
+  `SERVICOScol` VARCHAR(45) NULL,
+  `COV_CPF` VARCHAR(11) NOT NULL,
+  PRIMARY KEY (`SER_ID`),
+  INDEX `fk_SERVICOS_COVEIRO1_idx` (`COV_CPF` ASC) VISIBLE,
+  CONSTRAINT `fk_SERVICOS_COVEIRO1`
+    FOREIGN KEY (`COV_CPF`)
+    REFERENCES `Sepulcrum`.`COVEIRO` (`COV_CPF`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`EXUMACAO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`EXUMACAO` (
+  `SER_ID` INT NOT NULL,
+  `FIN_CERTIDAO_OBITO` INT NOT NULL,
+  PRIMARY KEY (`SER_ID`),
+  INDEX `fk_EXUMACAO_FINADO1_idx` (`FIN_CERTIDAO_OBITO` ASC) VISIBLE,
+  CONSTRAINT `fk_EXUMACAO_SERVICOS1`
+    FOREIGN KEY (`SER_ID`)
+    REFERENCES `Sepulcrum`.`SERVICOS` (`SER_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_EXUMACAO_FINADO1`
+    FOREIGN KEY (`FIN_CERTIDAO_OBITO`)
+    REFERENCES `Sepulcrum`.`FINADO` (`FIN_CERTIDAO_OBITO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`RESERVA_TUMULO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`RESERVA_TUMULO` (
+  `SER_ID` INT NOT NULL,
+  `FAM_CPF` INT NOT NULL,
+  PRIMARY KEY (`SER_ID`),
+  INDEX `fk_RESERVA_TUMULO_FAMILIAR1_idx` (`FAM_CPF` ASC) VISIBLE,
+  CONSTRAINT `fk_RESERVA_TUMULO_SERVICOS1`
+    FOREIGN KEY (`SER_ID`)
+    REFERENCES `Sepulcrum`.`SERVICOS` (`SER_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_RESERVA_TUMULO_FAMILIAR1`
+    FOREIGN KEY (`FAM_CPF`)
+    REFERENCES `Sepulcrum`.`FAMILIAR` (`FAM_CPF`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`TRANSFERENCIA_DEFUNTO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`TRANSFERENCIA_DEFUNTO` (
+  `SER_ID` INT NOT NULL,
+  `TUM_NUMERO` INT NOT NULL,
+  `TUM_RUA` VARCHAR(150) NOT NULL,
+  `CEM_CNPJ` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`SER_ID`),
+  INDEX `fk_TRANSFERENCIA_DEFUNTO_TUMULO1_idx` (`TUM_NUMERO` ASC, `TUM_RUA` ASC, `CEM_CNPJ` ASC) VISIBLE,
+  CONSTRAINT `fk_TRANSFERENCIA_DEFUNTO_SERVICOS1`
+    FOREIGN KEY (`SER_ID`)
+    REFERENCES `Sepulcrum`.`SERVICOS` (`SER_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_TRANSFERENCIA_DEFUNTO_TUMULO1`
+    FOREIGN KEY (`TUM_NUMERO` , `TUM_RUA` , `CEM_CNPJ`)
+    REFERENCES `Sepulcrum`.`TUMULO` (`TUM_NUMERO` , `TUM_RUA` , `CEM_CNPJ`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sepulcrum`.`RESPONSAVEL_FINADO`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Sepulcrum`.`RESPONSAVEL_FINADO` (
+  `FAM_CPF` INT NOT NULL,
+  `FIN_CERTIDAO_OBITO` INT NOT NULL,
+  PRIMARY KEY (`FAM_CPF`, `FIN_CERTIDAO_OBITO`),
+  INDEX `fk_FAMILIAR_has_FINADO_FINADO1_idx` (`FIN_CERTIDAO_OBITO` ASC) VISIBLE,
+  INDEX `fk_FAMILIAR_has_FINADO_FAMILIAR1_idx` (`FAM_CPF` ASC) VISIBLE,
+  CONSTRAINT `fk_FAMILIAR_has_FINADO_FAMILIAR1`
+    FOREIGN KEY (`FAM_CPF`)
+    REFERENCES `Sepulcrum`.`FAMILIAR` (`FAM_CPF`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_FAMILIAR_has_FINADO_FINADO1`
+    FOREIGN KEY (`FIN_CERTIDAO_OBITO`)
+    REFERENCES `Sepulcrum`.`FINADO` (`FIN_CERTIDAO_OBITO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
