@@ -26,7 +26,7 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 
 1. Clone o repositório:
   ```bash
-  git clone https://github.com/seu-usuario/sistema-cemiterio.git
+  git clone https://github.com/AzumaNoDoragon/Sepulcrum.git
   ```
 
 2. Importe o projeto na sua IDE (Eclipse, IntelliJ, NetBeans, etc.)
