@@ -45,7 +45,7 @@ Desktop system for managing information about deceased individuals, responsible 
 ## Entity-Relationship Diagram (ERD)
 
 Logical diagram of the entities and relationships in the database:
-![Image](https://github.com/user-attachments/assets/76b9415f-db49-44af-995c-e30a124596cc)
+![Image](https://github.com/user-attachments/assets/424f4948-7e0f-4794-92d3-587691c4aff5)
 
 ## Project Structure
 
