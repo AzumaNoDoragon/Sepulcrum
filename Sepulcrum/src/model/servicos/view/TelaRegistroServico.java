@@ -5,9 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
 import model.servicos.core.controller.GerenciadorServicos;
-import model.servicos.exumacao.Exumacao;
 
 public class TelaRegistroServico extends JFrame{
     protected JButton jbSalvar, jbCancelar;
@@ -138,13 +136,13 @@ public class TelaRegistroServico extends JFrame{
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 8;
+                qtdBotoes = 9;
 
                 // Janela
                 this.setTitle("Registro Exumação.");
 
                 // Label
-                jlOne = new JLabel("Tipo serviço:"); //adicionar a classe de herança
+                jlOne = new JLabel("Tipo serviço:");
                 jlTwo = new JLabel("Descricao");
                 jlThree = new JLabel("Status Serviço");
                 jlFour = new JLabel("Data Serviço");
