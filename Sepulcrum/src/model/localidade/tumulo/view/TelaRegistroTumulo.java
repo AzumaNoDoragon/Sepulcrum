@@ -3,6 +3,9 @@ package model.localidade.tumulo.view;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.sepulcrum.model.localidade.tumulo.view.TelaGerenciadorTumulo;
+
 import core.utils.TelaRegistro;
 
 public class TelaRegistroTumulo extends TelaRegistro{

@@ -1,11 +1,12 @@
 package core.controller;
 
+import com.sepulcrum.model.localidade.cemiterio.controller.GerenciadorCemiterio;
+import com.sepulcrum.model.localidade.tumulo.controller.GerenciadorTumulo;
+import com.sepulcrum.model.pessoas.adm.controller.GerenciadorAdm;
+import com.sepulcrum.model.pessoas.finado.controller.GerenciadorFinado;
+import com.sepulcrum.model.servicos.core.controller.GerenciadorServicos;
+
 import core.view.TelaGerenciador;
-import model.localidade.cemiterio.controller.GerenciadorCemiterio;
-import model.localidade.tumulo.controller.GerenciadorTumulo;
-import model.pessoas.adm.controller.GerenciadorAdm;
-import model.pessoas.finado.controller.GerenciadorFinado;
-import model.servicos.core.controller.GerenciadorServicos;
 
 public class Gerenciador {
     private final GerenciadorCemiterio gc = new GerenciadorCemiterio();

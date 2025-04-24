@@ -3,6 +3,9 @@ package model.servicos.view;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import com.sepulcrum.model.servicos.view.TelaRegistroServico;
+import com.sepulcrum.model.servicos.view.TelaSelectServico;
+
 import model.servicos.core.view.TelaServico;
 
 public class TelaGerenciadorServico extends JFrame{

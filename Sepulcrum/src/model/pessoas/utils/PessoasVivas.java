@@ -1,5 +1,7 @@
 package model.pessoas.utils;
 
+import com.sepulcrum.model.pessoas.utils.Pessoas;
+
 public abstract class PessoasVivas extends Pessoas{
     protected String email, telefone;
 

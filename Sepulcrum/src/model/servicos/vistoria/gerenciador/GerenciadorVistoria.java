@@ -2,6 +2,8 @@ package model.servicos.vistoria.gerenciador;
 
 import java.util.Scanner;
 
+import com.sepulcrum.model.servicos.vistoria.gerenciador.TelaVistoria;
+
 import model.servicos.vistoria.controle.CRUDVistoria;
 
 public class GerenciadorVistoria {

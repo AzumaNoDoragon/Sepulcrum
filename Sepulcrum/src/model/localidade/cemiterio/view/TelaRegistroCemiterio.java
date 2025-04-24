@@ -2,6 +2,9 @@ package model.localidade.cemiterio.view;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.sepulcrum.model.localidade.cemiterio.view.TelaGerenciadorCemiterio;
+
 import core.utils.TelaRegistro;
 import javax.swing.JButton;
 import model.localidade.cemiterio.model.Cemiterio;

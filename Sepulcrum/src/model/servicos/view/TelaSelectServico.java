@@ -5,6 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import com.sepulcrum.model.servicos.view.TelaGerenciadorServico;
+import com.sepulcrum.model.servicos.view.TelaRegistroServico;
+
 public class TelaSelectServico extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;

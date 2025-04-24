@@ -3,6 +3,9 @@ package model.pessoas.parente.view;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.sepulcrum.model.pessoas.parente.view.TelaGerenciadorParente;
+
 import core.utils.TelaRegistro;
 
 public class TelaRegistroParente extends TelaRegistro{

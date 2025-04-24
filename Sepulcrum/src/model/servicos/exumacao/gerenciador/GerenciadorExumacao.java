@@ -2,6 +2,8 @@ package model.servicos.exumacao.gerenciador;
 
 import java.util.Scanner;
 
+import com.sepulcrum.model.servicos.exumacao.gerenciador.TelaExumacao;
+
 import model.servicos.exumacao.controle.CRUDExumacao;
 
 public class GerenciadorExumacao {

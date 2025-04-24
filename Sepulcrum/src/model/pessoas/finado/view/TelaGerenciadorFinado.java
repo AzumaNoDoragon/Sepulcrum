@@ -1,6 +1,10 @@
 package model.pessoas.finado.view;
 
 import javax.swing.JButton;
+
+import com.sepulcrum.model.pessoas.finado.view.TelaRegistroFinado;
+import com.sepulcrum.model.pessoas.finado.view.TelaSelectFinado;
+
 import core.utils.TelaMenu;
 import core.view.TelaGerenciador;
 

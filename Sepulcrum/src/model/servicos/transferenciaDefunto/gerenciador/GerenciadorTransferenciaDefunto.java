@@ -2,6 +2,8 @@ package model.servicos.transferenciaDefunto.gerenciador;
 
 import java.util.Scanner;
 
+import com.sepulcrum.model.servicos.transferenciaDefunto.gerenciador.TelaTransferenciaDefunto;
+
 import model.servicos.transferenciaDefunto.controle.CRUDTransferenciaDefunto;
 
 public class GerenciadorTransferenciaDefunto {

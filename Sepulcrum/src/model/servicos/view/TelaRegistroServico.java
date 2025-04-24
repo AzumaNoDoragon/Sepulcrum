@@ -5,6 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import com.sepulcrum.model.servicos.view.TelaGerenciadorServico;
+
 import model.servicos.core.controller.GerenciadorServicos;
 
 public class TelaRegistroServico extends JFrame{

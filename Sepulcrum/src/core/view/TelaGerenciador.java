@@ -1,13 +1,15 @@
 package core.view;
 
 import javax.swing.JButton;
+
+import com.sepulcrum.model.localidade.cemiterio.view.TelaGerenciadorCemiterio;
+import com.sepulcrum.model.localidade.tumulo.view.TelaGerenciadorTumulo;
+import com.sepulcrum.model.pessoas.adm.view.TelaGerenciadorAdm;
+import com.sepulcrum.model.pessoas.finado.view.TelaGerenciadorFinado;
+import com.sepulcrum.model.pessoas.parente.view.TelaGerenciadorParente;
+import com.sepulcrum.model.servicos.core.view.TelaServico;
+
 import core.utils.TelaMenu;
-import model.localidade.cemiterio.view.TelaGerenciadorCemiterio;
-import model.localidade.tumulo.view.TelaGerenciadorTumulo;
-import model.pessoas.adm.view.TelaGerenciadorAdm;
-import model.pessoas.finado.view.TelaGerenciadorFinado;
-import model.pessoas.parente.view.TelaGerenciadorParente;
-import model.servicos.core.view.TelaServico;
 
 public class TelaGerenciador extends TelaMenu{
     @Override

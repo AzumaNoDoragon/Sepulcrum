@@ -2,6 +2,9 @@ package model.localidade.tumulo.view;
 
 import javax.swing.JButton;
 
+import com.sepulcrum.model.localidade.tumulo.view.TelaRegistroTumulo;
+import com.sepulcrum.model.localidade.tumulo.view.TelaSelectTumulo;
+
 import core.utils.TelaMenu;
 import core.view.TelaGerenciador;
 

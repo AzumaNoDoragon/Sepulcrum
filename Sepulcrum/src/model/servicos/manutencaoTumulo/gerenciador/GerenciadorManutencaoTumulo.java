@@ -2,6 +2,8 @@ package model.servicos.manutencaoTumulo.gerenciador;
 
 import java.util.Scanner;
 
+import com.sepulcrum.model.servicos.manutencaoTumulo.gerenciador.TelaManutencaoTumulo;
+
 import model.servicos.manutencaoTumulo.controle.CRUDManutencaoTumulo;
 
 public class GerenciadorManutencaoTumulo {

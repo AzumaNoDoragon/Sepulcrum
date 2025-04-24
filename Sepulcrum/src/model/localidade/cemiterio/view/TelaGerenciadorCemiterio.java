@@ -1,6 +1,10 @@
 package model.localidade.cemiterio.view;
 
 import javax.swing.JButton;
+
+import com.sepulcrum.model.localidade.cemiterio.view.TelaRegistroCemiterio;
+import com.sepulcrum.model.localidade.cemiterio.view.TelaSelectCemiterio;
+
 import core.utils.TelaMenu;
 import core.view.TelaGerenciador;
 

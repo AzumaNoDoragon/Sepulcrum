@@ -3,6 +3,9 @@ package model.pessoas.finado.view;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.sepulcrum.model.pessoas.finado.view.TelaGerenciadorFinado;
+
 import core.utils.TelaRegistro;
 
 public class TelaRegistroFinado extends TelaRegistro{

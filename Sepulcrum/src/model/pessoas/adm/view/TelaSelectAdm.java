@@ -1,6 +1,10 @@
 package model.pessoas.adm.view;
 
 import javax.swing.JButton;
+
+import com.sepulcrum.model.pessoas.adm.view.TelaGerenciadorAdm;
+import com.sepulcrum.model.pessoas.adm.view.TelaRegistroAdm;
+
 import core.utils.TelaSelect;
 
 public class TelaSelectAdm extends TelaSelect{

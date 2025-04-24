@@ -1,6 +1,10 @@
 package model.pessoas.parente.view;
 
 import javax.swing.JButton;
+
+import com.sepulcrum.model.pessoas.parente.view.TelaRegistroParente;
+import com.sepulcrum.model.pessoas.parente.view.TelaSelectParente;
+
 import core.utils.TelaMenu;
 import core.view.TelaGerenciador;
 
