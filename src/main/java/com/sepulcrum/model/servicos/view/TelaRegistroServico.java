@@ -111,7 +111,21 @@ public class TelaRegistroServico extends JFrame{
             switch(index){
                 case 0 -> {
                     if(seletorCrud == 1){
-                        gs.setServico(this, seletor);
+                        if(seletor == 1){
+                            gs.setExumacao(this);
+                        } else if(seletor == 2){
+                            gs.setManutencaoTumulo(this);
+                            System.out.println("Debug 2");
+                        } else if(seletor == 3){
+                            gs.setReservaTumulo(this);
+                            System.out.println("Debug 3");
+                        } else if(seletor == 4){
+                            gs.setTransferenciaDefunto(this);
+                            System.out.println("Debug 4");
+                        } else if(seletor == 5){
+                            gs.setVistoria(this);
+                            System.out.println("Debug 5");
+                        }
                         msgSucesso();
                     } else if (seletorCrud == 3){
                         msgAlterada();

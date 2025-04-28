@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import com.sepulcrum.model.servicos.controller.GerenciadorServicos;
+
 public class TelaSelectServico extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;
@@ -86,11 +88,13 @@ public class TelaSelectServico extends JFrame{
     }
 
     protected void defineBotoes(int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+        GerenciadorServicos gs = new GerenciadorServicos();
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
                 case 0 -> {
-                    getId();
+                    id = getId();
+                    gs.getExumacao(null, id);
                     new TelaRegistroServico(seletor, seletorCrud, id);
                 }
                 case 1 -> new TelaGerenciadorServico(seletor);
@@ -121,6 +125,6 @@ public class TelaSelectServico extends JFrame{
     }
 
     public int getId() {
-        return id;
+        return Integer.parseInt(jtfId.getText());
     }
 }
