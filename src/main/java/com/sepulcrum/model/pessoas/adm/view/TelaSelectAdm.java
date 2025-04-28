@@ -1,7 +1,8 @@
 package com.sepulcrum.model.pessoas.adm.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.core.utils.TelaSelect;
+
+import com.sepulcrum.utils.TelaSelect;
 
 public class TelaSelectAdm extends TelaSelect{
     @Override

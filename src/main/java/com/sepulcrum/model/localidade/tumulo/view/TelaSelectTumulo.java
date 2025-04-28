@@ -1,7 +1,8 @@
 package com.sepulcrum.model.localidade.tumulo.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.core.utils.TelaSelect;
+
+import com.sepulcrum.utils.TelaSelect;
 
 public class TelaSelectTumulo extends TelaSelect{
     @Override
