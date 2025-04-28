@@ -1,6 +1,6 @@
 package com.sepulcrum.app;
 
-import com.sepulcrum.core.view.TelaGerenciador;
+import com.sepulcrum.view.TelaGerenciador;
 
 public class Main {
     public static void main(String[] args){

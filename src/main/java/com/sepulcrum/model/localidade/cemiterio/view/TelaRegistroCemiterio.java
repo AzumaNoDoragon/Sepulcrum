@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import com.sepulcrum.model.localidade.cemiterio.model.Cemiterio;
-import com.sepulcrum.core.utils.TelaRegistro;
+import com.sepulcrum.utils.TelaRegistro;
 
 public class TelaRegistroCemiterio extends TelaRegistro{
     private Cemiterio c = new Cemiterio();

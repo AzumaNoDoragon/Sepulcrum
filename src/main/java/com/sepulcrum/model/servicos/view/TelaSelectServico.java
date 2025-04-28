@@ -10,7 +10,7 @@ public class TelaSelectServico extends JFrame{
     protected JTextField jtfId;
     protected JLabel jlId;
     protected int fWidth, fHeight, qtdBotoes, id;
-    
+
     public TelaSelectServico(int seletor, int seletorCrud){
         inicializarVariaveis();
 
@@ -89,7 +89,10 @@ public class TelaSelectServico extends JFrame{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaRegistroServico(seletor, seletorCrud, id);
+                case 0 -> {
+                    getId();
+                    new TelaRegistroServico(seletor, seletorCrud, id);
+                }
                 case 1 -> new TelaGerenciadorServico(seletor);
             }
             dispose();
@@ -115,6 +118,9 @@ public class TelaSelectServico extends JFrame{
 
         // Text Field
         jtfId = new JTextField();
-        id = Integer.parseInt(jtfId.getText());
+    }
+
+    public int getId() {
+        return id;
     }
 }

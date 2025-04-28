@@ -1,8 +1,9 @@
 package com.sepulcrum.model.localidade.cemiterio.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.core.utils.TelaMenu;
-import com.sepulcrum.core.view.TelaGerenciador;
+
+import com.sepulcrum.utils.TelaMenu;
+import com.sepulcrum.view.TelaGerenciador;
 
 public class TelaGerenciadorCemiterio extends TelaMenu{
     @Override

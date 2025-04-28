@@ -3,7 +3,8 @@ package com.sepulcrum.model.pessoas.finado.view;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import com.sepulcrum.core.utils.TelaRegistro;
+
+import com.sepulcrum.utils.TelaRegistro;
 
 public class TelaRegistroFinado extends TelaRegistro{
     @Override

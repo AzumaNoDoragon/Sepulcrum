@@ -1,7 +1,8 @@
 package com.sepulcrum.model.pessoas.finado.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.core.utils.TelaSelect;
+
+import com.sepulcrum.utils.TelaSelect;
 
 public class TelaSelectFinado extends TelaSelect{
     @Override

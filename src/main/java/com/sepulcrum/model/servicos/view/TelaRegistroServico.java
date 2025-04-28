@@ -5,7 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import com.sepulcrum.model.servicos.core.controller.GerenciadorServicos;
+
+import com.sepulcrum.model.servicos.controller.GerenciadorServicos;
 
 public class TelaRegistroServico extends JFrame{
     protected JButton jbSalvar, jbCancelar;

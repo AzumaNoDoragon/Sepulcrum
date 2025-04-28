@@ -1,8 +1,9 @@
 package com.sepulcrum.model.pessoas.adm.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.core.utils.TelaMenu;
-import com.sepulcrum.core.view.TelaGerenciador;
+
+import com.sepulcrum.utils.TelaMenu;
+import com.sepulcrum.view.TelaGerenciador;
 
 public class TelaGerenciadorAdm extends TelaMenu{
     @Override
