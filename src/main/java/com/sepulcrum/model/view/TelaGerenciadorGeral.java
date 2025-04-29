@@ -1,14 +1,14 @@
-package com.sepulcrum.model.servicos.view;
+package com.sepulcrum.model.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import com.sepulcrum.model.servicos.view.core.view.TelaServico;
+import com.sepulcrum.view.TelaGerenciador;
 
-public class TelaGerenciadorServico extends JFrame{
+public class TelaGerenciadorGeral extends JFrame{
     protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;
     protected int fWidth, fHeight, qtdBotoes;
 
-    public TelaGerenciadorServico(int seletor){
+    public TelaGerenciadorGeral(int seletor){
         inicializarVariaveis(seletor);
 
         // Janela
@@ -17,7 +17,7 @@ public class TelaGerenciadorServico extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-
+        
         // Config dos tamanho dos botões e centralização 
         int jbHeight = 30;
         int jbWidth = 190;
@@ -45,16 +45,16 @@ public class TelaGerenciadorServico extends JFrame{
 
         this.setVisible(true);
     }
-    
+
     protected void defineBotoes(int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaRegistroServico(seletor, 1, -1);
-                case 1 -> new TelaSelectServico(seletor, 2);
-                case 2 -> new TelaSelectServico(seletor, 3);
-                case 3 -> new TelaSelectServico(seletor, 4);
-                case 4 -> new TelaServico();
+                case 0 -> new TelaRegistroGeral(seletor, 1, -1);
+                case 1 -> new TelaSelectGeral(seletor, 2); // passar propriedade busca
+                case 2 -> new TelaSelectGeral(seletor, 3); // passar propriedade updade
+                case 3 -> new TelaSelectGeral(seletor, 4); // passar propriedade delete
+                case 4 -> new TelaGerenciador();
             }
             dispose();
         });
@@ -67,62 +67,62 @@ public class TelaGerenciadorServico extends JFrame{
         fHeight = 350;
         qtdBotoes = 5;
         
-        switch(seletor){
+        switch(seletor) {
             case 1:
                 // Janela
-                this.setTitle("Menu Exumação");
-                
+                this.setTitle("Menu Cemitério");
+
                 // Button
-                jbOne = new JButton("Cadastrar Exumação.");
-                jbTwo = new JButton("Apresentar Exumação.");
-                jbThree = new JButton("Alterar Exumação.");
-                jbFour = new JButton("Deletar Exumação.");
+                jbOne = new JButton("Cadastrar Cemitério.");
+                jbTwo = new JButton("Apresentar Cemitério.");
+                jbThree = new JButton("Alterar Cemitério.");
+                jbFour = new JButton("Deletar Cemitério.");
                 jbVoltar = new JButton("Voltar");
                 break;
             case 2:
                 // Janela
-                this.setTitle("Menu Manutenção");
-                
+                this.setTitle("Menu Adm");
+
                 // Button
-                jbOne = new JButton("Cadastrar Manutenção.");
-                jbTwo = new JButton("Apresentar Manutenção.");
-                jbThree = new JButton("Alterar Manutenção.");
-                jbFour = new JButton("Deletar Manutenção.");
+                jbOne = new JButton("Cadastrar coveiro.");
+                jbTwo = new JButton("Apresentar coveiro.");
+                jbThree = new JButton("Alterar coveiro.");
+                jbFour = new JButton("Deletar coveiro.");
                 jbVoltar = new JButton("Voltar");
                 break;
             case 3:
                 // Janela
-                this.setTitle("Menu Reserva");
-                
+                this.setTitle("Menu Túmulo");
+
                 // Button
-                jbOne = new JButton("Cadastrar Reserva.");
-                jbTwo = new JButton("Apresentar Reserva.");
-                jbThree = new JButton("Alterar Reserva.");
-                jbFour = new JButton("Deletar Reserva.");
+                jbOne = new JButton("Cadastrar Túmulo.");
+                jbTwo = new JButton("Apresentar Túmulo.");
+                jbThree = new JButton("Alterar Túmulo.");
+                jbFour = new JButton("Deletar Túmulo.");
                 jbVoltar = new JButton("Voltar");
                 break;
             case 4:
                 // Janela
-                this.setTitle("Menu Transferencia");
+                this.setTitle("Menu Finado");
 
                 // Button
-                jbOne = new JButton("Cadastrar Transferencia.");
-                jbTwo = new JButton("Apresentar Transferencia.");
-                jbThree = new JButton("Alterar Transferencia.");
-                jbFour = new JButton("Deletar Transferencia.");
+                jbOne = new JButton("Cadastrar Finado.");
+                jbTwo = new JButton("Apresentar Finado.");
+                jbThree = new JButton("Alterar Finado.");
+                jbFour = new JButton("Deletar Finado.");
                 jbVoltar = new JButton("Voltar");
                 break;
             case 5:
                 // Janela
-                this.setTitle("Menu Vistoria");
+                this.setTitle("Menu familiar");
 
                 // Button
-                jbOne = new JButton("Cadastrar Vistoria.");
-                jbTwo = new JButton("Apresentar Vistoria.");
-                jbThree = new JButton("Alterar Vistoria.");
-                jbFour = new JButton("Deletar Vistoria.");
+                jbOne = new JButton("Cadastrar familiar.");
+                jbTwo = new JButton("Apresentar familiar.");
+                jbThree = new JButton("Alterar familiar.");
+                jbFour = new JButton("Deletar familiar.");
                 jbVoltar = new JButton("Voltar");
                 break;
-        }
+        } 
     }
 }
