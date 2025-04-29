@@ -46,7 +46,7 @@ public class GerenciadorServicos {
     }
 
     public void getExumacao(TelaRegistroServico trs, int id){
-        Exumacao e = new Exumacao();
+        Exumacao e = listE.get(id);
         getServico(trs, e);
         trs.setJtfFive(String.valueOf(e.getIdDefunto()));
     }
@@ -60,7 +60,7 @@ public class GerenciadorServicos {
     }
     
     public void getReservaTumulo(TelaRegistroServico trs, int id){
-        ReservaTumulo rt = new ReservaTumulo();
+        ReservaTumulo rt = listRT.get(id);
         getServico(trs, rt);
         trs.setJtfFive(String.valueOf(rt.getIdPessoa()));
     }
@@ -75,7 +75,7 @@ public class GerenciadorServicos {
     }
     
     public void getTransferenciaDefunto(TelaRegistroServico trs, int id){
-        TransferenciaDefunto td = new TransferenciaDefunto();
+        TransferenciaDefunto td = listTD.get(id);
         getServico(trs, td);
         trs.setJtfFive(String.valueOf(td.getIdTumuloDestino()));
         trs.setJtfFive(String.valueOf(td.getIdDefunto()));
@@ -89,7 +89,7 @@ public class GerenciadorServicos {
     }
     
     public void getManutencaoTumulo(TelaRegistroServico trs, int id){
-        ManutencaoTumulo mt = new ManutencaoTumulo();
+        ManutencaoTumulo mt = listMT.get(id);
         getServico(trs, mt);
     }
     
@@ -101,7 +101,7 @@ public class GerenciadorServicos {
     }
     
     public void getVistoria(TelaRegistroServico trs, int id){
-        Vistoria v = new Vistoria();
+        Vistoria v = listV.get(id);
         getServico(trs, v);
     }
 }

@@ -1,4 +1,4 @@
-package com.sepulcrum.model.servicos.view;
+package com.sepulcrum.model.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -6,16 +6,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import com.sepulcrum.model.servicos.controller.GerenciadorServicos;
-
-public class TelaRegistroServico extends JFrame{
+public class TelaRegistroGeral extends JFrame{
     protected JButton jbSalvar, jbCancelar;
     protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
-    private GerenciadorServicos gs = new GerenciadorServicos();
 
-    public TelaRegistroServico(int seletor, int seletorCrud, int id){
+    public TelaRegistroGeral(int seletor, int seletorCrud, int id){
         inicializarVariaveis(seletor);
         
         // Janela
@@ -104,7 +101,7 @@ public class TelaRegistroServico extends JFrame{
             defineBotoes(seletorCrud, seletor, button, index, jbX + 70, jbY, jbWidth, jbHeight);
         }
     }
-
+    
     protected void defineBotoes(int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
@@ -112,18 +109,14 @@ public class TelaRegistroServico extends JFrame{
                 case 0 -> {
                     if(seletorCrud == 1){
                         if(seletor == 1){
-                            gs.setExumacao(this);
+                            System.out.println("Debug 1");
                         } else if(seletor == 2){
-                            gs.setManutencaoTumulo(this);
-                            System.out.println("Debug 2");
+                            System.out.println("debug 2");
                         } else if(seletor == 3){
-                            gs.setReservaTumulo(this);
                             System.out.println("Debug 3");
                         } else if(seletor == 4){
-                            gs.setTransferenciaDefunto(this);
                             System.out.println("Debug 4");
                         } else if(seletor == 5){
-                            gs.setVistoria(this);
                             System.out.println("Debug 5");
                         }
                         msgSucesso();
@@ -132,42 +125,42 @@ public class TelaRegistroServico extends JFrame{
                     } else if(seletorCrud == 4){
                         msgConfirmacaoDelecao();
                     }
-                    new TelaGerenciadorServico(seletor);
+                    new TelaGerenciadorGeral(seletor);
                 }
-                case 1 -> new TelaGerenciadorServico(seletor);
+                case 1 -> new TelaGerenciadorGeral(seletor);
             };
             dispose();
         });
         this.add(button);
     }
-
-    protected void inicializarVariaveis(int seletor){
+    
+    public void inicializarVariaveis(int seletor) {
         // Button
         jbSalvar = new JButton("Salvar");
         jbCancelar = new JButton("Cancelar");
         
-        switch(seletor){
-            case 1: {
+        switch (seletor) {
+            case 1:
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 9;
+                qtdBotoes = 8;
 
                 // Janela
-                this.setTitle("Registro Exumação.");
-
+                this.setTitle("Registro Cemitério.");
+                
                 // Label
-                jlOne = new JLabel("Tipo serviço:");
-                jlTwo = new JLabel("Descricao");
-                jlThree = new JLabel("Status Serviço");
-                jlFour = new JLabel("Data Serviço");
-                jlFive = new JLabel("Id Defunto");
-                jlSix = new JLabel("Id Tumulo");
-                jlSeven = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlEight = new JLabel("<html>Informações<br>Adicionais:</html>");
+                jlOne = new JLabel("Nome: ");
+                jlTwo = new JLabel("Estado: ");
+                jlThree = new JLabel("Cidade: ");
+                jlFour = new JLabel("Rua: ");
+                jlFive = new JLabel("Numero: ");
+                jlSix = new JLabel("Capacidade: ");
+                jlSeven = new JLabel("Telefone: ");
+                jlEight = new JLabel("Cep: ");
                 
                 // Text Field
-                jtfOne = new JTextField("Exumação");
+                jtfOne = new JTextField();
                 jtfTwo = new JTextField();
                 jtfThree = new JTextField();
                 jtfFour = new JTextField();
@@ -175,59 +168,94 @@ public class TelaRegistroServico extends JFrame{
                 jtfSix = new JTextField();
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
-
                 break;
-            }
-            case 2: {
+            case 2:
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
                 qtdBotoes = 8;
 
                 // Janela
-                this.setTitle("Registro Manutenção.");
+                this.setTitle("Registro Cemitério.");
+                
+                // Button
+                jbSalvar = new JButton("Salvar");
+                jbCancelar = new JButton("Cancelar");
 
                 // Label
-                jlOne = new JLabel("Tipo serviço:"); //adicionar a classe de herança
-                jlTwo = new JLabel("Descricao");
-                jlThree = new JLabel("Status Serviço");
-                jlFour = new JLabel("Data Serviço");
-                jlFive = new JLabel("Id Tumulo");
-                jlSix = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlSeven = new JLabel("<html>Informações<br>Adicionais:</html>");
+                jlOne = new JLabel("Nome: ");
+                jlTwo = new JLabel("CPF: ");
+                jlThree = new JLabel("RG: ");
+                jlFour = new JLabel("Data Nascimento: ");
+                jlFive = new JLabel("Data Contratação: ");
+                jlSix = new JLabel("Email: ");
+                jlSeven = new JLabel("Telefone: ");
                 
                 // Text Field
-                jtfOne = new JTextField("Manutenção");
+                jtfOne = new JTextField();
                 jtfTwo = new JTextField();
                 jtfThree = new JTextField();
                 jtfFour = new JTextField();
                 jtfFive = new JTextField();
                 jtfSix = new JTextField();
                 jtfSeven = new JTextField();
-
                 break;
-            }
-            case 3: {
+            case 3:
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
                 qtdBotoes = 8;
 
                 // Janela
-                this.setTitle("Registro Reserva.");
+                this.setTitle("Registro Túmulo.");
+                
+                // Button
+                jbSalvar = new JButton("Salvar");
+                jbCancelar = new JButton("Cancelar");
 
                 // Label
-                jlOne = new JLabel("Tipo serviço:"); // adicionar a classe de herança
-                jlTwo = new JLabel("Descricao");
-                jlThree = new JLabel("Status Serviço");
-                jlFour = new JLabel("Data Serviço");
-                jlFive = new JLabel("Id Comprador"); // comprador == familiar
-                jlSix = new JLabel("Id Tumulo");
-                jlSeven = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlEight = new JLabel("<html>Informações<br>Adicionais:</html>");
+                jlOne = new JLabel("Tipo: ");
+                jlTwo = new JLabel("Situação: ");
+                jlThree = new JLabel("Data de ocupação: ");
+                jlFour = new JLabel("Rua: ");
+                jlFive = new JLabel("Numero: ");
+                jlSix = new JLabel("Id Cemitério: ");
+                jlSeven = new JLabel("Id defunto: ");
                 
                 // Text Field
-                jtfOne = new JTextField("Reserva");
+                jtfOne = new JTextField();
+                jtfTwo = new JTextField();
+                jtfThree = new JTextField();
+                jtfFour = new JTextField();
+                jtfFive = new JTextField();
+                jtfSix = new JTextField();
+                jtfSeven = new JTextField();
+                break;
+            case 4:
+                //Configura tamanho da janela e botões
+                fWidth = 500;
+                fHeight = 700;
+                qtdBotoes = 8;
+
+                // Janela
+                this.setTitle("Registro Finado.");
+                
+                // Button
+                jbSalvar = new JButton("Salvar");
+                jbCancelar = new JButton("Cancelar");
+
+                // Label
+                jlOne = new JLabel("Nome: ");
+                jlTwo = new JLabel("CPF: ");
+                jlThree = new JLabel("RG: ");
+                jlFour = new JLabel("Data Nascimento: ");
+                jlFive = new JLabel("Data Falecimento: ");
+                jlSix = new JLabel("Causa da morte: ");
+                jlSeven = new JLabel("id do túmulo: ");
+                jlEight = new JLabel("id do parente: ");
+                
+                // Text Field
+                jtfOne = new JTextField();
                 jtfTwo = new JTextField();
                 jtfThree = new JTextField();
                 jtfFour = new JTextField();
@@ -235,31 +263,32 @@ public class TelaRegistroServico extends JFrame{
                 jtfSix = new JTextField();
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
-
                 break;
-            }
-            case 4: {
+            case 5:
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 9;
+                qtdBotoes = 8;
 
                 // Janela
-                this.setTitle("Registro Transferência.");
+                this.setTitle("Registro Cemitério.");
+                
+                // Button
+                jbSalvar = new JButton("Salvar");
+                jbCancelar = new JButton("Cancelar");
 
                 // Label
-                jlOne = new JLabel("Tipo serviço:"); //adicionar a classe de herança
-                jlTwo = new JLabel("Descricao");
-                jlThree = new JLabel("Status Serviço");
-                jlFour = new JLabel("Data Serviço");
-                jlFive = new JLabel("Id Defunto");
-                jlSix = new JLabel("Id Tumulo");
-                jlSeven = new JLabel("Id Destino");
-                jlEight = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlNine = new JLabel("<html>Informações<br>Adicionais:</html>");
+                jlOne = new JLabel("Nome: ");
+                jlTwo = new JLabel("CPF: ");
+                jlThree = new JLabel("RG: ");
+                jlFour = new JLabel("Data Nascimento: ");
+                jlFive = new JLabel("Grau Parentesco: ");
+                jlSix = new JLabel("Email: ");
+                jlSeven = new JLabel("Telefone: ");
+                jlEight = new JLabel("Id do finado");
                 
                 // Text Field
-                jtfOne = new JTextField("Transferência");
+                jtfOne = new JTextField();
                 jtfTwo = new JTextField();
                 jtfThree = new JTextField();
                 jtfFour = new JTextField();
@@ -267,41 +296,8 @@ public class TelaRegistroServico extends JFrame{
                 jtfSix = new JTextField();
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
-                jtfNine = new JTextField();
-
                 break;
-            }
-            case 5: {
-                //Configura tamanho da janela e botões
-                fWidth = 500;
-                fHeight = 700;
-                qtdBotoes = 8;
-
-                // Janela
-                this.setTitle("Registro Vistoria.");
-
-                // Label
-                jlOne = new JLabel("Tipo serviço:"); //adicionar a classe de herança
-                jlTwo = new JLabel("Descricao:");
-                jlThree = new JLabel("Status do Serviço:");
-                jlFour = new JLabel("Data do Serviço:");
-                jlFive = new JLabel("Id do Tumulo:");
-                jlSix = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlSeven = new JLabel("<html>Informações<br>Adicionais:</html>");
-                
-                // Text Field
-                jtfOne = new JTextField("Vistoria");
-                jtfTwo = new JTextField();
-                jtfThree = new JTextField();
-                jtfFour = new JTextField();
-                jtfFive = new JTextField();
-                jtfSix = new JTextField();
-                jtfSeven = new JTextField();
-
-                break;
-            }
         }
-        jtfOne.setEditable(false);
     }
 
     protected void msgSucesso(){

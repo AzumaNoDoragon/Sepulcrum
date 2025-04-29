@@ -1,18 +1,17 @@
-package com.sepulcrum.model.servicos.view;
+package com.sepulcrum.model.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import com.sepulcrum.model.servicos.controller.GerenciadorServicos;
 
-public class TelaSelectServico extends JFrame{
+public class TelaSelectGeral extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;
     protected JLabel jlId;
     protected int fWidth, fHeight, qtdBotoes, id;
 
-    public TelaSelectServico(int seletor, int seletorCrud){
+    public TelaSelectGeral(int seletor, int seletorCrud){
         inicializarVariaveis();
 
         // Janela
@@ -87,16 +86,11 @@ public class TelaSelectServico extends JFrame{
     }
 
     protected void defineBotoes(int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
-        GerenciadorServicos gs = new GerenciadorServicos();
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> {
-                    id = getId();
-                    gs.getExumacao(null, id);
-                    new TelaRegistroServico(seletor, seletorCrud, id);
-                }
-                case 1 -> new TelaGerenciadorServico(seletor);
+                case 0 -> new TelaRegistroGeral(seletor, seletorCrud, id); // Passar propriedade de crud
+                case 1 -> new TelaGerenciadorGeral(seletor);
             }
             dispose();
         });

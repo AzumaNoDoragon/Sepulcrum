@@ -1,12 +1,8 @@
 package com.sepulcrum.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.model.localidade.cemiterio.view.TelaGerenciadorCemiterio;
-import com.sepulcrum.model.localidade.tumulo.view.TelaGerenciadorTumulo;
-import com.sepulcrum.model.pessoas.adm.view.TelaGerenciadorAdm;
-import com.sepulcrum.model.pessoas.finado.view.TelaGerenciadorFinado;
-import com.sepulcrum.model.pessoas.parente.view.TelaGerenciadorParente;
 import com.sepulcrum.model.servicos.view.core.view.TelaServico;
+import com.sepulcrum.model.view.TelaGerenciadorGeral;
 import com.sepulcrum.utils.TelaMenu;
 
 public class TelaGerenciador extends TelaMenu{
@@ -35,11 +31,11 @@ public class TelaGerenciador extends TelaMenu{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaGerenciadorCemiterio();
-                case 1 -> new TelaGerenciadorAdm();
-                case 2 -> new TelaGerenciadorTumulo();
-                case 3 -> new TelaGerenciadorFinado();
-                case 4 -> new TelaGerenciadorParente();
+                case 0 -> new TelaGerenciadorGeral(1);
+                case 1 -> new TelaGerenciadorGeral(2);
+                case 2 -> new TelaGerenciadorGeral(3);
+                case 3 -> new TelaGerenciadorGeral(4);
+                case 4 -> new TelaGerenciadorGeral(5);
                 case 5 -> new TelaServico();
             }
             dispose();
