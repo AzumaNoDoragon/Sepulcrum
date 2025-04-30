@@ -2,7 +2,7 @@ package com.sepulcrum.model.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import com.sepulcrum.view.TelaGerenciador;
+import com.sepulcrum.view.TelaPrincipal;
 
 public class TelaGerenciadorGeral extends JFrame{
     protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;
@@ -54,7 +54,7 @@ public class TelaGerenciadorGeral extends JFrame{
                 case 1 -> new TelaSelectGeral(seletor, 2); // passar propriedade busca
                 case 2 -> new TelaSelectGeral(seletor, 3); // passar propriedade updade
                 case 3 -> new TelaSelectGeral(seletor, 4); // passar propriedade delete
-                case 4 -> new TelaGerenciador();
+                case 4 -> new TelaPrincipal();
             }
             dispose();
         });

@@ -1,11 +1,12 @@
 package com.sepulcrum.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.model.servicos.view.core.view.TelaServico;
+
+import com.sepulcrum.model.servicos.view.TelaServico;
 import com.sepulcrum.model.view.TelaGerenciadorGeral;
 import com.sepulcrum.utils.TelaMenu;
 
-public class TelaGerenciador extends TelaMenu{
+public class TelaPrincipal extends TelaMenu{
     @Override
     protected void button(int qtdBotoes, int y, int jbX, int jbWidth, int jbHeight){
         for(int i = 0; i < qtdBotoes; i++){

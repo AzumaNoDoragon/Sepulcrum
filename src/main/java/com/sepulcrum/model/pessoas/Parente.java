@@ -1,4 +1,4 @@
-package com.sepulcrum.model.pessoas.parente.model;
+package com.sepulcrum.model.pessoas;
 
 import com.sepulcrum.model.pessoas.utils.PessoasVivas;
 

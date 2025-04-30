@@ -1,4 +1,4 @@
-package com.sepulcrum.model.pessoas.finado.model;
+package com.sepulcrum.model.pessoas;
 
 import com.sepulcrum.model.pessoas.utils.Pessoas;
 

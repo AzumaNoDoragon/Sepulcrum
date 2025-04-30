@@ -1,9 +1,9 @@
-package com.sepulcrum.model.servicos.view.core.view;
+package com.sepulcrum.model.servicos.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.model.servicos.view.TelaGerenciadorServico;
+
 import com.sepulcrum.utils.TelaMenu;
-import com.sepulcrum.view.TelaGerenciador;
+import com.sepulcrum.view.TelaPrincipal;
 
 public class TelaServico extends TelaMenu{
     @Override
@@ -36,7 +36,7 @@ public class TelaServico extends TelaMenu{
                 case 2 -> new TelaGerenciadorServico(3); // Reserva
                 case 3 -> new TelaGerenciadorServico(4); // Transferencia
                 case 4 -> new TelaGerenciadorServico(5); // vistoria
-                case 5 -> new TelaGerenciador();
+                case 5 -> new TelaPrincipal();
             }
             dispose();
         });

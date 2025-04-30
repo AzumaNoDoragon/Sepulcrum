@@ -1,4 +1,4 @@
-package com.sepulcrum.model.localidade.tumulo.model;
+package com.sepulcrum.model.localidade;
 
 import com.sepulcrum.model.localidade.utils.Localidade;
 

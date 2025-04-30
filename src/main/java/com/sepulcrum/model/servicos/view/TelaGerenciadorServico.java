@@ -2,7 +2,6 @@ package com.sepulcrum.model.servicos.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import com.sepulcrum.model.servicos.view.core.view.TelaServico;
 
 public class TelaGerenciadorServico extends JFrame{
     protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;

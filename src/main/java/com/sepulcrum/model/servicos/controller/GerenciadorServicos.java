@@ -2,12 +2,12 @@ package com.sepulcrum.model.servicos.controller;
 
 import java.util.List;
 import java.util.ArrayList;
-import com.sepulcrum.model.servicos.model.exumacao.Exumacao;
-import com.sepulcrum.model.servicos.model.manutencaoTumulo.ManutencaoTumulo;
-import com.sepulcrum.model.servicos.model.reservaTumulo.ReservaTumulo;
-import com.sepulcrum.model.servicos.model.transferenciaDefunto.TransferenciaDefunto;
+import com.sepulcrum.model.servicos.model.Exumacao;
+import com.sepulcrum.model.servicos.model.ManutencaoTumulo;
+import com.sepulcrum.model.servicos.model.ReservaTumulo;
+import com.sepulcrum.model.servicos.model.TransferenciaDefunto;
+import com.sepulcrum.model.servicos.model.Vistoria;
 import com.sepulcrum.model.servicos.model.utils.Servico;
-import com.sepulcrum.model.servicos.model.vistoria.Vistoria;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
 
 public class GerenciadorServicos {
