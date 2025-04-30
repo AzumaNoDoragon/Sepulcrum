@@ -3,6 +3,7 @@ package com.sepulcrum.model.servicos.view;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import com.sepulcrum.model.servicos.controller.GerenciadorServicos;
 
@@ -92,9 +93,16 @@ public class TelaSelectServico extends JFrame{
         button.addActionListener(_ -> {
             switch(index){
                 case 0 -> {
-                    id = getId();
-                    gs.getExumacao(null, id);
-                    new TelaRegistroServico(seletor, seletorCrud, id);
+                    try{
+                        id = getId();
+                        TelaRegistroServico trs = new TelaRegistroServico(seletor, seletorCrud, id);
+                        gs.getExumacao(trs, id);
+                        //new TelaRegistroServico(seletor, seletorCrud, id);
+                    } catch (NumberFormatException | IndexOutOfBoundsException ex) {
+                        dispose();
+                        JOptionPane.showMessageDialog(this, "ID inválido ou inexistente.", "Erro", JOptionPane.ERROR_MESSAGE);
+                        new TelaGerenciadorServico(seletor);
+                    }
                 }
                 case 1 -> new TelaGerenciadorServico(seletor);
             }
