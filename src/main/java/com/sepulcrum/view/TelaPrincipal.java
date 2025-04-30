@@ -1,7 +1,8 @@
 package com.sepulcrum.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.model.servicos.view.core.view.TelaServico;
+
+import com.sepulcrum.model.servicos.view.TelaServico;
 import com.sepulcrum.model.view.TelaGerenciadorGeral;
 import com.sepulcrum.utils.TelaMenu;
 
