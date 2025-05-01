@@ -177,10 +177,6 @@ public class TelaRegistroGeral extends JFrame{
 
                 // Janela
                 this.setTitle("Registro Cemitério.");
-                
-                // Button
-                jbSalvar = new JButton("Salvar");
-                jbCancelar = new JButton("Cancelar");
 
                 // Label
                 jlOne = new JLabel("Nome: ");
@@ -208,10 +204,6 @@ public class TelaRegistroGeral extends JFrame{
 
                 // Janela
                 this.setTitle("Registro Túmulo.");
-                
-                // Button
-                jbSalvar = new JButton("Salvar");
-                jbCancelar = new JButton("Cancelar");
 
                 // Label
                 jlOne = new JLabel("Tipo: ");
@@ -239,14 +231,10 @@ public class TelaRegistroGeral extends JFrame{
 
                 // Janela
                 this.setTitle("Registro Finado.");
-                
-                // Button
-                jbSalvar = new JButton("Salvar");
-                jbCancelar = new JButton("Cancelar");
 
                 // Label
                 jlOne = new JLabel("Nome: ");
-                jlTwo = new JLabel("CPF: ");
+                jlTwo = new JLabel("<html>CPF (Caso não<br>possua digite 0):</html>");
                 jlThree = new JLabel("RG: ");
                 jlFour = new JLabel("Data Nascimento: ");
                 jlFive = new JLabel("Data Falecimento: ");
@@ -271,11 +259,7 @@ public class TelaRegistroGeral extends JFrame{
                 qtdBotoes = 8;
 
                 // Janela
-                this.setTitle("Registro Cemitério.");
-                
-                // Button
-                jbSalvar = new JButton("Salvar");
-                jbCancelar = new JButton("Cancelar");
+                this.setTitle("Registro Familiar.");
 
                 // Label
                 jlOne = new JLabel("Nome: ");
@@ -285,7 +269,7 @@ public class TelaRegistroGeral extends JFrame{
                 jlFive = new JLabel("Grau Parentesco: ");
                 jlSix = new JLabel("Email: ");
                 jlSeven = new JLabel("Telefone: ");
-                jlEight = new JLabel("Id do finado");
+                jlEight = new JLabel("<html>Certidão de<br>óbito de finado:</html>");
                 
                 // Text Field
                 jtfOne = new JTextField();

@@ -1,17 +1,18 @@
 package com.sepulcrum.model.pessoas;
 
+import java.sql.Date;
+
 import com.sepulcrum.model.pessoas.utils.Pessoas;
 
 public class Finado extends Pessoas {
-    private String dataFalecimento, causaMorte;
-    private int idParente, idTumulo;
+    private String causaMorte;
+    private int certidaoObito, cpfFamiliar, idTumulo;
 
-    public String getDataFalecimento() {
-        return dataFalecimento;
-    }
-
-    public void setDataFalecimento(String dataFalecimento) {
-        this.dataFalecimento = dataFalecimento;
+    public Finado(String nome, int cpf, Date dataNascimento, int certidaoObito, int cpfFamiliar, int idTumulo) {
+        super(nome, cpf, dataNascimento);
+        this.certidaoObito = certidaoObito;
+        this.cpfFamiliar = cpfFamiliar;
+        this.idTumulo = idTumulo;
     }
 
     public String getCausaMorte() {
@@ -22,12 +23,20 @@ public class Finado extends Pessoas {
         this.causaMorte = causaMorte;
     }
 
-    public int getIdParente() {
-        return idParente;
+    public int getCertidaoObito() {
+        return certidaoObito;
     }
 
-    public void setIdParente(int idParente) {
-        this.idParente = idParente;
+    public void setCertidaoObito(int certidaoObito) {
+        this.certidaoObito = certidaoObito;
+    }
+
+    public int getCpfFamiliar() {
+        return cpfFamiliar;
+    }
+
+    public void setCpfFamiliar(int cpfFamiliar) {
+        this.cpfFamiliar = cpfFamiliar;
     }
 
     public int getIdTumulo() {
@@ -38,4 +47,12 @@ public class Finado extends Pessoas {
         this.idTumulo = idTumulo;
     }
 
+    @Override
+    public void setCpf(int cpf){
+        if(cpf == 0){
+            this.cpf = certidaoObito;
+        } else{
+            this.cpf = cpf;
+        }
+    }
 }

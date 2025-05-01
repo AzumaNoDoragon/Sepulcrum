@@ -18,6 +18,7 @@ public class GerenciadorServicos {
     private List<Vistoria> listV = new ArrayList<>();
 
     public void setServico(TelaRegistroServico trs, Servico st){
+        st.setIdServico(1);
         st.setTipoServico(trs.getJtfOne()); //tipoServico
         st.setDescricao(trs.getJtfTwo()); //descricao
         st.setStatusServico(trs.getJtfThree()); //statusServico
@@ -41,11 +42,11 @@ public class GerenciadorServicos {
         Exumacao e = new Exumacao();
         setServico(trs, e);
         e.setIdDefunto(trs.getJtfFive());
-
         listE.add(e);
     }
 
     public void getExumacao(TelaRegistroServico trs, int id){
+        System.out.println(listE.size());
         Exumacao e = listE.get(id);
         getServico(trs, e);
         trs.setJtfFive(String.valueOf(e.getIdDefunto()));

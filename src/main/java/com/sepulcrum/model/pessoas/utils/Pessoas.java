@@ -1,46 +1,47 @@
 package com.sepulcrum.model.pessoas.utils;
 
-public abstract class Pessoas {
-    protected String nome, cpf, rg, dataNascimento;
-    protected int id;
+import java.sql.Date;
 
-    public String getNome(){
+public abstract class Pessoas {
+    protected String nome;
+    protected int cpf, rg;
+    protected Date dataNascimento;
+    
+    public Pessoas(String nome, int cpf, Date dataNascimento) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public int getId(){
-        return id;
-    }
-    
-    public void setId(int id){
-        this.id = id;
-    }
-
-    public String getCpf(){
+    public int getCpf() {
         return cpf;
     }
-    
-    public void setCpf(String cpf){
+
+    public void setCpf(int cpf) {
         this.cpf = cpf;
     }
 
-    public String getRg(){
+    public int getRg() {
         return rg;
     }
 
-    public void setRg(String rg){
+    public void setRg(int rg) {
         this.rg = rg;
     }
 
-    public String getDataNascimento(){
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento){
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 }
