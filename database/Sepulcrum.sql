@@ -7,6 +7,10 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema Sepulcrum
 -- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema Sepulcrum
+-- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `Sepulcrum` ;
 USE `Sepulcrum` ;
 
@@ -32,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`COVEIRO` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`ADM`
 -- -----------------------------------------------------
@@ -44,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`ADM` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`CEMITERIO`
@@ -68,6 +74,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`CEMITERIO` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`TUMULO`
 -- -----------------------------------------------------
@@ -75,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`TUMULO` (
   `TUM_NUMERO` VARCHAR(15) NOT NULL,
   `TUM_RUA` VARCHAR(150) NOT NULL,
   `TUM_TIPO` VARCHAR(150) NULL,
-  `TUM_DATA_OCUPACAO` DATE NULL,
+  `TUM_DATA_OCUOPACAO` DATE NULL,
   `TUM_SITUACAO` VARCHAR(150) NULL,
   `CEM_CNPJ` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`TUM_NUMERO`, `TUM_RUA`, `CEM_CNPJ`),
@@ -86,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`TUMULO` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`FINADO`
@@ -109,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`FINADO` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`FAMILIAR`
 -- -----------------------------------------------------
@@ -122,6 +131,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`FAMILIAR` (
   `FAM_GRAU_PARENTESCO` VARCHAR(150) NULL,
   PRIMARY KEY (`FAM_CPF`))
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`Responsavel_Tumulo`
@@ -146,11 +156,12 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`Responsavel_Tumulo` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`SERVICOS`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Sepulcrum`.`SERVICOS` (
-  `SER_ID` INT NOT NULL,
+  `SER_ID` INT NOT NULL AUTO_INCREMENT,
   `SER_TIPO` VARCHAR(45) NOT NULL,
   `SER_DESCRICAO` VARCHAR(150) NULL,
   `SER_INFORMACOES_ADICIONAIS` VARCHAR(150) NULL,
@@ -164,6 +175,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`SERVICOS` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`EXUMACAO`
@@ -185,6 +197,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`EXUMACAO` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`RESERVA_TUMULO`
 -- -----------------------------------------------------
@@ -204,6 +217,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`RESERVA_TUMULO` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`TRANSFERENCIA_DEFUNTO`
@@ -226,6 +240,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`TRANSFERENCIA_DEFUNTO` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `Sepulcrum`.`RESPONSAVEL_FINADO`
