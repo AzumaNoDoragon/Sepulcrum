@@ -12,8 +12,8 @@ public class Adm extends PessoasVivas{
         Coveiro, Adm
     }
 
-    public Adm(String nome, String cpf, Date dataNascimento, String email, String telefone,
-            String cemCnpj, String cargoStr, Date dataContratacao) {
+    public Adm(String nome, String cpf, Date dataNascimento, String email, String telefone, String cargoStr, 
+            String cemCnpj,  Date dataContratacao) {
         super(nome, cpf, dataNascimento, email, telefone);
         setCargo(cargoStr);
         this.cemCnpj = cemCnpj;

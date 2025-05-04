@@ -1,29 +1,44 @@
 package com.sepulcrum.model.servicos.model.utils;
 
+import java.sql.Date;
+
 public class Servicos {
     protected StatusServico statusServico;
-    protected String tipoServico, dataServico, descricao, informacoesAdicionais, admCpf, tumRua, tumNumero, cemCnpj;
+    protected TipoServico tipoServico;
+    protected String descricao, informacoesAdicionais, admCpf, tumRua, tumNumero, cemCnpj;
     protected int idServico;
+    protected Date dataServico;
 
     protected enum StatusServico{
         Marcado,
         Andamento,
         Concluido,
-        Adiaco,
+        Adiado,
         Cancelado
     }
 
-    public Servicos(String tipoServico, String dataServico, String descricao,
-            String admCpf, String tumRua, String tumNumero, String cemCnpj, int idServico, String statusServicoStr) {
+    protected enum TipoServico{
+        Exumacao,
+        ManutencaoTumulo,
+        ReservaTumulo,
+        TransferenciaTumulo,
+        vistoria
+    }
+
+    public Servicos(String statusServicoStr, String tipoServicoStr, String descricao, String admCpf, String tumRua, 
+            String tumNumero, String cemCnpj, int idServico) {
         setStatusServico(statusServicoStr);
-        this.tipoServico = tipoServico;
-        this.dataServico = dataServico;
+        setTipoServico(tipoServicoStr);
         this.descricao = descricao;
         this.admCpf = admCpf;
         this.tumRua = tumRua;
         this.tumNumero = tumNumero;
         this.cemCnpj = cemCnpj;
         this.idServico = idServico;
+    }
+
+    public String getStatusServico() {
+        return statusServico.name();
     }
 
     public void setStatusServico(String statusServicoStr){
@@ -33,31 +48,29 @@ public class Servicos {
             this.statusServico = StatusServico.Andamento;
         } else if(statusServicoStr.equals("Concluido")){
             this.statusServico = StatusServico.Concluido;
-        } else if(statusServicoStr.equals("Adiaco")){
-            this.statusServico = StatusServico.Adiaco;
+        } else if(statusServicoStr.equals("Adiado")){
+            this.statusServico = StatusServico.Adiado;
         } else if(statusServicoStr.equals("Cancelado")){
             this.statusServico = StatusServico.Cancelado;
         }
     }
 
-    public String getStatusServico() {
-        return statusServico.name();
-    }
-
     public String getTipoServico() {
-        return tipoServico;
+        return tipoServico.name();
     }
 
-    public void setTipoServico(String tipoServico) {
-        this.tipoServico = tipoServico;
-    }
-
-    public String getDataServico() {
-        return dataServico;
-    }
-
-    public void setDataServico(String dataServico) {
-        this.dataServico = dataServico;
+    public void setTipoServico(String tipoServico){
+        if(tipoServico.equals("Exumacao")){
+            this.tipoServico = TipoServico.Exumacao;
+        } else if(tipoServico.equals("ManutencaoTumulo")){
+            this.tipoServico = TipoServico.ManutencaoTumulo;
+        } else if(tipoServico.equals("ReservaTumulo")){
+            this.tipoServico = TipoServico.ReservaTumulo;
+        } else if(tipoServico.equals("TransferenciaTumulo")){
+            this.tipoServico = TipoServico.TransferenciaTumulo;
+        } else if(tipoServico.equals("vistoria")){
+            this.tipoServico = TipoServico.vistoria;
+        }
     }
 
     public String getDescricao() {
@@ -114,5 +127,13 @@ public class Servicos {
 
     public void setIdServico(int idServico) {
         this.idServico = idServico;
+    }
+
+    public Date getDataServico() {
+        return dataServico;
+    }
+
+    public void setDataServico(Date dataServico) {
+        this.dataServico = dataServico;
     }
 }

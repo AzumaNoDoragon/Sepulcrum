@@ -16,8 +16,7 @@ public class Tumulo extends Localidade{
         Vazio, Reservado, Comprado, Ocupado, Manutencao, AguardandoExumação, DesativadoIndisponível
     
     }
-    public Tumulo(String rua, String numero, Tipo tipo, Situacao situacao, String dataOcupacao, int cemCnpj,
-            int defCertidaoObito, String tipoStr, String situacaoStr) {
+    public Tumulo(String rua, String numero, String tipoStr, String situacaoStr, String dataOcupacao, int cemCnpj) {
         super(rua, numero);
         setTipo(tipoStr);
         setSituacao(situacaoStr);
