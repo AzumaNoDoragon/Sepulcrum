@@ -7,7 +7,7 @@ import com.sepulcrum.model.servicos.model.ManutencaoTumulo;
 import com.sepulcrum.model.servicos.model.ReservaTumulo;
 import com.sepulcrum.model.servicos.model.TransferenciaDefunto;
 import com.sepulcrum.model.servicos.model.Vistoria;
-import com.sepulcrum.model.servicos.model.utils.Servico;
+import com.sepulcrum.model.servicos.model.utils.Servicos;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
 
 public class GerenciadorServicos {
@@ -17,7 +17,7 @@ public class GerenciadorServicos {
     private List<TransferenciaDefunto> listTD = new ArrayList<>();
     private List<Vistoria> listV = new ArrayList<>();
 
-    public void setServico(TelaRegistroServico trs, Servico st){
+    public void setServico(TelaRegistroServico trs, Servicos st){
         st.setIdServico(1);
         st.setTipoServico(trs.getJtfOne()); //tipoServico
         st.setDescricao(trs.getJtfTwo()); //descricao
@@ -28,7 +28,7 @@ public class GerenciadorServicos {
         st.setInformacoesAdicionais(trs.getJtfEight()); //informacoesAdicionais
     }
 
-    public void getServico(TelaRegistroServico trs, Servico st){
+    public void getServico(TelaRegistroServico trs, Servicos st){
         trs.setJtfOne(st.getTipoServico()); //tipoServico
         trs.setJtfTwo(st.getDescricao()); //descricao
         trs.setJtfThree(st.getStatusServico()); //statusServico

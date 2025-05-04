@@ -5,29 +5,41 @@ import java.sql.Date;
 import com.sepulcrum.model.pessoas.utils.PessoasVivas;
 
 public class Familiar extends PessoasVivas {
-    private String grauParentesco;
-    private int certidaoObito;
+    private Grau grauParentesco;
+    private String certidaoObito;
     
-    public Familiar(String nome, int cpf, Date dataNascimento, String email, String telefone, String grauParentesco,
-            int certidaoObito) {
+    private enum Grau{
+        Ascendente, Descendente, Colateral, Conjuge, NaoParente
+    }
+
+    public Familiar(String nome, String cpf, Date dataNascimento, String email, String telefone, String grauStr) {
         super(nome, cpf, dataNascimento, email, telefone);
-        this.grauParentesco = grauParentesco;
-        this.certidaoObito = certidaoObito;
+        setGrauParentesco(grauStr);
     }
 
-    public String getGrauParentesco() {
-        return grauParentesco;
+    public void setGrauParentesco(String grauStr){
+        if(grauStr.equals("Ascendente")){
+            this.grauParentesco = Grau.Ascendente;
+        } else if(grauStr.equals("Descendente")){
+            this.grauParentesco = Grau.Descendente;
+        } else if(grauStr.equals("Colateral")){
+            this.grauParentesco = Grau.Colateral;
+        } else if(grauStr.equals("Conjuge")){
+            this.grauParentesco = Grau.Conjuge;
+        } else if(grauStr.equals("NaoParente")){
+            this.grauParentesco = Grau.NaoParente;
+        }
     }
 
-    public void setGrauParentesco(String grauParentesco) {
-        this.grauParentesco = grauParentesco;
+    public String getGrauParentesco(){
+        return grauParentesco.name();
     }
 
-    public int getCertidaoObito() {
+    public String getCertidaoObito() {
         return certidaoObito;
     }
 
-    public void setCertidaoObito(int certidaoObito) {
+    public void setCertidaoObito(String certidaoObito) {
         this.certidaoObito = certidaoObito;
     }
 }

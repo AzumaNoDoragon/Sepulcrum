@@ -5,7 +5,7 @@ import java.sql.Date;
 public abstract class PessoasVivas extends Pessoas{
     protected String email, telefone;
 
-    public PessoasVivas(String nome, int cpf, Date dataNascimento, String email, String telefone) {
+    public PessoasVivas(String nome, String cpf, Date dataNascimento, String email, String telefone) {
         super(nome, cpf, dataNascimento);
         this.email = email;
         this.telefone = telefone;

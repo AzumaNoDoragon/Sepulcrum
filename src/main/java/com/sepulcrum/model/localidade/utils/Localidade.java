@@ -1,8 +1,12 @@
 package com.sepulcrum.model.localidade.utils;
 
 public abstract class Localidade {
-    protected String rua;
-    protected int id, numero;
+    protected String rua, numero;
+    
+    public Localidade(String rua, String numero) {
+        this.rua = rua;
+        this.numero = numero;
+    }
 
     public String getRua() {
         return rua;
@@ -12,19 +16,11 @@ public abstract class Localidade {
         this.rua = rua;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 }
