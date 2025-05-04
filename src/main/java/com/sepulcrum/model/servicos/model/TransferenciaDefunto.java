@@ -1,8 +1,8 @@
 package com.sepulcrum.model.servicos.model;
 
-import com.sepulcrum.model.servicos.model.utils.Servico;
+import com.sepulcrum.model.servicos.model.utils.Servicos;
 
-public class TransferenciaDefunto extends Servico {
+public class TransferenciaDefunto extends Servicos {
     private int idTumuloDestino, idDefunto;
 
     public int getIdDefunto() {

@@ -5,14 +5,15 @@ import java.sql.Date;
 import com.sepulcrum.model.pessoas.utils.Pessoas;
 
 public class Finado extends Pessoas {
-    private String causaMorte;
-    private int certidaoObito, cpfFamiliar, idTumulo;
+    private String causaMorte, tumRua, tumNumero, certidaoObito;
 
-    public Finado(String nome, int cpf, Date dataNascimento, int certidaoObito, int cpfFamiliar, int idTumulo) {
+    public Finado(String nome, String cpf, Date dataNascimento, String causaMorte, String tumRua, String tumNumero,
+            String certidaoObito, String cpfFamiliar) {
         super(nome, cpf, dataNascimento);
+        this.causaMorte = causaMorte;
+        this.tumRua = tumRua;
+        this.tumNumero = tumNumero;
         this.certidaoObito = certidaoObito;
-        this.cpfFamiliar = cpfFamiliar;
-        this.idTumulo = idTumulo;
     }
 
     public String getCausaMorte() {
@@ -23,36 +24,36 @@ public class Finado extends Pessoas {
         this.causaMorte = causaMorte;
     }
 
-    public int getCertidaoObito() {
+    public String getCertidaoObito() {
         return certidaoObito;
     }
 
-    public void setCertidaoObito(int certidaoObito) {
+    public void setCertidaoObito(String certidaoObito) {
         this.certidaoObito = certidaoObito;
     }
 
-    public int getCpfFamiliar() {
-        return cpfFamiliar;
-    }
-
-    public void setCpfFamiliar(int cpfFamiliar) {
-        this.cpfFamiliar = cpfFamiliar;
-    }
-
-    public int getIdTumulo() {
-        return idTumulo;
-    }
-
-    public void setIdTumulo(int idTumulo) {
-        this.idTumulo = idTumulo;
-    }
-
     @Override
-    public void setCpf(int cpf){
-        if(cpf == 0){
+    public void setCpf(String cpf){
+        if(cpf.equals("0")){
             this.cpf = certidaoObito;
         } else{
             this.cpf = cpf;
         }
+    }
+
+    public String getTumRua() {
+        return tumRua;
+    }
+
+    public void setTumRua(String tumRua) {
+        this.tumRua = tumRua;
+    }
+
+    public String getTumNumero() {
+        return tumNumero;
+    }
+
+    public void setTumNumero(String tumNumero) {
+        this.tumNumero = tumNumero;
     }
 }

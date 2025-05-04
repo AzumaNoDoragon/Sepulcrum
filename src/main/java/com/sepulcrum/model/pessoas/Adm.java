@@ -12,7 +12,7 @@ public class Adm extends PessoasVivas{
         Coveiro, Adm
     }
 
-    public Adm(String nome, String cpf, Date dataNascimento, String email, String telefone, String cargo,
+    public Adm(String nome, String cpf, Date dataNascimento, String email, String telefone,
             String cemCnpj, String cargoStr, Date dataContratacao) {
         super(nome, cpf, dataNascimento, email, telefone);
         setCargo(cargoStr);
@@ -47,6 +47,4 @@ public class Adm extends PessoasVivas{
     public void setDataContratacao(Date dataContratacao) {
         this.dataContratacao = dataContratacao;
     }
-
-    
 }

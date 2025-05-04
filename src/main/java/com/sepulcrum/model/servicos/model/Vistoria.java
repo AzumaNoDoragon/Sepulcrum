@@ -1,7 +1,7 @@
 package com.sepulcrum.model.servicos.model;
 
-import com.sepulcrum.model.servicos.model.utils.Servico;
+import com.sepulcrum.model.servicos.model.utils.Servicos;
 
-public class Vistoria extends Servico{
+public class Vistoria extends Servicos{
 
 }
