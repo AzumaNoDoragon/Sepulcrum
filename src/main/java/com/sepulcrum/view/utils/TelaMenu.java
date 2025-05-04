@@ -1,4 +1,4 @@
-package com.sepulcrum.utils;
+package com.sepulcrum.view.utils;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

@@ -3,11 +3,10 @@ package com.sepulcrum.model.pessoas.utils;
 import java.sql.Date;
 
 public abstract class Pessoas {
-    protected String nome;
-    protected int cpf, rg;
+    protected String nome, cpf, rg;
     protected Date dataNascimento;
     
-    public Pessoas(String nome, int cpf, Date dataNascimento) {
+    public Pessoas(String nome, String cpf, Date dataNascimento) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -21,19 +20,19 @@ public abstract class Pessoas {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public int getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(int rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 

@@ -2,8 +2,8 @@ package com.sepulcrum.model.servicos.view;
 
 import javax.swing.JButton;
 
-import com.sepulcrum.utils.TelaMenu;
 import com.sepulcrum.view.TelaPrincipal;
+import com.sepulcrum.view.utils.TelaMenu;
 
 public class TelaServico extends TelaMenu{
     @Override
