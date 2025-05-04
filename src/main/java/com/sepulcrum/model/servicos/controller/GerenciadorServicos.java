@@ -3,19 +3,15 @@ package com.sepulcrum.model.servicos.controller;
 import java.util.List;
 import java.util.ArrayList;
 import com.sepulcrum.model.servicos.model.Exumacao;
-import com.sepulcrum.model.servicos.model.ManutencaoTumulo;
 import com.sepulcrum.model.servicos.model.ReservaTumulo;
 import com.sepulcrum.model.servicos.model.TransferenciaDefunto;
-import com.sepulcrum.model.servicos.model.Vistoria;
 import com.sepulcrum.model.servicos.model.utils.Servicos;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
 
 public class GerenciadorServicos {
     private List<Exumacao> listE = new ArrayList<>();
-    private List<ManutencaoTumulo> listMT = new ArrayList<>();
     private List<ReservaTumulo> listRT = new ArrayList<>();
     private List<TransferenciaDefunto> listTD = new ArrayList<>();
-    private List<Vistoria> listV = new ArrayList<>();
 
     public void setServico(TelaRegistroServico trs, Servicos st){
         st.setIdServico(1);
@@ -80,29 +76,5 @@ public class GerenciadorServicos {
         getServico(trs, td);
         trs.setJtfFive(String.valueOf(td.getIdTumuloDestino()));
         trs.setJtfFive(String.valueOf(td.getIdDefunto()));
-    }
-
-    public void setManutencaoTumulo(TelaRegistroServico trs){
-        ManutencaoTumulo mt = new ManutencaoTumulo();
-        setServico(trs, mt);
-    
-        listMT.add(mt);
-    }
-    
-    public void getManutencaoTumulo(TelaRegistroServico trs, int id){
-        ManutencaoTumulo mt = listMT.get(id);
-        getServico(trs, mt);
-    }
-    
-    public void setVistoria(TelaRegistroServico trs){
-        Vistoria v = new Vistoria();
-        setServico(trs, v);
-        
-        listV.add(v);
-    }
-    
-    public void getVistoria(TelaRegistroServico trs, int id){
-        Vistoria v = listV.get(id);
-        getServico(trs, v);
     }
 }
