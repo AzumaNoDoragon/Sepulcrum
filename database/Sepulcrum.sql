@@ -301,7 +301,7 @@ INSERT INTO `Sepulcrum`.`COVEIRO` (
   COV_EMAIL, COV_TELEFONE, COV_CARGO, COV_DATA_CONTRATACAO, CEM_CNPJ
 ) VALUES (
   '00000000000', 'Root Admin', '0000000', '1970-01-01',
-  'root@sepulcrum.com', '00000000000', 'Administrador Geral', '2025-01-01', '12345678901234'
+  'root@sepulcrum.com', '00000000000', 'Adm', '2025-01-01', '12345678901234'
 );
 
 -- -----------------------------------------------------
