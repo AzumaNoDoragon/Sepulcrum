@@ -14,8 +14,8 @@ public class Tumulo extends Localidade{
     
     private enum Situacao{
         Vazio, Reservado, Comprado, Ocupado, Manutencao, AguardandoExumação, DesativadoIndisponível
-    
     }
+    
     public Tumulo(String rua, String numero, String tipoStr, String situacaoStr, String dataOcupacao, int cemCnpj) {
         super(rua, numero);
         setTipo(tipoStr);

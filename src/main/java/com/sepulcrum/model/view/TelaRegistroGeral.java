@@ -144,20 +144,52 @@ public class TelaRegistroGeral extends JFrame{
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 8;
+                qtdBotoes = 9;
 
                 // Janela
                 this.setTitle("Registro Cemitério.");
                 
                 // Label
-                jlOne = new JLabel("Nome: ");
-                jlTwo = new JLabel("Estado: ");
-                jlThree = new JLabel("Cidade: ");
-                jlFour = new JLabel("Rua: ");
-                jlFive = new JLabel("Numero: ");
-                jlSix = new JLabel("Capacidade: ");
-                jlSeven = new JLabel("Telefone: ");
-                jlEight = new JLabel("Cep: ");
+                jlOne = new JLabel("*Nome: "); // nome
+                jlTwo = new JLabel("*Estado: "); // estado
+                jlThree = new JLabel("*Cidade: "); // cidade
+                jlFour = new JLabel("*Rua: "); // rua
+                jlFive = new JLabel("*Numero: "); // numero
+                jlSix = new JLabel("*Capacidade: "); // capacidadeMax
+                jlSeven = new JLabel("*Telefone: "); // telefone
+                jlEight = new JLabel("*Cnpj: "); // cnpj
+                jlNine = new JLabel("*Adiministrador: "); // admCpf
+
+                // Text Field
+                jtfOne = new JTextField();
+                jtfTwo = new JTextField();
+                jtfThree = new JTextField();
+                jtfFour = new JTextField();
+                jtfFive = new JTextField();
+                jtfSix = new JTextField();
+                jtfSeven = new JTextField();
+                jtfEight = new JTextField();
+                jtfNine = new JTextField();
+                break;
+            case 2:
+                //Configura tamanho da janela e botões
+                fWidth = 500;
+                fHeight = 700;
+                qtdBotoes = 9;
+
+                // Janela
+                this.setTitle("Registro Coveiro.");
+
+                // Label
+                jlOne = new JLabel("*Nome: "); // nome
+                jlTwo = new JLabel("*CPF: "); // cpf
+                jlThree = new JLabel("RG: "); // RG
+                jlFour = new JLabel("*Data Nascimento: "); // dataNascimento
+                jlFive = new JLabel("*Data Contratação: "); // dataContratacao
+                jlSix = new JLabel("*Email: "); // email
+                jlSeven = new JLabel("*Telefone: "); // telefone
+                jlEight = new JLabel("*Cargo: "); // cargo
+                jlNine = new JLabel("<html>*CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
                 
                 // Text Field
                 jtfOne = new JTextField();
@@ -168,51 +200,24 @@ public class TelaRegistroGeral extends JFrame{
                 jtfSix = new JTextField();
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
-                break;
-            case 2:
-                //Configura tamanho da janela e botões
-                fWidth = 500;
-                fHeight = 700;
-                qtdBotoes = 8;
-
-                // Janela
-                this.setTitle("Registro Cemitério.");
-
-                // Label
-                jlOne = new JLabel("Nome: ");
-                jlTwo = new JLabel("CPF: ");
-                jlThree = new JLabel("RG: ");
-                jlFour = new JLabel("Data Nascimento: ");
-                jlFive = new JLabel("Data Contratação: ");
-                jlSix = new JLabel("Email: ");
-                jlSeven = new JLabel("Telefone: ");
-                
-                // Text Field
-                jtfOne = new JTextField();
-                jtfTwo = new JTextField();
-                jtfThree = new JTextField();
-                jtfFour = new JTextField();
-                jtfFive = new JTextField();
-                jtfSix = new JTextField();
-                jtfSeven = new JTextField();
+                jtfNine = new JTextField();
                 break;
             case 3:
                 //Configura tamanho da janela e botões
                 fWidth = 500;
-                fHeight = 700;
+                fHeight = 600;
                 qtdBotoes = 8;
 
                 // Janela
                 this.setTitle("Registro Túmulo.");
 
                 // Label
-                jlOne = new JLabel("Tipo: ");
-                jlTwo = new JLabel("Situação: ");
-                jlThree = new JLabel("Data de ocupação: ");
-                jlFour = new JLabel("Rua: ");
-                jlFive = new JLabel("Numero: ");
-                jlSix = new JLabel("Id Cemitério: ");
-                jlSeven = new JLabel("Id defunto: ");
+                jlOne = new JLabel("*Tipo: "); // tipo
+                jlTwo = new JLabel("*Situação: "); // situacao
+                jlThree = new JLabel("Data de ocupação: "); // dataOcupacao
+                jlFour = new JLabel("*Rua: "); // rua
+                jlFive = new JLabel("*Numero: "); // numero
+                jlSix = new JLabel("<html>*CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
                 
                 // Text Field
                 jtfOne = new JTextField();
@@ -221,27 +226,27 @@ public class TelaRegistroGeral extends JFrame{
                 jtfFour = new JTextField();
                 jtfFive = new JTextField();
                 jtfSix = new JTextField();
-                jtfSeven = new JTextField();
                 break;
             case 4:
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 8;
+                qtdBotoes = 9;
 
                 // Janela
                 this.setTitle("Registro Finado.");
 
                 // Label
-                jlOne = new JLabel("Nome: ");
-                jlTwo = new JLabel("<html>CPF (Caso não<br>possua digite 0):</html>");
-                jlThree = new JLabel("RG: ");
-                jlFour = new JLabel("Data Nascimento: ");
-                jlFive = new JLabel("Data Falecimento: ");
-                jlSix = new JLabel("Causa da morte: ");
-                jlSeven = new JLabel("id do túmulo: ");
-                jlEight = new JLabel("id do parente: ");
-                
+                jlOne = new JLabel("*Nome: "); // nome
+                jlTwo = new JLabel("<html>*CPF (Caso não<br>possua digite 0):</html>"); // cpf
+                jlThree = new JLabel("RG: "); // rg
+                jlFour = new JLabel("Data Nascimento: "); // dataNascimento
+                jlFive = new JLabel("*Data Falecimento: ");
+                jlSix = new JLabel("*Causa da morte: "); // causaMorte
+                jlSeven = new JLabel("*Certidão de Óbito: "); // certidaoObito
+                jlEight = new JLabel("*Rua do túmulo: "); // tumRua
+                jlNine = new JLabel("*Número do túmulo: "); // tumNumero
+
                 // Text Field
                 jtfOne = new JTextField();
                 jtfTwo = new JTextField();
@@ -251,6 +256,7 @@ public class TelaRegistroGeral extends JFrame{
                 jtfSix = new JTextField();
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
+                jtfNine = new JTextField();
                 break;
             case 5:
                 //Configura tamanho da janela e botões
@@ -262,15 +268,15 @@ public class TelaRegistroGeral extends JFrame{
                 this.setTitle("Registro Familiar.");
 
                 // Label
-                jlOne = new JLabel("Nome: ");
-                jlTwo = new JLabel("CPF: ");
-                jlThree = new JLabel("RG: ");
-                jlFour = new JLabel("Data Nascimento: ");
-                jlFive = new JLabel("Grau Parentesco: ");
-                jlSix = new JLabel("Email: ");
-                jlSeven = new JLabel("Telefone: ");
-                jlEight = new JLabel("<html>Certidão de<br>óbito de finado:</html>");
-                
+                jlOne = new JLabel("*Nome: "); // nome
+                jlTwo = new JLabel("*CPF: "); // cpf
+                jlThree = new JLabel("RG: "); // rg
+                jlFour = new JLabel("*Data Nascimento: "); // dataNascimento
+                jlFive = new JLabel("*Grau Parentesco: "); // grauParentesco
+                jlSix = new JLabel("*Email: "); // email
+                jlSeven = new JLabel("*Telefone: "); // telefone
+                jlEight = new JLabel("<html>*Certidão de<br>óbito de finado:</html>"); // certidaoObito
+
                 // Text Field
                 jtfOne = new JTextField();
                 jtfTwo = new JTextField();

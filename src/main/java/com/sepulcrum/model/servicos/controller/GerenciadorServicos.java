@@ -12,9 +12,9 @@ import com.sepulcrum.model.servicos.view.TelaRegistroServico;
 
 public class GerenciadorServicos {
     private List<Exumacao> listE = new ArrayList<>();
-    private List<ManutencaoTumulo> listMT = new ArrayList<>();
     private List<ReservaTumulo> listRT = new ArrayList<>();
     private List<TransferenciaDefunto> listTD = new ArrayList<>();
+    private List<ManutencaoTumulo> listMT = new ArrayList<>();
     private List<Vistoria> listV = new ArrayList<>();
 
     public void setServico(TelaRegistroServico trs, Servicos st){
@@ -24,7 +24,7 @@ public class GerenciadorServicos {
         st.setStatusServico(trs.getJtfThree()); //statusServico
         st.setDataServico(trs.getJtfFour()); //dataServico
         st.setIdTumulo(trs.getJtfSix()); //idTumulo
-        st.setIdResponsavelServico(trs.getJtfSeven()); //idResponsavelServico
+        st.setAdmCpf(trs.getJtfSeven()); //admCpf
         st.setInformacoesAdicionais(trs.getJtfEight()); //informacoesAdicionais
     }
 
@@ -85,7 +85,7 @@ public class GerenciadorServicos {
     public void setManutencaoTumulo(TelaRegistroServico trs){
         ManutencaoTumulo mt = new ManutencaoTumulo();
         setServico(trs, mt);
-    
+        
         listMT.add(mt);
     }
     
@@ -93,7 +93,7 @@ public class GerenciadorServicos {
         ManutencaoTumulo mt = listMT.get(id);
         getServico(trs, mt);
     }
-    
+
     public void setVistoria(TelaRegistroServico trs){
         Vistoria v = new Vistoria();
         setServico(trs, v);
