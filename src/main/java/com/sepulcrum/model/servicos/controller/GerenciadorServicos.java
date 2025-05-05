@@ -19,13 +19,15 @@ public class GerenciadorServicos {
 
     public void setServico(TelaRegistroServico trs, Servicos st){
         st.setIdServico(1);
-        st.setTipoServico(trs.getJtfOne()); //tipoServico
-        st.setDescricao(trs.getJtfTwo()); //descricao
-        st.setStatusServico(trs.getJtfThree()); //statusServico
-        st.setDataServico(trs.getJtfFour()); //dataServico
-        st.setIdTumulo(trs.getJtfSix()); //idTumulo
-        st.setAdmCpf(trs.getJtfSeven()); //admCpf
-        st.setInformacoesAdicionais(trs.getJtfEight()); //informacoesAdicionais
+        st.setTipoServico(trs.getJtfOne()); // tipoServico
+        st.setDescricao(trs.getJtfTwo()); // descricao
+        st.setStatusServico(trs.getJtfThree()); // statusServico
+        st.setDataServico(trs.getJtfFour()); // dataServico
+        st.setTumRua(trs.getJtfFive()); // tumRua
+        st.setTumNumero(trs.getJtfSix()); // tumNumero
+        st.setCemCnpj(trs.getJtfSeven()); // cemCnpj
+        st.setAdmCpf(trs.getJtfEight()); //admCpf
+        st.setInformacoesAdicionais(trs.getJtfNine()); //informacoesAdicionais
     }
 
     public void getServico(TelaRegistroServico trs, Servicos st){
@@ -39,9 +41,9 @@ public class GerenciadorServicos {
     }
 
     public void setExumacao(TelaRegistroServico trs){
-        Exumacao e = new Exumacao();
+        Exumacao e = new Exumacao(null, null, null, null, null, null, null, 0, null);
         setServico(trs, e);
-        e.setIdDefunto(trs.getJtfFive());
+        e.setFinCertidaoObito(trs.getJtfTen());
         listE.add(e);
     }
 
@@ -53,9 +55,9 @@ public class GerenciadorServicos {
     }
     
     public void setReservaTumulo(TelaRegistroServico trs){
-        ReservaTumulo rt = new ReservaTumulo();
+        ReservaTumulo rt = new ReservaTumulo(null, null, null, null, null, null, null, 0, null);
         setServico(trs, rt);
-        rt.setIdPessoa(trs.getJtfFive()); //Verificar rota correta
+        rt.setIdPessoa(trs.getJtfTen());
         
         listRT.add(rt);
     }
@@ -67,11 +69,12 @@ public class GerenciadorServicos {
     }
     
     public void setTransferenciaDefunto(TelaRegistroServico trs){
-        TransferenciaDefunto td = new TransferenciaDefunto();
+        TransferenciaDefunto td = new TransferenciaDefunto(null, null, null, null, null, null, null, 0, null, null, null, null);
         setServico(trs, td);
-        td.setIdTumuloDestino(trs.getJtfFive()); //Verificar rota correta
-        td.setIdDefunto(trs.getJtfFive()); //Verificar rota correta
-        
+        td.setTumNumeroDestino(trs.getJtfTen()); //Verificar rota correta
+        td.setTumRuaDestino(trs.getJtfEleven()); //Verificar rota correta
+        td.setCemCnpjDestino(trs.getJtfTwelve()); //Verificar rota correta
+        td.setFinCertidaoObito(trs.getJtfThirteen()); //Verificar rota correta
         listTD.add(td);
     }
     
@@ -83,7 +86,7 @@ public class GerenciadorServicos {
     }
 
     public void setManutencaoTumulo(TelaRegistroServico trs){
-        ManutencaoTumulo mt = new ManutencaoTumulo();
+        ManutencaoTumulo mt = new ManutencaoTumulo(null, null, null, null, null, null, null, 0);
         setServico(trs, mt);
         
         listMT.add(mt);
@@ -95,7 +98,7 @@ public class GerenciadorServicos {
     }
 
     public void setVistoria(TelaRegistroServico trs){
-        Vistoria v = new Vistoria();
+        Vistoria v = new Vistoria(null, null, null, null, null, null, null, 0);
         setServico(trs, v);
         
         listV.add(v);

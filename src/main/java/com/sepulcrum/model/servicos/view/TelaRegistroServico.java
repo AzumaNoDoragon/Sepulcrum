@@ -1,5 +1,9 @@
 package com.sepulcrum.model.servicos.view;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -310,44 +314,65 @@ public class TelaRegistroServico extends JFrame{
         }
     }
 
-    public String getJtfOne() {
+    public String getJtfOne() { // tipoServico
         return jtfOne.getText();
     }
 
-    public String getJtfTwo() {
+    public String getJtfTwo() { // descricao
         return jtfTwo.getText();
     }
 
-    public String getJtfThree() {
+    public String getJtfThree() { // statusServico
         return jtfThree.getText();
     }
 
-    public String getJtfFour() {
-        return jtfFour.getText();
+    public Date getJtfFour() { // dataServico
+        String text = jtfFour.getText();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            java.util.Date utilDate = sdf.parse(text);
+            return new java.sql.Date(utilDate.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public int getJtfFive() {
-        return Integer.parseInt(jtfFive.getText());
+    public String getJtfFive() { // tumRua
+        return jtfFive.getText();
     }
 
-    public int getJtfSix() {
-        return Integer.parseInt(jtfSix.getText());
+    public String getJtfSix() { // tumNumero
+        return jtfSix.getText();
     }
 
-    public int getJtfSeven() {
-        return Integer.parseInt(jtfSeven.getText());
+    public String getJtfSeven() { // cemCnpj
+        return jtfSeven.getText();
     }
 
-    public String getJtfEight() {
+    public String getJtfEight() { // admCpf
         return jtfEight.getText();
     }
 
-    public String getJtfNine() {
+    public String getJtfNine() { // informacoesAdicionais
         return jtfNine.getText();
     }
 
     public String getJtfTen() {
         return jtfTen.getText();
+    }
+
+    public String getJtfEleven() {
+        return jtfEleven.getText();
+    }
+    
+    public String getJtfTwelve() {
+        return jtfTwelve.getText();
+    }
+    
+    public String getJtfThirteen() {
+        return jtfThirteen.getText();
     }
 
     public void setJtfOne(String value) {
@@ -362,8 +387,11 @@ public class TelaRegistroServico extends JFrame{
         jtfThree.setText(value);
     }
 
-    public void setJtfFour(String value) {
-        jtfFour.setText(value);
+    public void setJtfFour(Date value) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String datFormatada = sdf.format(value);
+        
+        jtfFour.setText(datFormatada);
     }
 
     public void setJtfFive(String value) {
@@ -388,5 +416,17 @@ public class TelaRegistroServico extends JFrame{
 
     public void setJtfTen(String value) {
         jtfTen.setText(value);
+    }
+
+    public void setJtfEleven(String value) {
+        jtfEleven.setText(value);
+    }
+    
+    public void setJtfTwelve(String value) {
+        jtfTwelve.setText(value);
+    }
+    
+    public void setJtfThirteen(String value) {
+        jtfThirteen.setText(value);
     }
 }
