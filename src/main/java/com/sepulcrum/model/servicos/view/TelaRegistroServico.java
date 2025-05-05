@@ -10,8 +10,8 @@ import com.sepulcrum.model.servicos.controller.GerenciadorServicos;
 
 public class TelaRegistroServico extends JFrame{
     protected JButton jbSalvar, jbCancelar;
-    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
-    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
+    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen, jtfEleven, jtfTwelve, jtfThirteen;
+    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen, jlEleven, jlTwelve, jlThirteen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
     private GerenciadorServicos gs = new GerenciadorServicos();
 
@@ -157,15 +157,17 @@ public class TelaRegistroServico extends JFrame{
                 this.setTitle("Registro Exumação.");
 
                 // Label
-                jlOne = new JLabel("Tipo serviço:");
-                jlTwo = new JLabel("Descricao");
-                jlThree = new JLabel("Status Serviço");
-                jlFour = new JLabel("Data Serviço");
-                jlFive = new JLabel("Id Defunto");
-                jlSix = new JLabel("Id Tumulo");
-                jlSeven = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlEight = new JLabel("<html>Informações<br>Adicionais:</html>");
-                
+                jlOne = new JLabel("*Tipo serviço: "); // tipoServico
+                jlTwo = new JLabel("*Descricao: "); // descricao
+                jlThree = new JLabel("*Status Serviço: "); // statusServico
+                jlFour = new JLabel("*Data Serviço: "); // dataServico
+                jlFive = new JLabel("*Rua do Túmulo: "); // tumRua
+                jlSix = new JLabel("*Número Tumulo: "); // tumNumero
+                jlSeven = new JLabel("*CNPJ Cemitério: "); // cemCnpj
+                jlEight = new JLabel("*<html>CPF do Responsavel<br>pelo Serviço: <html/>"); // admCpf
+                jlNine = new JLabel("<html>Informações<br>Adicionais: <html/>"); // informacoesAdicionais
+                jlTen = new JLabel("*Certidão de Óbito: "); // finCertidaoObito
+
                 // Text Field
                 jtfOne = new JTextField("Exumação");
                 jtfTwo = new JTextField();
@@ -175,6 +177,8 @@ public class TelaRegistroServico extends JFrame{
                 jtfSix = new JTextField();
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
+                jtfNine = new JTextField();
+                jtfTen = new JTextField();
 
                 break;
             }
@@ -182,20 +186,22 @@ public class TelaRegistroServico extends JFrame{
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 8;
+                qtdBotoes = 9;
 
                 // Janela
                 this.setTitle("Registro Manutenção.");
 
                 // Label
-                jlOne = new JLabel("Tipo serviço:"); //adicionar a classe de herança
-                jlTwo = new JLabel("Descricao");
-                jlThree = new JLabel("Status Serviço");
-                jlFour = new JLabel("Data Serviço");
-                jlFive = new JLabel("Id Tumulo");
-                jlSix = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlSeven = new JLabel("<html>Informações<br>Adicionais:</html>");
-                
+                jlOne = new JLabel("*Tipo serviço: "); // tipoServico
+                jlTwo = new JLabel("*Descricao: "); // descricao
+                jlThree = new JLabel("*Status Serviço: "); // statusServico
+                jlFour = new JLabel("*Data Serviço: "); // dataServico
+                jlFive = new JLabel("*Rua do Túmulo: "); // tumRua
+                jlSix = new JLabel("*Número Tumulo: "); // tumNumero
+                jlSeven = new JLabel("*CNPJ Cemitério: "); // cemCnpj
+                jlEight = new JLabel("<html>*CPF do Responsavel<br>pelo Serviço: </html>"); // admCpf
+                jlNine = new JLabel("<html>Informações<br>Adicionais: <html/>"); // informacoesAdicionais
+
                 // Text Field
                 jtfOne = new JTextField("Manutenção");
                 jtfTwo = new JTextField();
@@ -204,6 +210,8 @@ public class TelaRegistroServico extends JFrame{
                 jtfFive = new JTextField();
                 jtfSix = new JTextField();
                 jtfSeven = new JTextField();
+                jtfEight = new JTextField();
+                jtfNine = new JTextField();
 
                 break;
             }
@@ -217,14 +225,16 @@ public class TelaRegistroServico extends JFrame{
                 this.setTitle("Registro Reserva.");
 
                 // Label
-                jlOne = new JLabel("Tipo serviço:"); // adicionar a classe de herança
-                jlTwo = new JLabel("Descricao");
-                jlThree = new JLabel("Status Serviço");
-                jlFour = new JLabel("Data Serviço");
-                jlFive = new JLabel("Id Comprador"); // comprador == familiar
-                jlSix = new JLabel("Id Tumulo");
-                jlSeven = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlEight = new JLabel("<html>Informações<br>Adicionais:</html>");
+                jlOne = new JLabel("*Tipo serviço: "); // tipoServico
+                jlTwo = new JLabel("*Descricao: "); // descricao
+                jlThree = new JLabel("*Status Serviço: "); // statusServico
+                jlFour = new JLabel("*Data Serviço: "); // dataServico
+                jlFive = new JLabel("*Rua do Túmulo: "); // tumRua
+                jlSix = new JLabel("*Número Tumulo: "); // tumNumero
+                jlSeven = new JLabel("*CNPJ Cemitério: "); // cemCnpj
+                jlEight = new JLabel("*<html>CPF do Responsavel<br>pelo Serviço: </html>"); // admCpf
+                jlNine = new JLabel("<html>Informações<br>Adicionais: <html/>"); // informacoesAdicionais
+                jlTen = new JLabel("*CPF do Familiar: "); // idPessoa
                 
                 // Text Field
                 jtfOne = new JTextField("Reserva");
@@ -242,21 +252,25 @@ public class TelaRegistroServico extends JFrame{
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 9;
+                qtdBotoes = 13;
 
                 // Janela
                 this.setTitle("Registro Transferência.");
 
                 // Label
-                jlOne = new JLabel("Tipo serviço:"); //adicionar a classe de herança
-                jlTwo = new JLabel("Descricao");
-                jlThree = new JLabel("Status Serviço");
-                jlFour = new JLabel("Data Serviço");
-                jlFive = new JLabel("Id Defunto");
-                jlSix = new JLabel("Id Tumulo");
-                jlSeven = new JLabel("Id Destino");
-                jlEight = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlNine = new JLabel("<html>Informações<br>Adicionais:</html>");
+                jlOne = new JLabel("*Tipo serviço: "); // tipoServico
+                jlTwo = new JLabel("*Descricao: "); // descricao
+                jlThree = new JLabel("*Status Serviço: "); // statusServico
+                jlFour = new JLabel("*Data Serviço: "); // dataServico
+                jlFive = new JLabel("*Rua do Túmulo: "); // tumRua
+                jlSix = new JLabel("*Número Tumulo: "); // tumNumero
+                jlSeven = new JLabel("*CNPJ Cemitério: "); // cemCnpj
+                jlEight = new JLabel("*<html>CPF do Responsavel<br>pelo Serviço: </html>"); // admCpf
+                jlNine = new JLabel("<html>Informações<br>Adicionais: </html>"); // informacoesAdicionais
+                jlTen = new JLabel("<html>*Rua do Túmulo <br> destino: <html/>"); // tumRuaDestino
+                jlEleven = new JLabel("<html>*Número Túmulo <br> destino: <html/>"); // tumNumeroDestino
+                jlTwelve = new JLabel("<html>*CNPJ Cemitério <br> destino: <html/>"); // cemCnpjDestino
+                jlThirteen = new JLabel("*Certidão de Óbito: "); // finCertidaoObito
                 
                 // Text Field
                 jtfOne = new JTextField("Transferência");
@@ -268,6 +282,10 @@ public class TelaRegistroServico extends JFrame{
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
                 jtfNine = new JTextField();
+                jtfTen = new JTextField();
+                jtfEleven = new JTextField();
+                jtfTwelve = new JTextField();
+                jtfThirteen = new JTextField();
 
                 break;
             }
@@ -281,14 +299,16 @@ public class TelaRegistroServico extends JFrame{
                 this.setTitle("Registro Vistoria.");
 
                 // Label
-                jlOne = new JLabel("Tipo serviço:"); //adicionar a classe de herança
-                jlTwo = new JLabel("Descricao:");
-                jlThree = new JLabel("Status do Serviço:");
-                jlFour = new JLabel("Data do Serviço:");
-                jlFive = new JLabel("Id do Tumulo:");
-                jlSix = new JLabel("<html>Id do Responsavel<br>pelo Serviço:</html>");
-                jlSeven = new JLabel("<html>Informações<br>Adicionais:</html>");
-                
+                jlOne = new JLabel("*Tipo serviço: "); // tipoServico
+                jlTwo = new JLabel("*Descricao: "); // descricao
+                jlThree = new JLabel("*Status Serviço: "); // statusServico
+                jlFour = new JLabel("*Data Serviço: "); // dataServico
+                jlFive = new JLabel("*Rua do Túmulo: "); // tumRua
+                jlSix = new JLabel("*Número Tumulo: "); // tumNumero
+                jlSeven = new JLabel("*CNPJ Cemitério: "); // cemCnpj
+                jlEight = new JLabel("*<html>CPF do Responsavel<br>pelo Serviço: </html>"); // admCpf
+                jlNine = new JLabel("<html>Informações<br>Adicionais: </html>"); // informacoesAdicionais
+
                 // Text Field
                 jtfOne = new JTextField("Vistoria");
                 jtfTwo = new JTextField();
