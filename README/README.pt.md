@@ -4,9 +4,9 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 
 ## Funcionalidades
 
-- Cadastro, buesca, edição e exclusão de:
+- Cadastro, busca, edição e exclusão de:
   - Falecidos
-  - Familiar responsáveis
+  - Familiares responsáveis
   - Sepulturas
   - Funcionários/Administradores
 - Consulta de dados por CPF, nome ou ID
