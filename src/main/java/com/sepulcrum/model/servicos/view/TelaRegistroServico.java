@@ -122,29 +122,39 @@ public class TelaRegistroServico extends JFrame{
         button.addActionListener(_ -> {
             switch(index){
                 case 0 -> {
-                    if(seletorCrud == 1){
-                        if(seletor == 1){
-                            gs.setExumacao(this);
-                        } else if(seletor == 2){
-                            gs.setManutencaoTumulo(this);
-                            System.out.println("Debug 2");
-                        } else if(seletor == 3){
-                            gs.setReservaTumulo(this);
-                            System.out.println("Debug 3");
-                        } else if(seletor == 4){
-                            gs.setTransferenciaDefunto(this);
-                            System.out.println("Debug 4");
-                        } else if(seletor == 5){
-                            gs.setVistoria(this);
-                            System.out.println("Debug 5");
+                    try {
+                        if(seletorCrud == 1){
+                            try {
+                                if(seletor == 1){
+                                    gs.setExumacao(this);
+                                } else if(seletor == 2){
+                                    gs.setManutencaoTumulo(this);
+                                    System.out.println("Debug 2");
+                                } else if(seletor == 3){
+                                    gs.setReservaTumulo(this);
+                                    System.out.println("Debug 3");
+                                } else if(seletor == 4){
+                                    gs.setTransferenciaDefunto(this);
+                                    System.out.println("Debug 4");
+                                } else if(seletor == 5){
+                                    gs.setVistoria(this);
+                                    System.out.println("Debug 5");
+                                }
+                                msgSucesso();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                msgErro(e);
+                                return;
+                            }
+                        } else if (seletorCrud == 3){
+                            msgAlterada();
+                        } else if(seletorCrud == 4){
+                            msgConfirmacaoDelecao();
                         }
-                        msgSucesso();
-                    } else if (seletorCrud == 3){
-                        msgAlterada();
-                    } else if(seletorCrud == 4){
-                        msgConfirmacaoDelecao();
+                        new TelaGerenciadorServico(seletor);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                    new TelaGerenciadorServico(seletor);
                 }
                 case 1 -> new TelaGerenciadorServico(seletor);
             };
@@ -233,7 +243,7 @@ public class TelaRegistroServico extends JFrame{
 
                 // Label
                 defineLabel();
-                jlTen = new JLabel("*CPF do Familiar: "); // idPessoa
+                jlTen = new JLabel("<html>*CPF do<br> Comprador: <html/>"); // cpfPessoa == cpfFamiliar
                 
                 // Text Field
                 jtfOne = new JTextField("Reserva");
@@ -314,6 +324,10 @@ public class TelaRegistroServico extends JFrame{
         }
     }
 
+    protected void msgErro(Exception e){
+        JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+
     public String getJtfOne() { // tipoServico
         return jtfOne.getText();
     }
@@ -334,7 +348,6 @@ public class TelaRegistroServico extends JFrame{
             java.util.Date utilDate = sdf.parse(text);
             return new java.sql.Date(utilDate.getTime());
         } catch (ParseException e) {
-            e.printStackTrace();
             return null;
         }
     }
