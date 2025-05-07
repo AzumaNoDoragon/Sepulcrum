@@ -1,6 +1,7 @@
 package com.sepulcrum.model.servicos.controller;
 
 import java.util.List;
+import java.sql.Date;
 import java.util.ArrayList;
 import com.sepulcrum.model.servicos.model.Exumacao;
 import com.sepulcrum.model.servicos.model.ManutencaoTumulo;
@@ -17,8 +18,27 @@ public class GerenciadorServicos {
     private List<ManutencaoTumulo> listMT = new ArrayList<>();
     private List<Vistoria> listV = new ArrayList<>();
 
+    private void validarCampo(String campo, String nomeCampo){
+        if(campo == null || campo.trim().isEmpty()){
+            throw new IllegalArgumentException("Campo '" + nomeCampo + "' vazio ou inválido.");
+        }
+    }
+
+    private void validarCampo(Date campo, String nomeCampo){
+        if(campo == null){
+            throw new IllegalArgumentException("Campo '" + nomeCampo + "' vazio ou inválido.");
+        }
+    }
+
     public void setServico(TelaRegistroServico trs, Servicos st){
-        st.setIdServico(1);
+        validarCampo(trs.getJtfTwo() , "Descrição");
+        validarCampo(trs.getJtfThree() , "Status do Serviço");
+        validarCampo(trs.getJtfFour() , "Data Do Serviço");
+        validarCampo(trs.getJtfFive() , "Rua do Túmulo");
+        validarCampo(trs.getJtfSix() , "Número do Túmulo");
+        validarCampo(trs.getJtfSeven() , "CNPJ do Cemitério");
+        validarCampo(trs.getJtfEight() , "CPF do Responsável pelo Serviço");
+
         st.setTipoServico(trs.getJtfOne()); // tipoServico
         st.setDescricao(trs.getJtfTwo()); // descricao
         st.setStatusServico(trs.getJtfThree()); // statusServico
@@ -28,6 +48,104 @@ public class GerenciadorServicos {
         st.setCemCnpj(trs.getJtfSeven()); // cemCnpj
         st.setAdmCpf(trs.getJtfEight()); //admCpf
         st.setInformacoesAdicionais(trs.getJtfNine()); //informacoesAdicionais
+    }
+    
+    public void setExumacao(TelaRegistroServico trs){
+        Exumacao e = new Exumacao(
+            trs.getJtfOne(),   // tipoServicoStr
+            trs.getJtfTwo(),   // descricao
+            trs.getJtfThree(), // statusServicoStr
+            trs.getJtfFour(),  // dataServico
+            trs.getJtfFive(),  // tumRua
+            trs.getJtfSix(),   // tumNumero
+            trs.getJtfSeven(), // cemCnpj
+            trs.getJtfEight(), // admCpf
+            trs.getJtfTen()    // finCertidaoObito
+        );
+            
+        setServico(trs, e);
+        validarCampo(trs.getJtfTen(), "Certidão de Óbito");
+        e.setFinCertidaoObito(trs.getJtfTen());
+        listE.add(e);
+    }
+    
+    public void setReservaTumulo(TelaRegistroServico trs){
+        ReservaTumulo rt = new ReservaTumulo(
+            trs.getJtfOne(),   // tipoServicoStr
+            trs.getJtfTwo(),   // descricao
+            trs.getJtfThree(), // statusServicoStr
+            trs.getJtfFour(),  // dataServico
+            trs.getJtfFive(),  // tumRua
+            trs.getJtfSix(),   // tumNumero
+            trs.getJtfSeven(), // cemCnpj
+            trs.getJtfEight(), // admCpf
+            trs.getJtfTen()    // cpfPessoa
+        );
+
+        setServico(trs, rt);
+        validarCampo(trs.getJtfTen(), "CPF do comprador");
+        rt.setIdPessoa(trs.getJtfTen());
+        listRT.add(rt);
+    }
+
+    public void setTransferenciaDefunto(TelaRegistroServico trs){
+        TransferenciaDefunto td = new TransferenciaDefunto(
+            trs.getJtfOne(),     // tipoServicoStr
+            trs.getJtfTwo(),     // descricao
+            trs.getJtfThree(),   // statusServicoStr
+            trs.getJtfFour(),    // dataServico
+            trs.getJtfFive(),    // tumRua
+            trs.getJtfSix(),     // tumNumero
+            trs.getJtfSeven(),   // cemCnpj
+            trs.getJtfEight(),   // admCpf
+            trs.getJtfTen(),     // tumRuaDestino
+            trs.getJtfEleven(),  // tumNumeroDestino
+            trs.getJtfTwelve(),  // cemCnpjDestino
+            trs.getJtfThirteen() // finCertidaoObito
+        );
+
+        setServico(trs, td);
+        validarCampo(trs.getJtfTen(), "Rua Túmulo Destino");
+        validarCampo(trs.getJtfEleven(), "Número Túmulo Destino");
+        validarCampo(trs.getJtfTwelve(), "CNPJ do Cemitério Destino");
+        validarCampo(trs.getJtfThirteen(), "Certidão de Óbito do Finado");
+        td.setTumNumeroDestino(trs.getJtfTen());
+        td.setTumRuaDestino(trs.getJtfEleven());
+        td.setCemCnpjDestino(trs.getJtfTwelve());
+        td.setFinCertidaoObito(trs.getJtfThirteen());
+        listTD.add(td);
+    }
+
+    public void setManutencaoTumulo(TelaRegistroServico trs){
+        ManutencaoTumulo mt = new ManutencaoTumulo(
+            trs.getJtfOne(),   // tipoServicoStr
+            trs.getJtfTwo(),   // descricao
+            trs.getJtfThree(), // statusServicoStr
+            trs.getJtfFour(),  // dataServico
+            trs.getJtfFive(),  // tumRua
+            trs.getJtfSix(),   // tumNumero
+            trs.getJtfSeven(), // cemCnpj
+            trs.getJtfEight()  // admCpf
+        );
+
+        setServico(trs, mt);
+        listMT.add(mt);
+    }
+    
+    public void setVistoria(TelaRegistroServico trs){
+        Vistoria v = new Vistoria(
+            trs.getJtfOne(),   // tipoServicoStr
+            trs.getJtfTwo(),   // descricao
+            trs.getJtfThree(), // statusServicoStr
+            trs.getJtfFour(),  // dataServico
+            trs.getJtfFive(),  // tumRua
+            trs.getJtfSix(),   // tumNumero
+            trs.getJtfSeven(), // cemCnpj
+            trs.getJtfEight()  // admCpf
+        );
+
+        setServico(trs, v);
+        listV.add(v);
     }
 
     public void getServico(TelaRegistroServico trs, Servicos st){
@@ -40,13 +158,6 @@ public class GerenciadorServicos {
         trs.setJtfEight(st.getInformacoesAdicionais()); //informacoesAdicionais
     }
 
-    public void setExumacao(TelaRegistroServico trs){
-        Exumacao e = new Exumacao(null, null, null, null, null, null, null, 0, null);
-        setServico(trs, e);
-        e.setFinCertidaoObito(trs.getJtfTen());
-        listE.add(e);
-    }
-
     public void getExumacao(TelaRegistroServico trs, int id){
         System.out.println(listE.size());
         Exumacao e = listE.get(id);
@@ -54,13 +165,6 @@ public class GerenciadorServicos {
         trs.setJtfFive(String.valueOf(e.getIdDefunto()));
     }
     
-    public void setReservaTumulo(TelaRegistroServico trs){
-        ReservaTumulo rt = new ReservaTumulo(null, null, null, null, null, null, null, 0, null);
-        setServico(trs, rt);
-        rt.setIdPessoa(trs.getJtfTen());
-        
-        listRT.add(rt);
-    }
     
     public void getReservaTumulo(TelaRegistroServico trs, int id){
         ReservaTumulo rt = listRT.get(id);
@@ -68,15 +172,6 @@ public class GerenciadorServicos {
         trs.setJtfFive(String.valueOf(rt.getIdPessoa()));
     }
     
-    public void setTransferenciaDefunto(TelaRegistroServico trs){
-        TransferenciaDefunto td = new TransferenciaDefunto(null, null, null, null, null, null, null, 0, null, null, null, null);
-        setServico(trs, td);
-        td.setTumNumeroDestino(trs.getJtfTen()); //Verificar rota correta
-        td.setTumRuaDestino(trs.getJtfEleven()); //Verificar rota correta
-        td.setCemCnpjDestino(trs.getJtfTwelve()); //Verificar rota correta
-        td.setFinCertidaoObito(trs.getJtfThirteen()); //Verificar rota correta
-        listTD.add(td);
-    }
     
     public void getTransferenciaDefunto(TelaRegistroServico trs, int id){
         TransferenciaDefunto td = listTD.get(id);
@@ -85,24 +180,12 @@ public class GerenciadorServicos {
         trs.setJtfFive(String.valueOf(td.getIdDefunto()));
     }
 
-    public void setManutencaoTumulo(TelaRegistroServico trs){
-        ManutencaoTumulo mt = new ManutencaoTumulo(null, null, null, null, null, null, null, 0);
-        setServico(trs, mt);
-        
-        listMT.add(mt);
-    }
     
     public void getManutencaoTumulo(TelaRegistroServico trs, int id){
         ManutencaoTumulo mt = listMT.get(id);
         getServico(trs, mt);
     }
 
-    public void setVistoria(TelaRegistroServico trs){
-        Vistoria v = new Vistoria(null, null, null, null, null, null, null, 0);
-        setServico(trs, v);
-        
-        listV.add(v);
-    }
     
     public void getVistoria(TelaRegistroServico trs, int id){
         Vistoria v = listV.get(id);
