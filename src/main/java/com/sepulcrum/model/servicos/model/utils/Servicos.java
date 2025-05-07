@@ -9,13 +9,13 @@ public class Servicos {
     protected int idServico;
     protected Date dataServico;
 
-    protected enum StatusServico{
-        Marcado,
-        Andamento,
-        Concluido,
-        Adiado,
-        Cancelado
-    }
+        protected enum StatusServico{
+            Marcado,
+            Andamento,
+            Concluido,
+            Adiado,
+            Cancelado
+        }
 
     protected enum TipoServico{
         Exumacao,
@@ -25,16 +25,15 @@ public class Servicos {
         vistoria
     }
 
-    public Servicos(String statusServicoStr, String tipoServicoStr, String descricao, String admCpf, String tumRua, 
-            String tumNumero, String cemCnpj, int idServico) {
-        setStatusServico(statusServicoStr);
+    public Servicos(String tipoServicoStr, String descricao, String statusServicoStr, Date dataServico, String tumRua, String tumNumero, String cemCnpj, String admCpf) {
         setTipoServico(tipoServicoStr);
         this.descricao = descricao;
-        this.admCpf = admCpf;
+        setStatusServico(statusServicoStr);
+        this.dataServico = dataServico;
         this.tumRua = tumRua;
         this.tumNumero = tumNumero;
         this.cemCnpj = cemCnpj;
-        this.idServico = idServico;
+        this.admCpf = admCpf;
     }
 
     public String getStatusServico() {
@@ -126,7 +125,7 @@ public class Servicos {
     }
 
     public void setIdServico(int idServico) {
-        this.idServico = idServico;
+        this.idServico = 1;
     }
 
     public Date getDataServico() {
