@@ -39,15 +39,15 @@ public class GerenciadorServicos {
         validarCampo(trs.getJtfSeven() , "CNPJ do Cemitério");
         validarCampo(trs.getJtfEight() , "CPF do Responsável pelo Serviço");
 
-        s.setTipoServico(trs.getJtfOne()); // tipoServico
-        s.setDescricao(trs.getJtfTwo()); // descricao
-        s.setStatusServico(trs.getJtfThree()); // statusServico
-        s.setDataServico(trs.getJtfFour()); // dataServico
-        s.setTumRua(trs.getJtfFive()); // tumRua
-        s.setTumNumero(trs.getJtfSix()); // tumNumero
-        s.setCemCnpj(trs.getJtfSeven()); // cemCnpj
-        s.setAdmCpf(trs.getJtfEight()); //admCpf
-        s.setInformacoesAdicionais(trs.getJtfNine()); //informacoesAdicionais
+        s.setTipoServico(trs.getJtfOne());            // tipoServico
+        s.setDescricao(trs.getJtfTwo());              // descricao
+        s.setStatusServico(trs.getJtfThree());        // statusServico
+        s.setDataServico(trs.getJtfFour());           // dataServico
+        s.setTumRua(trs.getJtfFive());                // tumRua
+        s.setTumNumero(trs.getJtfSix());              // tumNumero
+        s.setCemCnpj(trs.getJtfSeven());              // cemCnpj
+        s.setAdmCpf(trs.getJtfEight());               // admCpf
+        s.setInformacoesAdicionais(trs.getJtfNine()); // informacoesAdicionais
     }
     
     public void setExumacao(TelaRegistroServico trs){
@@ -149,13 +149,13 @@ public class GerenciadorServicos {
     }
 
     public void getServico(TelaRegistroServico trs, Servicos s){
-        trs.setJtfOne(s.getTipoServico()); //tipoServico
-        trs.setJtfTwo(s.getDescricao()); //descricao
-        trs.setJtfThree(s.getStatusServico()); //statusServico
-        trs.setJtfFour(s.getDataServico()); //dataServico
-        trs.setJtfSix(String.valueOf(s.getIdTumulo())); //idTumulo
+        trs.setJtfOne(s.getTipoServico());                            //tipoServico
+        trs.setJtfTwo(s.getDescricao());                              //descricao
+        trs.setJtfThree(s.getStatusServico());                        //statusServico
+        trs.setJtfFour(s.getDataServico());                           //dataServico
+        trs.setJtfSix(String.valueOf(s.getIdTumulo()));               //idTumulo
         trs.setJtfSeven(String.valueOf(s.getIdResponsavelServico())); //idResponsavelServico
-        trs.setJtfEight(s.getInformacoesAdicionais()); //informacoesAdicionais
+        trs.setJtfEight(s.getInformacoesAdicionais());                //informacoesAdicionais
     }
 
     public void getExumacao(TelaRegistroServico trs, int id){
