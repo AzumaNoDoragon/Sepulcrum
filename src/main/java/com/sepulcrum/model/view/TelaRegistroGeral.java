@@ -347,28 +347,32 @@ public class TelaRegistroGeral extends JFrame{
         }
     }
 
-    public int getJtfFiveInt() {
-        return Integer.parseInt(jtfFive.getText());
-    }
-
     public String getJtfFiveString() {
         return jtfFive.getText();
     }
 
-    public int getJtfSixInt() {
-        return Integer.parseInt(jtfSix.getText());
+    public Date getJtfFiveDate() {
+        String text = jtfFour.getText();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            java.util.Date utilDate = sdf.parse(text);
+            return new java.sql.Date(utilDate.getTime());
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
-    public String getJtfSixString() {
+    public String getJtfSix() {
         return jtfSix.getText();
-    }
-
-    public int getJtfSevenInt() {
-        return Integer.parseInt(jtfSeven.getText());
     }
 
     public String getJtfSevenString() {
         return jtfSeven.getText();
+    }
+
+    public int getJtfSevenInt() {
+        return Integer.parseInt(jtfSeven.getText());
     }
 
     public String getJtfEight() {
