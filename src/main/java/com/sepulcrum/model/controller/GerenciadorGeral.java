@@ -27,12 +27,6 @@ public class GerenciadorGeral {
         }
     }
 
-    private void validarCampo(Integer campo, String nomeCampo){
-        if(campo == null || campo == 0){
-            throw new IllegalArgumentException("Campo '" + nomeCampo + "' vazio ou inválido.");
-        }
-    }
-
     private void validarCampo(Date campo, String nomeCampo){
         if(campo == null){
             throw new IllegalArgumentException("Campo '" + nomeCampo + "' vazio ou inválido.");
@@ -47,6 +41,62 @@ public class GerenciadorGeral {
         l.setNumero(trg.getJtfFiveString());
     }
 
+    public void setCemiterio(TelaRegistroGeral trg){
+        Cemiterio c = new Cemiterio(
+            trg.getJtfFourString(), // rua
+            trg.getJtfFiveString(), // numero
+            trg.getJtfNine(),       // cnpj
+            trg.getJtfOne(),        // nome
+            trg.getJtfTwo(),        // estado
+            trg.getJtfThree(),      // cidade
+            trg.getJtfEight(),      // telefone
+            trg.getJtfSix(),        // cep
+            trg.getJtfTen()         // admCpf
+            );
+
+        setLocalidade(trg, c);
+        validarCampo(trg.getJtfNine(), "CNPJ");
+        validarCampo(trg.getJtfOne(), "Nome");
+        validarCampo(trg.getJtfTwo(), "Estado");
+        validarCampo(trg.getJtfThree(), "Cidade");
+        validarCampo(trg.getJtfEight(), "Telefone");
+        validarCampo(trg.getJtfSix(), "Cep");
+        validarCampo(trg.getJtfTen(), "Adiministrador");
+        c.setCnpj(trg.getJtfNine());
+        c.setNome(trg.getJtfOne());
+        c.setEstado(trg.getJtfTwo());
+        c.setCidade(trg.getJtfThree());
+        c.setTelefone(trg.getJtfEight());
+        c.setCep(trg.getJtfSix());
+        c.setAdmCpf(trg.getJtfTen());
+        c.setCapacidadeMax(trg.getJtfSevenInt());
+        
+        listC.add(c);
+    }
+    
+    public void setTumulo(TelaRegistroGeral trg){
+        Tumulo t = new Tumulo(
+            trg.getJtfFourString(), // rua
+            trg.getJtfFiveString(), // numero
+            trg.getJtfOne(),        // tipo
+            trg.getJtfTwo(),        // situacao
+            trg.getJtfThree(),      // dataOcupacao
+            trg.getJtfSix()         // cemCnpj
+            );
+            
+        setLocalidade(trg, t);
+        validarCampo(trg.getJtfOne(), "Tipo");
+        validarCampo(trg.getJtfTwo(), "Situação");
+        validarCampo(trg.getJtfThree(), "Data de Ocupação");
+        validarCampo(trg.getJtfSix(), "CNPJ");
+        t.setTipo(trg.getJtfOne());
+        t.setSituacao(trg.getJtfTwo());
+        t.setDataOcupacao(trg.getJtfThree());
+        t.setCemCnpj(trg.getJtfSix());
+        
+        ListT.add(t);
+    }
+
     public void setPessoa(TelaRegistroGeral trg, Pessoas p){
         validarCampo(trg.getJtfOne(), "Nome");
         validarCampo(trg.getJtfTwo(), "Cpf");
@@ -59,86 +109,78 @@ public class GerenciadorGeral {
     }
 
     public void setPessoasVivas(TelaRegistroGeral trg, PessoasVivas pv){
-        validarCampo(trg.getJtfSixString(), "Email");
+        validarCampo(trg.getJtfSix(), "Email");
         validarCampo(trg.getJtfSevenString(), "Telefone");
 
-        pv.setEmail(trg.getJtfSixString());
+        pv.setEmail(trg.getJtfSix());
         pv.setTelefone(trg.getJtfSevenString());
     }
-
-    public void setCemiterio(TelaRegistroGeral trg){
-        Cemiterio c = new Cemiterio(
-            trg.getJtfFourString(), // rua
-            trg.getJtfFiveString(), // numero
-            trg.getJtfNine(),       // cnpj
-            trg.getJtfOne(),        // nome
-            trg.getJtfTwo(),        // estado
-            trg.getJtfThree(),      // cidade
-            trg.getJtfEight(),      // telefone
-            trg.getJtfSixString(),  // cep
-            trg.getJtfTen()         // admCpf
-        );
-
-        setLocalidade(trg, c);
-
-
-    }
-
-    public void setTumulo(TelaRegistroGeral trg){
-        Tumulo t = new Tumulo(
-            null,
-            null,
-            null,
-            null,
-            null,
-            0
-        );
-
-        setLocalidade(trg, t);
-
-    }
-
+    
     public void setAdm(TelaRegistroGeral trg){
         Adm a = new Adm(
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            trg.getJtfOne(),         // nome
+            trg.getJtfTwo(),         // cpf
+            trg.getJtfFourDate(),    // dataNascimento
+            trg.getJtfSix(),         // email
+            trg.getJtfSevenString(), // telefone
+            trg.getJtfEight(),       // cargo
+            trg.getJtfNine(),        // cemCnpj
+            trg.getJtfFiveDate()     // dataContratacao
         );
 
         setPessoa(trg, a);
         setPessoasVivas(trg, a);
+        validarCampo(trg.getJtfEight(), "Cargo");
+        validarCampo(trg.getJtfNine(), "CNPJ");
+        validarCampo(trg.getJtfFiveDate(), "Data de Contratação");
+        a.setCargo(trg.getJtfEight());
+        a.setCemCnpj(trg.getJtfNine());
+        a.setDataContratacao(trg.getJtfFiveDate());
 
+        ListA.add(a);
     }
 
     public void setFamiliar(TelaRegistroGeral trg){
-        Familiar fam = new Familiar(null,
-            null,
-            null,
-            null,
-            null,
-            null
+        Familiar fam = new Familiar(
+            trg.getJtfOne(),         // nome
+            trg.getJtfTwo(),         // cpf
+            trg.getJtfFourDate(),    // dataNascimento
+            trg.getJtfSix(),         // email
+            trg.getJtfSevenString(), // telefone
+            trg.getJtfFiveString()   // grauParentesco
         );
 
         setPessoa(trg, fam);
         setPessoasVivas(trg, fam);
+        validarCampo(trg.getJtfFiveString(), "Grau de Parentesco");
+        validarCampo(trg.getJtfEight(), "Certidão de Óbito");
+        fam.setGrauParentesco(trg.getJtfFiveString());
+        fam.setCertidaoObito(trg.getJtfEight());
 
+        ListFam.add(fam);
     }
 
     public void setFinado(TelaRegistroGeral trg){
-        Finado fin = new Finado(null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+        Finado fin = new Finado(
+            trg.getJtfOne(),        // nome
+            trg.getJtfTwo(),        // cpf
+            trg.getJtfFourDate(),   // dataNascimento
+            trg.getJtfSix(),        // causaMorte
+            trg.getJtfEight(),      // tumRua
+            trg.getJtfNine(),       // tumNumero
+            trg.getJtfSevenString() // certidaoObito
         );
 
         setPessoa(trg, fin);
+        validarCampo(trg.getJtfSix(), "Causa da Morte");
+        validarCampo(trg.getJtfEight(), "Rua do Túmulo");
+        validarCampo(trg.getJtfNine(), "Número do Túmulo");
+        validarCampo(trg.getJtfSevenString(), "Certidão de Óbito");
+        fin.setCausaMorte(trg.getJtfSix());
+        fin.setTumRua(trg.getJtfEight());
+        fin.setTumRua(trg.getJtfNine());
+        fin.setCertidaoObito(trg.getJtfSevenString());
+
+        ListFin.add(fin);
     }
 }
