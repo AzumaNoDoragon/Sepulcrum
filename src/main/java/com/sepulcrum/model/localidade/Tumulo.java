@@ -5,8 +5,7 @@ import com.sepulcrum.model.localidade.utils.Localidade;
 public class Tumulo extends Localidade{
     private Tipo tipo;
     private Situacao situacao;
-    private String dataOcupacao;
-    private int cemCnpj;
+    private String dataOcupacao, cemCnpj;
 
     private enum Tipo{
         CovaRasa, TumuloAlvenaria, JazigoPerpetuo, Ossuario, Mausoleu, Columbario
@@ -16,7 +15,7 @@ public class Tumulo extends Localidade{
         Vazio, Reservado, Comprado, Ocupado, Manutencao, AguardandoExumação, DesativadoIndisponível
     }
     
-    public Tumulo(String rua, String numero, String tipoStr, String situacaoStr, String dataOcupacao, int cemCnpj) {
+    public Tumulo(String rua, String numero, String tipoStr, String situacaoStr, String dataOcupacao, String cemCnpj) {
         super(rua, numero);
         setTipo(tipoStr);
         setSituacao(situacaoStr);
@@ -82,11 +81,11 @@ public class Tumulo extends Localidade{
         this.situacao = situacao;
     }
 
-    public int getCemCnpj() {
+    public String getCemCnpj() {
         return cemCnpj;
     }
 
-    public void setCemCnpj(int cemCnpj) {
+    public void setCemCnpj(String cemCnpj) {
         this.cemCnpj = cemCnpj;
     }
 }

@@ -1,13 +1,15 @@
 package com.sepulcrum.model.servicos.model;
 
+import java.sql.Date;
+
 import com.sepulcrum.model.servicos.model.utils.Servicos;
 
 public class Exumacao extends Servicos {
     private String finCertidaoObito;
-
-    public Exumacao(String statusServicoStr, String tipoServicoStr, String descricao, String admCpf, String tumRua,
-            String tumNumero, String cemCnpj, int idServico, String finCertidaoObito) {
-        super(statusServicoStr, tipoServicoStr, descricao, admCpf, tumRua, tumNumero, cemCnpj, idServico);
+    
+    public Exumacao(String tipoServicoStr, String descricao, String statusServicoStr, Date dataServico, String tumRua,
+            String tumNumero, String cemCnpj, String admCpf, String finCertidaoObito) {
+        super(tipoServicoStr, descricao, statusServicoStr, dataServico, tumRua, tumNumero, cemCnpj, admCpf);
         this.finCertidaoObito = finCertidaoObito;
     }
 

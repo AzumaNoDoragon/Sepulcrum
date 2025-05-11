@@ -1,16 +1,18 @@
 package com.sepulcrum.model.servicos.model;
 
+import java.sql.Date;
+
 import com.sepulcrum.model.servicos.model.utils.Servicos;
 
 public class TransferenciaDefunto extends Servicos {
     private String tumNumeroDestino, tumRuaDestino, cemCnpjDestino, finCertidaoObito;
 
-    public TransferenciaDefunto(String statusServicoStr, String tipoServicoStr, String descricao, String admCpf,
-            String tumRua, String tumNumero, String cemCnpj, int idServico, String tumNumeroDestino,
-            String tumRuaDestino, String cemCnpjDestino, String finCertidaoObito) {
-        super(statusServicoStr, tipoServicoStr, descricao, admCpf, tumRua, tumNumero, cemCnpj, idServico);
-        this.tumNumeroDestino = tumNumeroDestino;
+    public TransferenciaDefunto(String tipoServicoStr, String descricao, String statusServicoStr, Date dataServico,
+            String tumRua, String tumNumero, String cemCnpj, String admCpf, String tumRuaDestino, String tumNumeroDestino,
+            String cemCnpjDestino, String finCertidaoObito) {
+        super(tipoServicoStr, descricao, statusServicoStr, dataServico, tumRua, tumNumero, cemCnpj, admCpf);
         this.tumRuaDestino = tumRuaDestino;
+        this.tumNumeroDestino = tumNumeroDestino;
         this.cemCnpjDestino = cemCnpjDestino;
         this.finCertidaoObito = finCertidaoObito;
     }

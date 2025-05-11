@@ -1,5 +1,9 @@
 package com.sepulcrum.model.view;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -150,15 +154,16 @@ public class TelaRegistroGeral extends JFrame{
                 this.setTitle("Registro Cemitério.");
                 
                 // Label
-                jlOne = new JLabel("*Nome: "); // nome
-                jlTwo = new JLabel("*Estado: "); // estado
-                jlThree = new JLabel("*Cidade: "); // cidade
-                jlFour = new JLabel("*Rua: "); // rua
-                jlFive = new JLabel("*Numero: "); // numero
-                jlSix = new JLabel("*Capacidade: "); // capacidadeMax
-                jlSeven = new JLabel("*Telefone: "); // telefone
-                jlEight = new JLabel("*Cnpj: "); // cnpj
-                jlNine = new JLabel("*Adiministrador: "); // admCpf
+                jlOne = new JLabel("*Nome: ");           // nome
+                jlTwo = new JLabel("*Estado: ");         // estado
+                jlThree = new JLabel("*Cidade: ");       // cidade
+                jlFour = new JLabel("*Rua: ");           // rua
+                jlFive = new JLabel("*Numero: ");        // numero
+                jlSix = new JLabel("*Cep: ");            // cep
+                jlSeven = new JLabel("Capacidade: ");    // capacidadeMax
+                jlEight = new JLabel("*Telefone: ");     // telefone
+                jlNine = new JLabel("*Cnpj: ");          // cnpj
+                jlTen = new JLabel("*Adiministrador: "); // admCpf
 
                 // Text Field
                 jtfOne = new JTextField();
@@ -181,14 +186,14 @@ public class TelaRegistroGeral extends JFrame{
                 this.setTitle("Registro Coveiro.");
 
                 // Label
-                jlOne = new JLabel("*Nome: "); // nome
-                jlTwo = new JLabel("*CPF: "); // cpf
-                jlThree = new JLabel("RG: "); // RG
-                jlFour = new JLabel("*Data Nascimento: "); // dataNascimento
-                jlFive = new JLabel("*Data Contratação: "); // dataContratacao
-                jlSix = new JLabel("*Email: "); // email
-                jlSeven = new JLabel("*Telefone: "); // telefone
-                jlEight = new JLabel("*Cargo: "); // cargo
+                jlOne = new JLabel("*Nome: ");                                  // nome
+                jlTwo = new JLabel("*CPF: ");                                   // cpf
+                jlThree = new JLabel("RG: ");                                   // RG
+                jlFour = new JLabel("*Data Nascimento: ");                      // dataNascimento
+                jlFive = new JLabel("*Data Contratação: ");                     // dataContratacao
+                jlSix = new JLabel("*Email: ");                                 // email
+                jlSeven = new JLabel("*Telefone: ");                            // telefone
+                jlEight = new JLabel("*Cargo: ");                               // cargo
                 jlNine = new JLabel("<html>*CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
                 
                 // Text Field
@@ -212,11 +217,11 @@ public class TelaRegistroGeral extends JFrame{
                 this.setTitle("Registro Túmulo.");
 
                 // Label
-                jlOne = new JLabel("*Tipo: "); // tipo
-                jlTwo = new JLabel("*Situação: "); // situacao
-                jlThree = new JLabel("Data de ocupação: "); // dataOcupacao
-                jlFour = new JLabel("*Rua: "); // rua
-                jlFive = new JLabel("*Numero: "); // numero
+                jlOne = new JLabel("*Tipo: ");                                 // tipo
+                jlTwo = new JLabel("*Situação: ");                             // situacao
+                jlThree = new JLabel("Data de ocupação: ");                    // dataOcupacao
+                jlFour = new JLabel("*Rua: ");                                 // rua
+                jlFive = new JLabel("*Numero: ");                              // numero
                 jlSix = new JLabel("<html>*CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
                 
                 // Text Field
@@ -237,15 +242,15 @@ public class TelaRegistroGeral extends JFrame{
                 this.setTitle("Registro Finado.");
 
                 // Label
-                jlOne = new JLabel("*Nome: "); // nome
+                jlOne = new JLabel("*Nome: ");                                          // nome
                 jlTwo = new JLabel("<html>*CPF (Caso não<br>possua digite 0):</html>"); // cpf
-                jlThree = new JLabel("RG: "); // rg
-                jlFour = new JLabel("Data Nascimento: "); // dataNascimento
-                jlFive = new JLabel("*Data Falecimento: ");
-                jlSix = new JLabel("*Causa da morte: "); // causaMorte
-                jlSeven = new JLabel("*Certidão de Óbito: "); // certidaoObito
-                jlEight = new JLabel("*Rua do túmulo: "); // tumRua
-                jlNine = new JLabel("*Número do túmulo: "); // tumNumero
+                jlThree = new JLabel("RG: ");                                           // rg
+                jlFour = new JLabel("Data Nascimento: ");                               // dataNascimento
+                jlFive = new JLabel("*Data Falecimento: ");                             // dataFalecimento
+                jlSix = new JLabel("*Causa da morte: ");                                // causaMorte
+                jlSeven = new JLabel("*Certidão de Óbito: ");                           // certidaoObito
+                jlEight = new JLabel("*Rua do túmulo: ");                               // tumRua
+                jlNine = new JLabel("*Número do túmulo: ");                             // tumNumero
 
                 // Text Field
                 jtfOne = new JTextField();
@@ -268,13 +273,13 @@ public class TelaRegistroGeral extends JFrame{
                 this.setTitle("Registro Familiar.");
 
                 // Label
-                jlOne = new JLabel("*Nome: "); // nome
-                jlTwo = new JLabel("*CPF: "); // cpf
-                jlThree = new JLabel("RG: "); // rg
-                jlFour = new JLabel("*Data Nascimento: "); // dataNascimento
-                jlFive = new JLabel("*Grau Parentesco: "); // grauParentesco
-                jlSix = new JLabel("*Email: "); // email
-                jlSeven = new JLabel("*Telefone: "); // telefone
+                jlOne = new JLabel("*Nome: ");                                         // nome
+                jlTwo = new JLabel("*CPF: ");                                          // cpf
+                jlThree = new JLabel("RG: ");                                          // rg
+                jlFour = new JLabel("*Data Nascimento: ");                             // dataNascimento
+                jlFive = new JLabel("*Grau Parentesco: ");                             // grauParentesco
+                jlSix = new JLabel("*Email: ");                                        // email
+                jlSeven = new JLabel("*Telefone: ");                                   // telefone
                 jlEight = new JLabel("<html>*Certidão de<br>óbito de finado:</html>"); // certidaoObito
 
                 // Text Field
@@ -326,19 +331,47 @@ public class TelaRegistroGeral extends JFrame{
         return jtfThree.getText();
     }
 
-    public String getJtfFour() {
+    public String getJtfFourString() {
         return jtfFour.getText();
     }
 
-    public int getJtfFive() {
-        return Integer.parseInt(jtfFive.getText());
+    public Date getJtfFourDate() {
+        String text = jtfFour.getText();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            java.util.Date utilDate = sdf.parse(text);
+            return new java.sql.Date(utilDate.getTime());
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
-    public int getJtfSix() {
-        return Integer.parseInt(jtfSix.getText());
+    public String getJtfFiveString() {
+        return jtfFive.getText();
     }
 
-    public int getJtfSeven() {
+    public Date getJtfFiveDate() {
+        String text = jtfFour.getText();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            java.util.Date utilDate = sdf.parse(text);
+            return new java.sql.Date(utilDate.getTime());
+        } catch (ParseException e) {
+            return null;
+        }
+    }
+
+    public String getJtfSix() {
+        return jtfSix.getText();
+    }
+
+    public String getJtfSevenString() {
+        return jtfSeven.getText();
+    }
+
+    public int getJtfSevenInt() {
         return Integer.parseInt(jtfSeven.getText());
     }
 
