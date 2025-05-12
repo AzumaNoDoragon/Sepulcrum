@@ -183,4 +183,45 @@ public class GerenciadorGeral {
 
         ListFin.add(fin);
     }
+
+    public void getLocalidade(TelaRegistroGeral trg, Localidade l){
+        trg.setJtfFour(l.getRua());
+        trg.setJtfFive(l.getNumero());
+    }
+
+    public void getCemiterio(TelaRegistroGeral trg, Cemiterio c){
+        getLocalidade(trg, c);
+        trg.setJtfNine(c.getCnpj());
+        trg.setJtfOne(c.getNome());
+        trg.setJtfTwo(c.getEstado());
+        trg.setJtfThree(c.getCidade());
+        trg.setJtfEight(c.getTelefone());
+        trg.setJtfSix(c.getCep());
+        trg.setJtfTen(c.getAdmCpf());
+        trg.setJtfSeven(Integer.toString(c.getCapacidadeMax()));
+    }
+    
+    public void getTumulo(){
+        
+    }
+
+    public void getPessoa(){
+        
+    }
+
+    public void getPessoasVivas(){
+        
+    }
+
+    public void getAdm(){
+        
+    }
+
+    public void getFamiliar(){
+
+    }
+
+    public void getFinado(){
+        
+    }
 }
