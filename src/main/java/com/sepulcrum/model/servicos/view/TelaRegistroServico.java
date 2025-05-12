@@ -122,39 +122,35 @@ public class TelaRegistroServico extends JFrame{
         button.addActionListener(_ -> {
             switch(index){
                 case 0 -> {
-                    try {
-                        if(seletorCrud == 1){
-                            try {
-                                if(seletor == 1){
-                                    gs.setExumacao(this);
-                                } else if(seletor == 2){
-                                    gs.setManutencaoTumulo(this);
-                                    System.out.println("Debug 2");
-                                } else if(seletor == 3){
-                                    gs.setReservaTumulo(this);
-                                    System.out.println("Debug 3");
-                                } else if(seletor == 4){
-                                    gs.setTransferenciaDefunto(this);
-                                    System.out.println("Debug 4");
-                                } else if(seletor == 5){
-                                    gs.setVistoria(this);
-                                    System.out.println("Debug 5");
-                                }
-                                msgSucesso();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                msgErro(e);
-                                return;
+                    if(seletorCrud == 1){
+                        try {
+                            if(seletor == 1){
+                                gs.setExumacao(this);
+                            } else if(seletor == 2){
+                                gs.setManutencaoTumulo(this);
+                                System.out.println("Debug 2");
+                            } else if(seletor == 3){
+                                gs.setReservaTumulo(this);
+                                System.out.println("Debug 3");
+                            } else if(seletor == 4){
+                                gs.setTransferenciaDefunto(this);
+                                System.out.println("Debug 4");
+                            } else if(seletor == 5){
+                                gs.setVistoria(this);
+                                System.out.println("Debug 5");
                             }
-                        } else if (seletorCrud == 3){
-                            msgAlterada();
-                        } else if(seletorCrud == 4){
-                            msgConfirmacaoDelecao();
+                            msgSucesso();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            msgErro(e);
+                            return;
                         }
-                        new TelaGerenciadorServico(seletor);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } else if (seletorCrud == 3){
+                        msgAlterada();
+                    } else if(seletorCrud == 4){
+                        msgConfirmacaoDelecao();
                     }
+                    new TelaGerenciadorServico(seletor);
                 }
                 case 1 -> new TelaGerenciadorServico(seletor);
             };
