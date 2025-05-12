@@ -10,11 +10,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import com.sepulcrum.model.controller.GerenciadorGeral;
+
 public class TelaRegistroGeral extends JFrame{
     protected JButton jbSalvar, jbCancelar;
     protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
+    private GerenciadorGeral gg = new GerenciadorGeral();
 
     public TelaRegistroGeral(int seletor, int seletorCrud, int id){
         inicializarVariaveis(seletor);
@@ -66,6 +69,7 @@ public class TelaRegistroGeral extends JFrame{
             case 6 -> jlSeven;
             case 7 -> jlEight;
             case 8 -> jlNine;
+            case 9 -> jlTen;
             default -> null;
         };
         if(label != null){
@@ -85,6 +89,7 @@ public class TelaRegistroGeral extends JFrame{
             case 6 -> jtfSeven;
             case 7 -> jtfEight;
             case 8 -> jtfNine;
+            case 9 -> jtfTen;
             default -> null;
         };
         if(text != null){
@@ -112,18 +117,29 @@ public class TelaRegistroGeral extends JFrame{
             switch(index){
                 case 0 -> {
                     if(seletorCrud == 1){
-                        if(seletor == 1){
-                            System.out.println("Debug 1");
-                        } else if(seletor == 2){
-                            System.out.println("debug 2");
-                        } else if(seletor == 3){
-                            System.out.println("Debug 3");
-                        } else if(seletor == 4){
-                            System.out.println("Debug 4");
-                        } else if(seletor == 5){
-                            System.out.println("Debug 5");
+                        try{
+                            if(seletor == 1){
+                                gg.setCemiterio(this);
+                                System.out.println("Debug 1");
+                            } else if(seletor == 2){
+                                gg.setAdm(this);
+                                System.out.println("debug 2");
+                            } else if(seletor == 3){
+                                gg.setTumulo(this);
+                                System.out.println("Debug 3");
+                            } else if(seletor == 4){
+                                gg.setFinado(this);
+                                System.out.println("Debug 4");
+                            } else if(seletor == 5){
+                                gg.setFamiliar(this);
+                                System.out.println("Debug 5");
+                            }
+                            msgSucesso();
+                        } catch (Exception e){
+                            e.printStackTrace();
+                            msgErro(e);
+                            return;
                         }
-                        msgSucesso();
                     } else if (seletorCrud == 3){
                         msgAlterada();
                     } else if(seletorCrud == 4){
@@ -148,7 +164,7 @@ public class TelaRegistroGeral extends JFrame{
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 9;
+                qtdBotoes = 10;
 
                 // Janela
                 this.setTitle("Registro Cemitério.");
@@ -175,6 +191,7 @@ public class TelaRegistroGeral extends JFrame{
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
                 jtfNine = new JTextField();
+                jtfTen = new JTextField();
                 break;
             case 2:
                 //Configura tamanho da janela e botões
@@ -319,6 +336,10 @@ public class TelaRegistroGeral extends JFrame{
         }
     }
 
+    protected void msgErro(Exception e){
+        JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+
     public String getJtfOne() {
         return jtfOne.getText();
     }
@@ -372,7 +393,12 @@ public class TelaRegistroGeral extends JFrame{
     }
 
     public int getJtfSevenInt() {
-        return Integer.parseInt(jtfSeven.getText());
+        String text = jtfSeven.getText();
+        if(text == null){
+            return Integer.parseInt(jtfSeven.getText());
+        } else {
+            return 0;
+        }
     }
 
     public String getJtfEight() {
