@@ -5,11 +5,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import com.sepulcrum.model.controller.GerenciadorGeral;
+
 public class TelaSelectGeral extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;
     protected JLabel jlId;
     protected int fWidth, fHeight, qtdBotoes, id;
+    GerenciadorGeral gg = new GerenciadorGeral();
 
     public TelaSelectGeral(int seletor, int seletorCrud){
         inicializarVariaveis();
@@ -89,7 +92,7 @@ public class TelaSelectGeral extends JFrame{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaRegistroGeral(seletor, seletorCrud, id); // Passar propriedade de crud
+                case 0 -> gg.Select(seletor, seletorCrud, getId());
                 case 1 -> new TelaGerenciadorGeral(seletor);
             }
             dispose();
@@ -118,6 +121,17 @@ public class TelaSelectGeral extends JFrame{
     }
 
     public int getId() {
-        return Integer.parseInt(jtfId.getText());
+        String idText = jtfId.getText().trim();
+        if (!idText.isEmpty()) {
+            try {
+                return Integer.parseInt(idText); // Tenta converter para inteiro
+            } catch (NumberFormatException e) {
+                System.out.println("Erro: O valor informado não é um número válido.");
+                return 0;
+            }
+        } else {
+            System.out.println("Erro: Campo de ID vazio.");
+            return 0;
+        }
     }
 }
