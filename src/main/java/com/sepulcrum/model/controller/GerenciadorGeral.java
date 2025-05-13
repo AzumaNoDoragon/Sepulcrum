@@ -184,6 +184,40 @@ public class GerenciadorGeral {
         ListFin.add(fin);
     }
 
+    public Cemiterio busca(int id) {
+        for (Cemiterio c : listC) {
+            if (c.getCnpj().equals(Integer.toString(id))) {
+                return c;
+            }
+    }
+        System.out.println("Nada encontrado");
+        return null; // se não encontrar
+    }
+
+
+    public void Select(int seletor, int seletorCrud, int id){
+        try{
+            TelaRegistroGeral trg = new TelaRegistroGeral(seletor, seletorCrud, id);
+            
+            switch (seletor) {
+                case 1:
+                Cemiterio c = busca(id);
+                if (c == null) {
+                    System.out.println("Cemitério com ID " + id + " não encontrado.");
+                } else {
+                    getCemiterio(trg, c);
+                }
+                break;
+                
+                default:
+                break;
+            }
+        } catch(Exception e){
+            System.out.println("Erro");
+            e.printStackTrace(); // Mostra o erro real
+        }
+    }
+
     public void getLocalidade(TelaRegistroGeral trg, Localidade l){
         trg.setJtfFour(l.getRua());
         trg.setJtfFive(l.getNumero());
