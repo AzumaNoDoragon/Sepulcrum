@@ -4,22 +4,23 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.sepulcrum.model.localidade.Cemiterio;
 import com.sepulcrum.model.localidade.Tumulo;
 import com.sepulcrum.model.localidade.utils.Localidade;
 import com.sepulcrum.model.pessoas.Adm;
 import com.sepulcrum.model.pessoas.Familiar;
 import com.sepulcrum.model.pessoas.Finado;
-import com.sepulcrum.model.pessoas.utils.Pessoas;
-import com.sepulcrum.model.pessoas.utils.PessoasVivas;
+import com.sepulcrum.model.view.TelaGerenciadorGeral;
 import com.sepulcrum.model.view.TelaRegistroGeral;
 
 public class GerenciadorGeral {
-    private List<Cemiterio> listC = new ArrayList<>();
-    private List<Tumulo> ListT = new ArrayList<>();
-    private List<Adm> ListA = new ArrayList<>();
-    private List<Familiar> ListFam = new ArrayList<>();
-    private List<Finado> ListFin = new ArrayList<>();
+    private static List<Cemiterio> listC = new ArrayList<>();
+    private static List<Tumulo> ListT = new ArrayList<>();
+    private static List<Adm> ListA = new ArrayList<>();
+    private static List<Familiar> ListFam = new ArrayList<>();
+    private static List<Finado> ListFin = new ArrayList<>();
 
     private void validarCampo(String campo, String nomeCampo){
         if(campo == null || campo.trim().isEmpty()){
@@ -32,16 +33,20 @@ public class GerenciadorGeral {
             throw new IllegalArgumentException("Campo '" + nomeCampo + "' vazio ou inválido.");
         }
     }
-
-    public void setLocalidade(TelaRegistroGeral trg, Localidade l){
+    
+    public void setCemiterio(TelaRegistroGeral trg){
+        System.out.println("Nome: " + trg.getJtfOne());
+        System.out.println("Estado: " + trg.getJtfTwo());
+        validarCampo(trg.getJtfOne(), "Nome");
+        validarCampo(trg.getJtfTwo(), "Estado");
+        validarCampo(trg.getJtfThree(), "Cidade");
         validarCampo(trg.getJtfFourString(), "Rua");
         validarCampo(trg.getJtfFiveString(), "Número");
+        validarCampo(trg.getJtfSix(), "Cep");
+        validarCampo(trg.getJtfEight(), "Telefone");
+        validarCampo(trg.getJtfNine(), "CNPJ");
+        validarCampo(trg.getJtfTen(), "Adiministrador");
 
-        l.setRua(trg.getJtfFourString());
-        l.setNumero(trg.getJtfFiveString());
-    }
-
-    public void setCemiterio(TelaRegistroGeral trg){
         Cemiterio c = new Cemiterio(
             trg.getJtfFourString(), // rua
             trg.getJtfFiveString(), // numero
@@ -52,115 +57,86 @@ public class GerenciadorGeral {
             trg.getJtfEight(),      // telefone
             trg.getJtfSix(),        // cep
             trg.getJtfTen()         // admCpf
-            );
-
-        setLocalidade(trg, c);
-        validarCampo(trg.getJtfNine(), "CNPJ");
-        validarCampo(trg.getJtfOne(), "Nome");
-        validarCampo(trg.getJtfTwo(), "Estado");
-        validarCampo(trg.getJtfThree(), "Cidade");
-        validarCampo(trg.getJtfEight(), "Telefone");
-        validarCampo(trg.getJtfSix(), "Cep");
-        validarCampo(trg.getJtfTen(), "Adiministrador");
-        c.setCnpj(trg.getJtfNine());
-        c.setNome(trg.getJtfOne());
-        c.setEstado(trg.getJtfTwo());
-        c.setCidade(trg.getJtfThree());
-        c.setTelefone(trg.getJtfEight());
-        c.setCep(trg.getJtfSix());
-        c.setAdmCpf(trg.getJtfTen());
+        );
         c.setCapacidadeMax(trg.getJtfSevenInt());
-        
+
         listC.add(c);
     }
     
     public void setTumulo(TelaRegistroGeral trg){
-        Tumulo t = new Tumulo(
-            trg.getJtfFourString(), // rua
-            trg.getJtfFiveString(), // numero
-            trg.getJtfOne(),        // tipo
-            trg.getJtfTwo(),        // situacao
-            trg.getJtfThree(),      // dataOcupacao
-            trg.getJtfSix()         // cemCnpj
-            );
-            
-        setLocalidade(trg, t);
         validarCampo(trg.getJtfOne(), "Tipo");
         validarCampo(trg.getJtfTwo(), "Situação");
         validarCampo(trg.getJtfThree(), "Data de Ocupação");
+        validarCampo(trg.getJtfFourString(), "Rua");
+        validarCampo(trg.getJtfFiveString(), "Número");
         validarCampo(trg.getJtfSix(), "CNPJ");
-        t.setTipo(trg.getJtfOne());
-        t.setSituacao(trg.getJtfTwo());
-        t.setDataOcupacao(trg.getJtfThree());
-        t.setCemCnpj(trg.getJtfSix());
+
+        Tumulo t = new Tumulo(
+            trg.getJtfOne(),        // tipo
+            trg.getJtfTwo(),        // situacao
+            trg.getJtfThree(),      // dataOcupacao
+            trg.getJtfFourString(), // rua
+            trg.getJtfFiveString(), // numero
+            trg.getJtfSix()         // cemCnpj
+        );
         
         ListT.add(t);
     }
-
-    public void setPessoa(TelaRegistroGeral trg, Pessoas p){
+    
+    public void setAdm(TelaRegistroGeral trg){
         validarCampo(trg.getJtfOne(), "Nome");
         validarCampo(trg.getJtfTwo(), "Cpf");
         validarCampo(trg.getJtfFourDate(), "Data de Nascimento");
-
-        p.setNome(trg.getJtfOne());
-        p.setCpf(trg.getJtfTwo());
-        p.setRg(trg.getJtfThree());
-        p.setDataNascimento(trg.getJtfFourDate());
-    }
-
-    public void setPessoasVivas(TelaRegistroGeral trg, PessoasVivas pv){
+        validarCampo(trg.getJtfFiveDate(), "Data de Contratação");
         validarCampo(trg.getJtfSix(), "Email");
         validarCampo(trg.getJtfSevenString(), "Telefone");
+        validarCampo(trg.getJtfEight(), "Cargo");
+        validarCampo(trg.getJtfNine(), "CNPJ");
 
-        pv.setEmail(trg.getJtfSix());
-        pv.setTelefone(trg.getJtfSevenString());
-    }
-    
-    public void setAdm(TelaRegistroGeral trg){
         Adm a = new Adm(
             trg.getJtfOne(),         // nome
             trg.getJtfTwo(),         // cpf
             trg.getJtfFourDate(),    // dataNascimento
+            trg.getJtfFiveDate(),    // dataContratacao
             trg.getJtfSix(),         // email
             trg.getJtfSevenString(), // telefone
             trg.getJtfEight(),       // cargo
-            trg.getJtfNine(),        // cemCnpj
-            trg.getJtfFiveDate()     // dataContratacao
+            trg.getJtfNine()         // cemCnpj
         );
-
-        setPessoa(trg, a);
-        setPessoasVivas(trg, a);
-        validarCampo(trg.getJtfEight(), "Cargo");
-        validarCampo(trg.getJtfNine(), "CNPJ");
-        validarCampo(trg.getJtfFiveDate(), "Data de Contratação");
-        a.setCargo(trg.getJtfEight());
-        a.setCemCnpj(trg.getJtfNine());
-        a.setDataContratacao(trg.getJtfFiveDate());
 
         ListA.add(a);
     }
 
     public void setFamiliar(TelaRegistroGeral trg){
-        Familiar fam = new Familiar(
-            trg.getJtfOne(),         // nome
-            trg.getJtfTwo(),         // cpf
-            trg.getJtfFourDate(),    // dataNascimento
-            trg.getJtfSix(),         // email
-            trg.getJtfSevenString(), // telefone
-            trg.getJtfFiveString()   // grauParentesco
-        );
-
-        setPessoa(trg, fam);
-        setPessoasVivas(trg, fam);
+        validarCampo(trg.getJtfOne(), "Nome");
+        validarCampo(trg.getJtfTwo(), "Cpf");
+        validarCampo(trg.getJtfFourDate(), "Data de Nascimento");
         validarCampo(trg.getJtfFiveString(), "Grau de Parentesco");
+        validarCampo(trg.getJtfSix(), "Email");
+        validarCampo(trg.getJtfSevenString(), "Telefone");
         validarCampo(trg.getJtfEight(), "Certidão de Óbito");
-        fam.setGrauParentesco(trg.getJtfFiveString());
-        fam.setCertidaoObito(trg.getJtfEight());
+        
+        Familiar fam = new Familiar(
+            trg.getJtfOne(),        // nome
+            trg.getJtfTwo(),        // cpf
+            trg.getJtfFourDate(),   // dataNascimento
+            trg.getJtfFiveString(), // grauParentesco
+            trg.getJtfSix(),        // email
+            trg.getJtfSevenString() // telefone
+        );
 
         ListFam.add(fam);
     }
 
     public void setFinado(TelaRegistroGeral trg){
+        validarCampo(trg.getJtfOne(), "Nome");
+        validarCampo(trg.getJtfTwo(), "Cpf");
+        validarCampo(trg.getJtfFourDate(), "Data de Nascimento");
+        validarCampo(trg.getJtfSix(), "Causa da Morte");
+        validarCampo(trg.getJtfSevenString(), "Certidão de Óbito");
+        validarCampo(trg.getJtfEight(), "Rua do Túmulo");
+        validarCampo(trg.getJtfNine(), "Número do Túmulo");
+
         Finado fin = new Finado(
             trg.getJtfOne(),        // nome
             trg.getJtfTwo(),        // cpf
@@ -171,11 +147,10 @@ public class GerenciadorGeral {
             trg.getJtfSevenString() // certidaoObito
         );
 
-        setPessoa(trg, fin);
-        validarCampo(trg.getJtfSix(), "Causa da Morte");
-        validarCampo(trg.getJtfEight(), "Rua do Túmulo");
-        validarCampo(trg.getJtfNine(), "Número do Túmulo");
-        validarCampo(trg.getJtfSevenString(), "Certidão de Óbito");
+        fin.setNome(trg.getJtfOne());
+        fin.setCpf(trg.getJtfTwo());
+        fin.setRg(trg.getJtfThree());
+        fin.setDataNascimento(trg.getJtfFourDate());
         fin.setCausaMorte(trg.getJtfSix());
         fin.setTumRua(trg.getJtfEight());
         fin.setTumRua(trg.getJtfNine());
@@ -194,17 +169,17 @@ public class GerenciadorGeral {
         return null; // se não encontrar
     }
 
-
     public void Select(int seletor, int seletorCrud, int id){
         try{
-            TelaRegistroGeral trg = new TelaRegistroGeral(seletor, seletorCrud, id);
-            
             switch (seletor) {
                 case 1:
                 Cemiterio c = busca(id);
+                System.out.println("Depois do switch");
                 if (c == null) {
-                    System.out.println("Cemitério com ID " + id + " não encontrado.");
+                    JOptionPane.showMessageDialog(null, "Cemitério com ID " + id + " não encontrado.");
+                    new TelaGerenciadorGeral(seletor);
                 } else {
+                    TelaRegistroGeral trg = new TelaRegistroGeral(seletor, seletorCrud, id);
                     getCemiterio(trg, c);
                 }
                 break;
