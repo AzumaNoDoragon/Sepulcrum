@@ -2,7 +2,7 @@ package com.sepulcrum.model.localidade.utils;
 
 public abstract class Localidade {
     protected String rua, numero;
-    
+
     public Localidade(String rua, String numero) {
         this.rua = rua;
         this.numero = numero;
