@@ -120,19 +120,14 @@ public class TelaRegistroGeral extends JFrame{
                         try{
                             if(seletor == 1){
                                 gg.setCemiterio(this);
-                                System.out.println("Debug 1");
                             } else if(seletor == 2){
                                 gg.setAdm(this);
-                                System.out.println("debug 2");
                             } else if(seletor == 3){
                                 gg.setTumulo(this);
-                                System.out.println("Debug 3");
                             } else if(seletor == 4){
                                 gg.setFinado(this);
-                                System.out.println("Debug 4");
                             } else if(seletor == 5){
                                 gg.setFamiliar(this);
-                                System.out.println("Debug 5");
                             }
                             msgSucesso();
                         } catch (Exception e){
@@ -394,11 +389,10 @@ public class TelaRegistroGeral extends JFrame{
 
     public int getJtfSevenInt() {
         String text = jtfSeven.getText();
-        if(text == null){
-            return Integer.parseInt(jtfSeven.getText());
-        } else {
+        if (text == null || text.trim().isEmpty()) {
             return 0;
         }
+        return Integer.parseInt(text);
     }
 
     public String getJtfEight() {
