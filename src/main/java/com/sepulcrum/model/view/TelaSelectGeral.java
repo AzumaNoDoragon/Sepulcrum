@@ -126,11 +126,9 @@ public class TelaSelectGeral extends JFrame{
             try {
                 return Integer.parseInt(idText); // Tenta converter para inteiro
             } catch (NumberFormatException e) {
-                System.out.println("Erro: O valor informado não é um número válido.");
                 return 0;
             }
         } else {
-            System.out.println("Erro: Campo de ID vazio.");
             return 0;
         }
     }
