@@ -254,15 +254,15 @@ public class TelaRegistroGeral extends JFrame{
                 this.setTitle("Registro Finado.");
 
                 // Label
-                jlOne = new JLabel("*Nome: ");                                          // nome
-                jlTwo = new JLabel("<html>*CPF (Caso não<br>possua digite 0):</html>"); // cpf
-                jlThree = new JLabel("RG: ");                                           // rg
-                jlFour = new JLabel("Data Nascimento: ");                               // dataNascimento
-                jlFive = new JLabel("*Data Falecimento: ");                             // dataFalecimento
-                jlSix = new JLabel("*Causa da morte: ");                                // causaMorte
-                jlSeven = new JLabel("*Certidão de Óbito: ");                           // certidaoObito
-                jlEight = new JLabel("*Rua do túmulo: ");                               // tumRua
-                jlNine = new JLabel("*Número do túmulo: ");                             // tumNumero
+                jlOne = new JLabel("Nome: ");                 // nome
+                jlTwo = new JLabel("CPF: ");                  // cpf
+                jlThree = new JLabel("RG: ");                 // rg
+                jlFour = new JLabel("Data Nascimento: ");     // dataNascimento
+                jlFive = new JLabel("*Data Falecimento: ");   // dataFalecimento
+                jlSix = new JLabel("*Causa da morte: ");      // causaMorte
+                jlSeven = new JLabel("*Certidão de Óbito: "); // certidaoObito
+                jlEight = new JLabel("*Rua do túmulo: ");     // tumRua
+                jlNine = new JLabel("*Número do túmulo: ");   // tumNumero
 
                 // Text Field
                 jtfOne = new JTextField();
@@ -368,7 +368,7 @@ public class TelaRegistroGeral extends JFrame{
     }
 
     public Date getJtfFiveDate() {
-        String text = jtfFour.getText();
+        String text = jtfFive.getText();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
