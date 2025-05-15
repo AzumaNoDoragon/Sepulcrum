@@ -6,14 +6,16 @@ import com.sepulcrum.model.pessoas.utils.Pessoas;
 
 public class Finado extends Pessoas {
     private String causaMorte, tumRua, tumNumero, certidaoObito;
+    private Date dataFalecimento;
 
-    public Finado(String nome, String cpf, Date dataNascimento, String causaMorte, String tumRua, String tumNumero,
-            String certidaoObito) {
+    public Finado(String nome, String cpf, Date dataNascimento, Date dataFalecimento, String certidaoObito, String causaMorte, String tumRua, 
+            String tumNumero) {
         super(nome, cpf, dataNascimento);
         this.causaMorte = causaMorte;
         this.tumRua = tumRua;
         this.tumNumero = tumNumero;
         this.certidaoObito = certidaoObito;
+        this.dataFalecimento = dataFalecimento;
     }
     
     @Override
@@ -73,5 +75,17 @@ public class Finado extends Pessoas {
 
     public void setTumNumero(String tumNumero) {
         this.tumNumero = tumNumero;
+    }
+
+    public Date getDataFalecimento() {
+        return dataFalecimento;
+    }
+
+    public void setDataFalecimento(Date dataFalecimento){
+        if(dataFalecimento == null){
+            this.dataFalecimento = Date.valueOf("1900-01-01");
+        } else{
+            this.dataFalecimento = dataFalecimento;
+        }
     }
 }
