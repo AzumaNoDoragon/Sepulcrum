@@ -48,17 +48,17 @@ public class GerenciadorGeral {
         validarCampo(trg.getJtfTen(), "Adiministrador");
 
         Cemiterio c = new Cemiterio(
-            trg.getJtfFourString(), // rua
-            trg.getJtfFiveString(), // numero
-            trg.getJtfNine(),       // cnpj
             trg.getJtfOne(),        // nome
             trg.getJtfTwo(),        // estado
             trg.getJtfThree(),      // cidade
-            trg.getJtfEight(),      // telefone
+            trg.getJtfFourString(), // rua
+            trg.getJtfFiveString(), // numero
             trg.getJtfSix(),        // cep
+            trg.getJtfEight(),      // telefone
+            trg.getJtfNine(),       // cnpj
             trg.getJtfTen()         // admCpf
         );
-        c.setCapacidadeMax(trg.getJtfSevenInt());
+        c.setCapacidadeMax(trg.getJtfSevenInt()); // Capacidade Max
 
         listC.add(c);
     }
@@ -104,6 +104,8 @@ public class GerenciadorGeral {
             trg.getJtfNine()         // cemCnpj
         );
 
+        a.setRg(trg.getJtfThree()); // RG
+
         ListA.add(a);
     }
 
@@ -120,41 +122,36 @@ public class GerenciadorGeral {
             trg.getJtfOne(),        // nome
             trg.getJtfTwo(),        // cpf
             trg.getJtfFourDate(),   // dataNascimento
-            trg.getJtfFiveString(), // grauParentesco
             trg.getJtfSix(),        // email
             trg.getJtfSevenString() // telefone
         );
+
+        fam.setRg(trg.getJtfThree());                  // RG
+        fam.setGrauParentesco(trg.getJtfFiveString()); // grauParentesco
+        fam.setCertidaoObito(trg.getJtfEight());       // certidaoObito
 
         ListFam.add(fam);
     }
 
     public void setFinado(TelaRegistroGeral trg){
-        validarCampo(trg.getJtfOne(), "Nome");
-        validarCampo(trg.getJtfTwo(), "Cpf");
-        validarCampo(trg.getJtfFourDate(), "Data de Nascimento");
+        validarCampo(trg.getJtfFiveDate(), "Data Falecimento");
         validarCampo(trg.getJtfSix(), "Causa da Morte");
         validarCampo(trg.getJtfSevenString(), "Certidão de Óbito");
         validarCampo(trg.getJtfEight(), "Rua do Túmulo");
         validarCampo(trg.getJtfNine(), "Número do Túmulo");
 
         Finado fin = new Finado(
-            trg.getJtfOne(),        // nome
-            trg.getJtfTwo(),        // cpf
-            trg.getJtfFourDate(),   // dataNascimento
-            trg.getJtfSix(),        // causaMorte
-            trg.getJtfEight(),      // tumRua
-            trg.getJtfNine(),       // tumNumero
-            trg.getJtfSevenString() // certidaoObito
+            trg.getJtfOne(),         // nome
+            trg.getJtfTwo(),         // cpf
+            trg.getJtfFourDate(),    // dataNascimento
+            trg.getJtfFiveDate(),    // dataFalecimento
+            trg.getJtfSevenString(), // certidaoObito
+            trg.getJtfSix(),         // causaMorte
+            trg.getJtfEight(),       // tumRua
+            trg.getJtfNine()         // tumNumero
         );
 
-        fin.setNome(trg.getJtfOne());
-        fin.setCpf(trg.getJtfTwo());
-        fin.setRg(trg.getJtfThree());
-        fin.setDataNascimento(trg.getJtfFourDate());
-        fin.setCausaMorte(trg.getJtfSix());
-        fin.setTumRua(trg.getJtfEight());
-        fin.setTumRua(trg.getJtfNine());
-        fin.setCertidaoObito(trg.getJtfSevenString());
+        fin.setRg(trg.getJtfThree()); // Rg
 
         ListFin.add(fin);
     }
