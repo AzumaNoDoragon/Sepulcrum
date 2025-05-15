@@ -6,8 +6,8 @@ public class Cemiterio extends Localidade {
     private String cnpj, nome, estado, cidade, telefone, cep, admCpf;
     private int capacidadeMax;
 
-    public Cemiterio(String rua, String numero, String cnpj, String nome, String estado, String cidade, String telefone,
-            String cep, String admCpf) {
+    public Cemiterio(String nome, String estado, String cidade, String rua, String numero, String cep, String telefone,
+            String cnpj, String admCpf) {
         super(rua, numero);
         this.cnpj = cnpj;
         this.nome = nome;
