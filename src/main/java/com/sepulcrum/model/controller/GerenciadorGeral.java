@@ -289,37 +289,37 @@ public class GerenciadorGeral {
     }
 
     public void getPessoa(TelaRegistroGeral trg, Pessoas p){
-        p.getNome();
-        p.getCpf();
-        p.getRg();
-        p.getDataNascimento();
+        trg.setJtfOne(p.getNome());
+        trg.setJtfTwo(p.getCpf());
+        trg.setJtfThree(p.getRg());
+        trg.setJtfFour(p.getDataNascimento());
     }
 
     public void getPessoasVivas(TelaRegistroGeral trg, PessoasVivas pv){
         getPessoa(trg, pv);
-        pv.getEmail();
-        pv.getTelefone();
+        trg.setJtfSix(pv.getEmail());
+        trg.setJtfSeven(pv.getTelefone());
     }
 
     public void getAdm(TelaRegistroGeral trg, Adm a){
         getPessoasVivas(trg, a);
-        a.getCargo();
-        a.getCemCnpj();
-        a.getDataContratacao();
+        trg.setJtfFive(a.getDataContratacao());
+        trg.setJtfEight(a.getCargo());
+        trg.setJtfNine(a.getCemCnpj());
     }
 
     public void getFamiliar(TelaRegistroGeral trg, Familiar fam){
         getPessoasVivas(trg, fam);
-        fam.getGrauParentesco();
-        fam.getCertidaoObito();
+        trg.setJtfFive(fam.getGrauParentesco());
+        trg.setJtfEight(fam.getCertidaoObito());
     }
 
     public void getFinado(TelaRegistroGeral trg, Finado fin){
         getPessoa(trg, fin);
-        fin.getCausaMorte();
-        fin.getTumRua();
-        fin.getTumNumero();
-        fin.getCertidaoObito();
-        fin.getDataFalecimento();
+        trg.setJtfFive(fin.getDataFalecimento());
+        trg.setJtfSix(fin.getCausaMorte());
+        trg.setJtfSeven(fin.getCertidaoObito());
+        trg.setJtfEight(fin.getTumRua());
+        trg.setJtfNine(fin.getTumNumero());
     }
 }
