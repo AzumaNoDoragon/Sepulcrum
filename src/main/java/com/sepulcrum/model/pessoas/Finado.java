@@ -20,7 +20,7 @@ public class Finado extends Pessoas {
     
     @Override
     public void setNome(String nome){
-        if(nome.isBlank() || nome.equals("") || nome == null){
+        if(nome == null || nome.isBlank()){
             this.nome = "Não identificado(a)";
         } else{
             this.nome = nome;
@@ -29,7 +29,7 @@ public class Finado extends Pessoas {
     
     @Override
     public void setCpf(String cpf){
-        if(cpf.isBlank() || cpf.equals("0") || cpf == null){
+        if(cpf == null || cpf.isBlank() || cpf.equals("0")){
             this.cpf = certidaoObito;
         } else{
             this.cpf = cpf;
@@ -38,11 +38,13 @@ public class Finado extends Pessoas {
 
     @Override
     public void setDataNascimento(Date dataNascimento){
-        if(dataNascimento == null){
+        this.dataNascimento = Date.valueOf("1900-01-01");
+        System.out.println(dataNascimento);
+        /*if(dataNascimento == null){
             this.dataNascimento = Date.valueOf("1900-01-01");
         } else{
             this.dataNascimento = dataNascimento;
-        }
+        }*/
     }
 
     public String getCausaMorte() {
