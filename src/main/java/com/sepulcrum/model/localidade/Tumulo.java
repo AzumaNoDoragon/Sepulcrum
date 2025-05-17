@@ -73,8 +73,8 @@ public class Tumulo extends Localidade{
         this.tipo = tipo;
     }
 
-    public Situacao getSituacao() {
-        return situacao;
+    public String getSituacao() {
+        return situacao.name();
     }
 
     public void setSituacao(Situacao situacao) {
