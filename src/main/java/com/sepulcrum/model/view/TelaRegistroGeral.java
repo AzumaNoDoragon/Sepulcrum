@@ -425,11 +425,11 @@ public class TelaRegistroGeral extends JFrame{
 
     public void setJtfFour(Date value) {
         if (value != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // ou outro formato desejado
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             String dataFormatada = sdf.format(value);
             jtfFour.setText(dataFormatada);
         } else {
-            jtfFour.setText("Data não encontrada"); // ou algum valor padrão
+            jtfFour.setText("Data não encontrada");
         }
     }
 
@@ -439,11 +439,11 @@ public class TelaRegistroGeral extends JFrame{
 
     public void setJtfFive(Date value) {
         if (value != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // ou outro formato desejado
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             String dataFormatada = sdf.format(value);
             jtfFive.setText(dataFormatada);
         } else {
-            jtfFive.setText("Data não encontrada"); // ou algum valor padrão
+            jtfFive.setText("Data não encontrada");
         }
     }
 
