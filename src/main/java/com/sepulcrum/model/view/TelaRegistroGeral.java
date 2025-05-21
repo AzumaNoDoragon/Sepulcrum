@@ -26,7 +26,7 @@ public class TelaRegistroGeral extends JFrame{
     private GerenciadorFinado gfin = new GerenciadorFinado();
 
     public TelaRegistroGeral(int seletor, int seletorCrud, int id){
-        inicializarVariaveis(seletor);
+        inicializarVariaveis(seletor, seletorCrud);
         
         // Janela
         this.setLayout(null);
@@ -124,8 +124,9 @@ public class TelaRegistroGeral extends JFrame{
                 case 0 -> {
                     if(seletorCrud == 1){
                         try{
+                            int sucesso = -1;
                             if(seletor == 1){
-                                gc.setCemiterio(this);
+                                sucesso = gc.setCemiterio(this);
                             } else if(seletor == 2){
                                 ga.setAdm(this);
                             } else if(seletor == 3){
@@ -135,7 +136,9 @@ public class TelaRegistroGeral extends JFrame{
                             } else if(seletor == 5){
                                 gfam.setFamiliar(this);
                             }
-                            msgSucesso();
+                            if(sucesso == 0){
+                                msgSucesso();
+                            }
                         } catch (Exception e){
                             e.printStackTrace();
                             msgErro(e);
@@ -155,10 +158,18 @@ public class TelaRegistroGeral extends JFrame{
         this.add(button);
     }
     
-    public void inicializarVariaveis(int seletor) {
+    public void inicializarVariaveis(int seletor, int seletorCrud) {
         // Button
-        jbSalvar = new JButton("Salvar");
-        jbCancelar = new JButton("Cancelar");
+        if(seletorCrud == 1 || seletorCrud == 3){
+            jbSalvar = new JButton("Salvar");
+            jbCancelar = new JButton("Cancelar");
+        } else if(seletorCrud == 2){
+            jbSalvar = new JButton("Concluir");
+            jbCancelar = new JButton("Voltar");
+        } else if(seletorCrud == 4){
+            jbSalvar = new JButton("DELETAR");
+            jbCancelar = new JButton("Cancelar");
+        }
         
         switch (seletor) {
             case 1:
@@ -310,6 +321,18 @@ public class TelaRegistroGeral extends JFrame{
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
                 break;
+        }
+        if(seletorCrud == 2){
+            jtfOne.setEditable(false);
+            jtfTwo.setEditable(false);
+            jtfThree.setEditable(false);
+            jtfFour.setEditable(false);
+            jtfFive.setEditable(false);
+            jtfSix.setEditable(false);
+            jtfSeven.setEditable(false);
+            jtfEight.setEditable(false);
+            jtfNine.setEditable(false);
+            jtfTen.setEditable(false);
         }
     }
 
