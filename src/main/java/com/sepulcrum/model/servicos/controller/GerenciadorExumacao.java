@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.servicos.model.Exumacao;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
-import com.sepulcrum.model.view.TelaGerenciadorGeral;
+import com.sepulcrum.model.servicos.view.TelaSelectServico;
 
 public class GerenciadorExumacao {
     private static List<Exumacao> listE = new ArrayList<>();
@@ -43,12 +43,12 @@ public class GerenciadorExumacao {
         return null;
     }
 
-    public void selectExumacao(int seletor, int seletorCrud, int id){
+    public void selectExumacao(TelaSelectServico tss, int seletor, int seletorCrud, int id){
         Exumacao e = buscaExumacao(id);
         if (e == null) {
             JOptionPane.showMessageDialog(null, "Exumação com id " + id + " não encontrado.");
-            new TelaGerenciadorGeral(seletor);
         } else {
+            tss.dispose();
             TelaRegistroServico trs = new TelaRegistroServico(seletor, seletorCrud, id);
             getExumacao(trs, e);
         }
