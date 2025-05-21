@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.servicos.model.ManutencaoTumulo;
-import com.sepulcrum.model.servicos.view.TelaGerenciadorServico;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
+import com.sepulcrum.model.servicos.view.TelaSelectServico;
 
 public class GerenciadorManutencaoTumulo {
     private static List<ManutencaoTumulo> listMT = new ArrayList<>();
@@ -42,12 +42,12 @@ public class GerenciadorManutencaoTumulo {
         return null;
     }
 
-    public void selectManutencaoTumulo(int seletor, int seletorCrud, int id){
+    public void selectManutencaoTumulo(TelaSelectServico tss, int seletor, int seletorCrud, int id){
         ManutencaoTumulo mt = buscaManutencaoTumulo(id);
         if(mt == null){
             JOptionPane.showMessageDialog(null, "Manutenção Tumular com id " + id + " não encontrado.");
-            new TelaGerenciadorServico(seletor);
         } else {
+            tss.dispose();
             TelaRegistroServico trs = new TelaRegistroServico(seletor, seletorCrud, id);
             getManutencaoTumulo(trs, mt);
         }
