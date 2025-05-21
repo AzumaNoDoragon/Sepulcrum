@@ -3,21 +3,28 @@ package com.sepulcrum.model.servicos.view;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import com.sepulcrum.model.servicos.controller.GerenciadorServicos;
+import com.sepulcrum.model.servicos.controller.GerenciadorExumacao;
+import com.sepulcrum.model.servicos.controller.GerenciadorManutencaoTumulo;
+import com.sepulcrum.model.servicos.controller.GerenciadorReservaTumulo;
+import com.sepulcrum.model.servicos.controller.GerenciadorTransferenciaDefunto;
+import com.sepulcrum.model.servicos.controller.GerenciadorVistoria;
 
 public class TelaRegistroServico extends JFrame{
     protected JButton jbSalvar, jbCancelar;
     protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen, jtfEleven, jtfTwelve, jtfThirteen;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen, jlEleven, jlTwelve, jlThirteen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
-    private GerenciadorServicos gs = new GerenciadorServicos();
+    private GerenciadorExumacao ge = new GerenciadorExumacao();
+    private GerenciadorManutencaoTumulo gmt = new GerenciadorManutencaoTumulo();
+    private GerenciadorReservaTumulo grt = new GerenciadorReservaTumulo();
+    private GerenciadorTransferenciaDefunto gtd = new GerenciadorTransferenciaDefunto();
+    private GerenciadorVistoria gv = new GerenciadorVistoria();
 
     public TelaRegistroServico(int seletor, int seletorCrud, int id){
         inicializarVariaveis(seletor);
@@ -125,18 +132,18 @@ public class TelaRegistroServico extends JFrame{
                     if(seletorCrud == 1){
                         try {
                             if(seletor == 1){
-                                gs.setExumacao(this);
+                                ge.setExumacao(this);
                             } else if(seletor == 2){
-                                gs.setManutencaoTumulo(this);
+                                gmt.setManutencaoTumulo(this);
                                 System.out.println("Debug 2");
                             } else if(seletor == 3){
-                                gs.setReservaTumulo(this);
+                                grt.setReservaTumulo(this);
                                 System.out.println("Debug 3");
                             } else if(seletor == 4){
-                                gs.setTransferenciaDefunto(this);
+                                gtd.setTransferenciaDefunto(this);
                                 System.out.println("Debug 4");
                             } else if(seletor == 5){
-                                gs.setVistoria(this);
+                                gv.setVistoria(this);
                                 System.out.println("Debug 5");
                             }
                             msgSucesso();
