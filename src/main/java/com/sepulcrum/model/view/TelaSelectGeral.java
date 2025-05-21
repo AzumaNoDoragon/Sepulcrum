@@ -4,15 +4,22 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import com.sepulcrum.model.controller.GerenciadorGeral;
+import com.sepulcrum.model.controller.GerenciadorAdm;
+import com.sepulcrum.model.controller.GerenciadorCemiteiro;
+import com.sepulcrum.model.controller.GerenciadorFamiliar;
+import com.sepulcrum.model.controller.GerenciadorFinado;
+import com.sepulcrum.model.controller.GerenciadorTumulo;
 
 public class TelaSelectGeral extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;
     protected JLabel jlId;
     protected int fWidth, fHeight, qtdBotoes, id;
-    GerenciadorGeral gg = new GerenciadorGeral();
+    private GerenciadorCemiteiro gc = new GerenciadorCemiteiro();
+    private GerenciadorAdm ga = new GerenciadorAdm();
+    private GerenciadorTumulo gt = new GerenciadorTumulo();
+    private GerenciadorFinado gfin = new GerenciadorFinado();
+    private GerenciadorFamiliar gfam = new GerenciadorFamiliar();
 
     public TelaSelectGeral(int seletor, int seletorCrud){
         inicializarVariaveis();
@@ -92,7 +99,19 @@ public class TelaSelectGeral extends JFrame{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> gg.Select(seletor, seletorCrud, getId());
+                case 0 -> {
+                    if(seletor == 1){
+                        gc.SelectCemiterio(seletor, seletorCrud, getId());
+                    } else if(seletor == 2){
+                        ga.SelectAdm(seletor, seletorCrud, getId());
+                    } else if(seletor == 3){
+                        gt.SelectTumulo(seletor, seletorCrud, getId());
+                    } else if(seletor == 4){
+                        gfin.SelectFinado(seletor, seletorCrud, getId());
+                    } else if(seletor == 5){
+                        gfam.SelectFamiliar(seletor, seletorCrud, getId());
+                    }
+                }
                 case 1 -> new TelaGerenciadorGeral(seletor);
             }
             dispose();
