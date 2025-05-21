@@ -101,20 +101,22 @@ public class TelaSelectServico extends JFrame{
             switch(index){
                 case 0 -> {
                     if(seletor == 1){
-                        ge.selectExumacao(seletor, seletorCrud, getId());
+                        ge.selectExumacao(this, seletor, seletorCrud, getId());
                     } else if(seletor == 2){
-                        gmt.selectManutencaoTumulo(seletor, seletorCrud, getId());
+                        gmt.selectManutencaoTumulo(this, seletor, seletorCrud, getId());
                     } else if(seletor == 3){
-                        grt.selectReservaTumulo(seletor, seletorCrud, getId());
+                        grt.selectReservaTumulo(this, seletor, seletorCrud, getId());
                     } else if(seletor == 4){
-                        gtd.selectTransferenciaDefunto(seletor, seletorCrud, getId());
+                        gtd.selectTransferenciaDefunto(this, seletor, seletorCrud, getId());
                     } else if(seletor == 5){
-                        gv.selectVistoria(seletor, seletorCrud, getId());
+                        gv.selectVistoria(this, seletor, seletorCrud, getId());
                     }
                 }
-                case 1 -> new TelaGerenciadorServico(seletor);
+                case 1 -> {
+                    dispose();
+                    new TelaGerenciadorServico(seletor);
+                }
             }
-            dispose();
         });
         this.add(button);
     }
