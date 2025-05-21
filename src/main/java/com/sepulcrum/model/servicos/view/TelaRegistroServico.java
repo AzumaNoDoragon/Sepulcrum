@@ -135,16 +135,12 @@ public class TelaRegistroServico extends JFrame{
                                 ge.setExumacao(this);
                             } else if(seletor == 2){
                                 gmt.setManutencaoTumulo(this);
-                                System.out.println("Debug 2");
                             } else if(seletor == 3){
                                 grt.setReservaTumulo(this);
-                                System.out.println("Debug 3");
                             } else if(seletor == 4){
                                 gtd.setTransferenciaDefunto(this);
-                                System.out.println("Debug 4");
                             } else if(seletor == 5){
                                 gv.setVistoria(this);
-                                System.out.println("Debug 5");
                             }
                             msgSucesso();
                         } catch (Exception e) {
