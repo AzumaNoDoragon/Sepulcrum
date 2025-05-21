@@ -3,21 +3,27 @@ package com.sepulcrum.model.view;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
-import com.sepulcrum.model.controller.GerenciadorGeral;
+import com.sepulcrum.model.controller.GerenciadorAdm;
+import com.sepulcrum.model.controller.GerenciadorCemiteiro;
+import com.sepulcrum.model.controller.GerenciadorFamiliar;
+import com.sepulcrum.model.controller.GerenciadorFinado;
+import com.sepulcrum.model.controller.GerenciadorTumulo;
 
 public class TelaRegistroGeral extends JFrame{
     protected JButton jbSalvar, jbCancelar;
     protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
-    private GerenciadorGeral gg = new GerenciadorGeral();
+    private GerenciadorAdm ga = new GerenciadorAdm();
+    private GerenciadorCemiteiro gc = new GerenciadorCemiteiro();
+    private GerenciadorFamiliar gfam = new GerenciadorFamiliar();
+    private GerenciadorTumulo gt = new GerenciadorTumulo();
+    private GerenciadorFinado gfin = new GerenciadorFinado();
 
     public TelaRegistroGeral(int seletor, int seletorCrud, int id){
         inicializarVariaveis(seletor);
@@ -119,15 +125,15 @@ public class TelaRegistroGeral extends JFrame{
                     if(seletorCrud == 1){
                         try{
                             if(seletor == 1){
-                                gg.setCemiterio(this);
+                                gc.setCemiterio(this);
                             } else if(seletor == 2){
-                                gg.setAdm(this);
+                                ga.setAdm(this);
                             } else if(seletor == 3){
-                                gg.setTumulo(this);
+                                gt.setTumulo(this);
                             } else if(seletor == 4){
-                                gg.setFinado(this);
+                                gfin.setFinado(this);
                             } else if(seletor == 5){
-                                gg.setFamiliar(this);
+                                gfam.setFamiliar(this);
                             }
                             msgSucesso();
                         } catch (Exception e){
