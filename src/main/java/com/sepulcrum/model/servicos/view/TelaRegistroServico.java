@@ -3,21 +3,28 @@ package com.sepulcrum.model.servicos.view;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import com.sepulcrum.model.servicos.controller.GerenciadorServicos;
+import com.sepulcrum.model.servicos.controller.GerenciadorExumacao;
+import com.sepulcrum.model.servicos.controller.GerenciadorManutencaoTumulo;
+import com.sepulcrum.model.servicos.controller.GerenciadorReservaTumulo;
+import com.sepulcrum.model.servicos.controller.GerenciadorTransferenciaDefunto;
+import com.sepulcrum.model.servicos.controller.GerenciadorVistoria;
 
 public class TelaRegistroServico extends JFrame{
     protected JButton jbSalvar, jbCancelar;
     protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen, jtfEleven, jtfTwelve, jtfThirteen;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen, jlEleven, jlTwelve, jlThirteen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
-    private GerenciadorServicos gs = new GerenciadorServicos();
+    private GerenciadorExumacao ge = new GerenciadorExumacao();
+    private GerenciadorManutencaoTumulo gmt = new GerenciadorManutencaoTumulo();
+    private GerenciadorReservaTumulo grt = new GerenciadorReservaTumulo();
+    private GerenciadorTransferenciaDefunto gtd = new GerenciadorTransferenciaDefunto();
+    private GerenciadorVistoria gv = new GerenciadorVistoria();
 
     public TelaRegistroServico(int seletor, int seletorCrud, int id){
         inicializarVariaveis(seletor);
@@ -122,39 +129,31 @@ public class TelaRegistroServico extends JFrame{
         button.addActionListener(_ -> {
             switch(index){
                 case 0 -> {
-                    try {
-                        if(seletorCrud == 1){
-                            try {
-                                if(seletor == 1){
-                                    gs.setExumacao(this);
-                                } else if(seletor == 2){
-                                    gs.setManutencaoTumulo(this);
-                                    System.out.println("Debug 2");
-                                } else if(seletor == 3){
-                                    gs.setReservaTumulo(this);
-                                    System.out.println("Debug 3");
-                                } else if(seletor == 4){
-                                    gs.setTransferenciaDefunto(this);
-                                    System.out.println("Debug 4");
-                                } else if(seletor == 5){
-                                    gs.setVistoria(this);
-                                    System.out.println("Debug 5");
-                                }
-                                msgSucesso();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                msgErro(e);
-                                return;
+                    if(seletorCrud == 1){
+                        try {
+                            if(seletor == 1){
+                                ge.setExumacao(this);
+                            } else if(seletor == 2){
+                                gmt.setManutencaoTumulo(this);
+                            } else if(seletor == 3){
+                                grt.setReservaTumulo(this);
+                            } else if(seletor == 4){
+                                gtd.setTransferenciaDefunto(this);
+                            } else if(seletor == 5){
+                                gv.setVistoria(this);
                             }
-                        } else if (seletorCrud == 3){
-                            msgAlterada();
-                        } else if(seletorCrud == 4){
-                            msgConfirmacaoDelecao();
+                            msgSucesso();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            msgErro(e);
+                            return;
                         }
-                        new TelaGerenciadorServico(seletor);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } else if (seletorCrud == 3){
+                        msgAlterada();
+                    } else if(seletorCrud == 4){
+                        msgConfirmacaoDelecao();
                     }
+                    new TelaGerenciadorServico(seletor);
                 }
                 case 1 -> new TelaGerenciadorServico(seletor);
             };

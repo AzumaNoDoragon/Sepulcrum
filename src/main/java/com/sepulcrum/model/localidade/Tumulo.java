@@ -15,7 +15,7 @@ public class Tumulo extends Localidade{
         Vazio, Reservado, Comprado, Ocupado, Manutencao, AguardandoExumação, DesativadoIndisponível
     }
     
-    public Tumulo(String rua, String numero, String tipoStr, String situacaoStr, String dataOcupacao, String cemCnpj) {
+    public Tumulo(String tipoStr, String situacaoStr, String dataOcupacao, String rua, String numero, String cemCnpj) {
         super(rua, numero);
         setTipo(tipoStr);
         setSituacao(situacaoStr);
@@ -73,8 +73,8 @@ public class Tumulo extends Localidade{
         this.tipo = tipo;
     }
 
-    public Situacao getSituacao() {
-        return situacao;
+    public String getSituacao() {
+        return situacao.name();
     }
 
     public void setSituacao(Situacao situacao) {

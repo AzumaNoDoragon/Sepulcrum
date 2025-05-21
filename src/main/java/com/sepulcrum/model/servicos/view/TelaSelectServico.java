@@ -3,15 +3,23 @@ package com.sepulcrum.model.servicos.view;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import com.sepulcrum.model.servicos.controller.GerenciadorServicos;
+import com.sepulcrum.model.servicos.controller.GerenciadorExumacao;
+import com.sepulcrum.model.servicos.controller.GerenciadorManutencaoTumulo;
+import com.sepulcrum.model.servicos.controller.GerenciadorReservaTumulo;
+import com.sepulcrum.model.servicos.controller.GerenciadorTransferenciaDefunto;
+import com.sepulcrum.model.servicos.controller.GerenciadorVistoria;
 
 public class TelaSelectServico extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;
     protected JLabel jlId;
     protected int fWidth, fHeight, qtdBotoes, id;
+    private GerenciadorExumacao ge = new GerenciadorExumacao();
+    private GerenciadorManutencaoTumulo gmt = new GerenciadorManutencaoTumulo();
+    private GerenciadorReservaTumulo grt = new GerenciadorReservaTumulo();
+    private GerenciadorTransferenciaDefunto gtd = new GerenciadorTransferenciaDefunto();
+    private GerenciadorVistoria gv = new GerenciadorVistoria();
 
     public TelaSelectServico(int seletor, int seletorCrud){
         inicializarVariaveis();
@@ -88,25 +96,27 @@ public class TelaSelectServico extends JFrame{
     }
 
     protected void defineBotoes(int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
-        GerenciadorServicos gs = new GerenciadorServicos();
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
                 case 0 -> {
-                    try{
-                        id = getId();
-                        TelaRegistroServico trs = new TelaRegistroServico(seletor, seletorCrud, id);
-                        gs.getExumacao(trs, id);
-                        //new TelaRegistroServico(seletor, seletorCrud, id);
-                    } catch (NumberFormatException | IndexOutOfBoundsException ex) {
-                        dispose();
-                        JOptionPane.showMessageDialog(this, "ID inválido ou inexistente.", "Erro", JOptionPane.ERROR_MESSAGE);
-                        new TelaGerenciadorServico(seletor);
+                    if(seletor == 1){
+                        ge.selectExumacao(this, seletor, seletorCrud, getId());
+                    } else if(seletor == 2){
+                        gmt.selectManutencaoTumulo(this, seletor, seletorCrud, getId());
+                    } else if(seletor == 3){
+                        grt.selectReservaTumulo(this, seletor, seletorCrud, getId());
+                    } else if(seletor == 4){
+                        gtd.selectTransferenciaDefunto(this, seletor, seletorCrud, getId());
+                    } else if(seletor == 5){
+                        gv.selectVistoria(this, seletor, seletorCrud, getId());
                     }
                 }
-                case 1 -> new TelaGerenciadorServico(seletor);
+                case 1 -> {
+                    dispose();
+                    new TelaGerenciadorServico(seletor);
+                }
             }
-            dispose();
         });
         this.add(button);
     }

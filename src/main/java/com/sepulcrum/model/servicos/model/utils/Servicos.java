@@ -3,6 +3,7 @@ package com.sepulcrum.model.servicos.model.utils;
 import java.sql.Date;
 
 public class Servicos {
+    protected static int proxId = 1;
     protected StatusServico statusServico;
     protected TipoServico tipoServico;
     protected String descricao, informacoesAdicionais, admCpf, tumRua, tumNumero, cemCnpj;
@@ -34,6 +35,7 @@ public class Servicos {
         this.tumNumero = tumNumero;
         this.cemCnpj = cemCnpj;
         this.admCpf = admCpf;
+        this.idServico = proxId++;
     }
 
     public String getStatusServico() {
@@ -125,7 +127,7 @@ public class Servicos {
     }
 
     public void setIdServico(int idServico) {
-        this.idServico = 1;
+        this.idServico = idServico;
     }
 
     public Date getDataServico() {

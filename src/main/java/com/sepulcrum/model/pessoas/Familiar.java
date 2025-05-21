@@ -12,9 +12,8 @@ public class Familiar extends PessoasVivas {
         Ascendente, Descendente, Colateral, Conjuge, NaoParente
     }
 
-    public Familiar(String nome, String cpf, Date dataNascimento, String email, String telefone, String grauStr) {
+    public Familiar(String nome, String cpf, Date dataNascimento, String email, String telefone) {
         super(nome, cpf, dataNascimento, email, telefone);
-        setGrauParentesco(grauStr);
     }
 
     public void setGrauParentesco(String grauStr){

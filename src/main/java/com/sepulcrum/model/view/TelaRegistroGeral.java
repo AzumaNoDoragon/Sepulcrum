@@ -3,21 +3,30 @@ package com.sepulcrum.model.view;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import com.sepulcrum.model.controller.GerenciadorAdm;
+import com.sepulcrum.model.controller.GerenciadorCemiteiro;
+import com.sepulcrum.model.controller.GerenciadorFamiliar;
+import com.sepulcrum.model.controller.GerenciadorFinado;
+import com.sepulcrum.model.controller.GerenciadorTumulo;
 
 public class TelaRegistroGeral extends JFrame{
     protected JButton jbSalvar, jbCancelar;
     protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
+    private GerenciadorAdm ga = new GerenciadorAdm();
+    private GerenciadorCemiteiro gc = new GerenciadorCemiteiro();
+    private GerenciadorFamiliar gfam = new GerenciadorFamiliar();
+    private GerenciadorTumulo gt = new GerenciadorTumulo();
+    private GerenciadorFinado gfin = new GerenciadorFinado();
 
     public TelaRegistroGeral(int seletor, int seletorCrud, int id){
-        inicializarVariaveis(seletor);
+        inicializarVariaveis(seletor, seletorCrud);
         
         // Janela
         this.setLayout(null);
@@ -66,6 +75,7 @@ public class TelaRegistroGeral extends JFrame{
             case 6 -> jlSeven;
             case 7 -> jlEight;
             case 8 -> jlNine;
+            case 9 -> jlTen;
             default -> null;
         };
         if(label != null){
@@ -85,6 +95,7 @@ public class TelaRegistroGeral extends JFrame{
             case 6 -> jtfSeven;
             case 7 -> jtfEight;
             case 8 -> jtfNine;
+            case 9 -> jtfTen;
             default -> null;
         };
         if(text != null){
@@ -112,18 +123,27 @@ public class TelaRegistroGeral extends JFrame{
             switch(index){
                 case 0 -> {
                     if(seletorCrud == 1){
-                        if(seletor == 1){
-                            System.out.println("Debug 1");
-                        } else if(seletor == 2){
-                            System.out.println("debug 2");
-                        } else if(seletor == 3){
-                            System.out.println("Debug 3");
-                        } else if(seletor == 4){
-                            System.out.println("Debug 4");
-                        } else if(seletor == 5){
-                            System.out.println("Debug 5");
+                        try{
+                            int sucesso = -1;
+                            if(seletor == 1){
+                                sucesso = gc.setCemiterio(this);
+                            } else if(seletor == 2){
+                                ga.setAdm(this);
+                            } else if(seletor == 3){
+                                gt.setTumulo(this);
+                            } else if(seletor == 4){
+                                gfin.setFinado(this);
+                            } else if(seletor == 5){
+                                gfam.setFamiliar(this);
+                            }
+                            if(sucesso == 0){
+                                msgSucesso();
+                            }
+                        } catch (Exception e){
+                            e.printStackTrace();
+                            msgErro(e);
+                            return;
                         }
-                        msgSucesso();
                     } else if (seletorCrud == 3){
                         msgAlterada();
                     } else if(seletorCrud == 4){
@@ -138,17 +158,25 @@ public class TelaRegistroGeral extends JFrame{
         this.add(button);
     }
     
-    public void inicializarVariaveis(int seletor) {
+    public void inicializarVariaveis(int seletor, int seletorCrud) {
         // Button
-        jbSalvar = new JButton("Salvar");
-        jbCancelar = new JButton("Cancelar");
+        if(seletorCrud == 1 || seletorCrud == 3){
+            jbSalvar = new JButton("Salvar");
+            jbCancelar = new JButton("Cancelar");
+        } else if(seletorCrud == 2){
+            jbSalvar = new JButton("Concluir");
+            jbCancelar = new JButton("Voltar");
+        } else if(seletorCrud == 4){
+            jbSalvar = new JButton("DELETAR");
+            jbCancelar = new JButton("Cancelar");
+        }
         
         switch (seletor) {
             case 1:
                 //Configura tamanho da janela e botões
                 fWidth = 500;
                 fHeight = 700;
-                qtdBotoes = 9;
+                qtdBotoes = 10;
 
                 // Janela
                 this.setTitle("Registro Cemitério.");
@@ -175,6 +203,7 @@ public class TelaRegistroGeral extends JFrame{
                 jtfSeven = new JTextField();
                 jtfEight = new JTextField();
                 jtfNine = new JTextField();
+                jtfTen = new JTextField();
                 break;
             case 2:
                 //Configura tamanho da janela e botões
@@ -242,15 +271,15 @@ public class TelaRegistroGeral extends JFrame{
                 this.setTitle("Registro Finado.");
 
                 // Label
-                jlOne = new JLabel("*Nome: ");                                          // nome
-                jlTwo = new JLabel("<html>*CPF (Caso não<br>possua digite 0):</html>"); // cpf
-                jlThree = new JLabel("RG: ");                                           // rg
-                jlFour = new JLabel("Data Nascimento: ");                               // dataNascimento
-                jlFive = new JLabel("*Data Falecimento: ");                             // dataFalecimento
-                jlSix = new JLabel("*Causa da morte: ");                                // causaMorte
-                jlSeven = new JLabel("*Certidão de Óbito: ");                           // certidaoObito
-                jlEight = new JLabel("*Rua do túmulo: ");                               // tumRua
-                jlNine = new JLabel("*Número do túmulo: ");                             // tumNumero
+                jlOne = new JLabel("Nome: ");                 // nome
+                jlTwo = new JLabel("CPF: ");                  // cpf
+                jlThree = new JLabel("RG: ");                 // rg
+                jlFour = new JLabel("Data Nascimento: ");     // dataNascimento
+                jlFive = new JLabel("*Data Falecimento: ");   // dataFalecimento
+                jlSix = new JLabel("*Causa da morte: ");      // causaMorte
+                jlSeven = new JLabel("*Certidão de Óbito: "); // certidaoObito
+                jlEight = new JLabel("*Rua do túmulo: ");     // tumRua
+                jlNine = new JLabel("*Número do túmulo: ");   // tumNumero
 
                 // Text Field
                 jtfOne = new JTextField();
@@ -293,6 +322,18 @@ public class TelaRegistroGeral extends JFrame{
                 jtfEight = new JTextField();
                 break;
         }
+        if(seletorCrud == 2){
+            jtfOne.setEditable(false);
+            jtfTwo.setEditable(false);
+            jtfThree.setEditable(false);
+            jtfFour.setEditable(false);
+            jtfFive.setEditable(false);
+            jtfSix.setEditable(false);
+            jtfSeven.setEditable(false);
+            jtfEight.setEditable(false);
+            jtfNine.setEditable(false);
+            jtfTen.setEditable(false);
+        }
     }
 
     protected void msgSucesso(){
@@ -317,6 +358,10 @@ public class TelaRegistroGeral extends JFrame{
         if (opcao == JOptionPane.YES_OPTION) {
             msgDelete();
         }
+    }
+
+    protected void msgErro(Exception e){
+        JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
     public String getJtfOne() {
@@ -352,7 +397,7 @@ public class TelaRegistroGeral extends JFrame{
     }
 
     public Date getJtfFiveDate() {
-        String text = jtfFour.getText();
+        String text = jtfFive.getText();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
@@ -372,7 +417,11 @@ public class TelaRegistroGeral extends JFrame{
     }
 
     public int getJtfSevenInt() {
-        return Integer.parseInt(jtfSeven.getText());
+        String text = jtfSeven.getText();
+        if (text == null || text.trim().isEmpty()) {
+            return 0;
+        }
+        return Integer.parseInt(text);
     }
 
     public String getJtfEight() {
@@ -403,8 +452,28 @@ public class TelaRegistroGeral extends JFrame{
         jtfFour.setText(value);
     }
 
+    public void setJtfFour(Date value) {
+        if (value != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String dataFormatada = sdf.format(value);
+            jtfFour.setText(dataFormatada);
+        } else {
+            jtfFour.setText("Data não encontrada");
+        }
+    }
+
     public void setJtfFive(String value) {
         jtfFive.setText(value);
+    }
+
+    public void setJtfFive(Date value) {
+        if (value != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String dataFormatada = sdf.format(value);
+            jtfFive.setText(dataFormatada);
+        } else {
+            jtfFive.setText("Data não encontrada");
+        }
     }
 
     public void setJtfSix(String value) {
