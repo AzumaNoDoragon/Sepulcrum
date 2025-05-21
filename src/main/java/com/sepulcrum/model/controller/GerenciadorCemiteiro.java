@@ -3,9 +3,8 @@ package com.sepulcrum.model.controller;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-
-import com.sepulcrum.model.view.TelaGerenciadorGeral;
 import com.sepulcrum.model.view.TelaRegistroGeral;
+import com.sepulcrum.model.view.TelaSelectGeral;
 import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.localidade.Cemiterio;
 
@@ -13,7 +12,7 @@ public class GerenciadorCemiteiro {
     private static List<Cemiterio> listC = new ArrayList<>();
     private ValidarCampos vc = new ValidarCampos();
 
-    public void setCemiterio(TelaRegistroGeral trg){
+    public int setCemiterio(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfOne(), "Nome");
         vc.validarCampo(trg.getJtfTwo(), "Estado");
         vc.validarCampo(trg.getJtfThree(), "Cidade");
@@ -23,6 +22,11 @@ public class GerenciadorCemiteiro {
         vc.validarCampo(trg.getJtfEight(), "Telefone");
         vc.validarCampo(trg.getJtfNine(), "CNPJ");
         vc.validarCampo(trg.getJtfTen(), "Adiministrador");
+
+        int idCnpj = verificarObjeto(Integer.parseInt(trg.getJtfNine()));
+        if(idCnpj == 1){
+            return 1;
+        }
 
         Cemiterio c = new Cemiterio(
             trg.getJtfOne(),        // nome
@@ -38,6 +42,16 @@ public class GerenciadorCemiteiro {
         c.setCapacidadeMax(trg.getJtfSevenInt()); // Capacidade Max
 
         listC.add(c);
+        return 0;
+    }
+
+    public int verificarObjeto(int id){
+        Cemiterio c = buscaCemiterio(id);
+        if(c != null){
+            JOptionPane.showMessageDialog(null, "Cemitério com este CNPJ já existe!");
+            return 1;
+        }
+        return 0;
     }
 
     public Cemiterio buscaCemiterio(int id) {
@@ -49,12 +63,12 @@ public class GerenciadorCemiteiro {
         return null;
     }
 
-    public void SelectCemiterio(int seletor, int seletorCrud, int id){
+    public void SelectCemiterio(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
         Cemiterio c = buscaCemiterio(id);
         if (c == null) {
             JOptionPane.showMessageDialog(null, "Cemitério com CNPJ " + id + " não encontrado.");
-            new TelaGerenciadorGeral(seletor);
         } else {
+            tsg.dispose();
             TelaRegistroGeral trg = new TelaRegistroGeral(seletor, seletorCrud, id);
             getCemiterio(trg, c);
         }
