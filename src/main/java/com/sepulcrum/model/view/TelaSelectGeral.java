@@ -101,7 +101,7 @@ public class TelaSelectGeral extends JFrame{
             switch(index){
                 case 0 -> {
                     if(seletor == 1){
-                        gc.SelectCemiterio(seletor, seletorCrud, getId());
+                        gc.SelectCemiterio(this, seletor, seletorCrud, getId());
                     } else if(seletor == 2){
                         ga.SelectAdm(seletor, seletorCrud, getId());
                     } else if(seletor == 3){
@@ -112,9 +112,11 @@ public class TelaSelectGeral extends JFrame{
                         gfam.SelectFamiliar(seletor, seletorCrud, getId());
                     }
                 }
-                case 1 -> new TelaGerenciadorGeral(seletor);
+                case 1 -> {
+                    dispose();
+                    new TelaGerenciadorGeral(seletor);
+                }
             }
-            dispose();
         });
         this.add(button);
     }
