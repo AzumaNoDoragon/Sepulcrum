@@ -7,8 +7,8 @@ import javax.swing.JOptionPane;
 
 import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.servicos.model.Vistoria;
-import com.sepulcrum.model.servicos.view.TelaGerenciadorServico;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
+import com.sepulcrum.model.servicos.view.TelaSelectServico;
 
 public class GerenciadorVistoria {
     private static List<Vistoria> listV = new ArrayList<>();
@@ -42,12 +42,12 @@ public class GerenciadorVistoria {
         return null;
     }
 
-    public void selectVistoria(int seletor, int seletorCrud, int id){
+    public void selectVistoria(TelaSelectServico tss, int seletor, int seletorCrud, int id){
         Vistoria v = buscaVistoria(id);
         if(v == null){
             JOptionPane.showMessageDialog(null, "Vistoria com id " + id + " não encontrado.");
-            new TelaGerenciadorServico(seletor);
         } else {
+            tss.dispose();
             TelaRegistroServico trs = new TelaRegistroServico(seletor, seletorCrud, id);
             getVistoria(trs, v);
         }
