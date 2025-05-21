@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.servicos.model.ReservaTumulo;
-import com.sepulcrum.model.servicos.view.TelaGerenciadorServico;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
+import com.sepulcrum.model.servicos.view.TelaSelectServico;
 
 public class GerenciadorReservaTumulo {
     private static List<ReservaTumulo> listRT = new ArrayList<>();
@@ -43,12 +43,12 @@ public class GerenciadorReservaTumulo {
         return null;
     }
 
-    public void selectReservaTumulo(int seletor, int seletorCrud, int id){
+    public void selectReservaTumulo(TelaSelectServico tss,int seletor, int seletorCrud, int id){
         ReservaTumulo rt = buscaReservaTumulo(id);
         if(rt == null){
             JOptionPane.showMessageDialog(null, "Reserva de Tumulo com id " + id + " não encontrado.");
-            new TelaGerenciadorServico(seletor);
         } else {
+            tss.dispose();
             TelaRegistroServico trs = new TelaRegistroServico(seletor, seletorCrud, id);
             getReservaTumulo(trs, rt);
         }
