@@ -5,8 +5,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.servicos.model.TransferenciaDefunto;
-import com.sepulcrum.model.servicos.view.TelaGerenciadorServico;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
+import com.sepulcrum.model.servicos.view.TelaSelectServico;
 
 public class GerenciadorTransferenciaDefunto {
     private static List<TransferenciaDefunto> listTD = new ArrayList<>();
@@ -44,12 +44,12 @@ public class GerenciadorTransferenciaDefunto {
         return null;
     }
 
-    public void selectTransferenciaDefunto(int seletor, int seletorCrud, int id){
+    public void selectTransferenciaDefunto(TelaSelectServico tss, int seletor, int seletorCrud, int id){
         TransferenciaDefunto td = buscaTransferenciaDefunto(id);
         if(td == null){
             JOptionPane.showConfirmDialog(null, "Transferencia de Túmulo com id " + id + " não encontrado.");
-            new TelaGerenciadorServico(seletor);
         } else {
+            tss.dispose();
             TelaRegistroServico trs = new TelaRegistroServico(seletor, seletorCrud, id);
             getTransferenciaDefunto(trs, td);
         }
