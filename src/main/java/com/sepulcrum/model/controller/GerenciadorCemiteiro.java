@@ -12,7 +12,7 @@ public class GerenciadorCemiteiro {
     private static List<Cemiterio> listC = new ArrayList<>();
     private ValidarCampos vc = new ValidarCampos();
 
-    public int setCemiterio(TelaRegistroGeral trg){
+    public void validarCampo(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfOne(), "Nome");
         vc.validarCampo(trg.getJtfTwo(), "Estado");
         vc.validarCampo(trg.getJtfThree(), "Cidade");
@@ -22,6 +22,10 @@ public class GerenciadorCemiteiro {
         vc.validarCampo(trg.getJtfEight(), "Telefone");
         vc.validarCampo(trg.getJtfNine(), "CNPJ");
         vc.validarCampo(trg.getJtfTen(), "Adiministrador");
+    }
+
+    public int setCemiterio(TelaRegistroGeral trg){
+        validarCampo(trg);
 
         int idCnpj = verificarObjeto(Integer.parseInt(trg.getJtfNine()));
         if(idCnpj == 1){
@@ -85,5 +89,32 @@ public class GerenciadorCemiteiro {
         trg.setJtfEight(c.getTelefone());
         trg.setJtfNine(c.getCnpj());
         trg.setJtfTen(c.getAdmCpf());
+    }
+
+    public int updateCemiterio(TelaRegistroGeral trg, int id){
+        validarCampo(trg);
+
+        Cemiterio c = buscaCemiterio(id);
+
+        if(!trg.getJtfNine().equals(c.getCnpj())){
+            int cnpjNovo = verificarObjeto(Integer.parseInt(trg.getJtfNine()));
+            if(cnpjNovo == 1){
+                return 1;
+            }
+        }
+
+        c.setNome(trg.getJtfOne());
+        c.setEstado(trg.getJtfTwo());
+        c.setCidade(trg.getJtfThree());
+        c.setRua(trg.getJtfFourString());
+        c.setNumero(trg.getJtfFiveString());
+        c.setCep(trg.getJtfSix());
+        c.setCapacidadeMax(trg.getJtfSevenInt());
+        c.setTelefone(trg.getJtfEight());
+        c.setCnpj(trg.getJtfNine());
+        c.setAdmCpf(trg.getJtfTen());
+
+        listC.add(c);
+        return 0;
     }
 }
