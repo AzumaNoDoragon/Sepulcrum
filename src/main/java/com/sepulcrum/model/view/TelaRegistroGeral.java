@@ -158,7 +158,7 @@ public class TelaRegistroGeral extends JFrame{
                         }
                         msgAlterada();
                     } else if(seletorCrud == 4){
-                        msgConfirmacaoDelecao();
+                        msgConfirmacaoDelecao(id);
                     }
                     new TelaGerenciadorGeral(seletor);
                 }
@@ -359,7 +359,8 @@ public class TelaRegistroGeral extends JFrame{
         JOptionPane.showMessageDialog(this, "Registro deletado!");
     }
 
-    protected void msgConfirmacaoDelecao(){
+    protected void msgConfirmacaoDelecao(int id){
+        GerenciadorCemiteiro gc = new GerenciadorCemiteiro();
         int opcao = JOptionPane.showConfirmDialog(
             this,
             "Deseja realmente deletar este registro?",
@@ -367,6 +368,7 @@ public class TelaRegistroGeral extends JFrame{
             JOptionPane.YES_NO_OPTION
         );
         if (opcao == JOptionPane.YES_OPTION) {
+            gc.deleteCemiterio(id);
             msgDelete();
         }
     }
