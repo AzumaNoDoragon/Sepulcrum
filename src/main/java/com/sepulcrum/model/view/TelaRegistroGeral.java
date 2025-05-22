@@ -58,7 +58,7 @@ public class TelaRegistroGeral extends JFrame{
         for(int i = 0; i < qtdBotoes; i++){
             if(i == 1){jbY = jbY - 15;}
             jbWidth = 150;
-            button(seletorCrud, qtdBotoes, seletor, i, jbX, y, jbY, jbWidth, jbHeight);
+            button(id, seletorCrud, qtdBotoes, seletor, i, jbX, y, jbY, jbWidth, jbHeight);
         };
         
         this.setVisible(true);
@@ -104,7 +104,7 @@ public class TelaRegistroGeral extends JFrame{
         }
     }
 
-    protected void button(int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
+    protected void button(int id, int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
         jbY = y * (qtdBotoes + 1 + i);
         int index = i;
         JButton button = switch (index){
@@ -113,11 +113,11 @@ public class TelaRegistroGeral extends JFrame{
             default -> null;
         };
         if(button != null){
-            defineBotoes(seletorCrud, seletor, button, index, jbX + 70, jbY, jbWidth, jbHeight);
+            defineBotoes(id, seletorCrud, seletor, button, index, jbX + 70, jbY, jbWidth, jbHeight);
         }
     }
     
-    protected void defineBotoes(int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void defineBotoes(int id, int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
@@ -145,6 +145,17 @@ public class TelaRegistroGeral extends JFrame{
                             return;
                         }
                     } else if (seletorCrud == 3){
+                        if(seletor == 1){
+                            gc.updateCemiterio(this, id);
+                        } else if(seletor == 2){
+                            ga.setAdm(this);
+                        } else if(seletor == 3){
+                            gt.setTumulo(this);
+                        } else if(seletor == 4){
+                            gfin.setFinado(this);
+                        } else if(seletor == 5){
+                            gfam.setFamiliar(this);
+                        }
                         msgAlterada();
                     } else if(seletorCrud == 4){
                         msgConfirmacaoDelecao();
