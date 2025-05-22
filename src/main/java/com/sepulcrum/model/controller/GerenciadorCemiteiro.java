@@ -117,4 +117,9 @@ public class GerenciadorCemiteiro {
         listC.add(c);
         return 0;
     }
+
+    public void deleteCemiterio(int id){
+        Cemiterio c = buscaCemiterio(id);
+        listC.remove(c);
+    }
 }
