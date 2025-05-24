@@ -12,7 +12,7 @@ public class GerenciadorAdm {
     private static List<Adm> ListA = new ArrayList<>();
     private ValidarCampos vc = new ValidarCampos();
 
-    public void setAdm(TelaRegistroGeral trg){
+    public void validarCampo(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfOne(), "Nome");
         vc.validarCampo(trg.getJtfTwo(), "Cpf");
         vc.validarCampo(trg.getJtfFourDate(), "Data de Nascimento");
@@ -21,6 +21,10 @@ public class GerenciadorAdm {
         vc.validarCampo(trg.getJtfSevenString(), "Telefone");
         vc.validarCampo(trg.getJtfEight(), "Cargo");
         vc.validarCampo(trg.getJtfNine(), "CNPJ");
+    }
+
+    public void setAdm(TelaRegistroGeral trg){
+        validarCampo(trg);
 
         Adm a = new Adm(
             trg.getJtfOne(),         // nome
