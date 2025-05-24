@@ -9,7 +9,7 @@ import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.pessoas.Adm;
 
 public class GerenciadorAdm {
-    private static List<Adm> ListA = new ArrayList<>();
+    private static List<Adm> listA = new ArrayList<>();
     private ValidarCampos vc = new ValidarCampos();
 
     public void validarCampo(TelaRegistroGeral trg){
@@ -39,11 +39,11 @@ public class GerenciadorAdm {
 
         a.setRg(trg.getJtfThree()); // RG
 
-        ListA.add(a);
+        listA.add(a);
     }
 
     public Adm buscaAdm(int id) {
-        for (Adm a : ListA) {
+        for (Adm a : listA) {
             if (a.getCpf().equals(Integer.toString(id))) {
                 return a;
             }
