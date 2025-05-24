@@ -3,14 +3,13 @@ package com.sepulcrum.model.controller;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-
 import com.sepulcrum.model.view.TelaGerenciadorGeral;
 import com.sepulcrum.model.view.TelaRegistroGeral;
 import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.localidade.Tumulo;
 
 public class GerenciadorTumulo {
-    private static List<Tumulo> ListT = new ArrayList<>();
+    private static List<Tumulo> listT = new ArrayList<>();
     private ValidarCampos vc = new ValidarCampos();
 
     public void validarCampo(TelaRegistroGeral trg){
@@ -34,11 +33,11 @@ public class GerenciadorTumulo {
             trg.getJtfSix()         // cemCnpj
         );
         
-        ListT.add(t);
+        listT.add(t);
     }
 
     public Tumulo buscaTumulo(int id) {
-        for (Tumulo t : ListT) {
+        for (Tumulo t : listT) {
             if (t.getNumero().equals(Integer.toString(id))) {
                 return t;
             }
