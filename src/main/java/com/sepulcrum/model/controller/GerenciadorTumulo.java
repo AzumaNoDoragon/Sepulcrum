@@ -13,13 +13,17 @@ public class GerenciadorTumulo {
     private static List<Tumulo> ListT = new ArrayList<>();
     private ValidarCampos vc = new ValidarCampos();
 
-    public void setTumulo(TelaRegistroGeral trg){
+    public void validarCampo(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfOne(), "Tipo");
         vc.validarCampo(trg.getJtfTwo(), "Situação");
         vc.validarCampo(trg.getJtfThree(), "Data de Ocupação");
         vc.validarCampo(trg.getJtfFourString(), "Rua");
         vc.validarCampo(trg.getJtfFiveString(), "Número");
         vc.validarCampo(trg.getJtfSix(), "CNPJ");
+    }
+
+    public void setTumulo(TelaRegistroGeral trg){
+        validarCampo(trg);
 
         Tumulo t = new Tumulo(
             trg.getJtfOne(),        // tipo
