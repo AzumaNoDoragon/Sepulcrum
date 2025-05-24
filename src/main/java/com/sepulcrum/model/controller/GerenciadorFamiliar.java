@@ -13,7 +13,7 @@ public class GerenciadorFamiliar{
     private static List<Familiar> ListFam = new ArrayList<>();
     private ValidarCampos vc = new ValidarCampos();
 
-    public void setFamiliar(TelaRegistroGeral trg){
+    public void validarCampo(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfOne(), "Nome");
         vc.validarCampo(trg.getJtfTwo(), "Cpf");
         vc.validarCampo(trg.getJtfFourDate(), "Data de Nascimento");
@@ -21,7 +21,11 @@ public class GerenciadorFamiliar{
         vc.validarCampo(trg.getJtfSix(), "Email");
         vc.validarCampo(trg.getJtfSevenString(), "Telefone");
         vc.validarCampo(trg.getJtfEight(), "Certidão de Óbito");
-        
+    }
+    
+    public void setFamiliar(TelaRegistroGeral trg){
+        validarCampo(trg);
+
         Familiar fam = new Familiar(
             trg.getJtfOne(),        // nome
             trg.getJtfTwo(),        // cpf
