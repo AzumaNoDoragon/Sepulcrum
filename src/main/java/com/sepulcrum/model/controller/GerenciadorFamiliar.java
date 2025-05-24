@@ -10,7 +10,7 @@ import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.pessoas.Familiar;
 
 public class GerenciadorFamiliar{
-    private static List<Familiar> ListFam = new ArrayList<>();
+    private static List<Familiar> listFam = new ArrayList<>();
     private ValidarCampos vc = new ValidarCampos();
 
     public void validarCampo(TelaRegistroGeral trg){
@@ -38,11 +38,11 @@ public class GerenciadorFamiliar{
         fam.setGrauParentesco(trg.getJtfFiveString()); // grauParentesco
         fam.setCertidaoObito(trg.getJtfEight());       // certidaoObito
 
-        ListFam.add(fam);
+        listFam.add(fam);
     }
 
     public Familiar buscaFamiliar(int id) {
-        for (Familiar fam : ListFam) {
+        for (Familiar fam : listFam) {
             if (fam.getCpf().equals(Integer.toString(id))) {
                 return fam;
             }
