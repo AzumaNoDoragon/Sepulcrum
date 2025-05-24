@@ -3,7 +3,6 @@ package com.sepulcrum.model.controller;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-
 import com.sepulcrum.model.view.TelaGerenciadorGeral;
 import com.sepulcrum.model.view.TelaRegistroGeral;
 import com.sepulcrum.model.assets.ValidarCampos;
@@ -13,12 +12,16 @@ public class GerenciadorFinado {
     private static List<Finado> ListFin = new ArrayList<>();
     private ValidarCampos vc = new ValidarCampos();
 
-    public void setFinado(TelaRegistroGeral trg){
+    public void validarCampo(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfFiveDate(), "Data Falecimento");
         vc.validarCampo(trg.getJtfSix(), "Causa da Morte");
         vc.validarCampo(trg.getJtfSevenString(), "Certidão de Óbito");
         vc.validarCampo(trg.getJtfEight(), "Rua do Túmulo");
         vc.validarCampo(trg.getJtfNine(), "Número do Túmulo");
+    }
+
+    public void setFinado(TelaRegistroGeral trg){
+        validarCampo(trg);
 
         Finado fin = new Finado(
             trg.getJtfOne(),         // nome
