@@ -51,7 +51,7 @@ public class GerenciadorAdm {
         return null;
     }
 
-    public void SelectAdm(int seletor, int seletorCrud, int id){
+    public void selectAdm(int seletor, int seletorCrud, int id){
         Adm a = buscaAdm(id);
         if (a == null) {
             JOptionPane.showMessageDialog(null, "Coveiro com CPF " + id + " não encontrado.");
