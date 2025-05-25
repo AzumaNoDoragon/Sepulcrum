@@ -62,7 +62,7 @@ public class GerenciadorFinado {
         return null;
     }
 
-    public void SelectFinado(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
+    public void selectFinado(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
         Finado fin = buscaFinado(id);
         if (fin == null) {
             JOptionPane.showMessageDialog(null, "Finado com Certidão de Óbito " + id + " não encontrado.");
