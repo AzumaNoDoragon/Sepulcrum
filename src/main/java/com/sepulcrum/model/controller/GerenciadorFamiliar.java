@@ -50,7 +50,7 @@ public class GerenciadorFamiliar{
         return null;
     }
 
-    public void SelectFamiliar(int seletor, int seletorCrud, int id){
+    public void selectFamiliar(int seletor, int seletorCrud, int id){
         Familiar fam = buscaFamiliar(id);
         if (fam == null) {
             JOptionPane.showMessageDialog(null, "Familiar com CPF " + id + " não encontrado.");
