@@ -101,15 +101,15 @@ public class TelaSelectGeral extends JFrame{
             switch(index){
                 case 0 -> {
                     if(seletor == 1){
-                        gc.SelectCemiterio(this, seletor, seletorCrud, getId());
+                        gc.selectCemiterio(this, seletor, seletorCrud, getId());
                     } else if(seletor == 2){
-                        ga.SelectAdm(seletor, seletorCrud, getId());
+                        ga.selectAdm(seletor, seletorCrud, getId());
                     } else if(seletor == 3){
-                        gt.SelectTumulo(seletor, seletorCrud, getId());
+                        gt.selectTumulo(seletor, seletorCrud, getId());
                     } else if(seletor == 4){
-                        gfin.SelectFinado(seletor, seletorCrud, getId());
+                        gfin.selectFinado(this, seletor, seletorCrud, getId());
                     } else if(seletor == 5){
-                        gfam.SelectFamiliar(seletor, seletorCrud, getId());
+                        gfam.selectFamiliar(seletor, seletorCrud, getId());
                     }
                 }
                 case 1 -> {
