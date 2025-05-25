@@ -45,7 +45,7 @@ public class GerenciadorTumulo {
         return null;
     }
 
-    public void SelectTumulo(int seletor, int seletorCrud, int id){
+    public void selectTumulo(int seletor, int seletorCrud, int id){
         Tumulo t = buscaTumulo(id);
         if (t == null) {
             JOptionPane.showMessageDialog(null, "Túmulo de código " + id + " não encontrado.");
