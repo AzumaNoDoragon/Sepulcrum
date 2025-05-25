@@ -67,7 +67,7 @@ public class GerenciadorCemiteiro {
         return null;
     }
 
-    public void SelectCemiterio(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
+    public void selectCemiterio(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
         Cemiterio c = buscaCemiterio(id);
         if (c == null) {
             JOptionPane.showMessageDialog(null, "Cemitério com CNPJ " + id + " não encontrado.");
