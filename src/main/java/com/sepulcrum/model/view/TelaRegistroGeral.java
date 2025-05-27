@@ -148,13 +148,13 @@ public class TelaRegistroGeral extends JFrame{
                         if(seletor == 1){
                             gc.updateCemiterio(this, id);
                         } else if(seletor == 2){
-                            ga.setAdm(this);
+                            ga.updateAdm(this, id);
                         } else if(seletor == 3){
-                            gt.setTumulo(this);
+                            gt.updateTumulo(this, id);
                         } else if(seletor == 4){
-                            gfin.setFinado(this);
+                            gfin.updateFinado(this, id);
                         } else if(seletor == 5){
-                            gfam.setFamiliar(this);
+                            gfam.updateFamiliar(this, id);
                         }
                         msgAlterada();
                     } else if(seletorCrud == 4){
