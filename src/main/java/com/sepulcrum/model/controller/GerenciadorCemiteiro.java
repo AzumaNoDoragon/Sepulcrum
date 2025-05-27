@@ -114,7 +114,6 @@ public class GerenciadorCemiteiro {
         c.setCnpj(trg.getJtfNine());
         c.setAdmCpf(trg.getJtfTen());
 
-        listC.add(c);
         return 0;
     }
 
