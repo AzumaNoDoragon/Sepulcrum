@@ -107,7 +107,6 @@ public class GerenciadorFinado {
         fin.setTumRua(trg.getJtfEight());
         fin.setTumNumero(trg.getJtfNine());
 
-        listFin.add(fin);
         return 0;
     }
 
