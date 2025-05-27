@@ -103,7 +103,7 @@ public class TelaSelectGeral extends JFrame{
                     if(seletor == 1){
                         gc.selectCemiterio(this, seletor, seletorCrud, getId());
                     } else if(seletor == 2){
-                        ga.selectAdm(seletor, seletorCrud, getId());
+                        ga.selectAdm(this, seletor, seletorCrud, getId());
                     } else if(seletor == 3){
                         gt.selectTumulo(seletor, seletorCrud, getId());
                     } else if(seletor == 4){
