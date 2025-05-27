@@ -111,7 +111,6 @@ public class GerenciadorAdm {
         a.setCargo(trg.getJtfEight());
         a.setCemCnpj(trg.getJtfNine());
 
-        listA.add(a);
         return 0;
     }
 
