@@ -3,8 +3,8 @@ package com.sepulcrum.model.controller;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import com.sepulcrum.model.view.TelaGerenciadorGeral;
 import com.sepulcrum.model.view.TelaRegistroGeral;
+import com.sepulcrum.model.view.TelaSelectGeral;
 import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.localidade.Tumulo;
 
@@ -15,14 +15,18 @@ public class GerenciadorTumulo {
     public void validarCampo(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfOne(), "Tipo");
         vc.validarCampo(trg.getJtfTwo(), "Situação");
-        vc.validarCampo(trg.getJtfThree(), "Data de Ocupação");
         vc.validarCampo(trg.getJtfFourString(), "Rua");
         vc.validarCampo(trg.getJtfFiveString(), "Número");
         vc.validarCampo(trg.getJtfSix(), "CNPJ");
     }
 
-    public void setTumulo(TelaRegistroGeral trg){
+    public int setTumulo(TelaRegistroGeral trg){
         validarCampo(trg);
+
+        int idNumero = verificarObjeto(Integer.parseInt(trg.getJtfFiveString()));
+        if(idNumero == 1){
+            return 1;
+        }
 
         Tumulo t = new Tumulo(
             trg.getJtfOne(),        // tipo
@@ -34,6 +38,16 @@ public class GerenciadorTumulo {
         );
         
         listT.add(t);
+        return 0;
+    }
+
+    public int verificarObjeto(int id){
+        Tumulo t = buscaTumulo(id);
+        if(t != null){
+            JOptionPane.showMessageDialog(null, "Tumulo com este número já existe");
+            return 1;
+        }
+        return 0;
     }
 
     public Tumulo buscaTumulo(int id) {
@@ -45,12 +59,12 @@ public class GerenciadorTumulo {
         return null;
     }
 
-    public void selectTumulo(int seletor, int seletorCrud, int id){
+    public void selectTumulo(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
         Tumulo t = buscaTumulo(id);
         if (t == null) {
             JOptionPane.showMessageDialog(null, "Túmulo de código " + id + " não encontrado.");
-            new TelaGerenciadorGeral(seletor);
         } else {
+            tsg.dispose();
             TelaRegistroGeral trg = new TelaRegistroGeral(seletor, seletorCrud, id);
             getTumulo(trg, t);
         }
@@ -63,5 +77,32 @@ public class GerenciadorTumulo {
         trg.setJtfFour(t.getRua());
         trg.setJtfFive(t.getNumero());
         trg.setJtfSix(t.getCemCnpj());
+    }
+
+    public int updateTumulo(TelaRegistroGeral trg, int id){
+        validarCampo(trg);
+
+        Tumulo t = buscaTumulo(id);
+
+        if(!trg.getJtfFiveString().equals(t.getNumero())){
+            int numeroNovo = verificarObjeto(Integer.parseInt(trg.getJtfFiveString()));
+            if(numeroNovo == 1){
+                return 1;
+            }
+        }
+
+        t.setTipo(trg.getJtfOne());
+        t.setSituacao(trg.getJtfTwo());
+        t.setDataOcupacao(trg.getJtfThree());
+        t.setRua(trg.getJtfFourString());
+        t.setNumero(trg.getJtfFiveString());
+        t.setCemCnpj(trg.getJtfSix());
+
+        return 0;
+    }
+
+    public void deleteTumulo(int id){
+        Tumulo t = buscaTumulo(id);
+        listT.remove(t);
     }
 }
