@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import com.sepulcrum.model.view.TelaRegistroGeral;
 import com.sepulcrum.model.view.TelaSelectGeral;
 import com.sepulcrum.model.assets.ValidarCampos;
+import com.sepulcrum.model.db.Conexao;
 import com.sepulcrum.model.localidade.Cemiterio;
 
 public class GerenciadorCemiteiro {
@@ -46,6 +47,13 @@ public class GerenciadorCemiteiro {
         c.setCapacidadeMax(trg.getJtfSevenInt()); // Capacidade Max
 
         listC.add(c);
+        Conexao conn = new Conexao();
+        try {
+            conn.conectar();
+        } finally {
+            conn.close();
+        }
+
         return 0;
     }
 
