@@ -6,7 +6,7 @@ import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;
 import com.sepulcrum.view.TelaSelectGeral;
-import com.sepulcrum.DAO.DAOCemiterio;
+import com.sepulcrum.dao.DAOCemiterio;
 import com.sepulcrum.model.localidade.Cemiterio;
 
 public class GerenciadorCemiteiro {
