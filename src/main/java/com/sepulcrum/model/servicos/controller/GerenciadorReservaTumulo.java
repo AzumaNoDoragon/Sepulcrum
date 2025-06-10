@@ -3,10 +3,10 @@ package com.sepulcrum.model.servicos.controller;
 import java.util.List;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
-import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.servicos.model.ReservaTumulo;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
 import com.sepulcrum.model.servicos.view.TelaSelectServico;
+import com.sepulcrum.utils.ValidarCampos;
 
 public class GerenciadorReservaTumulo {
     private static List<ReservaTumulo> listRT = new ArrayList<>();

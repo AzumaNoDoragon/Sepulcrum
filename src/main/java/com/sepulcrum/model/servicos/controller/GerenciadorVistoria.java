@@ -2,13 +2,11 @@ package com.sepulcrum.model.servicos.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JOptionPane;
-
-import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.servicos.model.Vistoria;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
 import com.sepulcrum.model.servicos.view.TelaSelectServico;
+import com.sepulcrum.utils.ValidarCampos;
 
 public class GerenciadorVistoria {
     private static List<Vistoria> listV = new ArrayList<>();
