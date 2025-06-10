@@ -1,16 +1,17 @@
-package com.sepulcrum.model.controller;
+package com.sepulcrum.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
-import com.sepulcrum.model.view.TelaRegistroGeral;
-import com.sepulcrum.model.view.TelaSelectGeral;
-import com.sepulcrum.model.assets.ValidarCampos;
+
+import com.sepulcrum.utils.ValidadorCamposInterface;
+import com.sepulcrum.utils.ValidarCampos;
+import com.sepulcrum.view.TelaRegistroGeral;
+import com.sepulcrum.view.TelaSelectGeral;
+import com.sepulcrum.DAO.DAOCemiterio;
 import com.sepulcrum.model.localidade.Cemiterio;
 
 public class GerenciadorCemiteiro {
-    private static List<Cemiterio> listC = new ArrayList<>();
-    private ValidarCampos vc = new ValidarCampos();
+    private DAOCemiterio daoC = new DAOCemiterio();
+    private ValidadorCamposInterface vc = new ValidarCampos();
 
     public void validarCampo(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfOne(), "Nome");
@@ -27,11 +28,6 @@ public class GerenciadorCemiteiro {
     public int setCemiterio(TelaRegistroGeral trg){
         validarCampo(trg);
 
-        int idCnpj = verificarObjeto(Integer.parseInt(trg.getJtfNine()));
-        if(idCnpj == 1){
-            return 1;
-        }
-
         Cemiterio c = new Cemiterio(
             trg.getJtfOne(),        // nome
             trg.getJtfTwo(),        // estado
@@ -45,30 +41,12 @@ public class GerenciadorCemiteiro {
         );
         c.setCapacidadeMax(trg.getJtfSevenInt()); // Capacidade Max
 
-        listC.add(c);
+        daoC.createCemiterio(c);
         return 0;
     }
 
-    public int verificarObjeto(int id){
-        Cemiterio c = buscaCemiterio(id);
-        if(c != null){
-            JOptionPane.showMessageDialog(null, "Cemitério com este CNPJ já existe!");
-            return 1;
-        }
-        return 0;
-    }
-
-    public Cemiterio buscaCemiterio(int id) {
-        for (Cemiterio c : listC) {
-            if (c.getCnpj().equals(Integer.toString(id))) {
-                return c;
-            }
-        }
-        return null;
-    }
-
-    public void SelectCemiterio(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
-        Cemiterio c = buscaCemiterio(id);
+    public void selectCemiterio(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
+        Cemiterio c = daoC.readCemiterio(id);
         if (c == null) {
             JOptionPane.showMessageDialog(null, "Cemitério com CNPJ " + id + " não encontrado.");
         } else {
@@ -94,14 +72,7 @@ public class GerenciadorCemiteiro {
     public int updateCemiterio(TelaRegistroGeral trg, int id){
         validarCampo(trg);
 
-        Cemiterio c = buscaCemiterio(id);
-
-        if(!trg.getJtfNine().equals(c.getCnpj())){
-            int cnpjNovo = verificarObjeto(Integer.parseInt(trg.getJtfNine()));
-            if(cnpjNovo == 1){
-                return 1;
-            }
-        }
+        Cemiterio c = daoC.readCemiterio(id);
 
         c.setNome(trg.getJtfOne());
         c.setEstado(trg.getJtfTwo());
@@ -114,12 +85,13 @@ public class GerenciadorCemiteiro {
         c.setCnpj(trg.getJtfNine());
         c.setAdmCpf(trg.getJtfTen());
 
-        listC.add(c);
+        daoC.updateCemiterio(c, id);
+
         return 0;
     }
 
     public void deleteCemiterio(int id){
-        Cemiterio c = buscaCemiterio(id);
-        listC.remove(c);
+        Cemiterio c = daoC.readCemiterio(id);
+        daoC.deleteCemiterio(c, id);
     }
 }

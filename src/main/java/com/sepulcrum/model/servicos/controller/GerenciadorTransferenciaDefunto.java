@@ -3,10 +3,10 @@ package com.sepulcrum.model.servicos.controller;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import com.sepulcrum.model.assets.ValidarCampos;
 import com.sepulcrum.model.servicos.model.TransferenciaDefunto;
 import com.sepulcrum.model.servicos.view.TelaRegistroServico;
 import com.sepulcrum.model.servicos.view.TelaSelectServico;
+import com.sepulcrum.utils.ValidarCampos;
 
 public class GerenciadorTransferenciaDefunto {
     private static List<TransferenciaDefunto> listTD = new ArrayList<>();

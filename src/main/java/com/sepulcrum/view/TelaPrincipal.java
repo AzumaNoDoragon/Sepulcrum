@@ -1,9 +1,7 @@
 package com.sepulcrum.view;
 
 import javax.swing.JButton;
-
 import com.sepulcrum.model.servicos.view.TelaServico;
-import com.sepulcrum.model.view.TelaGerenciadorGeral;
 import com.sepulcrum.view.utils.TelaMenu;
 
 public class TelaPrincipal extends TelaMenu{
@@ -13,13 +11,13 @@ public class TelaPrincipal extends TelaMenu{
             int jbY = y * (i + 1);
             int index = i;
             JButton button = switch (index){
-                case 0 -> jbOne; 
-                case 1 -> jbTwo; 
-                case 2 -> jbThree; 
+                case 0 -> jbOne;
+                case 1 -> jbTwo;
+                case 2 -> jbThree;
                 case 3 -> jbFour;
-                case 4 -> jbFive; 
-                case 5 -> jbVoltar; 
-                default -> null; 
+                case 4 -> jbFive;
+                case 5 -> jbVoltar;
+                default -> null;
             };
             if(button != null){
                 defineBotoes(button, index, jbX, jbY, jbWidth, jbHeight);

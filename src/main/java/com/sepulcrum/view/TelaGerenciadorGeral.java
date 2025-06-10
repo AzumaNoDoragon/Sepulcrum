@@ -1,8 +1,7 @@
-package com.sepulcrum.model.view;
+package com.sepulcrum.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import com.sepulcrum.view.TelaPrincipal;
 
 public class TelaGerenciadorGeral extends JFrame{
     protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;

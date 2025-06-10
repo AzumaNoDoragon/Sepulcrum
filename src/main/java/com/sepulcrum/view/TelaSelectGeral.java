@@ -1,14 +1,15 @@
-package com.sepulcrum.model.view;
+package com.sepulcrum.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import com.sepulcrum.model.controller.GerenciadorAdm;
-import com.sepulcrum.model.controller.GerenciadorCemiteiro;
-import com.sepulcrum.model.controller.GerenciadorFamiliar;
-import com.sepulcrum.model.controller.GerenciadorFinado;
-import com.sepulcrum.model.controller.GerenciadorTumulo;
+
+import com.sepulcrum.controller.GerenciadorAdm;
+import com.sepulcrum.controller.GerenciadorCemiteiro;
+import com.sepulcrum.controller.GerenciadorFamiliar;
+import com.sepulcrum.controller.GerenciadorFinado;
+import com.sepulcrum.controller.GerenciadorTumulo;
 
 public class TelaSelectGeral extends JFrame{
     protected JButton jbBusca, jbCancelar;
@@ -101,15 +102,15 @@ public class TelaSelectGeral extends JFrame{
             switch(index){
                 case 0 -> {
                     if(seletor == 1){
-                        gc.SelectCemiterio(this, seletor, seletorCrud, getId());
+                        gc.selectCemiterio(this, seletor, seletorCrud, getId());
                     } else if(seletor == 2){
-                        ga.SelectAdm(seletor, seletorCrud, getId());
+                        ga.selectAdm(this, seletor, seletorCrud, getId());
                     } else if(seletor == 3){
-                        gt.SelectTumulo(seletor, seletorCrud, getId());
+                        gt.selectTumulo(this, seletor, seletorCrud, getId());
                     } else if(seletor == 4){
-                        gfin.SelectFinado(seletor, seletorCrud, getId());
+                        gfin.selectFinado(this, seletor, seletorCrud, getId());
                     } else if(seletor == 5){
-                        gfam.SelectFamiliar(seletor, seletorCrud, getId());
+                        gfam.selectFamiliar(this, seletor, seletorCrud, getId());
                     }
                 }
                 case 1 -> {

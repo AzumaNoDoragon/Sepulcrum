@@ -1,4 +1,4 @@
-package com.sepulcrum.model.view;
+package com.sepulcrum.view;
 
 import java.sql.Date;
 import java.text.ParseException;
@@ -8,11 +8,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import com.sepulcrum.model.controller.GerenciadorAdm;
-import com.sepulcrum.model.controller.GerenciadorCemiteiro;
-import com.sepulcrum.model.controller.GerenciadorFamiliar;
-import com.sepulcrum.model.controller.GerenciadorFinado;
-import com.sepulcrum.model.controller.GerenciadorTumulo;
+
+import com.sepulcrum.controller.GerenciadorAdm;
+import com.sepulcrum.controller.GerenciadorCemiteiro;
+import com.sepulcrum.controller.GerenciadorFamiliar;
+import com.sepulcrum.controller.GerenciadorFinado;
+import com.sepulcrum.controller.GerenciadorTumulo;
 
 public class TelaRegistroGeral extends JFrame{
     protected JButton jbSalvar, jbCancelar;
@@ -148,13 +149,13 @@ public class TelaRegistroGeral extends JFrame{
                         if(seletor == 1){
                             gc.updateCemiterio(this, id);
                         } else if(seletor == 2){
-                            ga.setAdm(this);
+                            ga.updateAdm(this, id);
                         } else if(seletor == 3){
-                            gt.setTumulo(this);
+                            gt.updateTumulo(this, id);
                         } else if(seletor == 4){
-                            gfin.setFinado(this);
+                            gfin.updateFinado(this, id);
                         } else if(seletor == 5){
-                            gfam.setFamiliar(this);
+                            gfam.updateFamiliar(this, id);
                         }
                         msgAlterada();
                     } else if(seletorCrud == 4){
@@ -333,7 +334,7 @@ public class TelaRegistroGeral extends JFrame{
                 jtfEight = new JTextField();
                 break;
         }
-        if(seletorCrud == 2){
+        if(seletorCrud == 2 | seletorCrud == 4){
             jtfOne.setEditable(false);
             jtfTwo.setEditable(false);
             jtfThree.setEditable(false);
