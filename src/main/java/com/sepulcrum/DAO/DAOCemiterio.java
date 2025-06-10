@@ -1,4 +1,4 @@
-package com.sepulcrum.DAO;
+package com.sepulcrum.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
