@@ -1,7 +1,6 @@
 package com.sepulcrum.controller;
 
 import javax.swing.JOptionPane;
-
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;
@@ -91,7 +90,7 @@ public class GerenciadorCemiteiro {
     }
 
     public void deleteCemiterio(int id){
-        Cemiterio c = daoC.readCemiterio(id);
-        daoC.deleteCemiterio(c, id);
+        daoC.readCemiterio(id);
+        daoC.deleteCemiterio(id);
     }
 }
