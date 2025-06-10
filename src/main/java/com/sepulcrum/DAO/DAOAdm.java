@@ -2,9 +2,11 @@ package com.sepulcrum.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.sepulcrum.database.Conexao;
+import com.sepulcrum.model.localidade.Cemiterio;
 import com.sepulcrum.model.pessoas.Adm;
 
 public class DAOAdm {
@@ -35,6 +37,46 @@ public class DAOAdm {
             }
         } catch(Exception e){
             throw new IllegalArgumentException("Não foi possivel inserir no banco: " + e.getMessage());
+        } finally {
+            conn.close();
+        }
+    }
+
+    public Adm readAdm(int id){
+        Conexao conn = new Conexao();
+        try {
+            conn.conectar();
+            Connection connection = conn.getConnection();
+            
+            String sql = "SELECT COV_CPF, COV_NOME, COV_RG, COV_DATA_NASCIMENTO, COV_EMAIL, COV_TELEFONE, COV_CARGO, COV_DATA_CONTRATACAO, CEM_CNPJ " +
+                        "FROM adm WHERE COV_CPF = ?";
+
+            try(PreparedStatement stmt = connection.prepareStatement(sql)){
+                stmt.setString(1, Integer.toString(id));
+
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()) {
+                        Adm a = new Adm(
+                            rs.getString("COV_NOME"),
+                            rs.getString("COV_CPF"),
+                            rs.getString("COV_DATA_NASCIMENTO"),
+                            rs.getString("COV_DATA_CONTRATACAO"),
+                            rs.getString("COV_EMAIL"),
+                            rs.getString("COV_TELEFONE"),
+                            rs.getString("COV_CARGO"),
+                            rs.getString("CEM_CNPJ"),
+                            
+                        );
+                        a.setRg(rs.getString("COV_RG"));
+
+                        return a;
+                    } else {
+                        return null;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Erro ao ler coveiro: " + e.getMessage(), e);
         } finally {
             conn.close();
         }
