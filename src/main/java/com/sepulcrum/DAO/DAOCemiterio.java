@@ -48,7 +48,7 @@ public class DAOCemiterio {
             Connection connection = conn.getConnection();
             
             String sql = "SELECT cem_nome, cem_estado, cem_cidade, cem_rua, cem_numero, cem_cep, cem_capacidade, cem_telefone, cem_cnpj, adm_cpf " +
-                        "FROM sepulcrum.cemiterio WHERE cem_cnpj = ?";
+                        "FROM cemiterio WHERE cem_cnpj = ?";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
                 stmt.setString(1, Integer.toString(id));
@@ -106,7 +106,7 @@ public class DAOCemiterio {
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
-                    throw new SQLException("Falha ao inserir o cemitério. Nenhuma linha afetada.");
+                    throw new SQLException("Falha ao alterar o cemitério. Nenhuma linha afetada.");
                 }
             }
         } catch(Exception e){
@@ -129,7 +129,7 @@ public class DAOCemiterio {
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
-                    throw new SQLException("Falha ao inserir o cemitério. Nenhuma linha afetada.");
+                    throw new SQLException("Falha ao deletar cemitério. Nenhuma linha afetada.");
                 }
             }
         } catch(Exception e){
