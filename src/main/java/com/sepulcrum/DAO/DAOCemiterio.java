@@ -116,7 +116,7 @@ public class DAOCemiterio {
         }
     }
 
-    public void deleteCemiterio(Cemiterio c, int id){
+    public void deleteCemiterio(int id){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
