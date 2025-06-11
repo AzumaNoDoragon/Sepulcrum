@@ -13,6 +13,7 @@ import com.sepulcrum.controller.localidade.TumuloController;
 import com.sepulcrum.controller.pessoa.AdmController;
 import com.sepulcrum.controller.pessoa.FamiliarController;
 import com.sepulcrum.controller.pessoa.FinadoController;
+import com.sepulcrum.view.comum.TelaGerenciadorGeral;
 
 public class TelaRegistroGeral extends JFrame{
     protected JButton jbSalvar, jbCancelar;
