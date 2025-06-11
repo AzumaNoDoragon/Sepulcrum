@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;
-import com.sepulcrum.view.TelaSelectGeral;
+import com.sepulcrum.view.comum.TelaSelecao;
 import com.sepulcrum.dao.pessoa.AdmDAO;
 import com.sepulcrum.model.pessoa.Adm;
 
@@ -41,7 +41,7 @@ public class AdmController {
         daoA.createAdm(a);
     }
 
-    public void selectAdm(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
+    public void selectAdm(TelaSelecao tsg, int seletor, int seletorCrud, int id){
         Adm a = daoA.readAdm(id);
         if (a == null) {
             JOptionPane.showMessageDialog(null, "Coveiro com CPF " + id + " não encontrado.");
