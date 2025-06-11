@@ -129,13 +129,13 @@ public class TelaRegistroGeral extends JFrame{
                             if(seletor == 1){
                                 sucesso = gc.setCemiterio(this);
                             } else if(seletor == 2){
-                                ga.setAdm(this);
+                                sucesso = ga.setAdm(this);
                             } else if(seletor == 3){
-                                gt.setTumulo(this);
+                                sucesso = gt.setTumulo(this);
                             } else if(seletor == 4){
-                                gfin.setFinado(this);
+                                sucesso = gfin.setFinado(this);
                             } else if(seletor == 5){
-                                gfam.setFamiliar(this);
+                                sucesso = gfam.setFamiliar(this);
                             }
                             if(sucesso == 0){
                                 msgSucesso();

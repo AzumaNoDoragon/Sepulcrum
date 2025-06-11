@@ -1,7 +1,6 @@
 package com.sepulcrum.controller;
 
 import javax.swing.JOptionPane;
-
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;

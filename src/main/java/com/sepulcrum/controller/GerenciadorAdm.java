@@ -1,17 +1,16 @@
 package com.sepulcrum.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
-
+import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;
 import com.sepulcrum.view.TelaSelectGeral;
+import com.sepulcrum.dao.DAOAdm;
 import com.sepulcrum.model.pessoas.Adm;
 
 public class GerenciadorAdm {
-    private static List<Adm> listA = new ArrayList<>();
-    private ValidarCampos vc = new ValidarCampos();
+    private DAOAdm daoA = new DAOAdm();
+    private ValidadorCamposInterface vc = new ValidarCampos();
 
     public void validarCampo(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfOne(), "Nome");
@@ -27,11 +26,6 @@ public class GerenciadorAdm {
     public int setAdm(TelaRegistroGeral trg){
         validarCampo(trg);
 
-        int idCpf = verificaObjeto(Integer.parseInt(trg.getJtfTwo()));
-        if(idCpf == 1){
-            return 1;
-        }
-
         Adm a = new Adm(
             trg.getJtfOne(),         // nome
             trg.getJtfTwo(),         // cpf
@@ -42,33 +36,14 @@ public class GerenciadorAdm {
             trg.getJtfEight(),       // cargo
             trg.getJtfNine()         // cemCnpj
         );
-
         a.setRg(trg.getJtfThree()); // RG
 
-        listA.add(a);
+        daoA.createAdm(a);
         return 0;
-    }
-
-    public int verificaObjeto(int id){
-        Adm a = buscaAdm(id);
-        if(a != null){
-            JOptionPane.showMessageDialog(null, "Funcionario com este CPF já existe");
-            return 1;
-        }
-        return 0;
-    }
-
-    public Adm buscaAdm(int id) {
-        for (Adm a : listA) {
-            if (a.getCpf().equals(Integer.toString(id))) {
-                return a;
-            }
-        }
-        return null;
     }
 
     public void selectAdm(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
-        Adm a = buscaAdm(id);
+        Adm a = daoA.readAdm(id);
         if (a == null) {
             JOptionPane.showMessageDialog(null, "Coveiro com CPF " + id + " não encontrado.");
         } else {
@@ -93,14 +68,7 @@ public class GerenciadorAdm {
     public int updateAdm(TelaRegistroGeral trg, int id){
         validarCampo(trg);
 
-        Adm a = buscaAdm(id);
-
-        if(!trg.getJtfTwo().equals(a.getCpf())){
-            int cpfNovo = verificaObjeto(Integer.parseInt(trg.getJtfTwo()));
-            if(cpfNovo == 1){
-                return 1;
-            }
-        }
+        Adm a = daoA.readAdm(id);
 
         a.setNome(trg.getJtfOne());
         a.setCpf(trg.getJtfTwo());
@@ -112,11 +80,13 @@ public class GerenciadorAdm {
         a.setCargo(trg.getJtfEight());
         a.setCemCnpj(trg.getJtfNine());
 
+        daoA.updateAdm(a, id);
+
         return 0;
     }
 
     public void deleteAdm(int id){
-        Adm a = buscaAdm(id);
-        listA.remove(a);
+        Adm a = daoA.readAdm(id);
+        daoA.deleteAdm(a, id);;
     }
 }
