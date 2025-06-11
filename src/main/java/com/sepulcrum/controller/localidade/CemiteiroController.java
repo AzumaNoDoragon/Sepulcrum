@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;
-import com.sepulcrum.view.TelaSelectGeral;
+import com.sepulcrum.view.comum.TelaSelecao;
 import com.sepulcrum.dao.localidade.CemiterioDAO;
 import com.sepulcrum.model.localidade.Cemiterio;
 
@@ -43,7 +43,7 @@ public class CemiteiroController {
         daoC.createCemiterio(c);
     }
 
-    public void selectCemiterio(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
+    public void selectCemiterio(TelaSelecao tsg, int seletor, int seletorCrud, int id){
         Cemiterio c = daoC.readCemiterio(id);
         if (c == null) {
             JOptionPane.showMessageDialog(null, "Cemitério com CNPJ " + id + " não encontrado.");
