@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;
-import com.sepulcrum.view.TelaSelectGeral;
+import com.sepulcrum.view.comum.TelaSelecao;
 import com.sepulcrum.dao.pessoa.FamiliarDAO;
 import com.sepulcrum.model.pessoa.Familiar;
 
@@ -40,7 +40,7 @@ public class FamiliarController{
         daoF.createFamiliar(fam);
     }
 
-    public void selectFamiliar(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
+    public void selectFamiliar(TelaSelecao tsg, int seletor, int seletorCrud, int id){
         Familiar fam = daoF.readFamiliar(id);
         if (fam == null) {
             JOptionPane.showMessageDialog(null, "Familiar com CPF " + id + " não encontrado.");
