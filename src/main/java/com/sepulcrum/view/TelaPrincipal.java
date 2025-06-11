@@ -1,7 +1,7 @@
 package com.sepulcrum.view;
 
 import javax.swing.JButton;
-import com.sepulcrum.model.servicos.view.TelaServico;
+import com.sepulcrum.model.servico.view.TelaServico;
 import com.sepulcrum.view.utils.TelaMenu;
 
 public class TelaPrincipal extends TelaMenu{
