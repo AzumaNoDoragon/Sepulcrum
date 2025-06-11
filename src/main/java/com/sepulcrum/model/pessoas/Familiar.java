@@ -6,8 +6,8 @@ import com.sepulcrum.model.pessoas.utils.PessoasVivas;
 
 public class Familiar extends PessoasVivas {
     private Grau grauParentesco;
-    private String certidaoObito;
-    
+    private String certidaoObito, rg;
+
     private enum Grau{
         Ascendente, Descendente, Colateral, Conjuge, NaoParente
     }
@@ -40,5 +40,13 @@ public class Familiar extends PessoasVivas {
 
     public void setCertidaoObito(String certidaoObito) {
         this.certidaoObito = certidaoObito;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 }

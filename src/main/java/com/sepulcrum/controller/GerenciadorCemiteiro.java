@@ -90,7 +90,7 @@ public class GerenciadorCemiteiro {
     }
 
     public void deleteCemiterio(int id){
-        Cemiterio c = daoC.readCemiterio(id);
-        daoC.deleteCemiterio(c, id);
+        daoC.readCemiterio(id);
+        daoC.deleteCemiterio(id);
     }
 }
