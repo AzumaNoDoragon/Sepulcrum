@@ -1,17 +1,16 @@
 package com.sepulcrum.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
-
+import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;
 import com.sepulcrum.view.TelaSelectGeral;
+import com.sepulcrum.dao.DAOTumulo;
 import com.sepulcrum.model.localidade.Tumulo;
 
 public class GerenciadorTumulo {
-    private static List<Tumulo> listT = new ArrayList<>();
-    private ValidarCampos vc = new ValidarCampos();
+    private DAOTumulo daoT = new DAOTumulo();
+    private ValidadorCamposInterface vc = new ValidarCampos();
 
     public void validarCampo(TelaRegistroGeral trg){
         vc.validarCampo(trg.getJtfOne(), "Tipo");
@@ -21,13 +20,8 @@ public class GerenciadorTumulo {
         vc.validarCampo(trg.getJtfSix(), "CNPJ");
     }
 
-    public int setTumulo(TelaRegistroGeral trg){
+    public void setTumulo(TelaRegistroGeral trg){
         validarCampo(trg);
-
-        int idNumero = verificarObjeto(Integer.parseInt(trg.getJtfFiveString()));
-        if(idNumero == 1){
-            return 1;
-        }
 
         Tumulo t = new Tumulo(
             trg.getJtfOne(),        // tipo
@@ -38,30 +32,11 @@ public class GerenciadorTumulo {
             trg.getJtfSix()         // cemCnpj
         );
         
-        listT.add(t);
-        return 0;
-    }
-
-    public int verificarObjeto(int id){
-        Tumulo t = buscaTumulo(id);
-        if(t != null){
-            JOptionPane.showMessageDialog(null, "Tumulo com este número já existe");
-            return 1;
-        }
-        return 0;
-    }
-
-    public Tumulo buscaTumulo(int id) {
-        for (Tumulo t : listT) {
-            if (t.getNumero().equals(Integer.toString(id))) {
-                return t;
-            }
-        }
-        return null;
+        daoT.createTumulo(t);
     }
 
     public void selectTumulo(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
-        Tumulo t = buscaTumulo(id);
+        Tumulo t = daoT.readTumulo(id);
         if (t == null) {
             JOptionPane.showMessageDialog(null, "Túmulo de código " + id + " não encontrado.");
         } else {
@@ -80,17 +55,10 @@ public class GerenciadorTumulo {
         trg.setJtfSix(t.getCemCnpj());
     }
 
-    public int updateTumulo(TelaRegistroGeral trg, int id){
+    public void updateTumulo(TelaRegistroGeral trg, int id){
         validarCampo(trg);
 
-        Tumulo t = buscaTumulo(id);
-
-        if(!trg.getJtfFiveString().equals(t.getNumero())){
-            int numeroNovo = verificarObjeto(Integer.parseInt(trg.getJtfFiveString()));
-            if(numeroNovo == 1){
-                return 1;
-            }
-        }
+        Tumulo t = daoT.readTumulo(id);
 
         t.setTipo(trg.getJtfOne());
         t.setSituacao(trg.getJtfTwo());
@@ -98,12 +66,10 @@ public class GerenciadorTumulo {
         t.setRua(trg.getJtfFourString());
         t.setNumero(trg.getJtfFiveString());
         t.setCemCnpj(trg.getJtfSix());
-
-        return 0;
     }
 
     public void deleteTumulo(int id){
-        Tumulo t = buscaTumulo(id);
-        listT.remove(t);
+        daoT.readTumulo(id);
+        daoT.deleteTumulo(id);
     }
 }
