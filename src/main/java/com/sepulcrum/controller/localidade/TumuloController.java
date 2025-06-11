@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;
-import com.sepulcrum.view.TelaSelectGeral;
+import com.sepulcrum.view.comum.TelaSelecao;
 import com.sepulcrum.dao.localidade.TumuloDAO;
 import com.sepulcrum.model.localidade.Tumulo;
 
@@ -35,7 +35,7 @@ public class TumuloController {
         daoT.createTumulo(t);
     }
 
-    public void selectTumulo(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
+    public void selectTumulo(TelaSelecao tsg, int seletor, int seletorCrud, int id){
         Tumulo t = daoT.readTumulo(id);
         if (t == null) {
             JOptionPane.showMessageDialog(null, "Túmulo de código " + id + " não encontrado.");
