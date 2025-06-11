@@ -4,23 +4,22 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import com.sepulcrum.controller.GerenciadorAdm;
-import com.sepulcrum.controller.GerenciadorCemiteiro;
-import com.sepulcrum.controller.GerenciadorFamiliar;
-import com.sepulcrum.controller.GerenciadorFinado;
-import com.sepulcrum.controller.GerenciadorTumulo;
+import com.sepulcrum.controller.localidade.CemiteiroController;
+import com.sepulcrum.controller.localidade.TumuloController;
+import com.sepulcrum.controller.pessoa.AdmController;
+import com.sepulcrum.controller.pessoa.FamiliarController;
+import com.sepulcrum.controller.pessoa.FinadoController;
 
 public class TelaSelectGeral extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;
     protected JLabel jlId;
     protected int fWidth, fHeight, qtdBotoes, id;
-    private GerenciadorCemiteiro gc = new GerenciadorCemiteiro();
-    private GerenciadorAdm ga = new GerenciadorAdm();
-    private GerenciadorTumulo gt = new GerenciadorTumulo();
-    private GerenciadorFinado gfin = new GerenciadorFinado();
-    private GerenciadorFamiliar gfam = new GerenciadorFamiliar();
+    private CemiteiroController gc = new CemiteiroController();
+    private AdmController ga = new AdmController();
+    private TumuloController gt = new TumuloController();
+    private FinadoController gfin = new FinadoController();
+    private FamiliarController gfam = new FamiliarController();
 
     public TelaSelectGeral(int seletor, int seletorCrud){
         inicializarVariaveis();
