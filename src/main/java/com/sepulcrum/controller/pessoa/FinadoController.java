@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
 import com.sepulcrum.view.TelaRegistroGeral;
-import com.sepulcrum.view.TelaSelectGeral;
+import com.sepulcrum.view.comum.TelaSelecao;
 import com.sepulcrum.dao.pessoa.FinadoDAO;
 import com.sepulcrum.model.pessoa.Finado;
 
@@ -38,7 +38,7 @@ public class FinadoController {
         daoF.createFinado(fin);
     }
 
-    public void selectFinado(TelaSelectGeral tsg, int seletor, int seletorCrud, int id){
+    public void selectFinado(TelaSelecao tsg, int seletor, int seletorCrud, int id){
         Finado fin = daoF.readFinado(id);
         if (fin == null) {
             JOptionPane.showMessageDialog(null, "Finado com Certidão de Óbito " + id + " não encontrado.");
