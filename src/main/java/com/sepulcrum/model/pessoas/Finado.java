@@ -5,7 +5,7 @@ import java.sql.Date;
 import com.sepulcrum.model.pessoas.utils.Pessoas;
 
 public class Finado extends Pessoas {
-    private String causaMorte, tumRua, tumNumero, certidaoObito;
+    private String causaMorte, tumRua, tumNumero, certidaoObito, rg;
     private Date dataFalecimento;
 
     public Finado(String nome, String cpf, Date dataNascimento, Date dataFalecimento, String certidaoObito, String causaMorte, String tumRua, 
@@ -89,5 +89,13 @@ public class Finado extends Pessoas {
         } else{
             this.dataFalecimento = dataFalecimento;
         }
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 }
