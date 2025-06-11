@@ -8,23 +8,22 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
-import com.sepulcrum.controller.GerenciadorAdm;
-import com.sepulcrum.controller.GerenciadorCemiteiro;
-import com.sepulcrum.controller.GerenciadorFamiliar;
-import com.sepulcrum.controller.GerenciadorFinado;
-import com.sepulcrum.controller.GerenciadorTumulo;
+import com.sepulcrum.controller.localidade.CemiteiroController;
+import com.sepulcrum.controller.localidade.TumuloController;
+import com.sepulcrum.controller.pessoa.AdmController;
+import com.sepulcrum.controller.pessoa.FamiliarController;
+import com.sepulcrum.controller.pessoa.FinadoController;
 
 public class TelaRegistroGeral extends JFrame{
     protected JButton jbSalvar, jbCancelar;
     protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
-    private GerenciadorAdm ga = new GerenciadorAdm();
-    private GerenciadorCemiteiro gc = new GerenciadorCemiteiro();
-    private GerenciadorFamiliar gfam = new GerenciadorFamiliar();
-    private GerenciadorTumulo gt = new GerenciadorTumulo();
-    private GerenciadorFinado gfin = new GerenciadorFinado();
+    private AdmController ga = new AdmController();
+    private CemiteiroController gc = new CemiteiroController();
+    private FamiliarController gfam = new FamiliarController();
+    private TumuloController gt = new TumuloController();
+    private FinadoController gfin = new FinadoController();
 
     public TelaRegistroGeral(int seletor, int seletorCrud, int id){
         inicializarVariaveis(seletor, seletorCrud);
@@ -125,21 +124,18 @@ public class TelaRegistroGeral extends JFrame{
                 case 0 -> {
                     if(seletorCrud == 1){
                         try{
-                            int sucesso = -1;
                             if(seletor == 1){
-                                sucesso = gc.setCemiterio(this);
+                                gc.setCemiterio(this);
                             } else if(seletor == 2){
-                                sucesso = ga.setAdm(this);
+                                ga.setAdm(this);
                             } else if(seletor == 3){
-                                sucesso = gt.setTumulo(this);
+                                gt.setTumulo(this);
                             } else if(seletor == 4){
-                                sucesso = gfin.setFinado(this);
+                                gfin.setFinado(this);
                             } else if(seletor == 5){
-                                sucesso = gfam.setFamiliar(this);
+                                gfam.setFamiliar(this);
                             }
-                            if(sucesso == 0){
-                                msgSucesso();
-                            }
+                            msgSucesso();
                         } catch (Exception e){
                             e.printStackTrace();
                             msgErro(e);
@@ -361,7 +357,7 @@ public class TelaRegistroGeral extends JFrame{
     }
 
     protected void msgConfirmacaoDelecao(int id){
-        GerenciadorCemiteiro gc = new GerenciadorCemiteiro();
+        CemiteiroController gc = new CemiteiroController();
         int opcao = JOptionPane.showConfirmDialog(
             this,
             "Deseja realmente deletar este registro?",
