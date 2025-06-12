@@ -37,17 +37,19 @@ public class TumuloDAO {
         }
     }
 
-    public Tumulo readTumulo(int id){
+    public Tumulo readTumulo(String num, String rua, String cnpj){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
             Connection connection = conn.getConnection();
             
             String sql = "SELECT TUM_TIPO, TUM_SITUACAO, TUM_DATA_OCUPACAO, TUM_RUA, TUM_NUMERO, CEM_CNPJ" +
-                        "FROM tumulo WHERE ??? = ?";
+                        "FROM tumulo WHERE TUM_NUMERO = ? AND TUM_RUA = ? AND CEM_CNP = ?;";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
-                stmt.setString(1, Integer.toString(id));
+                stmt.setString(1, num);
+                stmt.setString(2, rua);
+                stmt.setString(3, cnpj);
 
                 try (ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()) {
@@ -73,14 +75,14 @@ public class TumuloDAO {
         }
     }
 
-    public void updateTumulo(Tumulo t, int id){
+    public void updateTumulo(Tumulo t, String num, String rua, String cnpj){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
             Connection connection = conn.getConnection();
             
             String sql = "UPDATE tumulo SET TUM_TIPO = ?, TUM_SITUACAO = ?, TUM_DATA_OCUPACAO = ?, TUM_RUA = ?, TUM_NUMERO = ?," +
-                        "CEM_CNPJ = ? WHERE ??? = ?;";
+                        "CEM_CNPJ = ? WHERE TUM_NUMERO = ? AND TUM_RUA = ? AND CEM_CNP = ?;";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
                 stmt.setString(1, t.getTipo());
@@ -90,7 +92,9 @@ public class TumuloDAO {
                 stmt.setString(5, t.getNumero());
                 stmt.setString(6, t.getCemCnpj());
 
-                stmt.setString(11, Integer.toString(id)); // Busca por este
+                stmt.setString(7, num); // Busca por este
+                stmt.setString(8, rua); // Busca por este
+                stmt.setString(9, cnpj); // Busca por este
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
@@ -104,16 +108,18 @@ public class TumuloDAO {
         }
     }
 
-    public void deleteTumulo(int id){
+    public void deleteTumulo(String num, String rua, String cnpj){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
             Connection connection = conn.getConnection();
             
-            String sql = "DELETE FROM tumulo WHERE ??? = ?";
+            String sql = "DELETE FROM tumulo WHERE TUM_NUMERO = ? AND TUM_RUA = ? AND CEM_CNP = ?;";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
-                stmt.setString(1, Integer.toString(id));
+                stmt.setString(1, num);
+                stmt.setString(2, rua);
+                stmt.setString(3, cnpj);
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
