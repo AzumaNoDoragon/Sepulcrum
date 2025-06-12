@@ -26,11 +26,27 @@ public class AdmDAO {
                 stmt.setString(6, a.getEmail());
                 stmt.setString(7, a.getTelefone());
                 stmt.setString(8, a.getCargo());
-                stmt.setString(9, a.getCemCnpj());
+                if(a.getCemCnpj().equals("")){
+                    stmt.setString(9, null);
+                } else {
+                    stmt.setString(9, a.getCemCnpj());
+                }
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
                     throw new SQLException("Falha ao inserir o Coveiro. Nenhuma linha afetada.");
+                }
+            }
+
+            if (a.getCargo().equalsIgnoreCase("Adm")) {
+                String sqlAdm = "INSERT INTO adm (ADM_CPF) VALUES (?);";
+                try (PreparedStatement stmtAdm = connection.prepareStatement(sqlAdm)) {
+                    stmtAdm.setString(1, a.getCpf());
+                    
+                    int linhasAfetadas = stmtAdm.executeUpdate();
+                    if (linhasAfetadas == 0) {
+                        throw new SQLException("Falha ao inserir o Adm. Nenhuma linha afetada.");
+                    }
                 }
             }
         } catch(Exception e){
@@ -99,11 +115,23 @@ public class AdmDAO {
                 stmt.setString(8, a.getCargo());
                 stmt.setString(9, a.getCemCnpj());
 
-                stmt.setString(11, Integer.toString(id)); // Busca por este
+                stmt.setString(10, Integer.toString(id)); // Busca por este
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
                     throw new SQLException("Falha ao alterar o Coveiro. Nenhuma linha afetada.");
+                }
+            }
+
+            if (a.getCargo().equalsIgnoreCase("Adm")) {
+                String sqlAdm = "UPDATE adm ADM_CPF = ?;";
+                try (PreparedStatement stmtAdm = connection.prepareStatement(sqlAdm)) {
+                    stmtAdm.setString(1, a.getCpf());
+                    
+                    int linhasAfetadas = stmtAdm.executeUpdate();
+                    if (linhasAfetadas == 0) {
+                        throw new SQLException("Falha ao alterar o Adm. Nenhuma linha afetada.");
+                    }
                 }
             }
         } catch(Exception e){
@@ -118,8 +146,14 @@ public class AdmDAO {
         try {
             conn.conectar();
             Connection connection = conn.getConnection();
+
+            String sqlDeleteAdm = "DELETE FROM adm WHERE ADM_CPF = ?";
+            try (PreparedStatement stmtAdm = connection.prepareStatement(sqlDeleteAdm)) {
+                stmtAdm.setString(1, Integer.toString(id));
+                stmtAdm.executeUpdate(); // mesmo que não exista, tudo certo
+            }
             
-            String sql = "DELETE FROM cemiterio WHERE COV_CPF = ?";
+            String sql = "DELETE FROM coveiro WHERE COV_CPF = ?";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
                 stmt.setString(1, Integer.toString(id));
@@ -129,6 +163,7 @@ public class AdmDAO {
                     throw new SQLException("Falha ao deletar coveiro. Nenhuma linha afetada.");
                 }
             }
+
         } catch(Exception e){
             throw new IllegalArgumentException("Não foi possivel inserir no banco: " + e.getMessage());
         } finally {
