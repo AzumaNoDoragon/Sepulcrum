@@ -3,8 +3,8 @@ package com.sepulcrum.controller.localidade;
 import javax.swing.JOptionPane;
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
-import com.sepulcrum.view.TelaRegistroGeral;
-import com.sepulcrum.view.comum.TelaSelecao;
+import com.sepulcrum.view.comum.TelaSelecaoTumulo;
+import com.sepulcrum.view.localidade.TumuloView;
 import com.sepulcrum.dao.localidade.TumuloDAO;
 import com.sepulcrum.model.localidade.Tumulo;
 
@@ -12,64 +12,64 @@ public class TumuloController {
     private TumuloDAO daoT = new TumuloDAO();
     private ValidadorCamposInterface vc = new ValidarCampos();
 
-    public void validarCampo(TelaRegistroGeral trg){
-        vc.validarCampo(trg.getJtfOne(), "Tipo");
-        vc.validarCampo(trg.getJtfTwo(), "Situação");
-        vc.validarCampo(trg.getJtfFourString(), "Rua");
-        vc.validarCampo(trg.getJtfFiveString(), "Número");
-        vc.validarCampo(trg.getJtfSix(), "CNPJ");
+    public void validarCampo(TumuloView tv){
+        vc.validarCampo(tv.getJtfOne(), "Tipo");
+        vc.validarCampo(tv.getJtfTwo(), "Situação");
+        vc.validarCampo(tv.getJtfFourString(), "Rua");
+        vc.validarCampo(tv.getJtfFiveString(), "Número");
+        vc.validarCampo(tv.getJtfSix(), "CNPJ");
     }
 
-    public void setTumulo(TelaRegistroGeral trg){
-        validarCampo(trg);
+    public void setTumulo(TumuloView tv){
+        validarCampo(tv);
 
         Tumulo t = new Tumulo(
-            trg.getJtfOne(),        // tipo
-            trg.getJtfTwo(),        // situacao
-            trg.getJtfThree(),      // dataOcupacao
-            trg.getJtfFourString(), // rua
-            trg.getJtfFiveString(), // numero
-            trg.getJtfSix()         // cemCnpj
+            tv.getJtfOne(),        // tipo
+            tv.getJtfTwo(),        // situacao
+            tv.getJtfThree(),      // dataOcupacao
+            tv.getJtfFourString(), // rua
+            tv.getJtfFiveString(), // numero
+            tv.getJtfSix()         // cemCnpj
         );
         
         daoT.createTumulo(t);
     }
 
-    public void selectTumulo(TelaSelecao tsg, int seletor, int seletorCrud, int id){
-        Tumulo t = daoT.readTumulo(id);
+    public void selectTumulo(TelaSelecaoTumulo tst, int seletor, int seletorCrud, String num, String rua, String cnpj){
+        Tumulo t = daoT.readTumulo(num, rua, cnpj);
         if (t == null) {
-            JOptionPane.showMessageDialog(null, "Túmulo de código " + id + " não encontrado.");
+            JOptionPane.showMessageDialog(null, "Túmulo de código " + num + rua + cnpj + " não encontrado.");
         } else {
-            tsg.dispose();
-            TelaRegistroGeral trg = new TelaRegistroGeral(seletor, seletorCrud, id);
-            getTumulo(trg, t);
+            tst.dispose();
+            TumuloView tv = new TumuloView(seletor, seletorCrud, num, rua, cnpj);
+            getTumulo(tv, t);
         }
     }
 
-    public void getTumulo(TelaRegistroGeral trg, Tumulo t){
-        trg.setJtfOne(t.getTipo());
-        trg.setJtfTwo(t.getSituacao());
-        trg.setJtfThree(t.getDataOcupacao());
-        trg.setJtfFour(t.getRua());
-        trg.setJtfFive(t.getNumero());
-        trg.setJtfSix(t.getCemCnpj());
+    public void getTumulo(TumuloView tv, Tumulo t){
+        tv.setJtfOne(t.getTipo());
+        tv.setJtfTwo(t.getSituacao());
+        tv.setJtfThree(t.getDataOcupacao());
+        tv.setJtfFour(t.getRua());
+        tv.setJtfFive(t.getNumero());
+        tv.setJtfSix(t.getCemCnpj());
     }
 
-    public void updateTumulo(TelaRegistroGeral trg, int id){
-        validarCampo(trg);
+    public void updateTumulo(TumuloView tv, String num, String rua, String cnpj){
+        validarCampo(tv);
 
-        Tumulo t = daoT.readTumulo(id);
+        Tumulo t = daoT.readTumulo(num, rua, cnpj);
 
-        t.setTipo(trg.getJtfOne());
-        t.setSituacao(trg.getJtfTwo());
-        t.setDataOcupacao(trg.getJtfThree());
-        t.setRua(trg.getJtfFourString());
-        t.setNumero(trg.getJtfFiveString());
-        t.setCemCnpj(trg.getJtfSix());
+        t.setTipo(tv.getJtfOne());
+        t.setSituacao(tv.getJtfTwo());
+        t.setDataOcupacao(tv.getJtfThree());
+        t.setRua(tv.getJtfFourString());
+        t.setNumero(tv.getJtfFiveString());
+        t.setCemCnpj(tv.getJtfSix());
     }
 
-    public void deleteTumulo(int id){
-        daoT.readTumulo(id);
-        daoT.deleteTumulo(id);
+    public void deleteTumulo(String num, String rua, String cnpj){
+        daoT.readTumulo(num, rua, cnpj);
+        daoT.deleteTumulo(num, rua, cnpj);
     }
 }
