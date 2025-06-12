@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import com.sepulcrum.controller.localidade.CemiteiroController;
-import com.sepulcrum.controller.localidade.TumuloController;
 import com.sepulcrum.controller.pessoa.AdmController;
 import com.sepulcrum.controller.pessoa.FamiliarController;
 import com.sepulcrum.controller.pessoa.FinadoController;
@@ -17,7 +16,6 @@ public class TelaSelecao extends JFrame{
     protected int fWidth, fHeight, qtdBotoes, id;
     private CemiteiroController gc = new CemiteiroController();
     private AdmController ga = new AdmController();
-    private TumuloController gt = new TumuloController();
     private FinadoController gfin = new FinadoController();
     private FamiliarController gfam = new FamiliarController();
 
@@ -104,8 +102,6 @@ public class TelaSelecao extends JFrame{
                         gc.selectCemiterio(this, seletor, seletorCrud, getId());
                     } else if(seletor == 2){
                         ga.selectAdm(this, seletor, seletorCrud, getId());
-                    } else if(seletor == 3){
-                        gt.selectTumulo(this, seletor, seletorCrud, getId());
                     } else if(seletor == 4){
                         gfin.selectFinado(this, seletor, seletorCrud, getId());
                     } else if(seletor == 5){
