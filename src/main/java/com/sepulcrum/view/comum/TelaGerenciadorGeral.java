@@ -2,8 +2,11 @@ package com.sepulcrum.view.comum;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
-import com.sepulcrum.view.TelaRegistroGeral;
+import com.sepulcrum.view.localidade.CemiterioView;
+import com.sepulcrum.view.localidade.TumuloView;
+import com.sepulcrum.view.pessoa.AdmView;
+import com.sepulcrum.view.pessoa.FamiliarView;
+import com.sepulcrum.view.pessoa.FinadoView;
 
 public class TelaGerenciadorGeral extends JFrame{
     protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;
@@ -51,12 +54,35 @@ public class TelaGerenciadorGeral extends JFrame{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaRegistroGeral(seletor, 1, -1);
-                case 1 -> new TelaSelecao(seletor, 2); // passar propriedade busca
-                case 2 -> new TelaSelecao(seletor, 3); // passar propriedade updade
-                case 3 -> new TelaSelecao(seletor, 4); // passar propriedade delete
+                case 0 -> {
+                    switch(seletor){
+                        case 1 -> new CemiterioView(seletor, 1, -1);
+                        case 2 -> new AdmView(seletor, 1, -1);
+                        case 3 -> new TumuloView(seletor, 1, "", "", "");
+                        case 4 -> new FinadoView(seletor, 1, -1);
+                        case 5 -> new FamiliarView(seletor, 1, -1);
+                    }
+                }
+                case 1 -> {
+                    if(seletor != 3)
+                        new TelaSelecao(seletor, 2);
+                    else
+                        new TelaSelecaoTumulo(seletor, 2);
+                }
+                case 2 -> {
+                    if(seletor != 3)
+                        new TelaSelecao(seletor, 3);
+                    else
+                        new TelaSelecaoTumulo(seletor, 3);
+                }
+                case 3 -> {
+                    if(seletor != 3)
+                        new TelaSelecao(seletor, 4);
+                    else
+                        new TelaSelecaoTumulo(seletor, 4);
+                }
                 case 4 -> new TelaPrincipal();
-            }
+        }
             dispose();
         });
         this.add(button);
