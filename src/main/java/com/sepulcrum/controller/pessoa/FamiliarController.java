@@ -40,7 +40,7 @@ public class FamiliarController{
         daoF.createFamiliar(fam);
     }
 
-    public void selectFamiliar(TelaSelecao tsg, int seletor, int seletorCrud, int id){
+    public void selectFamiliar(TelaSelecao tsg, int seletor, int seletorCrud, String id){
         Familiar fam = daoF.readFamiliar(id);
         if (fam == null) {
             JOptionPane.showMessageDialog(null, "Familiar com CPF " + id + " não encontrado.");
@@ -62,7 +62,7 @@ public class FamiliarController{
         famV.setJtfEight(fam.getCertidaoObito());
     }
 
-    public void updateFamiliar(FamiliarView famV, int id){
+    public void updateFamiliar(FamiliarView famV, String id){
         validarCampo(famV);
 
         Familiar fam = daoF.readFamiliar(id);
@@ -77,7 +77,7 @@ public class FamiliarController{
         fam.setCertidaoObito(famV.getJtfEight());
     }
 
-    public void deleteFamiliar(int id){
+    public void deleteFamiliar(String id){
         daoF.readFamiliar(id);
         daoF.deleteFamiliar(id);;
     }
