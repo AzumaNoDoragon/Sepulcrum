@@ -38,7 +38,7 @@ public class FinadoController {
         daoF.createFinado(fin);
     }
 
-    public void selectFinado(TelaSelecao tsg, int seletor, int seletorCrud, int id){
+    public void selectFinado(TelaSelecao tsg, int seletor, int seletorCrud, String id){
         Finado fin = daoF.readFinado(id);
         if (fin == null) {
             JOptionPane.showMessageDialog(null, "Finado com Certidão de Óbito " + id + " não encontrado.");
@@ -61,7 +61,7 @@ public class FinadoController {
         finV.setJtfNine(fin.getTumNumero());
     }
 
-    public void updateFinado(FinadoView finV, int id){
+    public void updateFinado(FinadoView finV, String id){
         validarCampo(finV);
 
         Finado fin = daoF.readFinado(id);
@@ -77,7 +77,7 @@ public class FinadoController {
         fin.setTumNumero(finV.getJtfNine());
     }
 
-    public void deleteFinado(int id){
+    public void deleteFinado(String id){
         daoF.readFinado(id);
         daoF.deleteFinado(id);
     }
