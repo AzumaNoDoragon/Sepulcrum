@@ -43,7 +43,7 @@ public class CemiteiroController {
         daoC.createCemiterio(c);
     }
 
-    public void selectCemiterio(TelaSelecao tsg, int seletor, int seletorCrud, int id){
+    public void selectCemiterio(TelaSelecao tsg, int seletor, int seletorCrud, String id){
         Cemiterio c = daoC.readCemiterio(id);
         if (c == null) {
             JOptionPane.showMessageDialog(null, "Cemitério com CNPJ " + id + " não encontrado.");
@@ -67,7 +67,7 @@ public class CemiteiroController {
         cv.setJtfTen(c.getAdmCpf());
     }
 
-    public void updateCemiterio(CemiterioView cv, int id){
+    public void updateCemiterio(CemiterioView cv, String id){
         validarCampo(cv);
 
         Cemiterio c = daoC.readCemiterio(id);
@@ -86,7 +86,7 @@ public class CemiteiroController {
         daoC.updateCemiterio(c, id);
     }
 
-    public void deleteCemiterio(int id){
+    public void deleteCemiterio(String id){
         daoC.readCemiterio(id);
         daoC.deleteCemiterio(id);
     }
