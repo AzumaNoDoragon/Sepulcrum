@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -13,12 +15,13 @@ import com.sepulcrum.view.comum.TelaGerenciadorGeral;
 
 public class FamiliarView extends JFrame{
     protected JButton jbSalvar, jbCancelar;
-    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight;
+    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfSix, jtfSeven, jtfEight;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight;
+    protected JComboBox<String> jtfFive; 
     protected int fWidth, fHeight, qtdBotoes, jbY;
     private FamiliarController gfam = new FamiliarController();
 
-    public FamiliarView(int seletor, int seletorCrud, int id){
+    public FamiliarView(int seletor, int seletorCrud, String id){
         inicializarVariaveis(seletor, seletorCrud);
         
         // Janela
@@ -67,7 +70,7 @@ public class FamiliarView extends JFrame{
             case 5 -> jlSix;
             case 6 -> jlSeven;
             case 7 -> jlEight;
-            default -> null;
+                        default -> null;
         };
         if(label != null){
             label.setBounds(jbX, jbY, jbWidth, jbHeight);
@@ -76,7 +79,7 @@ public class FamiliarView extends JFrame{
     }
 
     protected void text(int i, int jbX, int jbY, int jbWidth, int jbHeight){
-        JTextField text = switch (i){
+        Component text = switch (i){
             case 0 -> jtfOne;
             case 1 -> jtfTwo;
             case 2 -> jtfThree;
@@ -93,7 +96,7 @@ public class FamiliarView extends JFrame{
         }
     }
 
-    protected void button(int id, int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
+    protected void button(String id, int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
         jbY = y * (qtdBotoes + 1 + i);
         int index = i;
         JButton button = switch (index){
@@ -106,7 +109,7 @@ public class FamiliarView extends JFrame{
         }
     }
     
-    protected void defineBotoes(int id, int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void defineBotoes(String id, int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
@@ -171,7 +174,7 @@ public class FamiliarView extends JFrame{
         jtfTwo = new JTextField();
         jtfThree = new JTextField();
         jtfFour = new JTextField();
-        jtfFive = new JTextField();
+        jtfFive = new JComboBox<>(new String[] {"Ascendente", "Descendente", "Colateral", "Conjuge", "Não Parente"});
         jtfSix = new JTextField();
         jtfSeven = new JTextField();
         jtfEight = new JTextField();
@@ -200,7 +203,7 @@ public class FamiliarView extends JFrame{
         JOptionPane.showMessageDialog(this, "Registro deletado!");
     }
 
-    protected void msgConfirmacaoDelecao(int id){
+    protected void msgConfirmacaoDelecao(String id){
         FamiliarController famC = new FamiliarController();
         int opcao = JOptionPane.showConfirmDialog(
             this,
@@ -247,19 +250,7 @@ public class FamiliarView extends JFrame{
     }
 
     public String getJtfFiveString() {
-        return jtfFive.getText();
-    }
-
-    public Date getJtfFiveDate() {
-        String text = jtfFive.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        try {
-            java.util.Date utilDate = sdf.parse(text);
-            return new java.sql.Date(utilDate.getTime());
-        } catch (ParseException e) {
-            return null;
-        }
+        return (String) jtfFive.getSelectedItem();
     }
 
     public String getJtfSix() {
@@ -309,17 +300,7 @@ public class FamiliarView extends JFrame{
     }
 
     public void setJtfFive(String value) {
-        jtfFive.setText(value);
-    }
-
-    public void setJtfFive(Date value) {
-        if (value != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(value);
-            jtfFive.setText(dataFormatada);
-        } else {
-            jtfFive.setText("Data não encontrada");
-        }
+        jtfFive.setSelectedItem(value);
     }
 
     public void setJtfSix(String value) {
