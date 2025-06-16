@@ -39,7 +39,7 @@ public class FinadoDAO {
         }
     }
 
-    public Finado readFinado(int id){
+    public Finado readFinado(String id){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
@@ -49,7 +49,7 @@ public class FinadoDAO {
                         "FROM finado WHERE FIN_CERTIDAO_OBITO = ?";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
-                stmt.setString(1, Integer.toString(id));
+                stmt.setString(1, id);
 
                 try (ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()) {
@@ -78,7 +78,7 @@ public class FinadoDAO {
         }
     }
 
-    public void updateFinado(Finado fin, int id){
+    public void updateFinado(Finado fin, String id){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
@@ -98,7 +98,7 @@ public class FinadoDAO {
                 stmt.setString(8, fin.getTumRua());
                 stmt.setString(9, fin.getTumNumero());
 
-                stmt.setString(10, Integer.toString(id)); // Busca por este
+                stmt.setString(10, id); // Busca por este
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
@@ -112,7 +112,7 @@ public class FinadoDAO {
         }
     }
 
-    public void deleteFinado(int id){
+    public void deleteFinado(String id){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
@@ -121,7 +121,7 @@ public class FinadoDAO {
             String sql = "DELETE FROM finado WHERE = ?";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
-                stmt.setString(1, Integer.toString(id));
+                stmt.setString(1, id);
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
