@@ -40,7 +40,7 @@ public class AdmController {
         daoA.createAdm(a);
     }
 
-    public void selectAdm(TelaSelecao tsg, int seletor, int seletorCrud, int id){
+    public void selectAdm(TelaSelecao tsg, int seletor, int seletorCrud, String id){
         Adm a = daoA.readAdm(id);
         if (a == null) {
             JOptionPane.showMessageDialog(null, "Coveiro com CPF " + id + " não encontrado.");
@@ -63,7 +63,7 @@ public class AdmController {
         av.setJtfNine(a.getCemCnpj());
     }
 
-    public void updateAdm(AdmView av, int id){
+    public void updateAdm(AdmView av, String id){
         validarCampo(av);
 
         Adm a = daoA.readAdm(id);
@@ -81,7 +81,7 @@ public class AdmController {
         daoA.updateAdm(a, id);
     }
 
-    public void deleteAdm(int id){
+    public void deleteAdm(String id){
         daoA.readAdm(id);
         daoA.deleteAdm(id);
     }
