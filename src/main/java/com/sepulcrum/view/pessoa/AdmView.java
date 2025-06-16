@@ -21,7 +21,7 @@ public class AdmView extends JFrame{
     protected int fWidth, fHeight, qtdBotoes, jbY;
     private AdmController ga = new AdmController();
 
-    public AdmView(int seletor, int seletorCrud, int id){
+    public AdmView(int seletor, int seletorCrud, String id){
         inicializarVariaveis(seletor, seletorCrud);
         
         // Janela
@@ -98,7 +98,7 @@ public class AdmView extends JFrame{
         }
     }
 
-    protected void button(int id, int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
+    protected void button(String id, int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
         jbY = y * (qtdBotoes + 1 + i);
         int index = i;
         JButton button = switch (index){
@@ -111,7 +111,7 @@ public class AdmView extends JFrame{
         }
     }
     
-    protected void defineBotoes(int id, int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void defineBotoes(String id, int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
@@ -208,7 +208,7 @@ public class AdmView extends JFrame{
         JOptionPane.showMessageDialog(this, "Registro deletado!");
     }
 
-    protected void msgConfirmacaoDelecao(int id){
+    protected void msgConfirmacaoDelecao(String id){
         AdmController ac = new AdmController();
         int opcao = JOptionPane.showConfirmDialog(
             this,
@@ -341,12 +341,11 @@ public class AdmView extends JFrame{
     public void setJtfSeven(String value) {
         jtfSeven.setText(value);
     }
+    public void setJtfEight(String value) {
+        jtfEight.setSelectedItem(value);
+    }
 
     public void setJtfNine(String value) {
         jtfNine.setText(value);
-    }
-
-    public void setJtfEight(String value) {
-        jtfEight.setSelectedItem(value);
     }
 }
