@@ -137,16 +137,8 @@ public class TelaSelecao extends JFrame{
         jtfId = new JTextField();
     }
 
-    public int getId() {
-        String idText = jtfId.getText().trim();
-        if (!idText.isEmpty()) {
-            try {
-                return Integer.parseInt(idText); // Tenta converter para inteiro
-            } catch (NumberFormatException e) {
-                return 0;
-            }
-        } else {
-            return 0;
-        }
+    public String getId() {
+        String idText = jtfId.getText();
+        return idText.isEmpty() ? null : idText;
     }
 }
