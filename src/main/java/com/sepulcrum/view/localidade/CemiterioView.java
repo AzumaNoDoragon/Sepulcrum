@@ -18,7 +18,7 @@ public class CemiterioView extends JFrame{
     protected int fWidth, fHeight, qtdBotoes, jbY;
     private CemiteiroController gc = new CemiteiroController();
 
-    public CemiterioView(int seletor, int seletorCrud, int id){
+    public CemiterioView(int seletor, int seletorCrud, String id){
         inicializarVariaveis(seletor, seletorCrud);
         
         // Janela
@@ -97,7 +97,7 @@ public class CemiterioView extends JFrame{
         }
     }
 
-    protected void button(int id, int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
+    protected void button(String id, int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
         jbY = y * (qtdBotoes + 1 + i);
         int index = i;
         JButton button = switch (index){
@@ -110,7 +110,7 @@ public class CemiterioView extends JFrame{
         }
     }
     
-    protected void defineBotoes(int id, int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+    protected void defineBotoes(String id, int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
@@ -214,7 +214,7 @@ public class CemiterioView extends JFrame{
         JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
-    protected void msgConfirmacaoDelecao(int id){
+    protected void msgConfirmacaoDelecao(String id){
         CemiteiroController gc = new CemiteiroController();
         int opcao = JOptionPane.showConfirmDialog(
             this,
