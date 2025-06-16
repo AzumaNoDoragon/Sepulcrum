@@ -41,7 +41,7 @@ public class CemiterioDAO {
         }
     }
 
-    public Cemiterio readCemiterio(int id){
+    public Cemiterio readCemiterio(String id){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
@@ -51,7 +51,7 @@ public class CemiterioDAO {
                         "FROM cemiterio WHERE cem_cnpj = ?";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
-                stmt.setString(1, Integer.toString(id));
+                stmt.setString(1, id);
 
                 try (ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()) {
@@ -81,7 +81,7 @@ public class CemiterioDAO {
         }
     }
 
-    public void updateCemiterio(Cemiterio c, int id){
+    public void updateCemiterio(Cemiterio c, String id){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
@@ -102,7 +102,7 @@ public class CemiterioDAO {
                 stmt.setString(9, c.getCnpj());
                 stmt.setString(10, c.getAdmCpf());
 
-                stmt.setString(11, Integer.toString(id)); // Busca por este
+                stmt.setString(11, id); // Busca por este
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
@@ -116,7 +116,7 @@ public class CemiterioDAO {
         }
     }
 
-    public void deleteCemiterio(int id){
+    public void deleteCemiterio(String id){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
@@ -125,7 +125,7 @@ public class CemiterioDAO {
             String sql = "DELETE FROM cemiterio WHERE CEM_CNPJ = ?";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
-                stmt.setString(1, Integer.toString(id));
+                stmt.setString(1, id);
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {

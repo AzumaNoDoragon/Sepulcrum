@@ -3,8 +3,8 @@ package com.sepulcrum.controller.pessoa;
 import javax.swing.JOptionPane;
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
-import com.sepulcrum.view.TelaRegistroGeral;
 import com.sepulcrum.view.comum.TelaSelecao;
+import com.sepulcrum.view.pessoa.FamiliarView;
 import com.sepulcrum.dao.pessoa.FamiliarDAO;
 import com.sepulcrum.model.pessoa.Familiar;
 
@@ -12,72 +12,72 @@ public class FamiliarController{
     private FamiliarDAO daoF = new FamiliarDAO();
     private ValidadorCamposInterface vc = new ValidarCampos();
 
-    public void validarCampo(TelaRegistroGeral trg){
-        vc.validarCampo(trg.getJtfOne(), "Nome");
-        vc.validarCampo(trg.getJtfTwo(), "Cpf");
-        vc.validarCampo(trg.getJtfFourDate(), "Data de Nascimento");
-        vc.validarCampo(trg.getJtfFiveString(), "Grau de Parentesco");
-        vc.validarCampo(trg.getJtfSix(), "Email");
-        vc.validarCampo(trg.getJtfSevenString(), "Telefone");
-        vc.validarCampo(trg.getJtfEight(), "Certidão de Óbito");
+    public void validarCampo(FamiliarView famV){
+        vc.validarCampo(famV.getJtfOne(), "Nome");
+        vc.validarCampo(famV.getJtfTwo(), "Cpf");
+        vc.validarCampo(famV.getJtfFourDate(), "Data de Nascimento");
+        vc.validarCampo(famV.getJtfFiveString(), "Grau de Parentesco");
+        vc.validarCampo(famV.getJtfSix(), "Email");
+        vc.validarCampo(famV.getJtfSevenString(), "Telefone");
+        vc.validarCampo(famV.getJtfEight(), "Certidão de Óbito");
     }
     
-    public void setFamiliar(TelaRegistroGeral trg){
-        validarCampo(trg);
+    public void setFamiliar(FamiliarView famV){
+        validarCampo(famV);
 
         Familiar fam = new Familiar(
-            trg.getJtfOne(),        // nome
-            trg.getJtfTwo(),        // cpf
-            trg.getJtfFourDate(),   // dataNascimento
-            trg.getJtfSix(),        // email
-            trg.getJtfSevenString() // telefone
+            famV.getJtfOne(),        // nome
+            famV.getJtfTwo(),        // cpf
+            famV.getJtfFourDate(),   // dataNascimento
+            famV.getJtfSix(),        // email
+            famV.getJtfSevenString() // telefone
         );
 
-        fam.setRg(trg.getJtfThree());                  // RG
-        fam.setGrauParentesco(trg.getJtfFiveString()); // grauParentesco
-        fam.setCertidaoObito(trg.getJtfEight());       // certidaoObito
+        fam.setRg(famV.getJtfThree());                  // RG
+        fam.setGrauParentesco(famV.getJtfFiveString()); // grauParentesco
+        fam.setCertidaoObito(famV.getJtfEight());       // certidaoObito
 
         daoF.createFamiliar(fam);
     }
 
-    public void selectFamiliar(TelaSelecao tsg, int seletor, int seletorCrud, int id){
+    public void selectFamiliar(TelaSelecao tsg, int seletor, int seletorCrud, String id){
         Familiar fam = daoF.readFamiliar(id);
         if (fam == null) {
             JOptionPane.showMessageDialog(null, "Familiar com CPF " + id + " não encontrado.");
         } else {
             tsg.dispose();
-            TelaRegistroGeral trg = new TelaRegistroGeral(seletor, seletorCrud, id);
-            getFamiliar(trg, fam);
+            FamiliarView famV = new FamiliarView(seletor, seletorCrud, id);
+            getFamiliar(famV, fam);
         }
     }
 
-    public void getFamiliar(TelaRegistroGeral trg, Familiar fam){
-        trg.setJtfOne(fam.getNome());
-        trg.setJtfTwo(fam.getCpf());
-        trg.setJtfThree(fam.getRg());
-        trg.setJtfFour(fam.getDataNascimento());
-        trg.setJtfSix(fam.getEmail());
-        trg.setJtfFive(fam.getGrauParentesco());
-        trg.setJtfSeven(fam.getTelefone());
-        trg.setJtfEight(fam.getCertidaoObito());
+    public void getFamiliar(FamiliarView famV, Familiar fam){
+        famV.setJtfOne(fam.getNome());
+        famV.setJtfTwo(fam.getCpf());
+        famV.setJtfThree(fam.getRg());
+        famV.setJtfFour(fam.getDataNascimento());
+        famV.setJtfSix(fam.getEmail());
+        famV.setJtfFive(fam.getGrauParentesco());
+        famV.setJtfSeven(fam.getTelefone());
+        famV.setJtfEight(fam.getCertidaoObito());
     }
 
-    public void updateFamiliar(TelaRegistroGeral trg, int id){
-        validarCampo(trg);
+    public void updateFamiliar(FamiliarView famV, String id){
+        validarCampo(famV);
 
         Familiar fam = daoF.readFamiliar(id);
 
-        fam.setNome(trg.getJtfOne());
-        fam.setCpf(trg.getJtfTwo());
-        fam.setRg(trg.getJtfThree());
-        fam.setDataNascimento(trg.getJtfFourDate());
-        fam.setEmail(trg.getJtfSix());
-        fam.setGrauParentesco(trg.getJtfFiveString());
-        fam.setTelefone(trg.getJtfSevenString());
-        fam.setCertidaoObito(trg.getJtfEight());
+        fam.setNome(famV.getJtfOne());
+        fam.setCpf(famV.getJtfTwo());
+        fam.setRg(famV.getJtfThree());
+        fam.setDataNascimento(famV.getJtfFourDate());
+        fam.setEmail(famV.getJtfSix());
+        fam.setGrauParentesco(famV.getJtfFiveString());
+        fam.setTelefone(famV.getJtfSevenString());
+        fam.setCertidaoObito(famV.getJtfEight());
     }
 
-    public void deleteFamiliar(int id){
+    public void deleteFamiliar(String id){
         daoF.readFamiliar(id);
         daoF.deleteFamiliar(id);;
     }

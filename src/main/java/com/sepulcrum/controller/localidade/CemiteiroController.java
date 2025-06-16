@@ -3,7 +3,7 @@ package com.sepulcrum.controller.localidade;
 import javax.swing.JOptionPane;
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
-import com.sepulcrum.view.TelaRegistroGeral;
+import com.sepulcrum.view.localidade.CemiterioView;
 import com.sepulcrum.view.comum.TelaSelecao;
 import com.sepulcrum.dao.localidade.CemiterioDAO;
 import com.sepulcrum.model.localidade.Cemiterio;
@@ -12,81 +12,81 @@ public class CemiteiroController {
     private CemiterioDAO daoC = new CemiterioDAO();
     private ValidadorCamposInterface vc = new ValidarCampos();
 
-    public void validarCampo(TelaRegistroGeral trg){
-        vc.validarCampo(trg.getJtfOne(), "Nome");
-        vc.validarCampo(trg.getJtfTwo(), "Estado");
-        vc.validarCampo(trg.getJtfThree(), "Cidade");
-        vc.validarCampo(trg.getJtfFourString(), "Rua");
-        vc.validarCampo(trg.getJtfFiveString(), "Número");
-        vc.validarCampo(trg.getJtfSix(), "Cep");
-        vc.validarCampo(trg.getJtfEight(), "Telefone");
-        vc.validarCampo(trg.getJtfNine(), "CNPJ");
-        vc.validarCampo(trg.getJtfTen(), "Adiministrador");
+    public void validarCampo(CemiterioView cv){
+        vc.validarCampo(cv.getJtfOne(), "Nome");
+        vc.validarCampo(cv.getJtfTwo(), "Estado");
+        vc.validarCampo(cv.getJtfThree(), "Cidade");
+        vc.validarCampo(cv.getJtfFourString(), "Rua");
+        vc.validarCampo(cv.getJtfFiveString(), "Número");
+        vc.validarCampo(cv.getJtfSix(), "Cep");
+        vc.validarCampo(cv.getJtfEight(), "Telefone");
+        vc.validarCampo(cv.getJtfNine(), "CNPJ");
+        vc.validarCampo(cv.getJtfTen(), "Adiministrador");
     }
 
-    public void setCemiterio(TelaRegistroGeral trg){
-        validarCampo(trg);
+    public void setCemiterio(CemiterioView cv){
+        validarCampo(cv);
 
         Cemiterio c = new Cemiterio(
-            trg.getJtfOne(),        // nome
-            trg.getJtfTwo(),        // estado
-            trg.getJtfThree(),      // cidade
-            trg.getJtfFourString(), // rua
-            trg.getJtfFiveString(), // numero
-            trg.getJtfSix(),        // cep
-            trg.getJtfEight(),      // telefone
-            trg.getJtfNine(),       // cnpj
-            trg.getJtfTen()         // admCpf
+            cv.getJtfOne(),        // nome
+            cv.getJtfTwo(),        // estado
+            cv.getJtfThree(),      // cidade
+            cv.getJtfFourString(), // rua
+            cv.getJtfFiveString(), // numero
+            cv.getJtfSix(),        // cep
+            cv.getJtfEight(),      // telefone
+            cv.getJtfNine(),       // cnpj
+            cv.getJtfTen()         // admCpf
         );
-        c.setCapacidadeMax(trg.getJtfSevenInt()); // Capacidade Max
+        c.setCapacidadeMax(cv.getJtfSevenInt()); // Capacidade Max
 
         daoC.createCemiterio(c);
     }
 
-    public void selectCemiterio(TelaSelecao tsg, int seletor, int seletorCrud, int id){
+    public void selectCemiterio(TelaSelecao tsg, int seletor, int seletorCrud, String id){
         Cemiterio c = daoC.readCemiterio(id);
         if (c == null) {
             JOptionPane.showMessageDialog(null, "Cemitério com CNPJ " + id + " não encontrado.");
         } else {
             tsg.dispose();
-            TelaRegistroGeral trg = new TelaRegistroGeral(seletor, seletorCrud, id);
-            getCemiterio(trg, c);
+            CemiterioView cv = new CemiterioView(seletor, seletorCrud, id);
+            getCemiterio(cv, c);
         }
     }
 
-    public void getCemiterio(TelaRegistroGeral trg, Cemiterio c){
-        trg.setJtfOne(c.getNome());
-        trg.setJtfTwo(c.getEstado());
-        trg.setJtfThree(c.getCidade());
-        trg.setJtfFour(c.getRua());
-        trg.setJtfFive(c.getNumero());
-        trg.setJtfSix(c.getCep());
-        trg.setJtfSeven(Integer.toString(c.getCapacidadeMax()));
-        trg.setJtfEight(c.getTelefone());
-        trg.setJtfNine(c.getCnpj());
-        trg.setJtfTen(c.getAdmCpf());
+    public void getCemiterio(CemiterioView cv, Cemiterio c){
+        cv.setJtfOne(c.getNome());
+        cv.setJtfTwo(c.getEstado());
+        cv.setJtfThree(c.getCidade());
+        cv.setJtfFour(c.getRua());
+        cv.setJtfFive(c.getNumero());
+        cv.setJtfSix(c.getCep());
+        cv.setJtfSeven(Integer.toString(c.getCapacidadeMax()));
+        cv.setJtfEight(c.getTelefone());
+        cv.setJtfNine(c.getCnpj());
+        cv.setJtfTen(c.getAdmCpf());
     }
 
-    public void updateCemiterio(TelaRegistroGeral trg, int id){
-        validarCampo(trg);
+    public void updateCemiterio(CemiterioView cv, String id){
+        validarCampo(cv);
 
         Cemiterio c = daoC.readCemiterio(id);
 
-        c.setNome(trg.getJtfOne());
-        c.setEstado(trg.getJtfTwo());
-        c.setCidade(trg.getJtfThree());
-        c.setRua(trg.getJtfFourString());
-        c.setNumero(trg.getJtfFiveString());
-        c.setCep(trg.getJtfSix());
-        c.setCapacidadeMax(trg.getJtfSevenInt());
-        c.setTelefone(trg.getJtfEight());
-        c.setCnpj(trg.getJtfNine());
-        c.setAdmCpf(trg.getJtfTen());
+        c.setNome(cv.getJtfOne());
+        c.setEstado(cv.getJtfTwo());
+        c.setCidade(cv.getJtfThree());
+        c.setRua(cv.getJtfFourString());
+        c.setNumero(cv.getJtfFiveString());
+        c.setCep(cv.getJtfSix());
+        c.setCapacidadeMax(cv.getJtfSevenInt());
+        c.setTelefone(cv.getJtfEight());
+        c.setCnpj(cv.getJtfNine());
+        c.setAdmCpf(cv.getJtfTen());
 
         daoC.updateCemiterio(c, id);
     }
 
-    public void deleteCemiterio(int id){
+    public void deleteCemiterio(String id){
         daoC.readCemiterio(id);
         daoC.deleteCemiterio(id);
     }

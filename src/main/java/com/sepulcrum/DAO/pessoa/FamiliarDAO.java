@@ -39,7 +39,7 @@ public class FamiliarDAO {
         }
     }
 
-    public Familiar readFamiliar(int id){
+    public Familiar readFamiliar(String id){
         Conexao conn = new Conexao();
         try{
             conn.conectar();
@@ -49,7 +49,7 @@ public class FamiliarDAO {
                         "FROM familiar WHERE FAM_CPF = ?;";
         
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
-                stmt.setString(1, Integer.toString(id));
+                stmt.setString(1, id);
 
                 try (ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()) {
@@ -77,7 +77,7 @@ public class FamiliarDAO {
         }
     }
 
-    public void updateFamiliar(Familiar fam, int id){
+    public void updateFamiliar(Familiar fam, String id){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
@@ -96,7 +96,7 @@ public class FamiliarDAO {
                 stmt.setString(7, fam.getRg());
                 stmt.setString(8, fam.getCertidaoObito());
 
-                stmt.setString(9, Integer.toString(id)); // Busca por este
+                stmt.setString(9, id); // Busca por este
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
@@ -110,7 +110,7 @@ public class FamiliarDAO {
         }
     }
 
-    public void deleteFamiliar(int id){
+    public void deleteFamiliar(String id){
         Conexao conn = new Conexao();
         try {
             conn.conectar();
@@ -119,7 +119,7 @@ public class FamiliarDAO {
             String sql = "DELETE FROM familiar WHERE FAM_CPF = ?";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
-                stmt.setString(1, Integer.toString(id));
+                stmt.setString(1, id);
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {

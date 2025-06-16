@@ -4,22 +4,17 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import com.sepulcrum.controller.localidade.CemiteiroController;
-import com.sepulcrum.controller.pessoa.AdmController;
-import com.sepulcrum.controller.pessoa.FamiliarController;
-import com.sepulcrum.controller.pessoa.FinadoController;
+import com.sepulcrum.controller.localidade.TumuloController;
 
-public class TelaSelecao extends JFrame{
+public class TelaSelecaoTumulo extends JFrame{
     protected JButton jbBusca, jbCancelar;
-    protected JTextField jtfId;
-    protected JLabel jlId;
-    protected int fWidth, fHeight, qtdBotoes, id;
-    private CemiteiroController gc = new CemiteiroController();
-    private AdmController ga = new AdmController();
-    private FinadoController gfin = new FinadoController();
-    private FamiliarController gfam = new FamiliarController();
+    protected JTextField jtfOne, jtfTwo, jtfThree;
+    protected JLabel jlOne, jlTwo, jlThree;
+    protected int fWidth, fHeight, qtdBotoes;
+    private String idOne, idTwo, idThree;
+    private TumuloController tc = new TumuloController();
 
-    public TelaSelecao(int seletor, int seletorCrud){
+    public TelaSelecaoTumulo(int seletor, int seletorCrud){
         inicializarVariaveis();
 
         // Janela
@@ -61,7 +56,9 @@ public class TelaSelecao extends JFrame{
 
     private void label(int i, int jbX, int jbY, int jbWidth, int jbHeight){
         JLabel label = switch (i){
-            case 0 -> jlId;
+            case 0 -> jlOne;
+            case 1 -> jlTwo;
+            case 2 -> jlThree;
             default -> null;
         };
         if(label != null){
@@ -72,7 +69,9 @@ public class TelaSelecao extends JFrame{
 
     protected void text(int i, int jbX, int jbY, int jbWidth, int jbHeight){
         JTextField text = switch (i){
-            case 0 -> jtfId;
+            case 0 -> jtfOne;
+            case 1 -> jtfTwo;
+            case 2 -> jtfThree;
             default -> null;
         };
         if(text != null){
@@ -98,15 +97,7 @@ public class TelaSelecao extends JFrame{
         button.addActionListener(_ -> {
             switch(index){
                 case 0 -> {
-                    if(seletor == 1){
-                        gc.selectCemiterio(this, seletor, seletorCrud, getId());
-                    } else if(seletor == 2){
-                        ga.selectAdm(this, seletor, seletorCrud, getId());
-                    } else if(seletor == 4){
-                        gfin.selectFinado(this, seletor, seletorCrud, getId());
-                    } else if(seletor == 5){
-                        gfam.selectFamiliar(this, seletor, seletorCrud, getId());
-                    }
+                    tc.selectTumulo(this, seletor, seletorCrud, getIdOne(), getIdTwo(), getIdThree());
                 }
                 case 1 -> {
                     dispose();
@@ -120,7 +111,7 @@ public class TelaSelecao extends JFrame{
     protected void inicializarVariaveis(){
         //Configura tamanho da janela e botões
         fWidth = 500;
-        fHeight = 300;
+        fHeight = 500;
         qtdBotoes = 3;
 
         // Janela
@@ -131,14 +122,25 @@ public class TelaSelecao extends JFrame{
         jbCancelar = new JButton("Cancelar");
 
         // Label
-        jlId = new JLabel("Busca por id: ");
+        jlOne = new JLabel("Número: ");
+        jlTwo = new JLabel("Rua: ");
+        jlThree = new JLabel("CNPJ: ");
 
         // Text Field
-        jtfId = new JTextField();
+        jtfOne = new JTextField();
+        jtfTwo = new JTextField();
+        jtfThree = new JTextField();
     }
 
-    public String getId() {
-        String idText = jtfId.getText();
-        return idText.isEmpty() ? null : idText;
+    public String getIdOne() {
+        return idOne;
+    }
+
+    public String getIdTwo() {
+        return idTwo;
+    }
+
+    public String getIdThree() {
+        return idThree;
     }
 }

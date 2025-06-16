@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,8 +19,9 @@ import com.sepulcrum.model.servico.controller.GerenciadorVistoria;
 
 public class TelaRegistroServico extends JFrame{
     protected JButton jbSalvar, jbCancelar;
-    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen, jtfEleven, jtfTwelve, jtfThirteen;
+    protected JTextField jtfOne, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen, jtfEleven, jtfTwelve, jtfThirteen;
     protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen, jlEleven, jlTwelve, jlThirteen;
+    protected JComboBox<String> jtfTwo;
     protected int fWidth, fHeight, qtdBotoes, jbY;
     private GerenciadorExumacao ge = new GerenciadorExumacao();
     private GerenciadorManutencaoTumulo gmt = new GerenciadorManutencaoTumulo();
@@ -89,7 +92,7 @@ public class TelaRegistroServico extends JFrame{
     }
 
     protected void text(int i, int jbX, int jbY, int jbWidth, int jbHeight){
-        JTextField text = switch (i){
+        Component text = switch (i){
             case 0 -> jtfOne;
             case 1 -> jtfTwo;
             case 2 -> jtfThree;
@@ -177,7 +180,7 @@ public class TelaRegistroServico extends JFrame{
 
     private void defineText(){
         // Text Field
-        jtfTwo = new JTextField();
+        jtfTwo = new JComboBox<>(new String[] {"Marcado", "Andamento", "Concluido", "Adiado", "Cancelado"});
         jtfThree = new JTextField();
         jtfFour = new JTextField();
         jtfFive = new JTextField();
@@ -332,7 +335,7 @@ public class TelaRegistroServico extends JFrame{
     }
 
     public String getJtfTwo() { // descricao
-        return jtfTwo.getText();
+        return (String) jtfTwo.getSelectedItem();
     }
 
     public String getJtfThree() { // statusServico
@@ -392,7 +395,7 @@ public class TelaRegistroServico extends JFrame{
     }
 
     public void setJtfTwo(String value) {
-        jtfTwo.setText(value);
+        jtfTwo.setSelectedItem(value);
     }
 
     public void setJtfThree(String value) {

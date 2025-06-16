@@ -3,8 +3,8 @@ package com.sepulcrum.controller.pessoa;
 import javax.swing.JOptionPane;
 import com.sepulcrum.utils.ValidadorCamposInterface;
 import com.sepulcrum.utils.ValidarCampos;
-import com.sepulcrum.view.TelaRegistroGeral;
 import com.sepulcrum.view.comum.TelaSelecao;
+import com.sepulcrum.view.pessoa.AdmView;
 import com.sepulcrum.dao.pessoa.AdmDAO;
 import com.sepulcrum.model.pessoa.Adm;
 
@@ -12,77 +12,76 @@ public class AdmController {
     private AdmDAO daoA = new AdmDAO();
     private ValidadorCamposInterface vc = new ValidarCampos();
 
-    public void validarCampo(TelaRegistroGeral trg){
-        vc.validarCampo(trg.getJtfOne(), "Nome");
-        vc.validarCampo(trg.getJtfTwo(), "Cpf");
-        vc.validarCampo(trg.getJtfFourDate(), "Data de Nascimento");
-        vc.validarCampo(trg.getJtfFiveDate(), "Data de Contratação");
-        vc.validarCampo(trg.getJtfSix(), "Email");
-        vc.validarCampo(trg.getJtfSevenString(), "Telefone");
-        vc.validarCampo(trg.getJtfEight(), "Cargo");
-        vc.validarCampo(trg.getJtfNine(), "CNPJ");
+    public void validarCampo(AdmView av){
+        vc.validarCampo(av.getJtfOne(), "Nome");
+        vc.validarCampo(av.getJtfTwo(), "Cpf");
+        vc.validarCampo(av.getJtfFourDate(), "Data de Nascimento");
+        vc.validarCampo(av.getJtfFiveDate(), "Data de Contratação");
+        vc.validarCampo(av.getJtfSix(), "Email");
+        vc.validarCampo(av.getJtfSevenString(), "Telefone");
+        vc.validarCampo(av.getJtfEight(), "Cargo");
     }
 
-    public void setAdm(TelaRegistroGeral trg){
-        validarCampo(trg);
+    public void setAdm(AdmView av){
+        validarCampo(av);
 
         Adm a = new Adm(
-            trg.getJtfOne(),         // nome
-            trg.getJtfTwo(),         // cpf
-            trg.getJtfFourDate(),    // dataNascimento
-            trg.getJtfFiveDate(),    // dataContratacao
-            trg.getJtfSix(),         // email
-            trg.getJtfSevenString(), // telefone
-            trg.getJtfEight(),       // cargo
-            trg.getJtfNine()         // cemCnpj
+            av.getJtfOne(),         // nome
+            av.getJtfTwo(),         // cpf
+            av.getJtfFourDate(),    // dataNascimento
+            av.getJtfFiveDate(),    // dataContratacao
+            av.getJtfSix(),         // email
+            av.getJtfSevenString(), // telefone
+            av.getJtfEight(),       // cargo
+            av.getJtfNine()         // cemCnpj
         );
-        a.setRg(trg.getJtfThree()); // RG
+        a.setRg(av.getJtfThree()); // RG
 
         daoA.createAdm(a);
     }
 
-    public void selectAdm(TelaSelecao tsg, int seletor, int seletorCrud, int id){
+    public void selectAdm(TelaSelecao tsg, int seletor, int seletorCrud, String id){
         Adm a = daoA.readAdm(id);
         if (a == null) {
             JOptionPane.showMessageDialog(null, "Coveiro com CPF " + id + " não encontrado.");
         } else {
             tsg.dispose();
-            TelaRegistroGeral trg = new TelaRegistroGeral(seletor, seletorCrud, id);
-            getAdm(trg, a);
+            AdmView av = new AdmView(seletor, seletorCrud, id);
+            getAdm(av, a);
         }    
     }
 
-    public void getAdm(TelaRegistroGeral trg, Adm a){
-        trg.setJtfOne(a.getNome());
-        trg.setJtfTwo(a.getCpf());
-        trg.setJtfThree(a.getRg());
-        trg.setJtfFour(a.getDataNascimento());
-        trg.setJtfFive(a.getDataContratacao());
-        trg.setJtfSix(a.getEmail());
-        trg.setJtfSeven(a.getTelefone());
-        trg.setJtfEight(a.getCargo());
-        trg.setJtfNine(a.getCemCnpj());
+    public void getAdm(AdmView av, Adm a){
+        av.setJtfOne(a.getNome());
+        av.setJtfTwo(a.getCpf());
+        av.setJtfThree(a.getRg());
+        av.setJtfFour(a.getDataNascimento());
+        av.setJtfFive(a.getDataContratacao());
+        av.setJtfSix(a.getEmail());
+        av.setJtfSeven(a.getTelefone());
+        av.setJtfEight(a.getCargo());
+        av.setJtfNine(a.getCemCnpj());
     }
 
-    public void updateAdm(TelaRegistroGeral trg, int id){
-        validarCampo(trg);
+    public void updateAdm(AdmView av, String id){
+        validarCampo(av);
 
         Adm a = daoA.readAdm(id);
 
-        a.setNome(trg.getJtfOne());
-        a.setCpf(trg.getJtfTwo());
-        a.setRg(trg.getJtfThree());
-        a.setDataNascimento(trg.getJtfFourDate());
-        a.setDataContratacao(trg.getJtfFiveDate());
-        a.setEmail(trg.getJtfSix());
-        a.setTelefone(trg.getJtfSevenString());
-        a.setCargo(trg.getJtfEight());
-        a.setCemCnpj(trg.getJtfNine());
+        a.setNome(av.getJtfOne());
+        a.setCpf(av.getJtfTwo());
+        a.setRg(av.getJtfThree());
+        a.setDataNascimento(av.getJtfFourDate());
+        a.setDataContratacao(av.getJtfFiveDate());
+        a.setEmail(av.getJtfSix());
+        a.setTelefone(av.getJtfSevenString());
+        a.setCargo(av.getJtfEight());
+        a.setCemCnpj(av.getJtfNine());
 
         daoA.updateAdm(a, id);
     }
 
-    public void deleteAdm(int id){
+    public void deleteAdm(String id){
         daoA.readAdm(id);
         daoA.deleteAdm(id);
     }

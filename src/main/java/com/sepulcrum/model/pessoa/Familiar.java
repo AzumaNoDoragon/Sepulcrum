@@ -24,7 +24,7 @@ public class Familiar extends PessoaViva {
             this.grauParentesco = Grau.Colateral;
         } else if(grauStr.equals("Conjuge")){
             this.grauParentesco = Grau.Conjuge;
-        } else if(grauStr.equals("NaoParente")){
+        } else if(grauStr.equals("Não Parente")){
             this.grauParentesco = Grau.NaoParente;
         }
     }
