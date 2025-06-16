@@ -56,11 +56,11 @@ public class TelaGerenciadorGeral extends JFrame{
             switch(index){
                 case 0 -> {
                     switch(seletor){
-                        case 1 -> new CemiterioView(seletor, 1, -1);
-                        case 2 -> new AdmView(seletor, 1, -1);
+                        case 1 -> new CemiterioView(seletor, 1, "");
+                        case 2 -> new AdmView(seletor, 1, "");
                         case 3 -> new TumuloView(seletor, 1, "", "", "");
-                        case 4 -> new FinadoView(seletor, 1, -1);
-                        case 5 -> new FamiliarView(seletor, 1, -1);
+                        case 4 -> new FinadoView(seletor, 1, "");
+                        case 5 -> new FamiliarView(seletor, 1, "");
                     }
                 }
                 case 1 -> {
