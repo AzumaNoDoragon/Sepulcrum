@@ -28,15 +28,15 @@ public class CemiteiroController {
         validarCampo(cv);
 
         Cemiterio c = new Cemiterio(
-            cv.getJtfOne(),        // nome
-            cv.getJtfTwo(),        // estado
-            cv.getJtfThree(),      // cidade
-            cv.getJtfFour(), // rua
-            cv.getJtfFive(), // numero
-            cv.getJtfSix(),        // cep
-            cv.getJtfEight(),      // telefone
-            cv.getJtfNine(),       // cnpj
-            cv.getJtfTen()         // admCpf
+            cv.getJtfOne(),   // nome
+            cv.getJtfTwo(),   // estado
+            cv.getJtfThree(), // cidade
+            cv.getJtfFour(),  // rua
+            cv.getJtfFive(),  // numero
+            cv.getJtfSix(),   // cep
+            cv.getJtfEight(), // telefone
+            cv.getJtfNine(),  // cnpj
+            cv.getJtfTen()    // admCpf
         );
         c.setCapacidadeMax(cv.getJtfSeven()); // Capacidade Max
 
