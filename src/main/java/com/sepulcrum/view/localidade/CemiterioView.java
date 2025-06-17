@@ -1,8 +1,5 @@
 package com.sepulcrum.view.localidade;
 
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -228,132 +225,90 @@ public class CemiterioView extends JFrame{
         }
     }
 
+    // nome
     public String getJtfOne() {
         return jtfOne.getText();
-    }
-
-    public String getJtfTwo() {
-        return jtfTwo.getText();
-    }
-
-    public String getJtfThree() {
-        return jtfThree.getText();
-    }
-
-    public String getJtfFourString() {
-        return jtfFour.getText();
-    }
-
-    public Date getJtfFourDate() {
-        String text = jtfFour.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        try {
-            java.util.Date utilDate = sdf.parse(text);
-            return new java.sql.Date(utilDate.getTime());
-        } catch (ParseException e) {
-            return null;
-        }
-    }
-
-    public String getJtfFiveString() {
-        return jtfFive.getText();
-    }
-
-    public Date getJtfFiveDate() {
-        String text = jtfFive.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        try {
-            java.util.Date utilDate = sdf.parse(text);
-            return new java.sql.Date(utilDate.getTime());
-        } catch (ParseException e) {
-            return null;
-        }
-    }
-
-    public String getJtfSix() {
-        return jtfSix.getText();
-    }
-
-    public String getJtfSevenString() {
-        return jtfSeven.getText();
-    }
-
-    public int getJtfSevenInt() {
-        String text = jtfSeven.getText();
-        if (text == null || text.trim().isEmpty()) {
-            return 0;
-        }
-        return Integer.parseInt(text);
-    }
-
-    public String getJtfEight() {
-        return jtfEight.getText();
-    }
-
-    public String getJtfNine() {
-        return jtfNine.getText();
-    }
-
-    public String getJtfTen() {
-        return jtfTen.getText();
     }
 
     public void setJtfOne(String value) {
         jtfOne.setText(value);
     }
 
+    // estado
+    public String getJtfTwo() {
+        return jtfTwo.getText();
+    }
+
     public void setJtfTwo(String value) {
         jtfTwo.setText(value);
+    }
+
+    // cidade
+    public String getJtfThree() {
+        return jtfThree.getText();
     }
 
     public void setJtfThree(String value) {
         jtfThree.setText(value);
     }
 
+    // rua
+    public String getJtfFour() {
+        return jtfFour.getText();
+    }
+
     public void setJtfFour(String value) {
         jtfFour.setText(value);
     }
 
-    public void setJtfFour(Date value) {
-        if (value != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(value);
-            jtfFour.setText(dataFormatada);
-        } else {
-            jtfFour.setText("Data não encontrada");
-        }
+    // cep
+    public String getJtfFive() {
+        return jtfFive.getText();
     }
 
     public void setJtfFive(String value) {
         jtfFive.setText(value);
     }
 
-    public void setJtfFive(Date value) {
-        if (value != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(value);
-            jtfFive.setText(dataFormatada);
-        } else {
-            jtfFive.setText("Data não encontrada");
-        }
+    // numero
+    public String getJtfSix() {
+        return jtfSix.getText();
     }
 
     public void setJtfSix(String value) {
         jtfSix.setText(value);
     }
 
-    public void setJtfSeven(String value) {
-        jtfSeven.setText(value);
+    // capacidadeMax
+    public int getJtfSeven() {
+        return Integer.parseInt(jtfSeven.getText());
+    }
+
+    public void setJtfSeven(int value) {
+        jtfSeven.setText(String.valueOf(value));
+    }
+
+    // telefone
+    public String getJtfEight() {
+        return jtfEight.getText();
     }
 
     public void setJtfEight(String value) {
         jtfEight.setText(value);
     }
 
+    // cnpj
+    public String getJtfNine() {
+        return jtfNine.getText();
+    }
+
     public void setJtfNine(String value) {
         jtfNine.setText(value);
+    }
+
+    // admCpf
+    public String getJtfTen() {
+        return jtfTen.getText();
     }
 
     public void setJtfTen(String value) {
