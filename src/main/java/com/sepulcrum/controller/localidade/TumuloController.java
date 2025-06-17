@@ -15,22 +15,24 @@ public class TumuloController {
     public void validarCampo(TumuloView tv){
         vc.validarCampo(tv.getJtfOne(), "Tipo");
         vc.validarCampo(tv.getJtfTwo(), "Situação");
-        vc.validarCampo(tv.getJtfFourString(), "Rua");
-        vc.validarCampo(tv.getJtfFiveString(), "Número");
+        vc.validarCampo(tv.getJtfFour(), "Rua");
+        vc.validarCampo(tv.getJtfFive(), "Número");
         vc.validarCampo(tv.getJtfSix(), "CNPJ");
+        vc.validarCampo(tv.getJtfSix(), "CPF do comprador");
     }
 
     public void setTumulo(TumuloView tv){
         validarCampo(tv);
 
         Tumulo t = new Tumulo(
-            tv.getJtfOne(),        // tipo
-            tv.getJtfTwo(),        // situacao
-            tv.getJtfThree(),      // dataOcupacao
-            tv.getJtfFourString(), // rua
-            tv.getJtfFiveString(), // numero
-            tv.getJtfSix()         // cemCnpj
+            tv.getJtfOne(),   // tipo
+            tv.getJtfTwo(),   // situacao
+            tv.getJtfThree(), // dataOcupacao
+            tv.getJtfFour(),  // rua
+            tv.getJtfFive(),  // numero
+            tv.getJtfSix()    // cemCnpj
         );
+        t.setFamCpf(tv.getJtfSeven()); // famCpf
         
         daoT.createTumulo(t);
     }
@@ -53,6 +55,7 @@ public class TumuloController {
         tv.setJtfFour(t.getRua());
         tv.setJtfFive(t.getNumero());
         tv.setJtfSix(t.getCemCnpj());
+        tv.setJtfSeven(t.getFamCpf());
     }
 
     public void updateTumulo(TumuloView tv, String num, String rua, String cnpj){
@@ -63,9 +66,10 @@ public class TumuloController {
         t.setTipo(tv.getJtfOne());
         t.setSituacao(tv.getJtfTwo());
         t.setDataOcupacao(tv.getJtfThree());
-        t.setRua(tv.getJtfFourString());
-        t.setNumero(tv.getJtfFiveString());
+        t.setRua(tv.getJtfFour());
+        t.setNumero(tv.getJtfFive());
         t.setCemCnpj(tv.getJtfSix());
+        t.setFamCpf(tv.getJtfSeven());
     }
 
     public void deleteTumulo(String num, String rua, String cnpj){
