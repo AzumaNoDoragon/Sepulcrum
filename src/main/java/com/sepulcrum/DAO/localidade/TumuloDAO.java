@@ -14,16 +14,17 @@ public class TumuloDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
             
-            String sql = "INSERT INTO tumulo (TUM_TIPO, TUM_SITUACAO, TUM_DATA_OCUPACAO, TUM_RUA, TUM_NUMERO, CEM_CNPJ)" +
-                        "VALUES (?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO tumulo (TUM_TIPO, TUM_SITUACAO, TUM_DATA_OCUPACAO, TUM_RUA, TUM_NUMERO, CEM_CNPJ, FAM_CPF)" +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?);";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
                 stmt.setString(1, t.getTipo());
                 stmt.setString(2, t.getSituacao());
-                stmt.setString(3, t.getDataOcupacao());
+                stmt.setDate(3, (t.getDataOcupacao() == null) ? null : t.getDataOcupacao());
                 stmt.setString(4, t.getRua());
                 stmt.setString(5, t.getNumero());
                 stmt.setString(6, t.getCemCnpj());
+                stmt.setString(7, t.getFamCpf());
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
@@ -43,7 +44,7 @@ public class TumuloDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
             
-            String sql = "SELECT TUM_TIPO, TUM_SITUACAO, TUM_DATA_OCUPACAO, TUM_RUA, TUM_NUMERO, CEM_CNPJ" +
+            String sql = "SELECT TUM_TIPO, TUM_SITUACAO, TUM_DATA_OCUPACAO, TUM_RUA, TUM_NUMERO, CEM_CNPJ, FAM_CPF" +
                         "FROM tumulo WHERE TUM_NUMERO = ? AND TUM_RUA = ? AND CEM_CNP = ?;";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
@@ -56,11 +57,12 @@ public class TumuloDAO {
                         Tumulo t = new Tumulo(
                             rs.getString("TUM_TIPO"),
                             rs.getString("TUM_SITUACAO"),
-                            rs.getString("TUM_DATA_OCUPACAO"),
+                            rs.getDate("TUM_DATA_OCUPACAO"),
                             rs.getString("TUM_RUA"),
                             rs.getString("TUM_NUMERO"),
                             rs.getString("CEM_CNPJ")
                         );
+                        t.setFamCpf(rs.getString("FAM_CPF"));
 
                         return t;
                     } else {
@@ -87,7 +89,7 @@ public class TumuloDAO {
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
                 stmt.setString(1, t.getTipo());
                 stmt.setString(2, t.getSituacao());
-                stmt.setString(3, t.getDataOcupacao());
+                stmt.setDate(3, t.getDataOcupacao());
                 stmt.setString(4, t.getRua());
                 stmt.setString(5, t.getNumero());
                 stmt.setString(6, t.getCemCnpj());

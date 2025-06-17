@@ -190,7 +190,6 @@ public class AdmDAO {
                     throw new SQLException("Falha ao deletar coveiro. Nenhuma linha afetada.");
                 }
             }
-
         } catch(Exception e){
             throw new IllegalArgumentException("Não foi possivel inserir no banco: " + e.getMessage());
         } finally {
