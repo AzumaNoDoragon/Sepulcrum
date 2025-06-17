@@ -16,8 +16,8 @@ public class CemiteiroController {
         vc.validarCampo(cv.getJtfOne(), "Nome");
         vc.validarCampo(cv.getJtfTwo(), "Estado");
         vc.validarCampo(cv.getJtfThree(), "Cidade");
-        vc.validarCampo(cv.getJtfFourString(), "Rua");
-        vc.validarCampo(cv.getJtfFiveString(), "Número");
+        vc.validarCampo(cv.getJtfFour(), "Rua");
+        vc.validarCampo(cv.getJtfFive(), "Número");
         vc.validarCampo(cv.getJtfSix(), "Cep");
         vc.validarCampo(cv.getJtfEight(), "Telefone");
         vc.validarCampo(cv.getJtfNine(), "CNPJ");
@@ -31,14 +31,14 @@ public class CemiteiroController {
             cv.getJtfOne(),        // nome
             cv.getJtfTwo(),        // estado
             cv.getJtfThree(),      // cidade
-            cv.getJtfFourString(), // rua
-            cv.getJtfFiveString(), // numero
+            cv.getJtfFour(), // rua
+            cv.getJtfFive(), // numero
             cv.getJtfSix(),        // cep
             cv.getJtfEight(),      // telefone
             cv.getJtfNine(),       // cnpj
             cv.getJtfTen()         // admCpf
         );
-        c.setCapacidadeMax(cv.getJtfSevenInt()); // Capacidade Max
+        c.setCapacidadeMax(cv.getJtfSeven()); // Capacidade Max
 
         daoC.createCemiterio(c);
     }
@@ -61,7 +61,7 @@ public class CemiteiroController {
         cv.setJtfFour(c.getRua());
         cv.setJtfFive(c.getNumero());
         cv.setJtfSix(c.getCep());
-        cv.setJtfSeven(Integer.toString(c.getCapacidadeMax()));
+        cv.setJtfSeven(c.getCapacidadeMax());
         cv.setJtfEight(c.getTelefone());
         cv.setJtfNine(c.getCnpj());
         cv.setJtfTen(c.getAdmCpf());
@@ -75,10 +75,10 @@ public class CemiteiroController {
         c.setNome(cv.getJtfOne());
         c.setEstado(cv.getJtfTwo());
         c.setCidade(cv.getJtfThree());
-        c.setRua(cv.getJtfFourString());
-        c.setNumero(cv.getJtfFiveString());
+        c.setRua(cv.getJtfFour());
+        c.setNumero(cv.getJtfFive());
         c.setCep(cv.getJtfSix());
-        c.setCapacidadeMax(cv.getJtfSevenInt());
+        c.setCapacidadeMax(cv.getJtfSeven());
         c.setTelefone(cv.getJtfEight());
         c.setCnpj(cv.getJtfNine());
         c.setAdmCpf(cv.getJtfTen());
