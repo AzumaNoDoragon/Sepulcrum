@@ -81,7 +81,7 @@ public class TelaSelecaoTumulo extends JFrame{
     }
 
     protected void button(int seletorCrud, int seletor, int i, int jbX, int jbY, int jbWidth, int jbHeight){
-        int index = i;
+        int index = i -2;
         JButton button = switch (index){
             case 0 -> jbBusca;
             case 1 -> jbCancelar;
@@ -112,7 +112,7 @@ public class TelaSelecaoTumulo extends JFrame{
         //Configura tamanho da janela e botões
         fWidth = 500;
         fHeight = 500;
-        qtdBotoes = 3;
+        qtdBotoes = 5;
 
         // Janela
         this.setTitle("Seleção");
