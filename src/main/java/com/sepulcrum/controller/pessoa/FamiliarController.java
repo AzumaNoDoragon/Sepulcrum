@@ -15,10 +15,10 @@ public class FamiliarController{
     public void validarCampo(FamiliarView famV){
         vc.validarCampo(famV.getJtfOne(), "Nome");
         vc.validarCampo(famV.getJtfTwo(), "Cpf");
-        vc.validarCampo(famV.getJtfFourDate(), "Data de Nascimento");
-        vc.validarCampo(famV.getJtfFiveString(), "Grau de Parentesco");
+        vc.validarCampo(famV.getJtfFour(), "Data de Nascimento");
+        vc.validarCampo(famV.getJtfFive(), "Grau de Parentesco");
         vc.validarCampo(famV.getJtfSix(), "Email");
-        vc.validarCampo(famV.getJtfSevenString(), "Telefone");
+        vc.validarCampo(famV.getJtfSeven(), "Telefone");
         vc.validarCampo(famV.getJtfEight(), "Certidão de Óbito");
     }
     
@@ -26,16 +26,16 @@ public class FamiliarController{
         validarCampo(famV);
 
         Familiar fam = new Familiar(
-            famV.getJtfOne(),        // nome
-            famV.getJtfTwo(),        // cpf
-            famV.getJtfFourDate(),   // dataNascimento
-            famV.getJtfSix(),        // email
-            famV.getJtfSevenString() // telefone
+            famV.getJtfOne(),  // nome
+            famV.getJtfTwo(),  // cpf
+            famV.getJtfFour(), // dataNascimento
+            famV.getJtfSix(),  // email
+            famV.getJtfSeven() // telefone
         );
 
-        fam.setRg(famV.getJtfThree());                  // RG
-        fam.setGrauParentesco(famV.getJtfFiveString()); // grauParentesco
-        fam.setCertidaoObito(famV.getJtfEight());       // certidaoObito
+        fam.setRg(famV.getJtfThree());            // RG
+        fam.setGrauParentesco(famV.getJtfFive()); // grauParentesco
+        fam.setCertidaoObito(famV.getJtfEight()); // certidaoObito
 
         daoF.createFamiliar(fam);
     }
@@ -70,10 +70,10 @@ public class FamiliarController{
         fam.setNome(famV.getJtfOne());
         fam.setCpf(famV.getJtfTwo());
         fam.setRg(famV.getJtfThree());
-        fam.setDataNascimento(famV.getJtfFourDate());
+        fam.setDataNascimento(famV.getJtfFour());
         fam.setEmail(famV.getJtfSix());
-        fam.setGrauParentesco(famV.getJtfFiveString());
-        fam.setTelefone(famV.getJtfSevenString());
+        fam.setGrauParentesco(famV.getJtfFive());
+        fam.setTelefone(famV.getJtfSeven());
         fam.setCertidaoObito(famV.getJtfEight());
     }
 
