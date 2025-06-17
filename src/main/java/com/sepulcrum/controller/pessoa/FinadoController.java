@@ -13,9 +13,9 @@ public class FinadoController {
     private ValidadorCamposInterface vc = new ValidarCampos();
 
     public void validarCampo(FinadoView finV){
-        vc.validarCampo(finV.getJtfFiveDate(), "Data Falecimento");
+        vc.validarCampo(finV.getJtfFive(), "Data Falecimento");
         vc.validarCampo(finV.getJtfSix(), "Causa da Morte");
-        vc.validarCampo(finV.getJtfSevenString(), "Certidão de Óbito");
+        vc.validarCampo(finV.getJtfSeven(), "Certidão de Óbito");
         vc.validarCampo(finV.getJtfEight(), "Rua do Túmulo");
         vc.validarCampo(finV.getJtfNine(), "Número do Túmulo");
     }
@@ -24,14 +24,14 @@ public class FinadoController {
         validarCampo(finV);
 
         Finado fin = new Finado(
-            finV.getJtfOne(),         // nome
-            finV.getJtfTwo(),         // cpf
-            finV.getJtfFourDate(),    // dataNascimento
-            finV.getJtfFiveDate(),    // dataFalecimento
-            finV.getJtfSevenString(), // certidaoObito
-            finV.getJtfSix(),         // causaMorte
-            finV.getJtfEight(),       // tumRua
-            finV.getJtfNine()         // tumNumero
+            finV.getJtfOne(),   // nome
+            finV.getJtfTwo(),   // cpf
+            finV.getJtfFour(),  // dataNascimento
+            finV.getJtfFive(),  // dataFalecimento
+            finV.getJtfSeven(), // certidaoObito
+            finV.getJtfSix(),   // causaMorte
+            finV.getJtfEight(), // tumRua
+            finV.getJtfNine()   // tumNumero
         );
         fin.setRg(finV.getJtfThree()); // Rg
 
@@ -69,10 +69,10 @@ public class FinadoController {
         fin.setNome(finV.getJtfOne());
         fin.setCpf(finV.getJtfTwo());
         fin.setRg(finV.getJtfThree());
-        fin.setDataNascimento(finV.getJtfFourDate());
-        fin.setDataFalecimento(finV.getJtfFiveDate());
+        fin.setDataNascimento(finV.getJtfFour());
+        fin.setDataFalecimento(finV.getJtfFive());
         fin.setCausaMorte(finV.getJtfSix());
-        fin.setCertidaoObito(finV.getJtfSevenString());
+        fin.setCertidaoObito(finV.getJtfSeven());
         fin.setTumRua(finV.getJtfEight());
         fin.setTumNumero(finV.getJtfNine());
     }
