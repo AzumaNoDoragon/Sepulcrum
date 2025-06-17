@@ -162,14 +162,14 @@ public class AdmView extends JFrame{
         this.setTitle("Registro Coveiro.");
 
         // Label
-        jlOne = new JLabel("*Nome: ");                                  // nome
-        jlTwo = new JLabel("*CPF: ");                                   // cpf
-        jlThree = new JLabel("RG: ");                                   // RG
-        jlFour = new JLabel("*Data Nascimento: ");                      // dataNascimento
-        jlFive = new JLabel("*Data Contratação: ");                     // dataContratacao
-        jlSix = new JLabel("*Email: ");                                 // email
-        jlSeven = new JLabel("*Telefone: ");                            // telefone
-        jlEight = new JLabel("*Cargo: ");                               // cargo
+        jlOne = new JLabel("*Nome: ");                                 // nome
+        jlTwo = new JLabel("*CPF: ");                                  // cpf
+        jlThree = new JLabel("RG: ");                                  // RG
+        jlFour = new JLabel("*Data Nascimento: ");                     // dataNascimento
+        jlFive = new JLabel("*Data Contratação: ");                    // dataContratacao
+        jlSix = new JLabel("*Email: ");                                // email
+        jlSeven = new JLabel("*Telefone: ");                           // telefone
+        jlEight = new JLabel("*Cargo: ");                              // cargo
         jlNine = new JLabel("<html>CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
         
         // Text Field
@@ -225,24 +225,36 @@ public class AdmView extends JFrame{
     protected void msgErro(Exception e){
         JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
     }
-
+    
+    // nome
     public String getJtfOne() {
         return jtfOne.getText();
     }
 
+    public void setJtfOne(String value) {
+        jtfOne.setText(value);
+    }
+    
+    // cpf
     public String getJtfTwo() {
         return jtfTwo.getText();
     }
 
+    public void setJtfTwo(String value) {
+        jtfTwo.setText(value);
+    }
+    
+    // RG
     public String getJtfThree() {
         return jtfThree.getText();
     }
 
-    public String getJtfFourString() {
-        return jtfFour.getText();
+    public void setJtfThree(String value) {
+        jtfThree.setText(value);
     }
-
-    public Date getJtfFourDate() {
+    
+    // dataNascimento
+    public Date getJtfFour() {
         String text = jtfFour.getText();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -254,11 +266,18 @@ public class AdmView extends JFrame{
         }
     }
 
-    public String getJtfFiveString() {
-        return jtfFive.getText();
+    public void setJtfFour(Date value) {
+        if (value != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String dataFormatada = sdf.format(value);
+            jtfFour.setText(dataFormatada);
+        } else {
+            jtfFour.setText("Data não encontrada");
+        }
     }
-
-    public Date getJtfFiveDate() {
+    
+    // dataContratacao
+    public Date getJtfFive() {
         String text = jtfFive.getText();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -270,60 +289,6 @@ public class AdmView extends JFrame{
         }
     }
 
-    public String getJtfSix() {
-        return jtfSix.getText();
-    }
-
-    public String getJtfSevenString() {
-        return jtfSeven.getText();
-    }
-
-    public int getJtfSevenInt() {
-        String text = jtfSeven.getText();
-        if (text == null || text.trim().isEmpty()) {
-            return 0;
-        }
-        return Integer.parseInt(text);
-    }
-
-    public String getJtfEight() {
-        return (String) jtfEight.getSelectedItem();
-    }
-
-    public String getJtfNine() {
-        return jtfNine.getText();
-    }
-
-    public void setJtfOne(String value) {
-        jtfOne.setText(value);
-    }
-
-    public void setJtfTwo(String value) {
-        jtfTwo.setText(value);
-    }
-
-    public void setJtfThree(String value) {
-        jtfThree.setText(value);
-    }
-
-    public void setJtfFour(String value) {
-        jtfFour.setText(value);
-    }
-
-    public void setJtfFour(Date value) {
-        if (value != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(value);
-            jtfFour.setText(dataFormatada);
-        } else {
-            jtfFour.setText("Data não encontrada");
-        }
-    }
-
-    public void setJtfFive(String value) {
-        jtfFive.setText(value);
-    }
-
     public void setJtfFive(Date value) {
         if (value != null) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -333,16 +298,37 @@ public class AdmView extends JFrame{
             jtfFive.setText("Data não encontrada");
         }
     }
-
+    
+    // email
+    public String getJtfSix() {
+        return jtfSix.getText();
+    }
+    
     public void setJtfSix(String value) {
         jtfSix.setText(value);
+    }
+
+    // telefone
+    public String getJtfSeven() {
+        return jtfSeven.getText();
     }
 
     public void setJtfSeven(String value) {
         jtfSeven.setText(value);
     }
+    
+    // cargo
+    public String getJtfEight() {
+        return (String) jtfEight.getSelectedItem();
+    }
+
     public void setJtfEight(String value) {
         jtfEight.setSelectedItem(value);
+    }
+    
+    // cemCnpj
+    public String getJtfNine() {
+        return jtfNine.getText();
     }
 
     public void setJtfNine(String value) {
