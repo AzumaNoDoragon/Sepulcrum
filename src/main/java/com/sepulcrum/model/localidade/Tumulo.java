@@ -1,11 +1,13 @@
 package com.sepulcrum.model.localidade;
 
+import java.sql.Date;
 import com.sepulcrum.model.localidade.utils.Localidade;
 
 public class Tumulo extends Localidade{
     private Tipo tipo;
     private Situacao situacao;
-    private String dataOcupacao, cemCnpj;
+    private String cemCnpj, famCpf;
+    private Date dataOcupacao;
 
     private enum Tipo{
         CovaRasa, TumuloAlvenaria, JazigoPerpetuo, Ossuario, Mausoleu, Columbario
@@ -15,7 +17,7 @@ public class Tumulo extends Localidade{
         Vazio, Reservado, Comprado, Ocupado, Manutencao, AguardandoExumação, DesativadoIndisponível
     }
     
-    public Tumulo(String tipoStr, String situacaoStr, String dataOcupacao, String rua, String numero, String cemCnpj) {
+    public Tumulo(String tipoStr, String situacaoStr, Date dataOcupacao, String rua, String numero, String cemCnpj) {
         super(rua, numero);
         setTipo(tipoStr);
         setSituacao(situacaoStr);
@@ -61,11 +63,11 @@ public class Tumulo extends Localidade{
         return tipo.name();
     }
 
-    public String getDataOcupacao() {
+    public Date getDataOcupacao() {
         return dataOcupacao;
     }
 
-    public void setDataOcupacao(String dataOcupacao) {
+    public void setDataOcupacao(Date dataOcupacao) {
         this.dataOcupacao = dataOcupacao;
     }
 
@@ -87,5 +89,14 @@ public class Tumulo extends Localidade{
 
     public void setCemCnpj(String cemCnpj) {
         this.cemCnpj = cemCnpj;
+    }
+
+    
+    public String getFamCpf() {
+        return famCpf;
+    }
+
+    public void setFamCpf(String famCpf) {
+        this.famCpf = famCpf;
     }
 }
