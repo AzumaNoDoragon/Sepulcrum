@@ -160,13 +160,13 @@ public class FamiliarView extends JFrame{
         this.setTitle("Registro Familiar.");
 
         // Label
-        jlOne = new JLabel("*Nome: ");                                         // nome
-        jlTwo = new JLabel("*CPF: ");                                          // cpf
-        jlThree = new JLabel("RG: ");                                          // rg
-        jlFour = new JLabel("*Data Nascimento: ");                             // dataNascimento
+        jlOne = new JLabel("*Nome: ");                                        // nome
+        jlTwo = new JLabel("*CPF: ");                                         // cpf
+        jlThree = new JLabel("RG: ");                                         // rg
+        jlFour = new JLabel("*Data Nascimento: ");                            // dataNascimento
         jlFive = new JLabel("Grau Parentesco: ");                             // grauParentesco
-        jlSix = new JLabel("*Email: ");                                        // email
-        jlSeven = new JLabel("*Telefone: ");                                   // telefone
+        jlSix = new JLabel("*Email: ");                                       // email
+        jlSeven = new JLabel("*Telefone: ");                                  // telefone
         jlEight = new JLabel("<html>Certidão de<br>óbito de finado:</html>"); // certidaoObito
 
         // Text Field
@@ -220,24 +220,36 @@ public class FamiliarView extends JFrame{
     protected void msgErro(Exception e){
         JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
     }
-
+    
+    // nome
     public String getJtfOne() {
         return jtfOne.getText();
     }
 
+    public void setJtfOne(String value) {
+        jtfOne.setText(value);
+    }
+    
+    // cpf
     public String getJtfTwo() {
         return jtfTwo.getText();
     }
 
+    public void setJtfTwo(String value) {
+        jtfTwo.setText(value);
+    }
+    
+    // rg
     public String getJtfThree() {
         return jtfThree.getText();
     }
 
-    public String getJtfFourString() {
-        return jtfFour.getText();
+    public void setJtfThree(String value) {
+        jtfThree.setText(value);
     }
 
-    public Date getJtfFourDate() {
+    // dataNascimento
+    public Date getJtfFour() {
         String text = jtfFour.getText();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -249,46 +261,6 @@ public class FamiliarView extends JFrame{
         }
     }
 
-    public String getJtfFiveString() {
-        return (String) jtfFive.getSelectedItem();
-    }
-
-    public String getJtfSix() {
-        return jtfSix.getText();
-    }
-
-    public String getJtfSevenString() {
-        return jtfSeven.getText();
-    }
-
-    public int getJtfSevenInt() {
-        String text = jtfSeven.getText();
-        if (text == null || text.trim().isEmpty()) {
-            return 0;
-        }
-        return Integer.parseInt(text);
-    }
-
-    public String getJtfEight() {
-        return jtfEight.getText();
-    }
-
-    public void setJtfOne(String value) {
-        jtfOne.setText(value);
-    }
-
-    public void setJtfTwo(String value) {
-        jtfTwo.setText(value);
-    }
-
-    public void setJtfThree(String value) {
-        jtfThree.setText(value);
-    }
-
-    public void setJtfFour(String value) {
-        jtfFour.setText(value);
-    }
-
     public void setJtfFour(Date value) {
         if (value != null) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -298,17 +270,37 @@ public class FamiliarView extends JFrame{
             jtfFour.setText("Data não encontrada");
         }
     }
+    
+    // grauParentesco
+    public String getJtfFive() {
+        return (String) jtfFive.getSelectedItem();
+    }
 
     public void setJtfFive(String value) {
         jtfFive.setSelectedItem(value);
+    }
+    
+    // email
+    public String getJtfSix() {
+        return jtfSix.getText();
     }
 
     public void setJtfSix(String value) {
         jtfSix.setText(value);
     }
+    
+    // telefone
+    public String getJtfSeven() {
+        return jtfSeven.getText();
+    }
 
     public void setJtfSeven(String value) {
         jtfSeven.setText(value);
+    }
+    
+    // certidaoObito
+    public String getJtfEight() {
+        return jtfEight.getText();
     }
 
     public void setJtfEight(String value) {
