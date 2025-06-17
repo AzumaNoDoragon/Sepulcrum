@@ -15,8 +15,8 @@ import com.sepulcrum.view.comum.TelaGerenciadorGeral;
 
 public class TumuloView extends JFrame{
     protected JButton jbSalvar, jbCancelar;
-    protected JTextField jtfThree, jtfFour, jtfFive, jtfSix;
-    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix;
+    protected JTextField jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven;
+    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven;
     protected JComboBox<String> jtfOne, jtfTwo;
     protected int fWidth, fHeight, qtdBotoes, jbY;
     private TumuloController gt = new TumuloController();
@@ -68,6 +68,7 @@ public class TumuloView extends JFrame{
             case 3 -> jlFour;
             case 4 -> jlFive;
             case 5 -> jlSix;
+            case 6 -> jlSeven;
             default -> null;
         };
         if(label != null){
@@ -84,6 +85,7 @@ public class TumuloView extends JFrame{
             case 3 -> jtfFour;
             case 4 -> jtfFive;
             case 5 -> jtfSix;
+            case 6 -> jtfSeven;
             default -> null;
         };
         if(text != null){
@@ -161,6 +163,7 @@ public class TumuloView extends JFrame{
         jlFour = new JLabel("*Rua: ");                                 // rua
         jlFive = new JLabel("*Numero: ");                              // numero
         jlSix = new JLabel("<html>*CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
+        jlSeven = new JLabel("<html>CPF do <BR>  Comprador: <html/>"); // famCpf
         
         // Text Field
         jtfOne = new JComboBox<>(new String[] {"Cova Rasa", "Tumulo Alvenaria", "Jazigo Perpetuo", "Ossuario", "Mausoleu", "Columbario"});
@@ -169,6 +172,7 @@ public class TumuloView extends JFrame{
         jtfFour = new JTextField();
         jtfFive = new JTextField();
         jtfSix = new JTextField();
+        jtfSeven = new JTextField();
 
         if(seletorCrud == 2 | seletorCrud == 4){
             jtfOne.setEnabled(false);
@@ -177,6 +181,7 @@ public class TumuloView extends JFrame{
             jtfFour.setEditable(false);
             jtfFive.setEditable(false);
             jtfSix.setEditable(false);
+            jtfSeven.setEditable(false);
         }
     }
 
@@ -209,24 +214,27 @@ public class TumuloView extends JFrame{
             msgDelete();
         }
     }
-
+    
+    // tipo
     public String getJtfOne() {
         return (String) jtfOne.getSelectedItem();
     }
 
+    public void setJtfOne(String value) {
+        jtfOne.setSelectedItem(value);
+    }
+    
+    // situacao
     public String getJtfTwo() {
         return (String) jtfTwo.getSelectedItem();
     }
 
-    public String getJtfThree() {
-        return jtfThree.getText();
+    public void setJtfTwo(String value) {
+        jtfTwo.setSelectedItem(value);
     }
-
-    public String getJtfFourString() {
-        return jtfFour.getText();
-    }
-
-    public Date getJtfFourDate() {
+    
+    // dataOcupacao
+    public Date getJtfThree() {
         String text = jtfFour.getText();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -238,57 +246,7 @@ public class TumuloView extends JFrame{
         }
     }
 
-    public String getJtfFiveString() {
-        return jtfFive.getText();
-    }
-
-    public Date getJtfFiveDate() {
-        String text = jtfFive.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        try {
-            java.util.Date utilDate = sdf.parse(text);
-            return new java.sql.Date(utilDate.getTime());
-        } catch (ParseException e) {
-            return null;
-        }
-    }
-
-    public String getJtfSix() {
-        return jtfSix.getText();
-    }
-
-    public void setJtfOne(String value) {
-        jtfOne.setSelectedItem(value);
-    }
-
-    public void setJtfTwo(String value) {
-        jtfTwo.setSelectedItem(value);
-    }
-
-    public void setJtfThree(String value) {
-        jtfThree.setText(value);
-    }
-
-    public void setJtfFour(String value) {
-        jtfFour.setText(value);
-    }
-
-    public void setJtfFour(Date value) {
-        if (value != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(value);
-            jtfFour.setText(dataFormatada);
-        } else {
-            jtfFour.setText("Data não encontrada");
-        }
-    }
-
-    public void setJtfFive(String value) {
-        jtfFive.setText(value);
-    }
-
-    public void setJtfFive(Date value) {
+    public void setJtfThree(Date value) {
         if (value != null) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             String dataFormatada = sdf.format(value);
@@ -297,8 +255,40 @@ public class TumuloView extends JFrame{
             jtfFive.setText("Data não encontrada");
         }
     }
+    
+    // rua
+    public String getJtfFour() {
+        return jtfFour.getText();
+    }
+
+    public void setJtfFour(String value) {
+        jtfFour.setText(value);
+    }
+    
+    // numero
+    public String getJtfFive() {
+        return jtfFive.getText();
+    }
+
+    public void setJtfFive(String value) {
+        jtfFive.setText(value);
+    }
+    
+    // cemCnpj
+    public String getJtfSix() {
+        return jtfSix.getText();
+    }
 
     public void setJtfSix(String value) {
         jtfSix.setText(value);
+    }
+    
+    // famCpf
+    public String getJtfSeven() {
+        return jtfSeven.getText();
+    }
+
+    public void setJtfSeven(String value) {
+        jtfSeven.setText(value);
     }
 }
