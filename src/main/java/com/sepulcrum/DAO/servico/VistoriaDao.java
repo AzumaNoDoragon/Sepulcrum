@@ -97,10 +97,10 @@ public class VistoriaDao {
                             rs.getString("SER_DESCRICAO"),
                             rs.getString("SER_STATUS"),
                             rs.getDate("SER_DATA"),
-                            rs.getString("COV_CPF"),
-                            rs.getString("TUM_NUMERO"),
                             rs.getString("TUM_RUA"),
-                            rs.getString("CEM_CNPJ")
+                            rs.getString("TUM_NUMERO"),
+                            rs.getString("CEM_CNPJ"),
+                            rs.getString("COV_CPF")
                         );
                         v.setInformacoesAdicionais(rs.getString("SER_INFORMACOES_ADICIONAIS"));
 
