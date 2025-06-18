@@ -174,7 +174,7 @@ public class FamiliarView extends JFrame{
         jtfTwo = new JTextField();
         jtfThree = new JTextField();
         jtfFour = new JTextField();
-        jtfFive = new JComboBox<>(new String[] {"Selecione:", "Ascendente", "Descendente", "Colateral", "Conjuge", "Não Parente"});
+        jtfFive = new JComboBox<>(new String[] {"Selecione", "Ascendente", "Descendente", "Colateral", "Conjuge", "Não Parente"});
         jtfSix = new JTextField();
         jtfSeven = new JTextField();
         jtfEight = new JTextField();
