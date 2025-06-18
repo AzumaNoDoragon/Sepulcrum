@@ -22,7 +22,7 @@ public class TransferenciaDefuntoView extends JFrame{
     private TransferenciaDefuntoController tdc = new TransferenciaDefuntoController();
 
     public TransferenciaDefuntoView(int seletor, int seletorCrud, int id){
-        inicializarVariaveis(seletor);
+        inicializarVariaveis(seletor, seletorCrud);
         
         // Janela
         this.setLayout(null);
@@ -184,10 +184,18 @@ public class TransferenciaDefuntoView extends JFrame{
         jtfOne.setEditable(false);
     }
 
-    protected void inicializarVariaveis(int seletor){
+    protected void inicializarVariaveis(int seletor, int seletorCrud){
         // Button
-        jbSalvar = new JButton("Salvar");
-        jbCancelar = new JButton("Cancelar");
+        if(seletorCrud == 1 || seletorCrud == 3){
+            jbSalvar = new JButton("Salvar");
+            jbCancelar = new JButton("Cancelar");
+        } else if(seletorCrud == 2){
+            jbSalvar = new JButton("Concluir");
+            jbCancelar = new JButton("Voltar");
+        } else if(seletorCrud == 4){
+            jbSalvar = new JButton("DELETAR");
+            jbCancelar = new JButton("Cancelar");
+        }
         
         //Configura tamanho da janela e botões
         fWidth = 500;
@@ -202,6 +210,22 @@ public class TransferenciaDefuntoView extends JFrame{
         
         // Text Field
         defineText();
+
+        if(seletorCrud == 2 | seletorCrud == 4){
+            jtfOne.setEditable(false);
+            jtfTwo.setEditable(false);
+            jtfThree.setEditable(false);
+            jtfFour.setEditable(false);
+            jtfFive.setEditable(false);
+            jtfSix.setEditable(false);
+            jtfSeven.setEditable(false);
+            jtfEight.setEditable(false);
+            jtfNine.setEditable(false);
+            jtfTen.setEditable(false);
+            jtfEleven.setEditable(false);
+            jtfTwelve.setEditable(false);
+            jtfThirteen.setEditable(false);
+        }
     }
 
     protected void msgSucesso(){
