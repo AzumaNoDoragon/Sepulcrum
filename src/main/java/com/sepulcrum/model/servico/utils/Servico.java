@@ -8,19 +8,19 @@ public class Servico {
     protected String descricao, informacoesAdicionais, admCpf, tumRua, tumNumero, cemCnpj;
     protected Date dataServico;
 
-        protected enum StatusServico{
-            Marcado,
-            Andamento,
-            Concluido,
-            Adiado,
-            Cancelado
-        }
+    protected enum StatusServico{
+        Marcado,
+        Andamento,
+        Concluido,
+        Adiado,
+        Cancelado
+    }
 
     protected enum TipoServico{
         Exumacao,
-        ManutencaoTumulo,
-        ReservaTumulo,
-        TransferenciaTumulo,
+        Manutencao,
+        Reserva,
+        Transferencia,
         vistoria
     }
 
@@ -60,13 +60,13 @@ public class Servico {
     public void setTipoServico(String tipoServico){
         if(tipoServico.equals("Exumacao")){
             this.tipoServico = TipoServico.Exumacao;
-        } else if(tipoServico.equals("ManutencaoTumulo")){
-            this.tipoServico = TipoServico.ManutencaoTumulo;
-        } else if(tipoServico.equals("ReservaTumulo")){
-            this.tipoServico = TipoServico.ReservaTumulo;
-        } else if(tipoServico.equals("TransferenciaTumulo")){
-            this.tipoServico = TipoServico.TransferenciaTumulo;
-        } else if(tipoServico.equals("vistoria")){
+        } else if(tipoServico.equals("Manutencao")){
+            this.tipoServico = TipoServico.Manutencao;
+        } else if(tipoServico.equals("Reserva")){
+            this.tipoServico = TipoServico.Reserva;
+        } else if(tipoServico.equals("Transferencia")){
+            this.tipoServico = TipoServico.Transferencia;
+        } else if(tipoServico.equals("Vistoria")){
             this.tipoServico = TipoServico.vistoria;
         }
     }
