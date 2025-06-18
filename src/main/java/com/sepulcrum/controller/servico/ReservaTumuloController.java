@@ -12,14 +12,15 @@ public class ReservaTumuloController {
     private ValidarCampos vc = new ValidarCampos();
 
     public void validarCampo(ReservaTumuloView rtv){
-        vc.validarCampo(rtv.getJtfOne(), "tipo Servico");        // tipoServicoStr
-        vc.validarCampo(rtv.getJtfTwo(), "descrição");           // descricao
-        vc.validarCampo(rtv.getJtfThree(), "status Servico");    // statusServicoStr
-        vc.validarCampo(rtv.getJtfFour(), "data Serviço");       // dataServico
-        vc.validarCampo(rtv.getJtfFive(), "Rua do Tumulo");      // tumRua
-        vc.validarCampo(rtv.getJtfSix(), "Número do Tumulo");    // tumNumero
-        vc.validarCampo(rtv.getJtfEight(), "CNPJ do Cemitério"); // cemCnpj
-        vc.validarCampo(rtv.getJtfNine(), "CPF do responsável"); // admCpf
+        vc.validarCampo(rtv.getJtfOne(), "tipo Servico");         // tipoServicoStr
+        vc.validarCampo(rtv.getJtfTwo(), "descrição");            // descricao
+        vc.validarCampo(rtv.getJtfThree(), "status Servico");     // statusServicoStr
+        vc.validarCampo(rtv.getJtfFour(), "data Serviço");        // dataServico
+        vc.validarCampo(rtv.getJtfFive(), "Rua do Tumulo");       // tumRua
+        vc.validarCampo(rtv.getJtfSix(), "Número do Tumulo");     // tumNumero
+        vc.validarCampo(rtv.getJtfSeven(), "CNPJ do Cemitério");  // cemCnpj
+        vc.validarCampo(rtv.getJtfEight(), "CPF do responsável"); // admCpf
+        vc.validarCampo(rtv.getJtfTen(), "CPF do Comprador");     // cpfPessoa
     }
 
     public void setReservaTumulo(ReservaTumuloView rtv){
@@ -62,6 +63,7 @@ public class ReservaTumuloController {
         rtv.setJtfSeven(rt.getCemCnpj());
         rtv.setJtfEight(rt.getAdmCpf());
         rtv.setJtfNine(rt.getInformacoesAdicionais());
+        rtv.setJtfTen(rt.getIdPessoa());
     }
 
     public void updateReservaTumulo(ReservaTumuloView rtv, int id){
@@ -78,6 +80,7 @@ public class ReservaTumuloController {
         rt.setCemCnpj(rtv.getJtfSeven());
         rt.setAdmCpf(rtv.getJtfEight());
         rt.setInformacoesAdicionais(rtv.getJtfNine());
+        rt.setIdPessoa(rtv.getJtfTen());
 
         rtDao.updateReservaTumulo(rt, id);
     }
