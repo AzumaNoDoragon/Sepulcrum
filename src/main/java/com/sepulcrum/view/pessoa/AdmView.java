@@ -15,8 +15,8 @@ import com.sepulcrum.view.comum.TelaGerenciadorGeral;
 
 public class AdmView extends JFrame{
     protected JButton jbSalvar, jbCancelar;
-    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven;
-    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight;
+    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfNine;
+    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine;
     protected JComboBox<String> jtfEight;
     protected int fWidth, fHeight, qtdBotoes, jbY;
     private AdmController ga = new AdmController();
@@ -70,6 +70,7 @@ public class AdmView extends JFrame{
             case 5 -> jlSix;
             case 6 -> jlSeven;
             case 7 -> jlEight;
+            case 8 -> jlNine;
             default -> null;
         };
         if(label != null){
@@ -88,6 +89,7 @@ public class AdmView extends JFrame{
             case 5 -> jtfSix;
             case 6 -> jtfSeven;
             case 7 -> jtfEight;
+            case 8 -> jtfNine;
             default -> null;
         };
         if(text != null){
@@ -154,7 +156,7 @@ public class AdmView extends JFrame{
         //Configura tamanho da janela e botões
         fWidth = 500;
         fHeight = 700;
-        qtdBotoes = 8;
+        qtdBotoes = 9;
 
         // Janela
         this.setTitle("Registro Coveiro.");
@@ -168,6 +170,7 @@ public class AdmView extends JFrame{
         jlSix = new JLabel("*Email: ");                                // email
         jlSeven = new JLabel("*Telefone: ");                           // telefone
         jlEight = new JLabel("*Cargo: ");                              // cargo
+        jlNine = new JLabel("<html>CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
         
         // Text Field
         jtfOne = new JTextField();
@@ -178,6 +181,7 @@ public class AdmView extends JFrame{
         jtfSix = new JTextField();
         jtfSeven = new JTextField();
         jtfEight = new JComboBox<>(new String[] {"Coveiro", "Adm"});
+        jtfNine = new JTextField();
 
         if(seletorCrud == 2 | seletorCrud == 4){
             jtfOne.setEditable(false);
@@ -188,6 +192,7 @@ public class AdmView extends JFrame{
             jtfSix.setEditable(false);
             jtfSeven.setEditable(false);
             jtfEight.setEnabled(false);
+            jtfNine.setEditable(false);
         }
     }
 
@@ -319,5 +324,14 @@ public class AdmView extends JFrame{
 
     public void setJtfEight(String value) {
         jtfEight.setSelectedItem(value);
+    }
+    
+    // cemCnpj
+    public String getJtfNine() {
+        return jtfNine.getText();
+    }
+
+    public void setJtfNine(String value) {
+        jtfNine.setText(value);
     }
 }

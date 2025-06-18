@@ -32,7 +32,8 @@ public class AdmController {
             av.getJtfFive(),  // dataContratacao
             av.getJtfSix(),   // email
             av.getJtfSeven(), // telefone
-            av.getJtfEight()  // cargo
+            av.getJtfEight(), // cargo
+            av.getJtfNine()   // cemCnpj
         );
         a.setRg(av.getJtfThree()); // RG
 
@@ -59,6 +60,7 @@ public class AdmController {
         av.setJtfSix(a.getEmail());
         av.setJtfSeven(a.getTelefone());
         av.setJtfEight(a.getCargo());
+        av.setJtfNine(a.getCemCnpj());
     }
 
     public void updateAdm(AdmView av, String id){
@@ -74,6 +76,7 @@ public class AdmController {
         a.setEmail(av.getJtfSix());
         a.setTelefone(av.getJtfSeven());
         a.setCargo(av.getJtfEight());
+        a.setCemCnpj(av.getJtfNine());
 
         daoA.updateAdm(a, id);
     }
