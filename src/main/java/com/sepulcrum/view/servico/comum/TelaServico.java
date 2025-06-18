@@ -1,4 +1,4 @@
-package com.sepulcrum.model.servico.view;
+package com.sepulcrum.view.servico.comum;
 
 import javax.swing.JButton;
 

@@ -1,26 +1,25 @@
-package com.sepulcrum.model.servico.view;
+package com.sepulcrum.view.servico.comum;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import com.sepulcrum.model.servico.controller.GerenciadorExumacao;
-import com.sepulcrum.model.servico.controller.GerenciadorManutencaoTumulo;
-import com.sepulcrum.model.servico.controller.GerenciadorReservaTumulo;
-import com.sepulcrum.model.servico.controller.GerenciadorTransferenciaDefunto;
-import com.sepulcrum.model.servico.controller.GerenciadorVistoria;
+import com.sepulcrum.controller.servico.ExumacaoController;
+import com.sepulcrum.controller.servico.ManutencaoTumuloController;
+import com.sepulcrum.controller.servico.ReservaTumuloController;
+import com.sepulcrum.controller.servico.TransferenciaDefuntoController;
+import com.sepulcrum.controller.servico.VistoriaController;
 
 public class TelaSelectServico extends JFrame{
     protected JButton jbBusca, jbCancelar;
     protected JTextField jtfId;
     protected JLabel jlId;
     protected int fWidth, fHeight, qtdBotoes, id;
-    private GerenciadorExumacao ge = new GerenciadorExumacao();
-    private GerenciadorManutencaoTumulo gmt = new GerenciadorManutencaoTumulo();
-    private GerenciadorReservaTumulo grt = new GerenciadorReservaTumulo();
-    private GerenciadorTransferenciaDefunto gtd = new GerenciadorTransferenciaDefunto();
-    private GerenciadorVistoria gv = new GerenciadorVistoria();
+    private ExumacaoController ec = new ExumacaoController();
+    private ManutencaoTumuloController mtc = new ManutencaoTumuloController();
+    private ReservaTumuloController rtc = new ReservaTumuloController();
+    private TransferenciaDefuntoController tdc = new TransferenciaDefuntoController();
+    private VistoriaController vc = new VistoriaController();
 
     public TelaSelectServico(int seletor, int seletorCrud){
         inicializarVariaveis();
@@ -102,15 +101,15 @@ public class TelaSelectServico extends JFrame{
             switch(index){
                 case 0 -> {
                     if(seletor == 1){
-                        ge.selectExumacao(this, seletor, seletorCrud, getId());
+                        ec.selectExumacao(this, seletor, seletorCrud, getId());
                     } else if(seletor == 2){
-                        gmt.selectManutencaoTumulo(this, seletor, seletorCrud, getId());
+                        mtc.selectManutencaoTumulo(this, seletor, seletorCrud, getId());
                     } else if(seletor == 3){
-                        grt.selectReservaTumulo(this, seletor, seletorCrud, getId());
+                        rtc.selectReservaTumulo(this, seletor, seletorCrud, getId());
                     } else if(seletor == 4){
-                        gtd.selectTransferenciaDefunto(this, seletor, seletorCrud, getId());
+                        tdc.selectTransferenciaDefunto(this, seletor, seletorCrud, getId());
                     } else if(seletor == 5){
-                        gv.selectVistoria(this, seletor, seletorCrud, getId());
+                        vc.selectVistoria(this, seletor, seletorCrud, getId());
                     }
                 }
                 case 1 -> {

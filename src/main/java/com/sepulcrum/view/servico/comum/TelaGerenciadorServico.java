@@ -1,7 +1,13 @@
-package com.sepulcrum.model.servico.view;
+package com.sepulcrum.view.servico.comum;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import com.sepulcrum.view.servico.ExumacaoView;
+import com.sepulcrum.view.servico.ManutencaoTumuloView;
+import com.sepulcrum.view.servico.ReservaTumuloView;
+import com.sepulcrum.view.servico.TransferenciaDefuntoView;
+import com.sepulcrum.view.servico.VistoriaView;
 
 public class TelaGerenciadorServico extends JFrame{
     protected JButton jbOne, jbTwo, jbThree, jbFour, jbFive, jbVoltar;
@@ -49,7 +55,19 @@ public class TelaGerenciadorServico extends JFrame{
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
-                case 0 -> new TelaRegistroServico(seletor, 1, -1);
+                case 0 -> {
+                    if(seletor == 1){
+                        new ExumacaoView(seletor, 1, -1);
+                    } else if(seletor == 2){
+                        new ManutencaoTumuloView(seletor, 1, -1); 
+                    } else if(seletor == 3){
+                        new ReservaTumuloView(seletor, 1, -1);
+                    } else if(seletor == 4){
+                        new TransferenciaDefuntoView(seletor, 1, -1);
+                    } else if(seletor == 5){
+                        new VistoriaView(seletor, 1, -1);
+                    }
+                } 
                 case 1 -> new TelaSelectServico(seletor, 2);
                 case 2 -> new TelaSelectServico(seletor, 3);
                 case 3 -> new TelaSelectServico(seletor, 4);

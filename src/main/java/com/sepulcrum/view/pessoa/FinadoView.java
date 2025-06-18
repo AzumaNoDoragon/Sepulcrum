@@ -13,8 +13,8 @@ import com.sepulcrum.view.comum.TelaGerenciadorGeral;
 
 public class FinadoView extends JFrame{
     protected JButton jbSalvar, jbCancelar;
-    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine;
-    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine;
+    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
+    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
     private FinadoController gfin = new FinadoController();
 
@@ -68,6 +68,7 @@ public class FinadoView extends JFrame{
             case 6 -> jlSeven;
             case 7 -> jlEight;
             case 8 -> jlNine;
+            case 9 -> jlTen;
             default -> null;
         };
         if(label != null){
@@ -87,6 +88,7 @@ public class FinadoView extends JFrame{
             case 6 -> jtfSeven;
             case 7 -> jtfEight;
             case 8 -> jtfNine;
+            case 9 -> jtfTen;
             default -> null;
         };
         if(text != null){
@@ -153,21 +155,22 @@ public class FinadoView extends JFrame{
         //Configura tamanho da janela e botões
         fWidth = 500;
         fHeight = 700;
-        qtdBotoes = 9;
+        qtdBotoes = 10;
 
         // Janela
         this.setTitle("Registro Finado.");
 
         // Label
-        jlOne = new JLabel("Nome: ");                 // nome
-        jlTwo = new JLabel("CPF: ");                  // cpf
-        jlThree = new JLabel("RG: ");                 // rg
-        jlFour = new JLabel("Data Nascimento: ");     // dataNascimento
-        jlFive = new JLabel("*Data Falecimento: ");   // dataFalecimento
-        jlSix = new JLabel("*Causa da morte: ");      // causaMorte
-        jlSeven = new JLabel("*Certidão de Óbito: "); // certidaoObito
-        jlEight = new JLabel("*Rua do túmulo: ");     // tumRua
-        jlNine = new JLabel("*Número do túmulo: ");   // tumNumero
+        jlOne = new JLabel("Nome: ");                                  // nome
+        jlTwo = new JLabel("CPF: ");                                   // cpf
+        jlThree = new JLabel("RG: ");                                  // rg
+        jlFour = new JLabel("Data Nascimento: ");                      // dataNascimento
+        jlFive = new JLabel("*Data Falecimento: ");                    // dataFalecimento
+        jlSix = new JLabel("*Causa da morte: ");                       // causaMorte
+        jlSeven = new JLabel("*Certidão de Óbito: ");                  // certidaoObito
+        jlEight = new JLabel("*Rua do túmulo: ");                      // tumRua
+        jlNine = new JLabel("*Número do túmulo: ");                    // tumNumero
+        jlTen = new JLabel("<html>*CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
 
         // Text Field
         jtfOne = new JTextField();
@@ -179,6 +182,7 @@ public class FinadoView extends JFrame{
         jtfSeven = new JTextField();
         jtfEight = new JTextField();
         jtfNine = new JTextField();
+        jtfTen = new JTextField();
 
         if(seletorCrud == 2 | seletorCrud == 4){
             jtfOne.setEditable(false);
@@ -190,6 +194,7 @@ public class FinadoView extends JFrame{
             jtfSeven.setEditable(false);
             jtfEight.setEditable(false);
             jtfNine.setEditable(false);
+            jtfTen.setEditable(false);
         }
     }
 
@@ -222,24 +227,36 @@ public class FinadoView extends JFrame{
     protected void msgErro(Exception e){
         JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
     }
-
+    
+    // nome
     public String getJtfOne() {
         return jtfOne.getText();
     }
 
+    public void setJtfOne(String value) {
+        jtfOne.setText(value);
+    }
+    
+    // cpf
     public String getJtfTwo() {
         return jtfTwo.getText();
     }
 
+    public void setJtfTwo(String value) {
+        jtfTwo.setText(value);
+    }
+    
+    // rg
     public String getJtfThree() {
         return jtfThree.getText();
     }
 
-    public String getJtfFourString() {
-        return jtfFour.getText();
+    public void setJtfThree(String value) {
+        jtfThree.setText(value);
     }
-
-    public Date getJtfFourDate() {
+    
+    // dataNascimento
+    public Date getJtfFour() {
         String text = jtfFour.getText();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -249,62 +266,6 @@ public class FinadoView extends JFrame{
         } catch (ParseException e) {
             return null;
         }
-    }
-
-    public String getJtfFiveString() {
-        return jtfFive.getText();
-    }
-
-    public Date getJtfFiveDate() {
-        String text = jtfFive.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        try {
-            java.util.Date utilDate = sdf.parse(text);
-            return new java.sql.Date(utilDate.getTime());
-        } catch (ParseException e) {
-            return null;
-        }
-    }
-
-    public String getJtfSix() {
-        return jtfSix.getText();
-    }
-
-    public String getJtfSevenString() {
-        return jtfSeven.getText();
-    }
-
-    public int getJtfSevenInt() {
-        String text = jtfSeven.getText();
-        if (text == null || text.trim().isEmpty()) {
-            return 0;
-        }
-        return Integer.parseInt(text);
-    }
-
-    public String getJtfEight() {
-        return jtfEight.getText();
-    }
-
-    public String getJtfNine() {
-        return jtfNine.getText();
-    }
-
-    public void setJtfOne(String value) {
-        jtfOne.setText(value);
-    }
-
-    public void setJtfTwo(String value) {
-        jtfTwo.setText(value);
-    }
-
-    public void setJtfThree(String value) {
-        jtfThree.setText(value);
-    }
-
-    public void setJtfFour(String value) {
-        jtfFour.setText(value);
     }
 
     public void setJtfFour(Date value) {
@@ -317,8 +278,17 @@ public class FinadoView extends JFrame{
         }
     }
 
-    public void setJtfFive(String value) {
-        jtfFive.setText(value);
+    // dataFalecimento
+    public Date getJtfFive() {
+        String text = jtfFive.getText();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            java.util.Date utilDate = sdf.parse(text);
+            return new java.sql.Date(utilDate.getTime());
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
     public void setJtfFive(Date value) {
@@ -330,20 +300,49 @@ public class FinadoView extends JFrame{
             jtfFive.setText("Data não encontrada");
         }
     }
+    
+    // causaMorte
+    public String getJtfSix() {
+        return jtfSix.getText();
+    }
 
     public void setJtfSix(String value) {
         jtfSix.setText(value);
+    }
+    
+    // certidaoObito
+    public String getJtfSeven() {
+        return jtfSeven.getText();
     }
 
     public void setJtfSeven(String value) {
         jtfSeven.setText(value);
     }
 
+    // tumRua
+    public String getJtfEight() {
+        return jtfEight.getText();
+    }
+
     public void setJtfEight(String value) {
         jtfEight.setText(value);
+    }
+    
+    // tumNumero
+    public String getJtfNine() {
+        return jtfNine.getText();
     }
 
     public void setJtfNine(String value) {
         jtfNine.setText(value);
+    }
+
+    // cemCnpj
+    public String getJtfTen() {
+        return jtfTen.getText();
+    }
+
+    public void setJtfTen(String value) {
+        jtfTen.setText(value);
     }
 }

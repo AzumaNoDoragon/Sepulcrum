@@ -132,7 +132,6 @@ public class AdmDAO {
             }
 
             if (a.getCargo().equalsIgnoreCase("Adm")) {
-                // Verifica se já existe no ADM
                 String sqlSelectAdm = "SELECT 1 FROM adm WHERE ADM_CPF = ?";
                 try (PreparedStatement stmtSelect = connection.prepareStatement(sqlSelectAdm)) {
                     stmtSelect.setString(1, a.getCpf());
@@ -154,11 +153,10 @@ public class AdmDAO {
                     }
                 }
             } else {
-                // Se o cargo NÃO for mais Adm, remove da tabela adm
                 String sqlDelete = "DELETE FROM adm WHERE ADM_CPF = ?;";
                 try (PreparedStatement stmtDelete = connection.prepareStatement(sqlDelete)) {
-                    stmtDelete.setString(1, id); // Remove o antigo CPF
-                    stmtDelete.executeUpdate(); // Não precisa checar linhas afetadas
+                    stmtDelete.setString(1, id);
+                    stmtDelete.executeUpdate();
                 }
             }
         } catch(Exception e){
@@ -190,7 +188,6 @@ public class AdmDAO {
                     throw new SQLException("Falha ao deletar coveiro. Nenhuma linha afetada.");
                 }
             }
-
         } catch(Exception e){
             throw new IllegalArgumentException("Não foi possivel inserir no banco: " + e.getMessage());
         } finally {

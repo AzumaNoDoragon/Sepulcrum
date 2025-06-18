@@ -1,32 +1,30 @@
-package com.sepulcrum.model.servico.model.utils;
+package com.sepulcrum.model.servico.utils;
 
 import java.sql.Date;
 
-public class Servicos {
-    protected static int proxId = 1;
+public class Servico {
     protected StatusServico statusServico;
     protected TipoServico tipoServico;
     protected String descricao, informacoesAdicionais, admCpf, tumRua, tumNumero, cemCnpj;
-    protected int idServico;
     protected Date dataServico;
 
-        protected enum StatusServico{
-            Marcado,
-            Andamento,
-            Concluido,
-            Adiado,
-            Cancelado
-        }
+    protected enum StatusServico{
+        Marcado,
+        Andamento,
+        Concluido,
+        Adiado,
+        Cancelado
+    }
 
     protected enum TipoServico{
         Exumacao,
-        ManutencaoTumulo,
-        ReservaTumulo,
-        TransferenciaTumulo,
+        Manutencao,
+        Reserva,
+        Transferencia,
         vistoria
     }
 
-    public Servicos(String tipoServicoStr, String descricao, String statusServicoStr, Date dataServico, String tumRua, String tumNumero, String cemCnpj, String admCpf) {
+    public Servico(String tipoServicoStr, String descricao, String statusServicoStr, Date dataServico, String tumRua, String tumNumero, String cemCnpj, String admCpf) {
         setTipoServico(tipoServicoStr);
         this.descricao = descricao;
         setStatusServico(statusServicoStr);
@@ -35,7 +33,6 @@ public class Servicos {
         this.tumNumero = tumNumero;
         this.cemCnpj = cemCnpj;
         this.admCpf = admCpf;
-        this.idServico = proxId++;
     }
 
     public String getStatusServico() {
@@ -63,13 +60,13 @@ public class Servicos {
     public void setTipoServico(String tipoServico){
         if(tipoServico.equals("Exumacao")){
             this.tipoServico = TipoServico.Exumacao;
-        } else if(tipoServico.equals("ManutencaoTumulo")){
-            this.tipoServico = TipoServico.ManutencaoTumulo;
-        } else if(tipoServico.equals("ReservaTumulo")){
-            this.tipoServico = TipoServico.ReservaTumulo;
-        } else if(tipoServico.equals("TransferenciaTumulo")){
-            this.tipoServico = TipoServico.TransferenciaTumulo;
-        } else if(tipoServico.equals("vistoria")){
+        } else if(tipoServico.equals("Manutencao")){
+            this.tipoServico = TipoServico.Manutencao;
+        } else if(tipoServico.equals("Reserva")){
+            this.tipoServico = TipoServico.Reserva;
+        } else if(tipoServico.equals("Transferencia")){
+            this.tipoServico = TipoServico.Transferencia;
+        } else if(tipoServico.equals("Vistoria")){
             this.tipoServico = TipoServico.vistoria;
         }
     }
@@ -120,14 +117,6 @@ public class Servicos {
 
     public void setCemCnpj(String cemCnpj) {
         this.cemCnpj = cemCnpj;
-    }
-
-    public int getIdServico() {
-        return idServico;
-    }
-
-    public void setIdServico(int idServico) {
-        this.idServico = idServico;
     }
 
     public Date getDataServico() {

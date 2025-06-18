@@ -1,10 +1,10 @@
-package com.sepulcrum.model.servico.model;
+package com.sepulcrum.model.servico;
 
 import java.sql.Date;
 
-import com.sepulcrum.model.servico.model.utils.Servicos;
+import com.sepulcrum.model.servico.utils.Servico;
 
-public class TransferenciaDefunto extends Servicos {
+public class TransferenciaDefunto extends Servico {
     private String tumNumeroDestino, tumRuaDestino, cemCnpjDestino, finCertidaoObito;
 
     public TransferenciaDefunto(String tipoServicoStr, String descricao, String statusServicoStr, Date dataServico,

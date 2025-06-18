@@ -1,10 +1,10 @@
-package com.sepulcrum.model.servico.model;
+package com.sepulcrum.model.servico;
 
 import java.sql.Date;
 
-import com.sepulcrum.model.servico.model.utils.Servicos;
+import com.sepulcrum.model.servico.utils.Servico;
 
-public class Exumacao extends Servicos {
+public class Exumacao extends Servico {
     private String finCertidaoObito;
     
     public Exumacao(String tipoServicoStr, String descricao, String statusServicoStr, Date dataServico, String tumRua,

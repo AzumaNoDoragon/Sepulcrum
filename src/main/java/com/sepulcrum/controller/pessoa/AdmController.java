@@ -15,10 +15,10 @@ public class AdmController {
     public void validarCampo(AdmView av){
         vc.validarCampo(av.getJtfOne(), "Nome");
         vc.validarCampo(av.getJtfTwo(), "Cpf");
-        vc.validarCampo(av.getJtfFourDate(), "Data de Nascimento");
-        vc.validarCampo(av.getJtfFiveDate(), "Data de Contratação");
+        vc.validarCampo(av.getJtfFour(), "Data de Nascimento");
+        vc.validarCampo(av.getJtfFive(), "Data de Contratação");
         vc.validarCampo(av.getJtfSix(), "Email");
-        vc.validarCampo(av.getJtfSevenString(), "Telefone");
+        vc.validarCampo(av.getJtfSeven(), "Telefone");
         vc.validarCampo(av.getJtfEight(), "Cargo");
     }
 
@@ -26,14 +26,14 @@ public class AdmController {
         validarCampo(av);
 
         Adm a = new Adm(
-            av.getJtfOne(),         // nome
-            av.getJtfTwo(),         // cpf
-            av.getJtfFourDate(),    // dataNascimento
-            av.getJtfFiveDate(),    // dataContratacao
-            av.getJtfSix(),         // email
-            av.getJtfSevenString(), // telefone
-            av.getJtfEight(),       // cargo
-            av.getJtfNine()         // cemCnpj
+            av.getJtfOne(),   // nome
+            av.getJtfTwo(),   // cpf
+            av.getJtfFour(),  // dataNascimento
+            av.getJtfFive(),  // dataContratacao
+            av.getJtfSix(),   // email
+            av.getJtfSeven(), // telefone
+            av.getJtfEight(), // cargo
+            av.getJtfNine()   // cemCnpj
         );
         a.setRg(av.getJtfThree()); // RG
 
@@ -71,10 +71,10 @@ public class AdmController {
         a.setNome(av.getJtfOne());
         a.setCpf(av.getJtfTwo());
         a.setRg(av.getJtfThree());
-        a.setDataNascimento(av.getJtfFourDate());
-        a.setDataContratacao(av.getJtfFiveDate());
+        a.setDataNascimento(av.getJtfFour());
+        a.setDataContratacao(av.getJtfFive());
         a.setEmail(av.getJtfSix());
-        a.setTelefone(av.getJtfSevenString());
+        a.setTelefone(av.getJtfSeven());
         a.setCargo(av.getJtfEight());
         a.setCemCnpj(av.getJtfNine());
 

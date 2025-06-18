@@ -4,15 +4,17 @@ import java.sql.Date;
 import com.sepulcrum.model.pessoa.utils.Pessoa;
 
 public class Finado extends Pessoa {
-    private String causaMorte, tumRua, tumNumero, certidaoObito, rg;
+    private String causaMorte, tumRua, tumNumero, cemCnpj, certidaoObito, rg;
+    
     private Date dataFalecimento;
 
     public Finado(String nome, String cpf, Date dataNascimento, Date dataFalecimento, String certidaoObito, String causaMorte, String tumRua, 
-            String tumNumero) {
+            String tumNumero, String cemCnpj) {
         super(nome, cpf, dataNascimento);
         this.causaMorte = causaMorte;
         this.tumRua = tumRua;
         this.tumNumero = tumNumero;
+        this.cemCnpj = cemCnpj;
         this.certidaoObito = certidaoObito;
         this.dataFalecimento = dataFalecimento;
     }
@@ -96,5 +98,13 @@ public class Finado extends Pessoa {
 
     public void setRg(String rg) {
         this.rg = rg;
+    }
+
+    public String getCemCnpj() {
+        return cemCnpj;
+    }
+
+    public void setCemCnpj(String cemCnpj) {
+        this.cemCnpj = cemCnpj;
     }
 }

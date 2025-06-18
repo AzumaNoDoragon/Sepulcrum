@@ -1,4 +1,4 @@
-package com.sepulcrum.view.pessoa;
+package com.sepulcrum.view.servico;
 
 import java.sql.Date;
 import java.text.ParseException;
@@ -10,18 +10,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import com.sepulcrum.controller.pessoa.AdmController;
-import com.sepulcrum.view.comum.TelaGerenciadorGeral;
+import com.sepulcrum.controller.servico.ExumacaoController;
+import com.sepulcrum.view.servico.comum.TelaGerenciadorServico;
 
-public class AdmView extends JFrame{
+public class ExumacaoView extends JFrame{
     protected JButton jbSalvar, jbCancelar;
-    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfNine;
-    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine;
-    protected JComboBox<String> jtfEight;
+    protected JTextField jtfOne, jtfTwo, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
+    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
+    protected JComboBox<String> jtfThree;
     protected int fWidth, fHeight, qtdBotoes, jbY;
-    private AdmController ga = new AdmController();
+    private ExumacaoController ec = new ExumacaoController();
 
-    public AdmView(int seletor, int seletorCrud, String id){
+    public ExumacaoView(int seletor, int seletorCrud, int id){
         inicializarVariaveis(seletor, seletorCrud);
         
         // Janela
@@ -71,6 +71,7 @@ public class AdmView extends JFrame{
             case 6 -> jlSeven;
             case 7 -> jlEight;
             case 8 -> jlNine;
+            case 9 -> jlTen;
             default -> null;
         };
         if(label != null){
@@ -90,6 +91,7 @@ public class AdmView extends JFrame{
             case 6 -> jtfSeven;
             case 7 -> jtfEight;
             case 8 -> jtfNine;
+            case 9 -> jtfTen;
             default -> null;
         };
         if(text != null){
@@ -98,7 +100,7 @@ public class AdmView extends JFrame{
         }
     }
 
-    protected void button(String id, int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
+    protected void button(int id, int seletorCrud, int qtdBotoes, int seletor, int i, int jbX, int y, int jbY, int jbWidth, int jbHeight){
         jbY = y * (qtdBotoes + 1 + i);
         int index = i;
         JButton button = switch (index){
@@ -110,37 +112,67 @@ public class AdmView extends JFrame{
             defineBotoes(id, seletorCrud, seletor, button, index, jbX + 70, jbY, jbWidth, jbHeight);
         }
     }
-    
-    protected void defineBotoes(String id, int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
+
+    protected void defineBotoes(int id, int seletorCrud, int seletor, JButton button, int index, int jbX, int jbY, int jbWidth, int jbHeight){
         button.setBounds(jbX, jbY, jbWidth, jbHeight);
         button.addActionListener(_ -> {
             switch(index){
                 case 0 -> {
                     if(seletorCrud == 1){
-                        try{
-                            ga.setAdm(this);
+                        try {
+                            ec.setExumacao(this);
                             msgSucesso();
-                        } catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                             msgErro(e);
                             return;
                         }
                     } else if (seletorCrud == 3){
-                        ga.updateAdm(this, id);
+                        ec.updateExumacao(this, id);
                         msgAlterada();
                     } else if(seletorCrud == 4){
                         msgConfirmacaoDelecao(id);
                     }
-                    new TelaGerenciadorGeral(seletor);
+                    new TelaGerenciadorServico(seletor);
                 }
-                case 1 -> new TelaGerenciadorGeral(seletor);
+                case 1 -> new TelaGerenciadorServico(seletor);
             };
             dispose();
         });
         this.add(button);
     }
-    
-    public void inicializarVariaveis(int seletor, int seletorCrud) {
+
+    private void defineLabel(){
+        // Label
+        jlOne = new JLabel("*Tipo serviço: ");                                // tipoServico
+        jlTwo = new JLabel("*Descricao: ");                                   // descricao
+        jlThree = new JLabel("*Status Serviço: ");                            // statusServico
+        jlFour = new JLabel("*Data Serviço: ");                               // dataServico
+        jlFive = new JLabel("*Rua do Túmulo: ");                              // tumRua
+        jlSix = new JLabel("*Número Tumulo: ");                               // tumNumero
+        jlSeven = new JLabel("*CNPJ Cemitério: ");                            // cemCnpj
+        jlEight = new JLabel("<html>*CPF Responsável <br> Serviço: <html/>"); // admCpf
+        jlNine = new JLabel("<html>Informações<br>Adicionais: <html/>");      // informacoesAdicionais
+        jlTen = new JLabel("*Certidão de Óbito: ");                           // finCertidaoObito
+    }
+
+    private void defineText(){
+        // Text Field
+        jtfOne = new JTextField("Exumacao");
+        jtfTwo = new JTextField();
+        jtfThree = new JComboBox<>(new String[] {"Marcado", "Andamento", "Concluido", "Adiado", "Cancelado"});
+        jtfFour = new JTextField();
+        jtfFive = new JTextField();
+        jtfSix = new JTextField();
+        jtfSeven = new JTextField();
+        jtfEight = new JTextField();
+        jtfNine = new JTextField();
+        jtfTen = new JTextField();
+
+        jtfOne.setEditable(false);
+    }
+
+    protected void inicializarVariaveis(int seletor, int seletorCrud){
         // Button
         if(seletorCrud == 1 || seletorCrud == 3){
             jbSalvar = new JButton("Salvar");
@@ -156,32 +188,16 @@ public class AdmView extends JFrame{
         //Configura tamanho da janela e botões
         fWidth = 500;
         fHeight = 700;
-        qtdBotoes = 9;
+        qtdBotoes = 10;
 
         // Janela
-        this.setTitle("Registro Coveiro.");
+        this.setTitle("Registro Exumação.");
 
         // Label
-        jlOne = new JLabel("*Nome: ");                                 // nome
-        jlTwo = new JLabel("*CPF: ");                                  // cpf
-        jlThree = new JLabel("RG: ");                                  // RG
-        jlFour = new JLabel("*Data Nascimento: ");                     // dataNascimento
-        jlFive = new JLabel("*Data Contratação: ");                    // dataContratacao
-        jlSix = new JLabel("*Email: ");                                // email
-        jlSeven = new JLabel("*Telefone: ");                           // telefone
-        jlEight = new JLabel("*Cargo: ");                              // cargo
-        jlNine = new JLabel("<html>CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
+        defineLabel();
         
         // Text Field
-        jtfOne = new JTextField();
-        jtfTwo = new JTextField();
-        jtfThree = new JTextField();
-        jtfFour = new JTextField();
-        jtfFive = new JTextField();
-        jtfSix = new JTextField();
-        jtfSeven = new JTextField();
-        jtfEight = new JComboBox<>(new String[] {"Coveiro", "Adm"});
-        jtfNine = new JTextField();
+        defineText();
 
         if(seletorCrud == 2 | seletorCrud == 4){
             jtfOne.setEditable(false);
@@ -191,8 +207,9 @@ public class AdmView extends JFrame{
             jtfFive.setEditable(false);
             jtfSix.setEditable(false);
             jtfSeven.setEditable(false);
-            jtfEight.setEnabled(false);
+            jtfEight.setEditable(false);
             jtfNine.setEditable(false);
+            jtfTen.setEditable(false);
         }
     }
 
@@ -208,8 +225,7 @@ public class AdmView extends JFrame{
         JOptionPane.showMessageDialog(this, "Registro deletado!");
     }
 
-    protected void msgConfirmacaoDelecao(String id){
-        AdmController ac = new AdmController();
+    protected void msgConfirmacaoDelecao(int id){
         int opcao = JOptionPane.showConfirmDialog(
             this,
             "Deseja realmente deletar este registro?",
@@ -217,7 +233,7 @@ public class AdmView extends JFrame{
             JOptionPane.YES_NO_OPTION
         );
         if (opcao == JOptionPane.YES_OPTION) {
-            ac.deleteAdm(id);
+            ec.deleteExumacao(id);
             msgDelete();
         }
     }
@@ -226,7 +242,7 @@ public class AdmView extends JFrame{
         JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
     }
     
-    // nome
+    // tipoServico
     public String getJtfOne() {
         return jtfOne.getText();
     }
@@ -235,7 +251,7 @@ public class AdmView extends JFrame{
         jtfOne.setText(value);
     }
     
-    // cpf
+    // descricao
     public String getJtfTwo() {
         return jtfTwo.getText();
     }
@@ -244,16 +260,16 @@ public class AdmView extends JFrame{
         jtfTwo.setText(value);
     }
     
-    // RG
+    // statusServico
     public String getJtfThree() {
-        return jtfThree.getText();
+        return (String) jtfThree.getSelectedItem();
     }
 
     public void setJtfThree(String value) {
-        jtfThree.setText(value);
+        jtfThree.setSelectedItem(value);
     }
     
-    // dataNascimento
+    // dataServico
     public Date getJtfFour() {
         String text = jtfFour.getText();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -267,48 +283,31 @@ public class AdmView extends JFrame{
     }
 
     public void setJtfFour(Date value) {
-        if (value != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(value);
-            jtfFour.setText(dataFormatada);
-        } else {
-            jtfFour.setText("Data não encontrada");
-        }
-    }
-    
-    // dataContratacao
-    public Date getJtfFive() {
-        String text = jtfFive.getText();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        try {
-            java.util.Date utilDate = sdf.parse(text);
-            return new java.sql.Date(utilDate.getTime());
-        } catch (ParseException e) {
-            return null;
-        }
-    }
-
-    public void setJtfFive(Date value) {
-        if (value != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(value);
-            jtfFive.setText(dataFormatada);
-        } else {
-            jtfFive.setText("Data não encontrada");
-        }
+        String datFormatada = sdf.format(value);
+        
+        jtfFour.setText(datFormatada);
     }
     
-    // email
+    // tumRua
+    public String getJtfFive() {
+        return jtfFive.getText();
+    }
+
+    public void setJtfFive(String value) {
+        jtfFive.setText(value);
+    }
+    
+    // tumNumero
     public String getJtfSix() {
         return jtfSix.getText();
     }
-    
+
     public void setJtfSix(String value) {
         jtfSix.setText(value);
     }
-
-    // telefone
+    
+    // cemCnpj
     public String getJtfSeven() {
         return jtfSeven.getText();
     }
@@ -317,21 +316,30 @@ public class AdmView extends JFrame{
         jtfSeven.setText(value);
     }
     
-    // cargo
+    // admCpf
     public String getJtfEight() {
-        return (String) jtfEight.getSelectedItem();
+        return jtfEight.getText();
     }
 
     public void setJtfEight(String value) {
-        jtfEight.setSelectedItem(value);
+        jtfEight.setText(value);
     }
     
-    // cemCnpj
+    // informacoesAdicionais
     public String getJtfNine() {
         return jtfNine.getText();
     }
 
     public void setJtfNine(String value) {
         jtfNine.setText(value);
+    }
+    
+    // finCertidaoObito
+    public String getJtfTen() {
+        return jtfTen.getText();
+    }
+
+    public void setJtfTen(String value) {
+        jtfTen.setText(value);
     }
 }

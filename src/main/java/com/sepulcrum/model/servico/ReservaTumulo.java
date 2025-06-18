@@ -1,10 +1,10 @@
-package com.sepulcrum.model.servico.model;
+package com.sepulcrum.model.servico;
 
 import java.sql.Date;
 
-import com.sepulcrum.model.servico.model.utils.Servicos;
+import com.sepulcrum.model.servico.utils.Servico;
 
-public class ReservaTumulo extends Servicos{
+public class ReservaTumulo extends Servico{
     private String cpfPessoa; // == Familiar
 
     public ReservaTumulo(String tipoServicoStr, String descricao, String statusServicoStr, Date dataServico,

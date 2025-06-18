@@ -11,7 +11,6 @@ public class TelaSelecaoTumulo extends JFrame{
     protected JTextField jtfOne, jtfTwo, jtfThree;
     protected JLabel jlOne, jlTwo, jlThree;
     protected int fWidth, fHeight, qtdBotoes;
-    private String idOne, idTwo, idThree;
     private TumuloController tc = new TumuloController();
 
     public TelaSelecaoTumulo(int seletor, int seletorCrud){
@@ -81,7 +80,7 @@ public class TelaSelecaoTumulo extends JFrame{
     }
 
     protected void button(int seletorCrud, int seletor, int i, int jbX, int jbY, int jbWidth, int jbHeight){
-        int index = i;
+        int index = i -2;
         JButton button = switch (index){
             case 0 -> jbBusca;
             case 1 -> jbCancelar;
@@ -112,7 +111,7 @@ public class TelaSelecaoTumulo extends JFrame{
         //Configura tamanho da janela e botões
         fWidth = 500;
         fHeight = 500;
-        qtdBotoes = 3;
+        qtdBotoes = 5;
 
         // Janela
         this.setTitle("Seleção");
@@ -133,14 +132,14 @@ public class TelaSelecaoTumulo extends JFrame{
     }
 
     public String getIdOne() {
-        return idOne;
+        return jtfOne.getText();
     }
 
     public String getIdTwo() {
-        return idTwo;
+        return jtfTwo.getText();
     }
 
     public String getIdThree() {
-        return idThree;
+        return jtfThree.getText();
     }
 }
