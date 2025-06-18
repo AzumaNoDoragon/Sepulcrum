@@ -14,8 +14,8 @@ public class FinadoDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
 
-            String sql = "INSERT INTO finado (FIN_NOME, FIN_CPF, FIN_DATA_NASCIMENTO, FIN_DATA_FALECIMENTO, FIN_CERTIDAO_OBITO, FIN_CAUSA_MORTE, TUM_RUA, TUM_NUMERO)" +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO finado (FIN_NOME, FIN_CPF, FIN_DATA_NASCIMENTO, FIN_DATA_FALECIMENTO, FIN_CERTIDAO_OBITO, FIN_CAUSA_MORTE, TUM_RUA, TUM_NUMERO, CEM_CNPJ)" +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
                 stmt.setString(1, fin.getNome());
@@ -26,6 +26,7 @@ public class FinadoDAO {
                 stmt.setString(6, fin.getCausaMorte());
                 stmt.setString(7, fin.getTumRua());
                 stmt.setString(8, fin.getTumNumero());
+                stmt.setString(9, fin.getTumNumero());
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
