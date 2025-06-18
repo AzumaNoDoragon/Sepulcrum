@@ -45,7 +45,7 @@ public class FamiliarDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
 
-            String sql = "SELECT FAM_NOME, FAM_CPF, FAM_DATA_NASCIMENTO, FAM_EMAIL, FAM_TELEFONE, FAM_GRAU_PARENTESCO, FAM_RG, FIN_CERTIDAO_OBITO" +
+            String sql = "SELECT FAM_NOME, FAM_CPF, FAM_DATA_NASCIMENTO, FAM_EMAIL, FAM_TELEFONE, FAM_GRAU_PARENTESCO, FAM_RG, FIN_CERTIDAO_OBITO " +
                         "FROM familiar WHERE FAM_CPF = ?;";
         
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
@@ -94,7 +94,11 @@ public class FamiliarDAO {
                 stmt.setString(5, fam.getTelefone());
                 stmt.setString(6, fam.getGrauParentesco());
                 stmt.setString(7, fam.getRg());
-                stmt.setString(8, fam.getCertidaoObito());
+                if(fam.getCertidaoObito().equals("")){
+                    stmt.setString(8, null);
+                } else {
+                    stmt.setString(8, fam.getCertidaoObito());
+                }
 
                 stmt.setString(9, id); // Busca por este
 
