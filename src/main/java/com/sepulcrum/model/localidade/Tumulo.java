@@ -10,11 +10,11 @@ public class Tumulo extends Localidade{
     private Date dataOcupacao;
 
     private enum Tipo{
-        CovaRasa, TumuloAlvenaria, JazigoPerpetuo, Ossuario, Mausoleu, Columbario
+        Cova, Tumulo, Jazigo, Ossuario, Mausoleu, Columbario
     }
     
     private enum Situacao{
-        Vazio, Reservado, Comprado, Ocupado, Manutencao, AguardandoExumação, DesativadoIndisponível
+        Vazio, Reservado, Comprado, Ocupado, Manutencao, Exumacao, Desativado
     }
     
     public Tumulo(String tipoStr, String situacaoStr, Date dataOcupacao, String rua, String numero, String cemCnpj) {
@@ -26,12 +26,12 @@ public class Tumulo extends Localidade{
     }
 
     public void setTipo(String tipoStr){
-        if(tipoStr.equals("Cova Rasa")){
-            this.tipo = Tipo.CovaRasa;
-        } else if(tipoStr.equals("Tumulo Alvenaria")){
-            this.tipo = Tipo.TumuloAlvenaria;
-        } else if(tipoStr.equals("Jazigo Perpetuo")){
-            this.tipo = Tipo.JazigoPerpetuo;
+        if(tipoStr.equals("Cova")){
+            this.tipo = Tipo.Cova;
+        } else if(tipoStr.equals("Tumulo")){
+            this.tipo = Tipo.Tumulo;
+        } else if(tipoStr.equals("Jazigo")){
+            this.tipo = Tipo.Jazigo;
         } else if(tipoStr.equals("Ossuario")){
             this.tipo = Tipo.Ossuario;
         } else if(tipoStr.equals("Mausoleu")){
@@ -52,10 +52,10 @@ public class Tumulo extends Localidade{
             this.situacao = Situacao.Ocupado;
         } else if(situacaoStr.equals("Manutencao")){
             this.situacao = Situacao.Manutencao;
-        } else if(situacaoStr.equals("Aguardando Exumação")){
-            this.situacao = Situacao.AguardandoExumação;
-        } else if(situacaoStr.equals("Desativado/Indisponível")){
-            this.situacao = Situacao.DesativadoIndisponível;
+        } else if(situacaoStr.equals("Exumacao")){
+            this.situacao = Situacao.Exumacao;
+        } else if(situacaoStr.equals("Desativado")){
+            this.situacao = Situacao.Desativado;
         }
     }
 
