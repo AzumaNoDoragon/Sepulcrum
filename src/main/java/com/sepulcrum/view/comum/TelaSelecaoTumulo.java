@@ -11,7 +11,6 @@ public class TelaSelecaoTumulo extends JFrame{
     protected JTextField jtfOne, jtfTwo, jtfThree;
     protected JLabel jlOne, jlTwo, jlThree;
     protected int fWidth, fHeight, qtdBotoes;
-    private String idOne, idTwo, idThree;
     private TumuloController tc = new TumuloController();
 
     public TelaSelecaoTumulo(int seletor, int seletorCrud){
@@ -133,14 +132,14 @@ public class TelaSelecaoTumulo extends JFrame{
     }
 
     public String getIdOne() {
-        return idOne;
+        return jtfOne.getText();
     }
 
     public String getIdTwo() {
-        return idTwo;
+        return jtfTwo.getText();
     }
 
     public String getIdThree() {
-        return idThree;
+        return jtfThree.getText();
     }
 }
