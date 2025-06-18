@@ -167,7 +167,7 @@ public class TransferenciaDefuntoView extends JFrame{
 
     private void defineText(){
         // Text Field
-        jtfOne = new JTextField("Transferência");
+        jtfOne = new JTextField("Transferencia");
         jtfTwo = new JTextField();
         jtfThree = new JComboBox<>(new String[] {"Marcado", "Andamento", "Concluido", "Adiado", "Cancelado"});
         jtfFour = new JTextField();
