@@ -52,7 +52,7 @@ public class TransferenciaDefuntoController {
     public void selectTransferenciaDefunto(TelaSelectServico tss, int seletor, int seletorCrud, int id){
         TransferenciaDefunto td = tdDao.readTransferenciaDefunto(id);
         if(td == null){
-            JOptionPane.showConfirmDialog(null, "Transferencia de Túmulo com id " + id + " não encontrado.");
+            JOptionPane.showMessageDialog(null, "Transferencia de Túmulo com id " + id + " não encontrado.");
         } else {
             tss.dispose();
             TransferenciaDefuntoView trv = new TransferenciaDefuntoView(seletor, seletorCrud, id);
