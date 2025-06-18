@@ -8,7 +8,7 @@ public class Familiar extends PessoaViva {
     private String certidaoObito, rg;
 
     private enum Grau{
-        Ascendente, Descendente, Colateral, Conjuge, NaoParente
+        Ascendente, Descendente, Colateral, Conjuge, NaoParente, Selecione
     }
 
     public Familiar(String nome, String cpf, Date dataNascimento, String email, String telefone) {
@@ -24,8 +24,10 @@ public class Familiar extends PessoaViva {
             this.grauParentesco = Grau.Colateral;
         } else if(grauStr.equals("Conjuge")){
             this.grauParentesco = Grau.Conjuge;
-        } else if(grauStr.equals("Não Parente")){
+        } else if(grauStr.equals("NaoParente")){
             this.grauParentesco = Grau.NaoParente;
+        } else if(grauStr.equals("Selecione")){
+            this.grauParentesco = Grau.Selecione;
         }
     }
 
