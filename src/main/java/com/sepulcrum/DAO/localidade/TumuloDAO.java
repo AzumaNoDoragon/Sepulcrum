@@ -24,7 +24,11 @@ public class TumuloDAO {
                 stmt.setString(4, t.getRua());
                 stmt.setString(5, t.getNumero());
                 stmt.setString(6, t.getCemCnpj());
-                stmt.setString(7, t.getFamCpf());
+                if(t.getFamCpf().equals("")){
+                    stmt.setString(7, null);
+                } else {
+                    stmt.setString(7, t.getFamCpf());
+                }
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
@@ -44,8 +48,8 @@ public class TumuloDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
             
-            String sql = "SELECT TUM_TIPO, TUM_SITUACAO, TUM_DATA_OCUPACAO, TUM_RUA, TUM_NUMERO, CEM_CNPJ, FAM_CPF" +
-                        "FROM tumulo WHERE TUM_NUMERO = ? AND TUM_RUA = ? AND CEM_CNP = ?;";
+            String sql = "SELECT TUM_TIPO, TUM_SITUACAO, TUM_DATA_OCUPACAO, TUM_RUA, TUM_NUMERO, CEM_CNPJ, FAM_CPF " +
+                        "FROM tumulo WHERE TUM_NUMERO = ? AND TUM_RUA = ? AND CEM_CNPJ = ?;";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
                 stmt.setString(1, num);
