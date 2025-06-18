@@ -46,7 +46,7 @@ public class ReservaTumuloDao {
                 }
             }
 
-            String sqlEx = "INSERT INTO reserva_tumulo (SER_ID, FIN_CERTIDAO_OBITO)" +
+            String sqlEx = "INSERT INTO reserva_tumulo (SER_ID, FAM_CPF)" +
                         "VALUES (?, ?)";
 
             try(PreparedStatement stmtEx = connection.prepareStatement(sqlEx)){
@@ -99,10 +99,10 @@ public class ReservaTumuloDao {
                             rs.getString("SER_DESCRICAO"),
                             rs.getString("SER_STATUS"),
                             rs.getDate("SER_DATA"),
-                            rs.getString("COV_CPF"),
-                            rs.getString("TUM_NUMERO"),
                             rs.getString("TUM_RUA"),
+                            rs.getString("TUM_NUMERO"),
                             rs.getString("CEM_CNPJ"),
+                            rs.getString("COV_CPF"),
                             rs.getString("FAM_CPF")
                         );
                         rt.setInformacoesAdicionais(rs.getString("SER_INFORMACOES_ADICIONAIS"));
@@ -127,7 +127,7 @@ public class ReservaTumuloDao {
             Connection connection = conn.getConnection();
 
             String sqlServico = "UPDATE servico SET SER_TIPO = ?, SER_DESCRICAO = ?, SER_INFORMACOES_ADICIONAIS = ?, " +
-                                "SER_STATUS = ?, SER_DATA = ?, COV_CPF = ?, TUM_NUMERO = ?, TUM_RUA = ?, CEM_CNPJ = ? " +
+                                "SER_STATUS = ?, SER_DATA = ?, COV_CPF = ?, TUM_NUMERO = ?, TUM_RUA = ?, CEM_CNPJ = ?" +
                                 "WHERE SER_ID = ?";
 
             try (PreparedStatement stmt = connection.prepareStatement(sqlServico)) {
@@ -147,7 +147,7 @@ public class ReservaTumuloDao {
                 }
             }
 
-            String sqlExumacao = "UPDATE exumacao SET FAM_CPF = ? WHERE SER_ID = ?";
+            String sqlExumacao = "UPDATE reserva_tumulo SET FAM_CPF = ? WHERE SER_ID = ?";
 
             try (PreparedStatement stmtEx = connection.prepareStatement(sqlExumacao)) {
                 stmtEx.setString(1, rt.getIdPessoa());
