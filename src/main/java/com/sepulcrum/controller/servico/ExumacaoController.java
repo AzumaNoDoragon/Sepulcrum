@@ -13,14 +13,14 @@ public class ExumacaoController {
     private ValidadorCamposInterface vc = new ValidarCampos();
 
     public void validarCampo(ExumacaoView ev){
-        vc.validarCampo(ev.getJtfOne(), "tipo Servico");        // tipoServicoStr
-        vc.validarCampo(ev.getJtfTwo(), "descrição");           // descricao
-        vc.validarCampo(ev.getJtfThree(), "status Servico");    // statusServicoStr
-        vc.validarCampo(ev.getJtfFour(), "data Serviço");       // dataServico
-        vc.validarCampo(ev.getJtfFive(), "Rua do Tumulo");      // tumRua
-        vc.validarCampo(ev.getJtfSix(), "Número do Tumulo");    // tumNumero
-        vc.validarCampo(ev.getJtfEight(), "CNPJ do Cemitério"); // cemCnpj
-        vc.validarCampo(ev.getJtfNine(), "CPF do responsável"); // admCpf
+        vc.validarCampo(ev.getJtfOne(), "tipo Servico");         // tipoServicoStr
+        vc.validarCampo(ev.getJtfTwo(), "descrição");            // descricao
+        vc.validarCampo(ev.getJtfThree(), "status Servico");     // statusServicoStr
+        vc.validarCampo(ev.getJtfFour(), "data Serviço");        // dataServico
+        vc.validarCampo(ev.getJtfFive(), "Rua do Tumulo");       // tumRua
+        vc.validarCampo(ev.getJtfSix(), "Número do Tumulo");     // tumNumero
+        vc.validarCampo(ev.getJtfEight(), "CPF do responsável"); // cemCnpj
+        vc.validarCampo(ev.getJtfTen(), "CNPJ do Cemitério");    // admCpf
     }
 
     public void setExumacao(ExumacaoView ev){
@@ -37,7 +37,7 @@ public class ExumacaoController {
             ev.getJtfEight(), // admCpf
             ev.getJtfTen()    // finCertidaoObito
         );
-        ex.setInformacoesAdicionais(ev.getJtfNine());
+        ex.setInformacoesAdicionais(ev.getJtfNine());  // informacoesAdicionais
 
         eDao.createExumacao(ex);
     }
