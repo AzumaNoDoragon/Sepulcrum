@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `Sepulcrum`.`TUMULO` (
   `TUM_NUMERO` VARCHAR(15) NOT NULL,
   `TUM_RUA` VARCHAR(150) NOT NULL,
   `TUM_TIPO` ENUM('CovaRasa', 'TumuloAlvenaria', 'JazigoPerpetuo', 'Ossuario', 'Mausoleu', 'Columbario') NOT NULL,
-  `TUM_DATA_OCUOPACAO` DATE NULL,
+  `TUM_DATA_OCUPACAO` DATE NULL,
   `TUM_SITUACAO` ENUM('Vazio', 'Reservado', 'Comprado', 'Ocupado', 'Manutencao', 'AguardandoExumação', 'DesativadoIndisponível') NOT NULL,
   `CEM_CNPJ` VARCHAR(15) NOT NULL,
   `FAM_CPF` VARCHAR(15) NOT NULL,
@@ -254,10 +254,10 @@ ENGINE = InnoDB;
 -- Table `Sepulcrum`.`MANUTENCAO_TUMULO`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Sepulcrum`.`MANUTENCAO_TUMULO` (
-  `SERVICO_SER_ID` INT NOT NULL,
-  PRIMARY KEY (`SERVICO_SER_ID`),
+  `SER_ID` INT NOT NULL,
+  PRIMARY KEY (`SER_ID`),
   CONSTRAINT `fk_ManutencaoTumulo_SERVICO1`
-    FOREIGN KEY (`SERVICO_SER_ID`)
+    FOREIGN KEY (`SER_ID`)
     REFERENCES `Sepulcrum`.`SERVICO` (`SER_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -268,10 +268,10 @@ ENGINE = InnoDB;
 -- Table `Sepulcrum`.`VISTORIA`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Sepulcrum`.`VISTORIA` (
-  `SERVICO_SER_ID` INT NOT NULL,
-  PRIMARY KEY (`SERVICO_SER_ID`),
+  `SER_ID` INT NOT NULL,
+  PRIMARY KEY (`SER_ID`),
   CONSTRAINT `fk_Vistoria_SERVICO1`
-    FOREIGN KEY (`SERVICO_SER_ID`)
+    FOREIGN KEY (`SER_ID`)
     REFERENCES `Sepulcrum`.`SERVICO` (`SER_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
