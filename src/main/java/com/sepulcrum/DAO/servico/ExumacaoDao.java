@@ -81,10 +81,10 @@ public class ExumacaoDao {
         Conexao conn = new Conexao();
         try {
             conn.conectar();
+
             Connection connection = conn.getConnection();
-            
-            String sql = "SELECT s.SER_TIPO, s.SER_DESCRICAO, s.SER_INFORMACOES_ADICIONAIS, s.SER_STATUS, s.SER_DATA, " +
-                        "s.COV_CPF, s.TUM_NUMERO, s.TUM_RUA, s.CEM_CNPJ, e.FIN_CERTIDAO_OBITO " +
+            String sql = "SELECT s.SER_TIPO, s.SER_DESCRICAO, s.SER_STATUS, s.SER_DATA, " +
+                        "s.COV_CPF, s.TUM_NUMERO, s.TUM_RUA, s.CEM_CNPJ, s.SER_INFORMACOES_ADICIONAIS, e.FIN_CERTIDAO_OBITO " +
                         "FROM servico s " +
                         "JOIN exumacao e ON s.SER_ID = e.SER_ID " +
                         "WHERE s.SER_ID = ?";
@@ -99,10 +99,10 @@ public class ExumacaoDao {
                             rs.getString("SER_DESCRICAO"),
                             rs.getString("SER_STATUS"),
                             rs.getDate("SER_DATA"),
-                            rs.getString("COV_CPF"),
-                            rs.getString("TUM_NUMERO"),
                             rs.getString("TUM_RUA"),
+                            rs.getString("TUM_NUMERO"),
                             rs.getString("CEM_CNPJ"),
+                            rs.getString("COV_CPF"),
                             rs.getString("FIN_CERTIDAO_OBITO")
                         );
                         ex.setInformacoesAdicionais(rs.getString("SER_INFORMACOES_ADICIONAIS"));
