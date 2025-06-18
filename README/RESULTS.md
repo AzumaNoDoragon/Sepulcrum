@@ -4,8 +4,6 @@ Date : 2025-06-18 16:44:28
 
 Total : 63 files,  6825 codes, 303 comments, 1226 blanks, all 8354 lines
 
-Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
-
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
@@ -60,5 +58,3 @@ Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-
 | src\\main\\resources | 1 | 4 | 0 | 1 | 5 |
 | target | 1 | 4 | 0 | 1 | 5 |
 | target\\classes | 1 | 4 | 0 | 1 | 5 |
-
-Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
