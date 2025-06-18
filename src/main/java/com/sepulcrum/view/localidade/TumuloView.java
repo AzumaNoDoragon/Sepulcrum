@@ -166,8 +166,8 @@ public class TumuloView extends JFrame{
         jlSeven = new JLabel("<html>CPF do <BR>  Comprador: <html/>"); // famCpf
         
         // Text Field
-        jtfOne = new JComboBox<>(new String[] {"Cova Rasa", "Tumulo Alvenaria", "Jazigo Perpetuo", "Ossuario", "Mausoleu", "Columbario"});
-        jtfTwo = new JComboBox<>(new String[] {"Vazio", "Reservado", "Comprado", "Ocupado", "Manutencao", "Aguardando Exumação", "Desativado/Indisponível"});
+        jtfOne = new JComboBox<>(new String[] {"Cova", "Tumulo", "Jazigo", "Ossuario", "Mausoleu", "Columbario"});
+        jtfTwo = new JComboBox<>(new String[] {"Vazio", "Reservado", "Comprado", "Ocupado", "Manutencao", "Exumacao", "Desativado"});
         jtfThree = new JTextField();
         jtfFour = new JTextField();
         jtfFive = new JTextField();
