@@ -9,8 +9,8 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
   - Familiares responsáveis
   - Sepulturas
   - Funcionários/Administradores
-- Consulta de dados por CPF, nome ou ID
-- Controle de exumações e manutenções
+- Consulta de dados por CPF ou CNPJ(PK's)
+- Controle de serviços
 - Validações de entrada (ex: datas, campos obrigatórios)
 - Interface gráfica intuitiva
 - Persistência dos dados em banco de dados
@@ -18,8 +18,8 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 ## Tecnologias Utilizadas
 
 - **Java 21+**
-- **Swing** (GUI) - em desenvolvimento
-- **MySQL** (banco de dados relacional) - em desenvolvimento
+- **Swing (GUI)**
+- **MySQL (banco de dados relacional)**
 - **VSCode** – IDE utilizada
 
 ## Como Executar
@@ -32,12 +32,16 @@ Sistema desktop para gerenciamento de informações de falecidos, responsáveis,
 2. Importe o projeto na sua IDE (Eclipse, IntelliJ, NetBeans, etc.)
 
 3. Configure o banco de dados:
-- Crie o banco com o script `database.sql` (na pasta `/db`)
-- Atualize o arquivo de configuração com suas credenciais:
+- Crie o banco com o script `Sepulcrum.sql` (na pasta `/databaseConfig`)
+- Edite o arquivo `config.example.properties` de configuração com suas credenciais (na pasta `src\main\resources\config.example.properties`).
+- Renomeie para `config.properties`.
+- Edite o conteúdo com suas credenciais do banco de dados. Caso utilize MySQL, basta ajustar o usuário e a senha:
+- Se optar por outro banco relacional (como PostgreSQL), altere também os campos db.url e db.driver conforme a documentação do respectivo JDBC driver.
   ```Java
-  String url = "EXEMPLO";
-  String user = "EXEMPLO";
-  String password = "EXEMPLO";
+  db.url=jdbc:mysql://localhost:3306/sepulcrum
+  db.user=user
+  db.password=senha
+  db.driver=com.mysql.cj.jdbc.Driver
   ```
 
 4. Execute o projeto a partir da classe `Main.java`
@@ -50,39 +54,54 @@ Diagrama lógico das entidades e relacionamentos do banco de dados:
 ## Estrutura Básica
 
 **Legenda das Pastas**
-- `app/` – Ponto de entrada da aplicação
-- `core/` – Camada intermediária entre a aplicação e o modelo
-- `model/` – Estrutura e dados do domínio da aplicação
-  - `localidade/` – Entidades físicas do cemitério (cemitérios, túmulos, etc.)
-  - `pessoas/` – Entidades humanas do sistema (falecidos, parentes, administradores)
-  - `servicos/` – Serviços e operações realizadas (exumações, manutenções, etc.)
-- Possui em varios modulos:
-  - `controller/` – Padrões recorrentes para controle
-  - `core/` – Padrões recorrentes de lógica central
-  - `utils/` – Padrões recorrentes de classes utilitárias de herança
-  - `view/` – Padrões recorrentes de interfaces gráficas
+- `app/` – Ponto de entrada da aplicação (classe principal)
+- `controller/` – Controladores responsáveis pela lógica entre interface e dados
+- `database/` – para gerenciar conexão e encerramento com o banco
+- `view/` – Interface gráfica (telas e componentes visuais)
+- `dao/` – Acesso e persistência dos dados no banco de dados
+- `resources/` – Arquivos de configuração, como `config.properties` com usuário e senha do banco
+- `model/` – Estrutura de dados e entidades do domínio da aplicação
+  - `localidade/` – Elementos físicos do cemitério (cemitérios, túmulos, etc.)
+  - `pessoa/` – Entidades humanas do sistema (falecidos, familiares, administradores)
+  - `servico/` – Ações realizadas no Cemitério (exumações, manutenções, etc.)
+  - `utils/` – Classes utilitárias comuns (heranças, formatações, validações, etc.)
+  - `comum/` – para telas compartilhadas/gerais de navegação entre entidades
 
 ```
-📦 src
-┣📂 app
-┣📂 core
-┃ ┣📂 controller
-┃ ┣📂 utils
-┃ ┗📂 view
-┗📂 model
-  ┣📂 localidade
-  ┃ ┣📂 cemiterio
-  ┃ ┣📂 tumulo
-  ┃ ┗📂 utils
-  ┣📂 pessoas
-  ┃ ┣📂 adm
-  ┃ ┣📂 finado
-  ┃ ┣📂 parente
-  ┃ ┗📂 utils
-  ┗📂 servicos
-    ┣📂 core
-    ┣📂 utils
-    ┗📂 view
+📁 Sepulcrum
+├── 📦 src
+│   └── 📁 main
+│       ├── 📁 java
+│       │   └── 📁 com
+│       │       └── 📁 sepulcrum
+│       │           ├── 📁 app
+│       │           ├── 📁 controller
+│       │           │   ├── 📁 localidade
+│       │           │   ├── 📁 pessoa
+│       │           │   └── 📁 servico
+│       │           ├── 📁 dao
+│       │           │   ├── 📁 localidade
+│       │           │   ├── 📁 pessoa
+│       │           │   └── 📁 servico
+│       │           ├── 📁 database
+│       │           ├── 📁 model
+│       │           │   ├── 📁 localidade
+│       │           │   │   └── 📁 utils
+│       │           │   ├── 📁 pessoa
+│       │           │   │   └── 📁 utils
+│       │           │   └── 📁 servico
+│       │           │       └── 📁 utils
+│       │           ├── 📁 utils
+│       │           └── 📁 view
+│       │               ├── 📁 comum
+│       │               │   └── 📁 utils
+│       │               ├── 📁 localidade
+│       │               ├── 📁 pessoa
+│       │               └── 📁 servico
+│       │                   └── 📁 comum
+│       └── 📁 resources
+├── 📁 target
+│   └── 📁 classes
 ```
 
 ## Artefatos do Projeto
@@ -127,3 +146,8 @@ Contribuições são bem-vindas! Para isso:
 - Envie um pull request
 
 **Nota:** Projeto acadêmico desenvolvido para fins de aprendizado.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT.  
+Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
