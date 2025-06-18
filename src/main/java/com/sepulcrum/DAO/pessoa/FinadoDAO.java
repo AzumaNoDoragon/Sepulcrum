@@ -14,7 +14,7 @@ public class FinadoDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
 
-            String sql = "INSERT INTO finado (FIN_NOME, FIN_CPF, FIN_DATA_NASCIMENTO, FIN_DATA_FALECIMENTO, FIN_CERTIDAO_OBITO, FIN_CAUSA_MORTE, TUM_RUA, TUM_NUMERO, CEM_CNPJ)" +
+            String sql = "INSERT INTO finado (FIN_NOME, FIN_CPF, FIN_DATA_NASCIMENTO, FIN_DATA_FALECIMENTO, FIN_CERTIDAO_OBITO, FIN_CAUSA_MORTE, TUM_RUA, TUM_NUMERO, CEM_CNPJ, FIN_RG)" +
                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
@@ -26,7 +26,12 @@ public class FinadoDAO {
                 stmt.setString(6, fin.getCausaMorte());
                 stmt.setString(7, fin.getTumRua());
                 stmt.setString(8, fin.getTumNumero());
-                stmt.setString(9, fin.getTumNumero());
+                stmt.setString(9, fin.getCemCnpj());
+                if(fin.getRg().equals("")){
+                    stmt.setString(10, null);
+                } else {
+                    stmt.setString(10, fin.getRg());
+                }
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
@@ -46,7 +51,7 @@ public class FinadoDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
             
-            String sql = "SELECT FIN_NOME, FIN_CPF, FIN_DATA_NASCIMENTO, FIN_DATA_FALECIMENTO, FIN_CERTIDAO_OBITO, FIN_CAUSA_MORTE, TUM_RUA, TUM_NUMERO" +
+            String sql = "SELECT FIN_NOME, FIN_CPF, FIN_DATA_NASCIMENTO, FIN_DATA_FALECIMENTO, FIN_CERTIDAO_OBITO, FIN_CAUSA_MORTE, TUM_RUA, TUM_NUMERO, CEM_CNPJ, FIN_RG " +
                         "FROM finado WHERE FIN_CERTIDAO_OBITO = ?";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
@@ -62,7 +67,8 @@ public class FinadoDAO {
                             rs.getString("FIN_CERTIDAO_OBITO"),
                             rs.getString("FIN_CAUSA_MORTE"),
                             rs.getString("TUM_RUA"),
-                            rs.getString("TUM_NUMERO")
+                            rs.getString("TUM_NUMERO"),
+                            rs.getString("CEM_CNPJ")
                         );
                         fin.setRg(rs.getString("FIN_RG"));
 
@@ -85,8 +91,8 @@ public class FinadoDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
             
-            String sql = "UPDATE finado SET FIN_NOME = ?, FIN_CPF = ?, FIN_DATA_NASCIMENTO = ?, FIN_DATA_FALECIMENTO = ?, FIN_CERTIDAO_OBITO = ?," +
-                        "FIN_CAUSA_MORTE = ?, TUM_RUA = ?, TUM_NUMERO = ?, FIN_RG = ? WHERE FIN_CERTIDAO_OBITO = ?;";
+            String sql = "UPDATE finado SET FIN_NOME = ?, FIN_CPF = ?, FIN_RG = ?, FIN_DATA_NASCIMENTO = ?, FIN_DATA_FALECIMENTO = ?," +
+                        "FIN_CAUSA_MORTE = ?, FIN_CERTIDAO_OBITO = ?, TUM_RUA = ?, TUM_NUMERO = ?, CEM_CNPJ = ? WHERE FIN_CERTIDAO_OBITO = ?;";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
                 stmt.setString(1, fin.getNome());
@@ -98,8 +104,9 @@ public class FinadoDAO {
                 stmt.setString(7, fin.getCertidaoObito());
                 stmt.setString(8, fin.getTumRua());
                 stmt.setString(9, fin.getTumNumero());
+                stmt.setString(10, fin.getCemCnpj());
 
-                stmt.setString(10, id); // Busca por este
+                stmt.setString(11, id); // Busca por este
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
