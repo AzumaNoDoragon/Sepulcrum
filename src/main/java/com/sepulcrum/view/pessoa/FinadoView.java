@@ -13,8 +13,8 @@ import com.sepulcrum.view.comum.TelaGerenciadorGeral;
 
 public class FinadoView extends JFrame{
     protected JButton jbSalvar, jbCancelar;
-    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine;
-    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine;
+    protected JTextField jtfOne, jtfTwo, jtfThree, jtfFour, jtfFive, jtfSix, jtfSeven, jtfEight, jtfNine, jtfTen;
+    protected JLabel jlOne, jlTwo, jlThree, jlFour, jlFive, jlSix, jlSeven, jlEight, jlNine, jlTen;
     protected int fWidth, fHeight, qtdBotoes, jbY;
     private FinadoController gfin = new FinadoController();
 
@@ -68,6 +68,7 @@ public class FinadoView extends JFrame{
             case 6 -> jlSeven;
             case 7 -> jlEight;
             case 8 -> jlNine;
+            case 9 -> jlTen;
             default -> null;
         };
         if(label != null){
@@ -87,6 +88,7 @@ public class FinadoView extends JFrame{
             case 6 -> jtfSeven;
             case 7 -> jtfEight;
             case 8 -> jtfNine;
+            case 9 -> jtfTen;
             default -> null;
         };
         if(text != null){
@@ -153,21 +155,22 @@ public class FinadoView extends JFrame{
         //Configura tamanho da janela e botões
         fWidth = 500;
         fHeight = 700;
-        qtdBotoes = 9;
+        qtdBotoes = 10;
 
         // Janela
         this.setTitle("Registro Finado.");
 
         // Label
-        jlOne = new JLabel("Nome: ");                 // nome
-        jlTwo = new JLabel("CPF: ");                  // cpf
-        jlThree = new JLabel("RG: ");                 // rg
-        jlFour = new JLabel("Data Nascimento: ");     // dataNascimento
-        jlFive = new JLabel("*Data Falecimento: ");   // dataFalecimento
-        jlSix = new JLabel("*Causa da morte: ");      // causaMorte
-        jlSeven = new JLabel("*Certidão de Óbito: "); // certidaoObito
-        jlEight = new JLabel("*Rua do túmulo: ");     // tumRua
-        jlNine = new JLabel("*Número do túmulo: ");   // tumNumero
+        jlOne = new JLabel("Nome: ");                                  // nome
+        jlTwo = new JLabel("CPF: ");                                   // cpf
+        jlThree = new JLabel("RG: ");                                  // rg
+        jlFour = new JLabel("Data Nascimento: ");                      // dataNascimento
+        jlFive = new JLabel("*Data Falecimento: ");                    // dataFalecimento
+        jlSix = new JLabel("*Causa da morte: ");                       // causaMorte
+        jlSeven = new JLabel("*Certidão de Óbito: ");                  // certidaoObito
+        jlEight = new JLabel("*Rua do túmulo: ");                      // tumRua
+        jlNine = new JLabel("*Número do túmulo: ");                    // tumNumero
+        jlTen = new JLabel("<html>*CNPJ do <BR>  Cemitério: <html/>"); // cemCnpj
 
         // Text Field
         jtfOne = new JTextField();
@@ -179,6 +182,7 @@ public class FinadoView extends JFrame{
         jtfSeven = new JTextField();
         jtfEight = new JTextField();
         jtfNine = new JTextField();
+        jtfTen = new JTextField();
 
         if(seletorCrud == 2 | seletorCrud == 4){
             jtfOne.setEditable(false);
@@ -190,6 +194,7 @@ public class FinadoView extends JFrame{
             jtfSeven.setEditable(false);
             jtfEight.setEditable(false);
             jtfNine.setEditable(false);
+            jtfTen.setEditable(false);
         }
     }
 
@@ -330,5 +335,14 @@ public class FinadoView extends JFrame{
 
     public void setJtfNine(String value) {
         jtfNine.setText(value);
+    }
+
+    // cemCnpj
+    public String getJtfTen() {
+        return jtfTen.getText();
+    }
+
+    public void setJtfTen(String value) {
+        jtfTen.setText(value);
     }
 }
