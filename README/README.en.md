@@ -1,25 +1,25 @@
 # Cemetery Management System
 
-Desktop system for managing information about deceased individuals, responsible family members, graves, and exhumations. Developed in **Java**, with a **Graphical User Interface (GUI)** and **database integration**.
+Desktop system for managing information about deceased individuals, responsible family members, graves, and exhumations. Developed in **Java**, with a **graphical user interface (GUI)** and **database integration**.
 
 ## Features
 
-- Create, search, update, and delete:
+- Register, search, edit, and delete:
   - Deceased individuals
   - Responsible family members
   - Graves
-  - Staff/Administrators
-- Query data by CPF, name, or ID
-- Manage exhumations and maintenance
-- Input validation (e.g., dates, required fields)
+  - Employees/Administrators
+- Data lookup by CPF or CNPJ(PK's)
+- Control of exhumations and maintenance
+- Input validations (e.g., dates, required fields)
 - Intuitive graphical interface
-- Data persistence via database
+- Data persistence with database support
 
 ## Technologies Used
 
 - **Java 21+**
-- **Swing** (GUI) – under development
-- **MySQL** (relational database) – under development
+- **Swing (GUI)**
+- **MySQL (relational database)**
 - **VSCode** – IDE used
 
 ## How to Run
@@ -28,102 +28,126 @@ Desktop system for managing information about deceased individuals, responsible 
   ```bash
   git clone https://github.com/AzumaNoDoragon/Sepulcrum.git
   ```
-  
-2. Import the project into your IDE (Eclipse, IntelliJ, NetBeans, etc.)  
 
-3. Set up the database:
-- Create the database using the `database.sql` script (located in the `/db` folder)
-- Update the configuration file with your credentials:
-  ```java
-  String url = "EXAMPLE";
-  String user = "EXAMPLE";
-  String password = "EXAMPLE";
+2. Import the project into your IDE (Eclipse, IntelliJ, NetBeans, etc.)
+
+3. Configure the database:
+- Create the database using the `Sepulcrum.sql` script (located in the `/databaseConfig` folder)
+- Edit the `config.example.properties` file with your credentials (in `src\main\resources\config.example.properties`).
+- Rename the file to `config.properties`.
+- Update its content with your database credentials. If you're using MySQL, just update the user and password:
+- If using another relational database (such as PostgreSQL), also update the `db.url` and `db.driver` fields according to the respective JDBC driver documentation.
+  ```Java
+  db.url=jdbc:mysql://localhost:3306/sepulcrum
+  db.user=user
+  db.password=senha
+  db.driver=com.mysql.cj.jdbc.Driver
   ```
 
 4. Run the project from the `Main.java` class
 
 ## Entity-Relationship Diagram (ERD)
 
-Logical diagram of the entities and relationships in the database:
+Logical diagram of the database entities and relationships:
 ![Image](https://github.com/user-attachments/assets/424f4948-7e0f-4794-92d3-587691c4aff5)
 
-## Project Structure
+## Basic Structure
 
 **Folder Legend**
-- `app/` – Application entry point
-- `core/` – Intermediate layer between app and model
-- `model/` – Domain structure and data
-  - `localidade/` – Physical cemetery entities (cemeteries, graves, etc.)
-  - `pessoas/` – People entities (deceased, relatives, admins)
-  - `servicos/` – Services and operations (exhumations, maintenance, etc.)
-- Found in various modules:
-  - `controller/` – Recurrent control patterns
-  - `core/` – Recurrent business logic patterns
-  - `utils/` – Utility base classes
-  - `view/` – GUI-related code
+- `app/`  – Application entry point (main class)
+- `controller/` – Controllers responsible for logic between UI and data
+- `database/` – Manages the database connection and disconnection
+- `view/` – Graphical interface (screens and visual components)
+- `dao/`  – Data access and persistence layer
+- `resources/` – Configuration files, such as `config.properties` with database credentials
+- `model/` – Data structures and domain entities
+  - `localidade/` – Physical cemetery elements (cemeteries, graves, etc.)
+  - `pessoa/` – Human entities in the system (deceased, family members, administrators)
+  - `servico/` – Actions performed in the cemetery (exhumations, maintenance, etc.)
+  - `utils/` – Common utility classes (inheritance, formatting, validations, etc.)
+  - `comum/` – Shared screens used to route access between different entities
 
 ```
-📦 src
-┣📂 app
-┣📂 core
-┃ ┣📂 controller
-┃ ┣📂 utils
-┃ ┗📂 view
-┗📂 model
-  ┣📂 localidade
-  ┃ ┣📂 cemiterio
-  ┃ ┣📂 tumulo
-  ┃ ┗📂 utils
-  ┣📂 pessoas
-  ┃ ┣📂 adm
-  ┃ ┣📂 finado
-  ┃ ┣📂 parente
-  ┃ ┗📂 utils
-  ┗📂 servicos
-    ┣📂 core
-    ┣📂 utils
-    ┗📂 view
+📁 Sepulcrum
+├── 📦 src
+│   └── 📁 main
+│       ├── 📁 java
+│       │   └── 📁 com
+│       │       └── 📁 sepulcrum
+│       │           ├── 📁 app
+│       │           ├── 📁 controller
+│       │           │   ├── 📁 localidade
+│       │           │   ├── 📁 pessoa
+│       │           │   └── 📁 servico
+│       │           ├── 📁 dao
+│       │           │   ├── 📁 localidade
+│       │           │   ├── 📁 pessoa
+│       │           │   └── 📁 servico
+│       │           ├── 📁 database
+│       │           ├── 📁 model
+│       │           │   ├── 📁 localidade
+│       │           │   │   └── 📁 utils
+│       │           │   ├── 📁 pessoa
+│       │           │   │   └── 📁 utils
+│       │           │   └── 📁 servico
+│       │           │       └── 📁 utils
+│       │           ├── 📁 utils
+│       │           └── 📁 view
+│       │               ├── 📁 comum
+│       │               │   └── 📁 utils
+│       │               ├── 📁 localidade
+│       │               ├── 📁 pessoa
+│       │               └── 📁 servico
+│       │                   └── 📁 comum
+│       └── 📁 resources
+├── 📁 target
+│   └── 📁 classes
 ```
 
 ## Project Artifacts
 
 ### Requirements Gathering
 
-Here, the **objectives**, **target audience**, **implementation needs**, **impact and benefits**, **success criteria of the solution**, as well as the **functional and non-functional requirements** were defined.
+Defines the  **goals**, **target audience**, **implementation needs**, **impact and benefits**, **solution success criteria**, and both **functional and non-functional requirements**.
 
 [Requirements Gathering (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/documentacao/Levantamento%20de%20requisios.pdf)
 
 ### Use Case Diagram
 
-Visualization of the system's actors and functionalities:
+Visual representation of system actors and functionalities:
 
 [Use Case Diagram (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/documentacao/Diagrama%20de%20Casos%20de%20uso.pdf)
 
 ### Class Diagram
 
-Representation of the main classes and their relationships within the system:
+Representation of main classes and their relationships in the system:
 
 [Class Diagram (PDF)](https://github.com/AzumaNoDoragon/Sepulcrum/blob/main/documentacao/Diagrama%20de%20Classes.pdf)
 
 ### High-Fidelity Prototype
 
-Prototype developed in Figma, representing the planned graphical interface for the system:
+Prototype designed in Figma, representing the planned graphical interface:
 
-[Access High-Fidelity Prototype on Figma – Sepulcrum](https://www.figma.com/proto/A5obT1irJp1okvwqMJ6vkt/Sepulcrum?node-id=0-1&t=4ha3TvRyFWAvMtRV-1)
+[Access Sepulcrum Figma Prototype](https://www.figma.com/proto/A5obT1irJp1okvwqMJ6vkt/Sepulcrum?node-id=0-1&t=4ha3TvRyFWAvMtRV-1)
 
 ## ⚠️ Limitations
 
-- No user authentication implemented
-- Only one responsible relative per deceased individual
-- Basic UI without responsiveness
+- No user authentication
+- Only one responsible family member per deceased
+- Basic interface without responsiveness
 
 ## Contributions
 
 Contributions are welcome! To contribute:
 
 - Fork the repository
-- Create a branch: `feature/your-feature`
+- Create a new branch: `feature/your-feature`
 - Commit your changes
 - Submit a pull request
 
-**Note:** Academic project developed for educational purposes.
+**Note:** Academic project developed for learning purposes.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+See the [LICENSE](LICENSE) file for more details.
