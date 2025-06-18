@@ -14,8 +14,8 @@ public class AdmDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
             
-            String sql = "INSERT INTO coveiro (COV_NOME, COV_CPF, COV_RG, COV_DATA_NASCIMENTO, COV_DATA_CONTRATACAO, COV_EMAIL, COV_TELEFONE, COV_CARGO, CEM_CNPJ)" +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO coveiro (COV_NOME, COV_CPF, COV_RG, COV_DATA_NASCIMENTO, COV_DATA_CONTRATACAO, COV_EMAIL, COV_TELEFONE, COV_CARGO)" +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
                 stmt.setString(1, a.getNome());
@@ -26,11 +26,6 @@ public class AdmDAO {
                 stmt.setString(6, a.getEmail());
                 stmt.setString(7, a.getTelefone());
                 stmt.setString(8, a.getCargo());
-                if(a.getCemCnpj().equals("")){
-                    stmt.setString(9, null);
-                } else {
-                    stmt.setString(9, a.getCemCnpj());
-                }
 
                 int linhasAfetadas = stmt.executeUpdate();
                 if (linhasAfetadas == 0) {
@@ -62,7 +57,7 @@ public class AdmDAO {
             conn.conectar();
             Connection connection = conn.getConnection();
             
-            String sql = "SELECT COV_CPF, COV_NOME, COV_RG, COV_DATA_NASCIMENTO, COV_EMAIL, COV_TELEFONE, COV_CARGO, COV_DATA_CONTRATACAO, CEM_CNPJ " +
+            String sql = "SELECT COV_CPF, COV_NOME, COV_RG, COV_DATA_NASCIMENTO, COV_EMAIL, COV_TELEFONE, COV_CARGO, COV_DATA_CONTRATACAO " +
                         "FROM coveiro WHERE COV_CPF = ?";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
@@ -77,8 +72,7 @@ public class AdmDAO {
                             rs.getDate("COV_DATA_CONTRATACAO"),
                             rs.getString("COV_EMAIL"),
                             rs.getString("COV_TELEFONE"),
-                            rs.getString("COV_CARGO"),
-                            rs.getString("CEM_CNPJ")
+                            rs.getString("COV_CARGO")
                         );
                         a.setRg(rs.getString("COV_RG"));
 
@@ -109,7 +103,7 @@ public class AdmDAO {
                 }
             }
             
-            String sql = "UPDATE coveiro SET COV_NOME = ?, COV_CPF = ?, COV_RG = ?, COV_DATA_NASCIMENTO = ?, COV_DATA_CONTRATACAO = ?, COV_EMAIL = ?, COV_TELEFONE = ?, COV_CARGO = ?, CEM_CNPJ = ? " + 
+            String sql = "UPDATE coveiro SET COV_NOME = ?, COV_CPF = ?, COV_RG = ?, COV_DATA_NASCIMENTO = ?, COV_DATA_CONTRATACAO = ?, COV_EMAIL = ?, COV_TELEFONE = ?, COV_CARGO = ? " + 
                         "WHERE COV_CPF = ?;";
 
             try(PreparedStatement stmt = connection.prepareStatement(sql)){
@@ -121,7 +115,6 @@ public class AdmDAO {
                 stmt.setString(6, a.getEmail());
                 stmt.setString(7, a.getTelefone());
                 stmt.setString(8, a.getCargo());
-                stmt.setString(9, a.getCemCnpj());
 
                 stmt.setString(10, id); // Busca por este
 
@@ -157,8 +150,8 @@ public class AdmDAO {
                 // Se o cargo NÃO for mais Adm, remove da tabela adm
                 String sqlDelete = "DELETE FROM adm WHERE ADM_CPF = ?;";
                 try (PreparedStatement stmtDelete = connection.prepareStatement(sqlDelete)) {
-                    stmtDelete.setString(1, id); // Remove o antigo CPF
-                    stmtDelete.executeUpdate(); // Não precisa checar linhas afetadas
+                    stmtDelete.setString(1, id);
+                    stmtDelete.executeUpdate();
                 }
             }
         } catch(Exception e){
