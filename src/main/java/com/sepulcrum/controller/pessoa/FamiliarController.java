@@ -19,7 +19,6 @@ public class FamiliarController{
         vc.validarCampo(famV.getJtfFive(), "Grau de Parentesco");
         vc.validarCampo(famV.getJtfSix(), "Email");
         vc.validarCampo(famV.getJtfSeven(), "Telefone");
-        vc.validarCampo(famV.getJtfEight(), "Certidão de Óbito");
     }
     
     public void setFamiliar(FamiliarView famV){
@@ -32,7 +31,6 @@ public class FamiliarController{
             famV.getJtfSix(),  // email
             famV.getJtfSeven() // telefone
         );
-
         fam.setRg(famV.getJtfThree());            // RG
         fam.setGrauParentesco(famV.getJtfFive()); // grauParentesco
         fam.setCertidaoObito(famV.getJtfEight()); // certidaoObito
