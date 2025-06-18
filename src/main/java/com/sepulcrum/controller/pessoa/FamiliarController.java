@@ -73,6 +73,8 @@ public class FamiliarController{
         fam.setGrauParentesco(famV.getJtfFive());
         fam.setTelefone(famV.getJtfSeven());
         fam.setCertidaoObito(famV.getJtfEight());
+
+        daoF.updateFamiliar(fam, id);
     }
 
     public void deleteFamiliar(String id){
